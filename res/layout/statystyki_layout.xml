@@ -12,4 +12,3 @@
             android:id="@+id/Zamknij_Statystyki" android:layout_gravity="center_horizontal"
             />
 </LinearLayout>
-
