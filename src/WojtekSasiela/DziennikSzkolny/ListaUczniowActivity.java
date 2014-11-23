@@ -37,6 +37,7 @@ public class ListaUczniowActivity extends Activity {
         if(c.moveToFirst())
         {
             //Sprawdzanie bazy SQLite
+            // Szczegoly: http://www.codeproject.com/Articles/783073/A-Simple-Android-SQLite-Example
             textViewText.setText(c.getString(0));
             textViewName.setText(c.getString(1));
             textViewMarks.setText(c.getString(2));
