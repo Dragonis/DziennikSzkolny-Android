@@ -2,8 +2,13 @@
 <resources>
     <string name="app_name">Dziennik szkoly podstaowej nr 3 w Tarnobrzegu</string>
     <string name="test">New ToggleButton</string>
-    <string name="Zob_Statyst">Zobacz Statystyki</string>
-    <string name="Uczniowie">Zobacz listę uczniów</string>
-    <string name="Opcje">Modyfikuj opcje</string>
+    <string name="Zob_Statyst">Statystyki</string>
+    <string name="Uczniowie">Edycja danych uczniów</string>
+    <string name="Opcje">Opcje</string>
     <string name="O_Autorze">O Autorze</string>
+    <string name="dziennik_zajec">Dziennik zajęć</string>
+    <string name="edit_plan_zajec">Edycja planu zajęć</string>
+    <string name="edyt_plac_nauczycieli">Edycja plac nauczycieli</string>
+    <string name="ranking_szkol">Ranking szkół</string>
+    <string name="spis_ocen">Spis ocen</string>
 </resources>
