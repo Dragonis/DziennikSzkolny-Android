@@ -6,9 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Wojtek on 2014-11-23.
@@ -18,12 +19,15 @@ public class ListaUczniowActivity extends Activity {
 
     TextView textViewName,textViewMarks, textViewText;
     SQLiteDatabase db;
+    ListView list ;
+    ArrayAdapter<String> adapter ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uczniowie_layout);
         zamknijOkno(R.id.Zamknij_Uczniowie);
+        wczytajdoListViewa();
 
         textViewName=(TextView)findViewById(R.id.textViewName);
         textViewMarks=(TextView)findViewById(R.id.textViewMarks);
@@ -53,5 +57,11 @@ public class ListaUczniowActivity extends Activity {
                 finish();
             }
         });
+    }
+
+
+    public void wczytajdoListViewa()
+    {
+
     }
 }
