@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Created by Wojtek on 2014-11-23.
@@ -62,6 +62,35 @@ public class ListaUczniowActivity extends Activity {
 
     public void wczytajdoListViewa()
     {
+        ListView list = (ListView) findViewById(R.id.listView1);
 
+        ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("id", "1");
+        map.put("name", "bob");
+        mylist.add(map);
+
+//Each row is a new hashmap
+        map = new HashMap<String, String>();
+        map.put("id", "2");
+        map.put("name", "sally");
+        mylist.add(map);
+
+        map = new HashMap<String, String>(); map.put("id", "3"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "4"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "5"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "6"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "7"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "8"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "9"); map.put("name", "sally"); mylist.add(map);
+        map = new HashMap<String, String>(); map.put("id", "10"); map.put("name", "sally"); mylist.add(map);
+
+//ect...
+
+       SimpleAdapter mSchedule = new SimpleAdapter(this, mylist,
+                R.layout.row,
+                new String[] {"id", "name"}, new int[] {R.id.name, R.id.email});
+        list.setAdapter(mSchedule);
     }
 }
