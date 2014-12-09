@@ -15,5 +15,6 @@
         <activity android:name=".OpcjeAcitivity" android:label="Edytuj opcje"/>
         <activity android:name=".StatystykiActivity" android:label="Statystyki ocen"/>
         <activity android:name=".ListaUczniowActivity" android:label="Lista Uczniow"/>
+        <activity android:name=".ListaKlasActivity" android:label="Lista klas"/>
     </application>
 </manifest>
