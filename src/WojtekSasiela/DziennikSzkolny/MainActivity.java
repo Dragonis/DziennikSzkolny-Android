@@ -3,8 +3,11 @@ package WojtekSasiela.DziennikSzkolny;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,11 +16,17 @@ public class MainActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
+    public static String TAG = "DziennikSzkolny";
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        Database databaseInstance = new Database();
+        databaseInstance.db = openOrCreateDatabase("StudentDB.db", MODE_PRIVATE, null);
+        databaseInstance.getAllData();
 
         //Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
         Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
@@ -29,6 +38,7 @@ public class MainActivity extends Activity {
         Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),ListaUczniowActivity.class);
         Pokaz_Activity_z_klasy(R.id.ZobaczStatyButton, getApplicationContext(), StatystykiActivity.class);
         Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
+        //BaseSQLite baseSQLite = BaseSQLite.getInstance(getApplicationContext());
 
     }
 
