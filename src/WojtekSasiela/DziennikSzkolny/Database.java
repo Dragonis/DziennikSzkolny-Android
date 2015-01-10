@@ -18,28 +18,38 @@ class Database
     {
         String TAG = "DziennikSzkolny";
         Cursor c = null;
+        
+        db.execSQL("DROP TABLE uczen");
+        db.execSQL("DROP TABLE nauczyciel");
+        db.execSQL("DROP TABLE klasa");
 
-        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
-        db.execSQL("INSERT INTO student VALUES('Test','Test2','Test3');");
+        //db.execSQL("CREATE TABLE student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
+        // Tworzenie tabeli uczen, i jego CRUD
+        db.execSQL("CREATE TABLE IF NOT EXISTS uczen(id VARCHAR,imie VARCHAR,nazwisko VARCHAR, klasa VARCHAR, oceny VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS nauczyciel(id VARCHAR, imie VARCHAR, nazwisko VARCHAR, przedmiot VARCHAR, zarobki VARCHAR);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS klasa(id VARCHAR,wychowawca VARCHAR);");
 
-        c = db.rawQuery("SELECT * FROM student WHERE rollno='Test'", null);
+        // UCZNIOWIE
+        // id, imie,nazwisko,klasa,oceny
+        db.execSQL("INSERT INTO uczen VALUES('1','Jan','Kowalski','1','3');");
+        db.execSQL("INSERT INTO uczen VALUES('2','Adrian','Wisniewski','1','3');");
+        db.execSQL("INSERT INTO uczen VALUES('3','Marian','Prostacki','1','3');");
 
-        if(c.moveToFirst())
-        {
-            //Sprawdzanie bazy SQLite
-            // Szczegoly: http://www.codeproject.com/Articles/783073/A-Simple-Android-SQLite-Example
+        // NAUCZYCIELE
+        db.execSQL("INSERT INTO nauczyciel VALUES('1','Basia','Karyta','Angielski','2200');");
+        db.execSQL("INSERT INTO nauczyciel VALUES('2','Anna','Biała','Polski','1800');");
 
-//                Toast.makeText(getApplicationContext(), c.getString(0), Toast.LENGTH_LONG);
-//                Toast.makeText(getApplicationContext(), c.getString(1), Toast.LENGTH_LONG);
-//                Toast.makeText(getApplicationContext(), c.getString(2), Toast.LENGTH_LONG);
-            Log.e(TAG, c.getString(0));
-            Log.e(TAG, c.getString(1));
-            Log.e(TAG, c.getString(2));
+        // PRZYDZIELONA KLASA
+        db.execSQL("INSERT INTO klasa VALUES('1','2');");
 
-            db.close();
-
-            Log.e(TAG, " Poprawne dzialanie Singletona BazoDanowego");
+        for (int i=0;i<=5;i++) {
+            c = db.rawQuery("SELECT * FROM uczen WHERE klasa='" + 1 + "' and id='" + i + "'", null);
+            if(c.moveToFirst())
+            {
+                Log.e(TAG, "1 klasa: " + c.getString(0) + " " + c.getString(1) + " " + c.getString(2));
+            }
         }
+        db.close();
     }
 
 
