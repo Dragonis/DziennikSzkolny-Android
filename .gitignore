@@ -12,6 +12,9 @@
 bin/
 gen/
 
+# intelij settings and temps
+./idea
+
 # Gradle files
 .gradle/
 build/
