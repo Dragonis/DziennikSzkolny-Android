@@ -42,27 +42,6 @@ public class MainActivity extends Activity {
 
     }
 
-    public void Pokaz_Activity(int id, final String destinity, final String url)
-    {
-        Button b = (Button)findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(destinity, Uri.parse(url));
-
-                if(intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-    }
-
     public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
     {
         Button b = (Button)findViewById(id);
