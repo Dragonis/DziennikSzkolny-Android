@@ -29,10 +29,10 @@ public class SredniaAcitivity extends Activity {
     {
         // init example series data
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
-                new GraphView.GraphViewData(1, 2.0d)
-                , new GraphView.GraphViewData(2, 1.5d)
-                , new GraphView.GraphViewData(3, 2.5d)
-                , new GraphView.GraphViewData(4, 1.0d)
+                new GraphView.GraphViewData(1, 3.0d)
+                , new GraphView.GraphViewData(2, 3.5d)
+                , new GraphView.GraphViewData(3, 3.5d)
+                , new GraphView.GraphViewData(4, 3.0d)
         });
 
         GraphView graphView = new LineGraphView(
