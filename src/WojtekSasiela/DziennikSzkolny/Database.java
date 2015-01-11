@@ -2,39 +2,31 @@ package WojtekSasiela.DziennikSzkolny;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
-class Database
+class Database extends SQLiteOpenHelper
 {
-    Database() {
-    }
 
     SQLiteDatabase db = null;
     String TAG = "DziennikSzkolny";
     Cursor c = null;
 
+
+    public Database(Context context, String databaseName, int databaseVersion) {
+        super(context, databaseName, null, databaseVersion);
+        // TODO Auto-generated constructor stub
+    }
+
     public void getAllData()
     {
 
-        db.execSQL("DROP TABLE uczen");
-        db.execSQL("DROP TABLE nauczyciel");
-        db.execSQL("DROP TABLE klasa");
-        db.execSQL("DROP TABLE matematyka");
-        db.execSQL("DROP TABLE przyroda");
-        db.execSQL("DROP TABLE polski");
-        db.execSQL("DROP TABLE angielski");
 
-        // Tworzenie tabeli uczen, i jego CRUD
-        db.execSQL("CREATE TABLE  uczen(id VARCHAR,imie VARCHAR,nazwisko VARCHAR, klasa VARCHAR, polski VARCHAR, angielski VARCHAR, matematyka VARCHAR, przyroda VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS nauczyciel(id VARCHAR, imie VARCHAR, nazwisko VARCHAR, przedmiot VARCHAR, zarobki VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS klasa(id VARCHAR,wychowawca VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS matematyka(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS przyroda(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS polski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS angielski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
 
         // UCZNIOWIE
         // id, imie,nazwisko,klasa,oceny
@@ -95,6 +87,32 @@ class Database
 
     public void wyswietlWszystkieOcenyucznia(String idUcznia,String przedmiot)
     {
+
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+        // Tworzenie tabeli uczen, i jego CRUD
+        db.execSQL("CREATE TABLE uczen(id VARCHAR,imie VARCHAR,nazwisko VARCHAR, klasa VARCHAR, polski VARCHAR, angielski VARCHAR, matematyka VARCHAR, przyroda VARCHAR);");
+        db.execSQL("CREATE TABLE nauczyciel(id VARCHAR, imie VARCHAR, nazwisko VARCHAR, przedmiot VARCHAR, zarobki VARCHAR);");
+        db.execSQL("CREATE TABLE klasa(id VARCHAR,wychowawca VARCHAR);");
+        db.execSQL("CREATE TABLE matematyka(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE przyroda(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE polski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE angielski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
+        db.execSQL("DROP TABLE uczen");
+        db.execSQL("DROP TABLE nauczyciel");
+        db.execSQL("DROP TABLE klasa");
+        db.execSQL("DROP TABLE matematyka");
+        db.execSQL("DROP TABLE przyroda");
+        db.execSQL("DROP TABLE polski");
+        db.execSQL("DROP TABLE angielski");
 
     }
 

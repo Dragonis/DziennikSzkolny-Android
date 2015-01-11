@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Database databaseInstance = new Database();
+        Database databaseInstance = new Database(this,"Student.db",2);
         databaseInstance.db = openOrCreateDatabase("StudentDB.db", MODE_PRIVATE, null);
         databaseInstance.getAllData();
 
