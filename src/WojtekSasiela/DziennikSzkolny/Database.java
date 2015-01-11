@@ -25,9 +25,26 @@ class Database extends SQLiteOpenHelper
 
     public void getAllData()
     {
+        zapelnijTabeleDanymi();
+        wyswietlListeUczniowzKlasy(1);
 
+        db.close();
+    }
+    public void stworzTabeleWBazie()
+    {
+        // Tworzenie tabeli uczen, i jego CRUD
+        db.execSQL("CREATE TABLE uczen(id VARCHAR,imie VARCHAR,nazwisko VARCHAR, klasa VARCHAR, polski VARCHAR, angielski VARCHAR, matematyka VARCHAR, przyroda VARCHAR);");
+        db.execSQL("CREATE TABLE nauczyciel(id VARCHAR, imie VARCHAR, nazwisko VARCHAR, przedmiot VARCHAR, zarobki VARCHAR);");
+        db.execSQL("CREATE TABLE klasa(id VARCHAR,wychowawca VARCHAR);");
+        db.execSQL("CREATE TABLE matematyka(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE przyroda(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE polski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE angielski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
+        db.execSQL("CREATE TABLE przedmioty(id VARCHAR,nazwa VARCHAR,nauczyciel VARCHAR,zarobki VARCHAR);");
+    }
 
-
+    public void zapelnijTabeleDanymi()
+    {
         // UCZNIOWIE
         // id, imie,nazwisko,klasa,oceny
         db.execSQL("INSERT INTO uczen VALUES('1','Jan','Kowalski','1','3','3','3','3');");
@@ -40,68 +57,54 @@ class Database extends SQLiteOpenHelper
 
         // PRZYDZIELONA KLASA
         db.execSQL("INSERT INTO klasa VALUES('1','2');");
+    }
 
+    public void wyswietlListeUczniowzKlasy(int nrKlasy)
+    {
         for (int i=0;i<=3;i++) {
-            c = db.rawQuery("SELECT * FROM uczen WHERE klasa='" + 1 + "' and id='" + i + "'", null);
+            c = db.rawQuery("SELECT * FROM uczen WHERE klasa='" + nrKlasy + "' and id='" + i + "'", null);
             if(c.moveToFirst())
             {
                 Log.e(TAG, "1 klasa: " + c.getString(0) + " " + c.getString(1) + " " + c.getString(2));
             }
         }
-        db.close();
-    }
-    public void stworzTabeleWBazie()
-    {
-
     }
 
-    public void zapelnijTabeleDanymi()
+    public void wstawOceneUczniowi(String przedmiot, String uczen, int ocena)
     {
-
+        //  c = db.rawQuery("INSERT INTO p.ocena1 WHERE p.id = u.polski FROM uczen u INNER JOIN polski p on u.polski", null);
     }
 
-    public void wstawOceneUczniowi(String przedmiot, String uczen, String ocena)
+    public void usunOcene(String przedmiot, int nrOceny)
     {
-
-    }
-
-    public void wyswietlListeUczniowzKlasy(String nrKlasy)
-    {
-
-    }
-
-    public void usunOcene(String przedmiot, String dataWstawieniaOceny)
-    {
-
+        //  c = db.rawQuery("DELETE FROM uczen u WHERE u.polski = " + nrOceny, null);
     }
 
     public void wyswietlWszystkieNazwyPrzedmiotow()
     {
-
+        for (int i=0;i<=3;i++) {
+            c = db.rawQuery("SELECT nazwa FROM Przedmioty", null);
+            if(c.moveToFirst())
+            {
+                Log.e(TAG, "Nazwa przedmiotu: " + c.getString(0) );
+            }
+        }
     }
 
-    public void wyswietlZarobkinauczyciela(String idNauczyciela)
+    public void wyswietlZarobkinauczyciela(int idNauczyciela)
     {
-
+        c = db.rawQuery("SELECT zarobki FROM Przedmioty p INNER JOIN nauczyciel n where p.id = n.id ", null);
+        Log.e(TAG, "Zarobki nauczyciela: " + c.getString(0) );
     }
 
-    public void wyswietlWszystkieOcenyucznia(String idUcznia,String przedmiot)
+    public void wyswietlWszystkieOcenyucznia(int idUcznia,String przedmiot)
     {
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
-        // Tworzenie tabeli uczen, i jego CRUD
-        db.execSQL("CREATE TABLE uczen(id VARCHAR,imie VARCHAR,nazwisko VARCHAR, klasa VARCHAR, polski VARCHAR, angielski VARCHAR, matematyka VARCHAR, przyroda VARCHAR);");
-        db.execSQL("CREATE TABLE nauczyciel(id VARCHAR, imie VARCHAR, nazwisko VARCHAR, przedmiot VARCHAR, zarobki VARCHAR);");
-        db.execSQL("CREATE TABLE klasa(id VARCHAR,wychowawca VARCHAR);");
-        db.execSQL("CREATE TABLE matematyka(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE przyroda(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE polski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-        db.execSQL("CREATE TABLE angielski(id VARCHAR,nauczyciel VARCHAR, ocena1 VARCHAR, ocena2 VARCHAR, ocena3 VARCHAR);");
-
+        stworzTabeleWBazie();
     }
 
     @Override
@@ -113,6 +116,7 @@ class Database extends SQLiteOpenHelper
         db.execSQL("DROP TABLE przyroda");
         db.execSQL("DROP TABLE polski");
         db.execSQL("DROP TABLE angielski");
+        db.execSQL("DROP TABLE przedmioty");
 
     }
 

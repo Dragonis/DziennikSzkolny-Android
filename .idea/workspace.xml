@@ -25,7 +25,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3a2e45e-ff7f-479b-bdcc-96da7136560e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Database.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
@@ -64,9 +63,12 @@
       <file leaf-file-name="Database.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6415094" vertical-offset="1411" max-vertical-offset="2023">
-              <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="3.0269542" vertical-offset="475" max-vertical-offset="2091">
+              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <folding>
+                <element signature="e#4036#4037#0" expanded="true" />
+                <element signature="e#4072#4073#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -680,7 +682,7 @@
       <workItem from="1418558415089" duration="13901000" />
       <workItem from="1418741081318" duration="6876000" />
       <workItem from="1420919973493" duration="5497000" />
-      <workItem from="1420981709572" duration="1509000" />
+      <workItem from="1420981709572" duration="4421000" />
     </task>
     <task id="LOCAL-00001" summary="Wstepny zarys aplikacji&#10;* Brakuje wykresow&#10;*Brakuej Bazy danych">
       <created>1416760005647</created>
@@ -722,7 +724,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104121000" />
+    <option name="totallyTimeSpent" value="107033000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1240,9 +1242,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6415094" vertical-offset="1411" max-vertical-offset="2023">
-          <caret line="104" column="5" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="3.0269542" vertical-offset="475" max-vertical-offset="2091">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding>
+            <element signature="e#4036#4037#0" expanded="true" />
+            <element signature="e#4072#4073#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
