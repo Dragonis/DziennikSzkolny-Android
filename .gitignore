@@ -14,6 +14,7 @@ gen/
 
 # intelij settings and temps
 ./idea
+./idea/workspace.xml
 
 # Gradle files
 .gradle/
