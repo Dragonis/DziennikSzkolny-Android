@@ -50,10 +50,39 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Srednia arytmetyczna"
+                    android:id="@+id/otworz_srednia_button"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wariancja"
+                    android:id="@+id/otworz_wariancja_button"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/otworz_odchylenie_button" android:text="Odchylenie standardowe"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mediana"
+                    android:id="@+id/otworz_mediana_button"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dominanta"
+                    android:id="@+id/otworz_dominanta_button"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kwartyle"
+                    android:id="@+id/otworz_kwartyle_button"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Zamknij"
                     android:id="@+id/Zamknij_Statystyki"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_alignParentBottom="true" android:layout_alignParentStart="true"/>
+                    android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
