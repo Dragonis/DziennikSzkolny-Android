@@ -38,37 +38,112 @@
                     android:layout_height="wrap_content"
                     android:text="Srednia arytmetyczna"
                     android:id="@+id/otworz_srednia_button"/>
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wariancja"
                     android:id="@+id/otworz_wariancja_button"/>
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/otworz_odchylenie_button" android:text="Odchylenie standardowe"/>
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mediana"
                     android:id="@+id/otworz_mediana_button"/>
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dominanta"
                     android:id="@+id/otworz_dominanta_button"/>
+
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kwartyle"
                     android:id="@+id/otworz_kwartyle_button"/>
-            <Button
+
+            <RadioGroup
+                    android:id="@+id/radioSex0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Srednia arytmetyczna"
+                        android:id="@+id/radioButton0" android:layout_gravity="center_horizontal"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wariancja"
+                        android:id="@+id/radioButton11" android:layout_gravity="center_horizontal"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Odchylenie standardowe"
+                        android:id="@+id/radioButton22" android:layout_gravity="center_horizontal"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mediana"
+                        android:id="@+id/radioButton33" android:layout_gravity="center_horizontal"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dominanta"
+                        android:id="@+id/radioButton44" android:layout_gravity="center_horizontal"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kwartyle"
+                        android:id="@+id/radioButton55" android:layout_gravity="center_horizontal"/>
+
+            </RadioGroup>
+
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Zamknij"
-                    android:id="@+id/Zamknij_Statystyki"
-                    android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-                    android:layout_gravity="center_horizontal"/>
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Dla klasy:"
+                    android:id="@+id/textView4" android:layout_gravity="center_horizontal"/>
+            <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar" android:layout_gravity="center_horizontal" android:numStars="6"
+                    android:indeterminateOnly="false"/>
+            <TableRow   android:id="@+id/tableRow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dip" >
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Zamknij"
+                        android:id="@+id/Zamknij_Statystyki"
+                        android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                        />
+                <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pokaż"
+                                android:id="@+id/button2" android:layout_gravity="center_horizontal"/>
+            </TableRow>
+
+
+
+
 
         </LinearLayout>
 </HorizontalScrollView>
