@@ -34,9 +34,9 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="0"
+                    android:id="@+id/ListaKlas_Button" android:layout_row="0" android:layout_column="1"
                     android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/Uczniowie" />
+                    android:text="@string/lista_klas" android:clickable="true"/>
         </TableRow>
 
         <TableRow   android:id="@+id/tableRow1"
@@ -53,10 +53,9 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/O_Autorze_Button"
+                    android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="1"
                     android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/spis_ocen" android:clickable="true"
-                    android:onClick="Pokaz_Activity"/>
+                    android:text="@string/Uczniowie" />
         </TableRow>
 
         <TableRow   android:id="@+id/tableRow1"
@@ -66,13 +65,14 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ListaKlas_Button" android:layout_row="0" android:layout_column="0"
+                    android:id="@+id/O_Autorze_Button"
                     android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/lista_klas" android:clickable="true"/>
+                    android:text="@string/spis_ocen" android:clickable="true"
+                    android:onClick="Pokaz_Activity" android:layout_column="0"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/zzzzzzzz" android:layout_row="0" android:layout_column="0"
+                    android:id="@+id/zzzzzzzz" android:layout_row="0" android:layout_column="1"
                     android:drawableBottom="@drawable/ic_launcher"
                     android:text="@string/ranking_szkol" android:clickable="true"/>
         </TableRow>
