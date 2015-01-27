@@ -30,7 +30,7 @@ public class ListaKlasActivity extends Activity {
 
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
-        String cars[] = {"Mercedes", "Fiat", "Ferrari", "Aston Martin", "Lamborghini", "Skoda", "Volkswagen", "Audi", "Citroen"};
+        String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
         ArrayList<String> carL = new ArrayList<String>();
         ArrayList<String> subjectsL = new ArrayList<String>();
