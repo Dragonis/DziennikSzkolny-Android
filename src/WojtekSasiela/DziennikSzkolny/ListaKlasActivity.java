@@ -1,11 +1,10 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -41,7 +40,30 @@ public class ListaKlasActivity extends Activity {
         listaKompoment.setAdapter(adapter);
         listaKompoment2.setAdapter(adapterSubcjets);
 
+        listaKompoment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                for (int j = 0; j < adapterView.getChildCount(); j++)
+                    adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
+
+                // change the background color of the selected element
+                view.setBackgroundColor(Color.BLUE);
+            }
+        });
+
+        listaKompoment2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                for (int j = 0; j < adapterView.getChildCount(); j++)
+                    adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
+
+                // change the background color of the selected element
+                view.setBackgroundColor(Color.BLUE);
+            }
+        });
+
 
         Toast.makeText(getApplicationContext(), "Pokaz liste klas", Toast.LENGTH_LONG).show();
     }
+
 }
