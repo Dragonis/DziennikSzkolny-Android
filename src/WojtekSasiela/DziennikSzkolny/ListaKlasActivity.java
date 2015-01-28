@@ -22,6 +22,7 @@ public class ListaKlasActivity extends Activity {
     private ArrayAdapter<String> adapterSubcjets = null;
     private ListView listaKompoment = null;
     private ListView listaKompoment2 = null;
+    private Button klasa1 = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class ListaKlasActivity extends Activity {
 
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
+        klasa1 = (Button) findViewById(R.id.klasa1);
         String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
         ArrayList<String> carL = new ArrayList<String>();
@@ -41,6 +43,13 @@ public class ListaKlasActivity extends Activity {
         adapterSubcjets = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, subjectsL );
         listaKompoment.setAdapter(adapter);
         listaKompoment2.setAdapter(adapterSubcjets);
+
+        klasa1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.setBackgroundColor(Color.BLUE);
+            }
+        });
 
         listaKompoment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
