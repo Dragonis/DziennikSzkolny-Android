@@ -1,6 +1,8 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -59,11 +61,24 @@ public class ListaKlasActivity extends Activity {
 
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
+
+                        Intent intent = new Intent(getApplicationContext(), DaneUczniaActivity.class);
+
+                        if (intent.resolveActivity(getPackageManager()) != null)
+                            startActivity(intent);
+                        else {
+                            Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
+                                    Toast.LENGTH_LONG).show();
+                        }
+
+
             }
         });
 
 
         Toast.makeText(getApplicationContext(), "Pokaz liste klas", Toast.LENGTH_LONG).show();
     }
+
+
 
 }
