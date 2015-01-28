@@ -74,9 +74,20 @@ public class ListaKlasActivity extends Activity {
 
             }
         });
-
+        zamknijOkno(R.id.Wyjdz_button);
 
         Toast.makeText(getApplicationContext(), "Pokaz liste klas", Toast.LENGTH_LONG).show();
+    }
+
+    public void zamknijOkno(int id)
+    {
+        Button b = (Button)findViewById(id);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 

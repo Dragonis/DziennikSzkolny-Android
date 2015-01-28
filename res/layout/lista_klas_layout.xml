@@ -32,14 +32,15 @@
         <LinearLayout android:orientation="horizontal" android:layout_width="100dp" android:layout_height="wrap_content">
             <ListView android:layout_width="match_parent" android:layout_height="400dp" android:id="@+id/listView"/>
         </LinearLayout>
-        <ListView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/listView0"
-                  android:layout_weight="1"/>
+        <ListView android:layout_width="wrap_content" android:layout_height="382dp" android:id="@+id/listView0"
+                />
 
     </LinearLayout>
-
-    <TextView android:layout_width="wrap_content"
+    <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Na tej stornei mozesz sprawdzac liste klas i uczniow, a zarazem modyfikowac ja" />
+            android:text="Wyjdz"
+            android:id="@+id/Wyjdz_button" android:layout_gravity="center_horizontal"/>
+
 
 </LinearLayout>
