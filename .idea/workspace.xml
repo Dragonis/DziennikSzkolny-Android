@@ -64,15 +64,10 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: WojtekSasiela.DziennikSzkolny" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3a2e45e-ff7f-479b-bdcc-96da7136560e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DziennikSzkolny.iml" afterPath="$PROJECT_DIR$/DziennikSzkolny.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/androidplot_core_0_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/androidplot_core_0_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/srednia_layout.xml" afterPath="$PROJECT_DIR$/res/layout/srednia_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
@@ -108,19 +103,6 @@
                 <element signature="e#2502#2503#0" expanded="false" />
                 <element signature="e#2542#2543#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="elementy_listy_glownej.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/elementy_listy_glownej.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -165,30 +147,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="srednia_layout.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="srednia_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/srednia_layout.xml">
-          <provider selected="true" editor-type-id="android-designer">
+          <provider editor-type-id="android-designer">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.88" vertical-offset="128" max-vertical-offset="969">
-              <caret line="25" column="80" selection-start-line="19" selection-start-column="3" selection-end-line="25" selection-end-column="80" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.018182" vertical-offset="0" max-vertical-offset="969">
+              <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SredniaAcitivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dominanta_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/dominanta_layout.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="459">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SredniaAcitivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="3298">
-              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.7208122" vertical-offset="1110" max-vertical-offset="3315">
+              <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5581#6593#0" expanded="true" />
-                <element signature="e#6592#6593#0" expanded="true" />
-                <element signature="e#6818#6963#0" expanded="true" />
-                <element signature="e#6962#6963#0" expanded="true" />
+                <element signature="e#5609#6621#0" expanded="true" />
+                <element signature="e#6620#6621#0" expanded="true" />
+                <element signature="e#6846#6991#0" expanded="true" />
+                <element signature="e#6990#6991#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -269,8 +264,8 @@
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Statystyka.java" />
         <option value="$PROJECT_DIR$/res/menu/activity_main.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java" />
         <option value="$PROJECT_DIR$/res/layout/srednia_layout.xml" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java" />
       </list>
     </option>
   </component>
@@ -832,7 +827,7 @@
       <workItem from="1422385485490" duration="11000" />
       <workItem from="1422461546083" duration="8357000" />
       <workItem from="1422478346115" duration="6047000" />
-      <workItem from="1422532760987" duration="3888000" />
+      <workItem from="1422532760987" duration="5211000" />
     </task>
     <task id="LOCAL-00001" summary="Wstepny zarys aplikacji&#10;* Brakuje wykresow&#10;*Brakuej Bazy danych">
       <created>1416760005647</created>
@@ -892,7 +887,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159017000" />
+    <option name="totallyTimeSpent" value="160340000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -937,7 +932,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2473525" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32495812" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32463294" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32463294" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3115824" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1482602" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1438,28 +1433,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/dominanta_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="3298">
-          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5581#6593#0" expanded="true" />
-            <element signature="e#6592#6593#0" expanded="true" />
-            <element signature="e#6818#6963#0" expanded="true" />
-            <element signature="e#6962#6963#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="459">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/srednia_layout.xml">
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.88" vertical-offset="128" max-vertical-offset="969">
-          <caret line="25" column="80" selection-start-line="19" selection-start-column="3" selection-end-line="25" selection-end-column="80" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.018182" vertical-offset="0" max-vertical-offset="969">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/SredniaAcitivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7208122" vertical-offset="1110" max-vertical-offset="3315">
+          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5609#6621#0" expanded="true" />
+            <element signature="e#6620#6621#0" expanded="true" />
+            <element signature="e#6846#6991#0" expanded="true" />
+            <element signature="e#6990#6991#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

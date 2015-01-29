@@ -73,13 +73,14 @@ public class SredniaAcitivity extends Activity {
 
     private void openChart(){
         int[] x = { 0,1,2,3,4,5,6,7 };
-        int[] income = { 2000,2500,2700,3000,2800,3500,3700,3800};
-        int[] expense = {2200, 2700, 2900, 2800, 2600, 3000, 3300, 3400 };
+//        int[] income = { 2000,2500,2700,3000,2800,3500,3700,3800};
+        int[] income = { 4, 4, 4, 4, 4, 4, 4, 4 };
+        int[] expense = {3, 4, 2, 5, 3, 1, 6, 3 };
 
         // Creating an  XYSeries for Income
-        XYSeries incomeSeries = new XYSeries("Income");
+        XYSeries incomeSeries = new XYSeries("Srednia");
         // Creating an  XYSeries for Expense
-        XYSeries expenseSeries = new XYSeries("Expense");
+        XYSeries expenseSeries = new XYSeries("Oceny");
         // Adding data to Income and Expense Series
         for(int i=0;i<x.length;i++){
             incomeSeries.add(x[i], income[i]);
