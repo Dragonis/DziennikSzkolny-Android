@@ -1,23 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Wykres srednia klasy"
+            android:gravity="center_horizontal" />
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="fill_parent"
-                  android:layout_height="400dp"
-                  android:fillViewport="true"
-                  android:id="@+id/srednia_layout"
-            />
-
-    <Button
+    <LinearLayout
+            android:id="@+id/chart_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zamknij"
-            android:id="@+id/zamknij_srednia"
-            android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+            android:layout_below="@id/tv_title" >
+
+    </LinearLayout>
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Zamknij"
+    android:id="@+id/zamknij_srednia"
+    android:layout_gravity="center_horizontal" android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true" android:layout_marginBottom="103dp"/>
+</RelativeLayout>
+
+
+        <!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+              <!--android:orientation="vertical"-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent">-->
+
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                  <!--android:orientation="vertical"-->
+                  <!--android:layout_width="fill_parent"-->
+                  <!--android:layout_height="400dp"-->
+                  <!--android:fillViewport="true"-->
+                  <!--android:id="@+id/srednia_layout"-->
+            <!--/>-->
+
+    <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Zamknij"-->
+            <!--android:id="@+id/zamknij_srednia"-->
+            <!--android:layout_gravity="center_horizontal"/>-->
+<!--</LinearLayout>-->
