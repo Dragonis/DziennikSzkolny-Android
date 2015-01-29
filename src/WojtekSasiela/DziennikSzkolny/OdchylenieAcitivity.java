@@ -16,14 +16,14 @@ public class OdchylenieAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kwartyle_layout);
+        setContentView(R.layout.odchylenie_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
             rysujWykres_Srednia();
 
         // Laczy operacje zamkniecia z konkrentym buttonem
-        zamknijOkno(R.id.zamknij_kwartyle);
+        zamknijOkno(R.id.zamknij_odchylenie);
     }
 
     public void rysujWykres_Srednia()

@@ -22,11 +22,11 @@ public class StatystykiActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statystyki_layout);
         Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_dominanta_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), SredniaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), MedianaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.otworz_dominanta_button, getApplicationContext(), DominantaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
         zamknijOkno(R.id.Zamknij_Statystyki);
 
         rysujWykres();
