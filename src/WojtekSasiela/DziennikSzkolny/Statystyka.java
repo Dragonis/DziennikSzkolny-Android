@@ -8,23 +8,21 @@ import java.util.List;
  * Created by Wojtek on 2015-01-28.
  */
 public class Statystyka {
+
+    List<Double> oceny = new ArrayList<Double>();
+
+
     public Statystyka() {
-    }
-
-    // Opisy statystyczne w javie
-    // http://www.flash.com.pl/metody-statystyczne-t5310.html
-
-
-    public double sredniaArytmetyczna()
-    {
-        double suma_ocen = 0;
-        double wynik = 0;
-
-        List<Double> oceny = new ArrayList<Double>();
         oceny.add(3.5);
         oceny.add(4.0);
         oceny.add(3.0);
         oceny.add(2.0);
+    }
+
+    public double sredniaArytmetyczna(List<Double> oceny)
+    {
+        double suma_ocen = 0;
+        double wynik = 0;
 
         for(double ocena : oceny)
         {
@@ -54,7 +52,7 @@ public class Statystyka {
         double obliczenia = 0;
         for(double ocena : oceny)
         {
-            obliczenia = ocena - sredniaArytmetyczna();
+            obliczenia = ocena - sredniaArytmetyczna(oceny);
             obliczenia = obliczenia * obliczenia;
             wynik = obliczenia / oceny.size();
         }
