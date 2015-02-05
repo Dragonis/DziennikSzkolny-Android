@@ -3,7 +3,6 @@ package WojtekSasiela.DziennikSzkolny;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StatystykaTest extends TestCase {
 

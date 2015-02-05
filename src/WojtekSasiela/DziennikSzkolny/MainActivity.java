@@ -1,16 +1,20 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.Account;
+import WojtekSasiela.DziennikSzkolny.ORM.DatabaseHelper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class MainActivity extends Activity {
     /**
@@ -23,6 +27,13 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        try {
+            doNoteDataStuff();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         Database databaseInstance = new Database(this,"Student.db",2);
         databaseInstance.db = openOrCreateDatabase("StudentDB.db", MODE_PRIVATE, null);
@@ -60,4 +71,22 @@ public class MainActivity extends Activity {
             }
         });
     }
+
+    DatabaseHelper dbHelper;
+    private void doNoteDataStuff() throws SQLException{
+        dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        RuntimeExceptionDao<Account, Integer> noteDao = dbHelper.getAccountRuntimeExceptionDao();
+
+        noteDao.create(new Account("admin login", "admin password"));
+        noteDao.create(new Account("Uzytkownik", "Haslo"));
+        noteDao.create(new Account("root", "testABCD"));
+
+        List<Account> notes = noteDao.queryForAll();
+        Log.d("Demo", notes.toString());
+        notes = noteDao.queryForEq("id", 1);
+        Log.d("Demo", notes.toString());
+
+        OpenHelperManager.releaseHelper();
+    }
+
 }
