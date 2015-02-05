@@ -24,5 +24,8 @@
     <orderEntry type="library" name="ormlite-android-4.48" level="application" />
     <orderEntry type="library" name="ormlite-core-4.48" level="application" />
     <orderEntry type="library" name="de.saumya.mojo:cucumber-maven-plugin:0.28.6" level="project" />
+    <orderEntry type="library" name="cucumber-android-1.2.2-javadoc" level="application" />
+    <orderEntry type="library" name="cucumber-android-1.2.2-sources" level="application" />
+    <orderEntry type="library" name="cucumber-android-1.2.2" level="application" />
   </component>
 </module>
