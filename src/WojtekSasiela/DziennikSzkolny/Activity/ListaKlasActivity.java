@@ -1,5 +1,6 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.Activity;
 
+import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;

@@ -1,5 +1,6 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.Activity;
 
+import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,21 +13,21 @@ import com.jjoe64.graphview.LineGraphView;
 /**
  * Created by Wojtek on 2014-11-23.
  */
-public class DominantaAcitivity extends Activity {
+public class KwartyleAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dominanta_layout);
+        setContentView(R.layout.kwartyle_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
-        rysujWykres_Dominanta();
+        rysujWykres_Kwartyle();
 
         // Laczy operacje zamkniecia z konkrentym buttonem
-        zamknijOkno(R.id.zamknij_dominanta);
+        zamknijOkno(R.id.zamknij_kwartyle);
     }
 
-    public void rysujWykres_Dominanta()
+    public void rysujWykres_Kwartyle()
     {
         // init example series data
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
@@ -38,12 +39,12 @@ public class DominantaAcitivity extends Activity {
 
         GraphView graphView = new LineGraphView(
                 this // context
-                , "Dominanta" // heading
+                , "Kwartyle" // heading
         );
 
         graphView.addSeries(exampleSeries); // data
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.dominanta_layout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.kwartyle_layout);
         layout.addView(graphView);
 
     }

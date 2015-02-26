@@ -1,6 +1,7 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.Activity;
 
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
+import WojtekSasiela.DziennikSzkolny.*;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.User;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import android.app.Activity;
 import android.content.Context;
@@ -75,13 +76,13 @@ public class MainActivity extends Activity {
     DatabaseHelper dbHelper;
     private void doNoteDataStuff() throws SQLException{
         dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
-        RuntimeExceptionDao<Account, Integer> noteDao = dbHelper.getAccountRuntimeExceptionDao();
+        RuntimeExceptionDao<User, Integer> noteDao = dbHelper.getAccountRuntimeExceptionDao();
 
-        noteDao.create(new Account("admin login", "admin password"));
-        noteDao.create(new Account("Uzytkownik", "Haslo"));
-        noteDao.create(new Account("root", "testABCD"));
+        noteDao.create(new User("admin login", "admin password"));
+        noteDao.create(new User("Uzytkownik", "Haslo"));
+        noteDao.create(new User("root", "testABCD"));
 
-        List<Account> notes = noteDao.queryForAll();
+        List<User> notes = noteDao.queryForAll();
         Log.d("Demo", notes.toString());
         notes = noteDao.queryForEq("id", 1);
         Log.d("Demo", notes.toString());

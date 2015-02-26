@@ -1,5 +1,6 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.Activity;
 
+import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ import org.achartengine.renderer.XYSeriesRenderer;
 /**
  * Created by Wojtek on 2014-11-23.
  */
-public class WariancjaAcitivity extends Activity {
+public class SredniaAcitivity extends Activity {
 
     private GraphicalView mChart;
 
@@ -36,42 +37,43 @@ public class WariancjaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wariancja_layout);
+        setContentView(R.layout.srednia_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
-
-        //rysujWykres_Wariancja();
+        //rysujWykres_Srednia();
         openChart();
+
         // Laczy operacje zamkniecia z konkrentym buttonem
-        zamknijOkno(R.id.zamknij_wariancja);
+        zamknijOkno(R.id.zamknij_srednia);
     }
 
-    public void rysujWykres_Wariancja()
+    public void rysujWykres_Srednia()
     {
         // init example series data
-        GraphViewSeries exampleSeries_wariancja = new GraphViewSeries(new GraphView.GraphViewData[] {
-                new GraphView.GraphViewData(1, 2.0d)
-                , new GraphView.GraphViewData(2, 5.5d)
+        GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
+                new GraphView.GraphViewData(1, 3.0d)
+                , new GraphView.GraphViewData(2, 3.5d)
                 , new GraphView.GraphViewData(3, 3.5d)
-                , new GraphView.GraphViewData(4, 4.0d)
+                , new GraphView.GraphViewData(4, 3.0d)
         });
 
-        GraphView graphView_wariancja = new LineGraphView(
+        GraphView graphView = new LineGraphView(
                 this // context
-                , "Wariancja" // heading
+                , "Srednia arytmetyczna" // heading
         );
 
-        graphView_wariancja.addSeries(exampleSeries_wariancja); // data
+        graphView.addSeries(exampleSeries); // data
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.wariancja_layout);
-        layout.addView(graphView_wariancja);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.chart_container);
+        layout.addView(graphView);
 
     }
+
 
     private void openChart(){
         int[] x = { 0,1,2,3,4,5,6,7 };
 //        int[] income = { 2000,2500,2700,3000,2800,3500,3700,3800};
-        int[] income = { 2, 2, 2, 2, 2, 2, 2, 2 };
+        int[] income = { 4, 4, 4, 4, 4, 4, 4, 4 };
         int[] expense = {3, 4, 2, 5, 3, 1, 6, 3 };
 
         // Creating an  XYSeries for Income
@@ -130,7 +132,7 @@ public class WariancjaAcitivity extends Activity {
         multiRenderer.addSeriesRenderer(expenseRenderer);
 
         // Getting a reference to LinearLayout of the MainActivity Layout
-        LinearLayout chartContainer = (LinearLayout) findViewById(R.id.wariancja_layout);
+        LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart_container);
 
 
         // Specifying chart types to be drawn in the graph
@@ -172,6 +174,7 @@ public class WariancjaAcitivity extends Activity {
         // Adding the Combined Chart to the LinearLayout
         chartContainer.addView(mChart);
     }
+
 
     public void zamknijOkno(int id)
     {

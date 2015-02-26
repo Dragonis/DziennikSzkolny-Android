@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Wojtek on 2015-02-05.
  */
-public class Account {
+public class User {
 
     @DatabaseField(generatedId=true)
     int id;
@@ -21,10 +21,10 @@ public class Account {
     @DatabaseField
     Date date;
 
-    public Account() {
+    public User() {
     }
 
-    public Account(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.date = new Date(System.currentTimeMillis());

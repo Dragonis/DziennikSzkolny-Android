@@ -1,22 +1,21 @@
-package WojtekSasiela.DziennikSzkolny.ORM.tables;
+package WojtekSasiela.DziennikSzkolny.ORM.tables.subjects;
 
 import com.j256.ormlite.field.DatabaseField;
 
 /**
  * Created by Wojtek on 2015-02-26.
  */
-public class Teacher {
+public class Religion {
 
     @DatabaseField(generatedId=true)
-    int id;
+    Integer id;
 
     @DatabaseField
-    String name;
+    Integer Id_subcjet;
 
     @DatabaseField
-    String surname;
+    String Name;
 
     @DatabaseField
-    Integer Id_Subcjet;
-
+    Integer Id_Teacher;
 }
