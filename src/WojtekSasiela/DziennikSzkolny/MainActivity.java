@@ -106,6 +106,17 @@ public class MainActivity extends Activity {
         AccountDao.create(new Account("root", "testABCD"));
 
         StudentDao.create(new Student("Wojtek", "Sasiela"));
+        StudentDao.create(new Student("Anna", "Kowalska"));
+        StudentDao.create(new Student("Joanna", "Pyrzyńska"));
+        StudentDao.create(new Student("Izabela", "Tarnowska"));
+        StudentDao.create(new Student("Blanka", "Szept"));
+        StudentDao.create(new Student("Paweł", "Paluch"));
+        StudentDao.create(new Student("Piotr", "Mały"));
+        StudentDao.create(new Student("Karol", "Kopytko"));
+        StudentDao.create(new Student("Arkadiusz", "Bąk"));
+        StudentDao.create(new Student("Teresa", "Wawrzyniak"));
+        StudentDao.create(new Student("Katarzyna", "Jagiełło"));
+
         TeacherDao.create(new Teacher("Jan", "Kowalski"));
 
         BiologyDao.create(new Biology(1,3,4,5));

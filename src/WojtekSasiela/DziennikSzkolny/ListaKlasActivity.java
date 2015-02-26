@@ -1,14 +1,20 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Wojtek on 2014-12-09.
@@ -30,7 +36,25 @@ public class ListaKlasActivity extends Activity {
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
         klasa1 = (Button) findViewById(R.id.klasa1);
-        String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
+
+        // Connect with Database ORM
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
+        List<Student> students = studentDao.queryForAll();
+        String cars[] =
+                {
+                        students.get(0).getName()  +  " " + students.get(0).getSurname() ,
+                        students.get(1).getName()  +  " " + students.get(1).getSurname() ,
+                        students.get(2).getName()  +  " " + students.get(2).getSurname() ,
+                        students.get(3).getName()  +  " " + students.get(3).getSurname() ,
+                        students.get(4).getName()  +  " " + students.get(4).getSurname() ,
+                        students.get(5).getName()  +  " " + students.get(5).getSurname() ,
+                        students.get(6).getName()  +  " " + students.get(6).getSurname() ,
+                        students.get(7).getName()  +  " " + students.get(7).getSurname() ,
+                        students.get(8).getName()  +  " " + students.get(8).getSurname() ,
+                        students.get(9).getName()  +  " " + students.get(9).getSurname() ,
+                };
+        //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
         ArrayList<String> carL = new ArrayList<String>();
         ArrayList<String> subjectsL = new ArrayList<String>();

@@ -23,7 +23,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts4.db";
+    private static final String DATABASE_NAME = "Accounts5.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;
