@@ -1,9 +1,10 @@
-package WojtekSasiela.DziennikSzkolny.ORM;
+package WojtekSasiela.DziennikSzkolny.ORM.configuration;
 
 /**
  * Created by Wojtek on 2015-02-05.
  */
 
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

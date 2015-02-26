@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.ORM;
+package WojtekSasiela.DziennikSzkolny.ORM.tables;
 
 import com.j256.ormlite.field.DatabaseField;
 

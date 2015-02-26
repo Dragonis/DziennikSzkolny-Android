@@ -1,5 +1,6 @@
-package WojtekSasiela.DziennikSzkolny.ORM;
+package WojtekSasiela.DziennikSzkolny.ORM.configuration;
 
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 
 import java.io.IOException;

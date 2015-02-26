@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.Algorytmy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

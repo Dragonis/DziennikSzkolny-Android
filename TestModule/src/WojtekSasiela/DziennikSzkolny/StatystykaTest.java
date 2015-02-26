@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.Algorytmy.Statystyka;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;

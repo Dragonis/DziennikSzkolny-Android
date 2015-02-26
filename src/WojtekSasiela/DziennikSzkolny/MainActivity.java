@@ -1,7 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.Account;
-import WojtekSasiela.DziennikSzkolny.ORM.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
