@@ -1,8 +1,11 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.ConfigApplication;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.*;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -30,7 +33,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
         try {
-            doNoteDataStuff();
+            doAccountDataStuff();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -73,24 +76,103 @@ public class MainActivity extends Activity {
         });
     }
 
-    DatabaseHelper dbHelper;
-    private void doNoteDataStuff() throws SQLException{
+
+    private void doAccountDataStuff() throws SQLException{
 
         // WYSYLASZ REKORDY DO BAZY DANYCH
-        dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
-        RuntimeExceptionDao<Account, Integer> noteDao = dbHelper.getAccountRuntimeExceptionDao();
 
-        noteDao.create(new Account("admin login1", "admin password1"));
-        noteDao.create(new Account("Uzytkownik", "Haslo"));
-        noteDao.create(new Account("root", "testABCD"));
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+
+        RuntimeExceptionDao<Account, Integer> AccountDao = dbHelper.getAccountRuntimeExceptionDao();
+        RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
+        RuntimeExceptionDao<Teacher, Integer> TeacherDao = dbHelper.getTeacherRuntimeExceptionDao();
+
+        RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
+        RuntimeExceptionDao<English, Integer> EnglishDao = dbHelper.getEnglishRuntimeExceptionDao();
+        RuntimeExceptionDao<Mathematic, Integer> MathematicDao = dbHelper.getMathematicRuntimeExceptionDao();
+        RuntimeExceptionDao<Polish, Integer> PolishDao = dbHelper.getPolishRuntimeExceptionDao();
+        RuntimeExceptionDao<Religion, Integer> ReligionDao = dbHelper.getReligionRuntimeExceptionDao();
+        RuntimeExceptionDao<WF, Integer> WFDao = dbHelper.getWFRuntimeExceptionDao();
+
+        RuntimeExceptionDao<Srednia, Integer> SredniaDao = dbHelper.getSredniaRuntimeExceptionDao();
+        RuntimeExceptionDao<Mediana, Integer> MedianaDao = dbHelper.getMedianaRuntimeExceptionDao();
+        RuntimeExceptionDao<Dominanta, Integer> DominantaDao = dbHelper.getDominantaRuntimeExceptionDao();
+        RuntimeExceptionDao<Kwartyle, Integer> KwartyleDao = dbHelper.getKwartyleRuntimeExceptionDao();
+        RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao = dbHelper.getOdchylenieRuntimeExceptionDao();
+        RuntimeExceptionDao<Wariancja, Integer> WariancjaDao = dbHelper.getWariancjaRuntimeExceptionDao();
+
+        AccountDao.create(new Account("admin login1", "admin password1"));
+        AccountDao.create(new Account("Uzytkownik", "Haslo"));
+        AccountDao.create(new Account("root", "testABCD"));
+
+        StudentDao.create(new Student("Wojtek", "Sasiela"));
+        TeacherDao.create(new Teacher("Jan", "Kowalski"));
+
+        BiologyDao.create(new Biology(1,3,4,5));
+        EnglishDao.create(new English(1,3,4,5));
+        MathematicDao.create(new Mathematic(1, 3, 4, 5));
+        PolishDao.create(new Polish(1, 3, 4, 5));
+        ReligionDao.create(new Religion(1, 3, 4, 5));
+        WFDao.create(new WF(1,3,4,5));
+
+        SredniaDao.create(new Srednia(1,3,3,3));
+        MedianaDao.create(new Mediana(1,3,3,3));
+        DominantaDao.create(new Dominanta(1,3,3,3));
+        WariancjaDao.create(new Wariancja(1,3,3,3));
+        KwartyleDao.create(new Kwartyle(1, 3, 3, 3));
+        OdchylenieDao.create(new Odchylenie(1, 3, 3, 3));
 
 
-//        List<Account> notes = noteDao.queryForAll();
-//        Log.d("Demo", notes.toString());
-//        notes = noteDao.queryForEq("id", 1);
-//        Log.d("Demo", notes.toString());
+        /** Sprawdzenie czy dane poprawnie sie wyswietlaja **/
+
+        List<Account> accounts = AccountDao.queryForEq("id", 1);
+        Log.d("Account", accounts.toString());
+
+        List<Student> students = StudentDao.queryForEq("id",1);
+        Log.d("Student", students.toString());
+
+        List<Teacher> teachers = TeacherDao.queryForEq("id",1);
+        Log.d("Teacher", teachers.toString());
+
+        List<Biology> biology_grades = BiologyDao.queryForEq("id",1);
+        Log.d("Biology", biology_grades.toString());
+
+        List<English> english_grades = EnglishDao.queryForEq("id",1);
+        Log.d("English", english_grades.toString());
+
+        List<Mathematic> mathematic_grades = MathematicDao.queryForEq("id",1);
+        Log.d("Matgematic", mathematic_grades.toString());
+
+        List<Polish> polish_grades = PolishDao.queryForEq("id",1);
+        Log.d("Polish", polish_grades.toString());
+
+        List<Religion> religion_grades = ReligionDao.queryForEq("id",1);
+        Log.d("Religion", religion_grades.toString());
+
+        List<WF> wf_grades = WFDao.queryForEq("id",1);
+        Log.d("WF", wf_grades.toString());
+
+        List<Srednia> srednia_dao = SredniaDao.queryForEq("id",1);
+        Log.d("Srednia", srednia_dao.toString());
+
+        List<Mediana> mediana_dao = MedianaDao.queryForEq("id",1);
+        Log.d("Mediana", mediana_dao.toString());
+
+        List<Dominanta> dominanta_dao = DominantaDao.queryForEq("id",1);
+        Log.d("Dominanta", dominanta_dao.toString());
+
+        List<Kwartyle> kwartyle_dao = KwartyleDao.queryForEq("id",1);
+        Log.d("Kwartyle", kwartyle_dao.toString());
+
+        List<Odchylenie> odchylenie_dao = OdchylenieDao.queryForEq("id",1);
+        Log.d("Odchylenie", odchylenie_dao.toString());
+
+        List<Wariancja> wariancjas_dao = WariancjaDao.queryForEq("id",1);
+        Log.d("Wariancja", wariancjas_dao.toString());
 
         OpenHelperManager.releaseHelper();
     }
+
+
 
 }

@@ -5,7 +5,7 @@ import com.j256.ormlite.field.DatabaseField;
 /**
  * Created by Wojtek on 2015-02-26.
  */
-public class English {
+public class Mathematic {
 
     @DatabaseField(generatedId=true)
     Integer id;
@@ -28,10 +28,10 @@ public class English {
     @DatabaseField
     Integer Grade3;
 
-    public English() {
+    public Mathematic() {
     }
 
-    public English(Integer id_student, Integer grade1, Integer grade2, Integer grade3) {
+    public Mathematic(Integer id_student, Integer grade1, Integer grade2, Integer grade3) {
         Id_student = id_student;
         Grade1 = grade1;
         Grade2 = grade2;
