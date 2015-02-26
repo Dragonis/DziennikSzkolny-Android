@@ -21,7 +21,7 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/editText"/>
+                android:id="@+id/editText_Login_Opcje"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                 android:inputType="textPersonName"
                 android:text="Name"
                 android:ems="10"
-                android:id="@+id/editText2"/>
+                android:id="@+id/editText2_Password_Opcje"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

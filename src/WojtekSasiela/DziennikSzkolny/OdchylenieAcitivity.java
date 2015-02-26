@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.Activity;
+package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
@@ -13,21 +13,21 @@ import com.jjoe64.graphview.LineGraphView;
 /**
  * Created by Wojtek on 2014-11-23.
  */
-public class DominantaAcitivity extends Activity {
+public class OdchylenieAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dominanta_layout);
+        setContentView(R.layout.odchylenie_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
-        rysujWykres_Dominanta();
+            rysujWykres_Srednia();
 
         // Laczy operacje zamkniecia z konkrentym buttonem
-        zamknijOkno(R.id.zamknij_dominanta);
+        zamknijOkno(R.id.zamknij_odchylenie);
     }
 
-    public void rysujWykres_Dominanta()
+    public void rysujWykres_Srednia()
     {
         // init example series data
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
@@ -39,15 +39,16 @@ public class DominantaAcitivity extends Activity {
 
         GraphView graphView = new LineGraphView(
                 this // context
-                , "Dominanta" // heading
+                , "Odchylenie standardowe" // heading
         );
 
         graphView.addSeries(exampleSeries); // data
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.dominanta_layout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.odchylenie_layout);
         layout.addView(graphView);
 
     }
+
 
     public void zamknijOkno(int id)
     {

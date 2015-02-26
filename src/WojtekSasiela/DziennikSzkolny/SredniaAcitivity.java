@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.Activity;
+package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;

@@ -1,6 +1,5 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.Activity.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
 
 /**
