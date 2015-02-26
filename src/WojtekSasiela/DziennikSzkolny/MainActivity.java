@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.ConfigApplication;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import android.app.Activity;
@@ -74,17 +75,20 @@ public class MainActivity extends Activity {
 
     DatabaseHelper dbHelper;
     private void doNoteDataStuff() throws SQLException{
+
+        // WYSYLASZ REKORDY DO BAZY DANYCH
         dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
         RuntimeExceptionDao<Account, Integer> noteDao = dbHelper.getAccountRuntimeExceptionDao();
 
-        noteDao.create(new Account("admin login", "admin password"));
+        noteDao.create(new Account("admin login1", "admin password1"));
         noteDao.create(new Account("Uzytkownik", "Haslo"));
         noteDao.create(new Account("root", "testABCD"));
 
-        List<Account> notes = noteDao.queryForAll();
-        Log.d("Demo", notes.toString());
-        notes = noteDao.queryForEq("id", 1);
-        Log.d("Demo", notes.toString());
+
+//        List<Account> notes = noteDao.queryForAll();
+//        Log.d("Demo", notes.toString());
+//        notes = noteDao.queryForEq("id", 1);
+//        Log.d("Demo", notes.toString());
 
         OpenHelperManager.releaseHelper();
     }

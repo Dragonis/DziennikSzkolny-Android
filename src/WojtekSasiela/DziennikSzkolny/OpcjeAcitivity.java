@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.ConfigApplication;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import android.app.Activity;
@@ -32,18 +33,14 @@ public class OpcjeAcitivity extends Activity {
 
     public void doORMAccountDatabaseStuff() {
 
-        DatabaseHelper dh = null;
-        dh = OpenHelperManager.getHelper(this,DatabaseHelper.class);
+        // POBIERASZ REKORDY Z BAZY DANYCH PO CZYM WYSWIETLASZ
+        DatabaseHelper dh = OpenHelperManager.getHelper(this,DatabaseHelper.class);
         RuntimeExceptionDao<Account, Integer> userDao = dh.getAccountRuntimeExceptionDao();
 
-        // wstawianie danych
-        userDao.create(new Account("admin","admin"));
-        userDao.create(new Account("test1","test2"));
-        userDao.create(new Account("login","haslo"));
-
         //pobieranie i wyswietlanei danych
+
         List<Account> uzytkownicy = userDao.queryForEq("id", 1);
-        Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: "+ uzytkownicy.get(0).getPassword().toString());
+        Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: " + uzytkownicy.get(0).getPassword().toString());
 
         // wyswietlanei danych w widoku
         EditText login = (EditText)findViewById(R.id.editText_Login_Opcje);
