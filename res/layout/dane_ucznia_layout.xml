@@ -40,7 +40,7 @@
             android:id="@+id/textView6"/>
     <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+            android:layout_height="190dp" android:layout_gravity="center_horizontal" android:weightSum="1">
         <ListView
                 android:windowSoftInputMode="adjustPan"
                 android:layout_width="57dp"
@@ -57,5 +57,49 @@
             android:layout_height="wrap_content"
             android:text="Wyjdż"
             android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"/>
+
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Srednia"
+                android:id="@+id/srednia_button_daneucznia"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mediana"
+                android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wariancja"
+                android:id="@+id/Wariancja_button_daneucznia"/>
+    </TableRow>
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dominanta"
+                android:id="@+id/Dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Odchylenie"
+                android:id="@+id/Odchylenie_button_daneucznia" android:layout_gravity="right"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kwartyle"
+                android:id="@+id/Kwartyle_button_daneucznia"/>
+            </TableRow>
+
+
 
 </LinearLayout>

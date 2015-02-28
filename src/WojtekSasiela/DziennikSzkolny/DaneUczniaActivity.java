@@ -1,6 +1,5 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

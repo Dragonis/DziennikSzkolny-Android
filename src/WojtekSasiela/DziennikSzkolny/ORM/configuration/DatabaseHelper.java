@@ -19,7 +19,6 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
