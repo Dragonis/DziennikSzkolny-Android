@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.security.DomainCombiner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -43,12 +44,27 @@ public class DaneUczniaActivity extends Activity {
         listaKompoment.setAdapter(adapter2);
         listaKompoment2.setAdapter(adapter);
 
+
+        // wyswitlanie odpowiednich activity statystycznych
+        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia,getApplicationContext(),SredniaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia,getApplicationContext(),MedianaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia,getApplicationContext(),WariancjaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.dominanta_button_daneucznia,getApplicationContext(),DominantaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.odchylenie_button_daneucznia,getApplicationContext(),OdchylenieAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.kwartyle_button_daneucznia,getApplicationContext(),KwartyleAcitivity.class);
+
     }
 
-
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
+    /**
+     *
+     *
+     * @param button_id R.id.button_name
+     * @param context insert 'getApplicationContext()'
+     * @param klasa example: StatystykaActivity.class
+     */
+    public void Pokaz_Activity_z_klasy(int button_id, final Context context, final Class<?> klasa)
     {
-        Button b = (Button)findViewById(id);
+        Button b = (Button)findViewById(button_id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

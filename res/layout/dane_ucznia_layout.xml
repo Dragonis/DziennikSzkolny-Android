@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wariancja"
-                android:id="@+id/Wariancja_button_daneucznia"/>
+                android:id="@+id/wariancja_button_daneucznia"/>
     </TableRow>
 
     <TableRow
@@ -87,17 +87,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dominanta"
-                android:id="@+id/Dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
+                android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Odchylenie"
-                android:id="@+id/Odchylenie_button_daneucznia" android:layout_gravity="right"/>
+                android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kwartyle"
-                android:id="@+id/Kwartyle_button_daneucznia"/>
+                android:id="@+id/kwartyle_button_daneucznia"/>
             </TableRow>
 
 
