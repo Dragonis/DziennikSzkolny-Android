@@ -2,50 +2,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Wykres srednia klasy"
-            android:gravity="center_horizontal" />
 
-    <LinearLayout
-            android:id="@+id/chart_container"
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_title" >
-
-    </LinearLayout>
-    <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Zamknij"
-    android:id="@+id/zamknij_srednia"
-    android:layout_gravity="center_horizontal" android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true" android:layout_marginBottom="103dp"/>
+            android:text="zamknij"
+            android:id="@+id/zamknij_srednia"
+            android:layout_below="@+id/textView12" android:layout_alignLeft="@+id/textView12"
+            android:layout_alignStart="@+id/textView12" android:layout_marginTop="49dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="[Imie i Nazwisko]"
+            android:id="@+id/textView10"
+            android:layout_centerVertical="true" android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Srednia:"
+            android:id="@+id/textView11"
+            android:layout_below="@+id/textView10" android:layout_centerHorizontal="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="[srednia]"
+            android:id="@+id/textView12"
+            android:layout_below="@+id/textView11" android:layout_centerHorizontal="true"/>
 </RelativeLayout>
-
-
-        <!--<?xml version="1.0" encoding="utf-8"?>-->
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-              <!--android:orientation="vertical"-->
-              <!--android:layout_width="match_parent"-->
-              <!--android:layout_height="match_parent">-->
-
-
-    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-                  <!--android:orientation="vertical"-->
-                  <!--android:layout_width="fill_parent"-->
-                  <!--android:layout_height="400dp"-->
-                  <!--android:fillViewport="true"-->
-                  <!--android:id="@+id/srednia_layout"-->
-            <!--/>-->
-
-    <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Zamknij"-->
-            <!--android:id="@+id/zamknij_srednia"-->
-            <!--android:layout_gravity="center_horizontal"/>-->
-<!--</LinearLayout>-->
