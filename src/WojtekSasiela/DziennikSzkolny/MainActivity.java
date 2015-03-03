@@ -58,15 +58,15 @@ public class MainActivity extends FragmentActivity implements
         databaseInstance.getAllData();
 
         //Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
-        Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
 
 
         // Buttony przekierowywujace na konkretne Activity
         // laczy Vidok z Controllerem
-        Pokaz_Activity_z_klasy(R.id.OpcjeButton, getApplicationContext(),OpcjeAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),ListaUczniowActivity.class);
-        Pokaz_Activity_z_klasy(R.id.ZobaczStatyButton, getApplicationContext(), StatystykiActivity.class);
-        Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
+//        Pokaz_Activity_z_klasy(R.id.OpcjeButton, getApplicationContext(),OpcjeAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),ListaUczniowActivity.class);
+//        Pokaz_Activity_z_klasy(R.id.ZobaczStatyButton, getApplicationContext(), StatystykiActivity.class);
+//        Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
         //BaseSQLite baseSQLite = BaseSQLite.getInstance(getApplicationContext());
 
         showTabs();
@@ -110,34 +110,34 @@ public class MainActivity extends FragmentActivity implements
             }
         });
     }
-
-    public void zamknijOkno(int id) {
-        Button b = (Button) findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-    }
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, klasa);
-
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-    }
+//
+//    public void zamknijOkno(int id) {
+//        Button b = (Button) findViewById(id);
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
+//    }
+//    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
+//    {
+//        Button b = (Button)findViewById(id);
+//        b.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(context, klasa);
+//
+//                if (intent.resolveActivity(getPackageManager()) != null)
+//                    startActivity(intent);
+//                else {
+//                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
+//                            Toast.LENGTH_LONG).show();
+//                }
+//
+//            }
+//        });
+//    }
 
 
     private void doAccountDataStuff() throws SQLException{

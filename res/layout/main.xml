@@ -11,85 +11,85 @@
 
         </android.support.v4.view.ViewPager>
 
-    <TableLayout  android:id="@+id/app_name"
-                  xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                   android:orientation="vertical"
-                   android:baselineAligned="false">
+    <!--<TableLayout  android:id="@+id/app_name"-->
+                  <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                  <!--android:layout_width="fill_parent"-->
+                  <!--android:layout_height="fill_parent"-->
+                   <!--android:orientation="vertical"-->
+                   <!--android:baselineAligned="false">-->
 
-        <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Hello World, MyActivity"/>
+        <!--<TextView-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Hello World, MyActivity"/>-->
 
-        <TableRow   android:id="@+id/tableRow1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dip" >
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ListaKlas_Button" android:layout_row="0" android:layout_column="0"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/lista_klas" android:clickable="true"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ZobaczStatyButton" android:layout_row="0" android:layout_column="1"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/Zob_Statyst" android:clickable="true"/>
-        </TableRow>
+        <!--<TableRow   android:id="@+id/tableRow1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="5dip" >-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/ListaKlas_Button" android:layout_row="0" android:layout_column="0"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/lista_klas" android:clickable="true"/>-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/ZobaczStatyButton" android:layout_row="0" android:layout_column="1"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/Zob_Statyst" android:clickable="true"/>-->
+        <!--</TableRow>-->
 
-        <TableRow   android:id="@+id/tableRow1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dip" >
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/OpcjeButton"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/Opcje" android:clickable="true"
-                    />
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="1"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/Uczniowie" />
-        </TableRow>
+        <!--<TableRow   android:id="@+id/tableRow1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="5dip" >-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/OpcjeButton"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/Opcje" android:clickable="true"-->
+                    <!--/>-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="1"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/Uczniowie" />-->
+        <!--</TableRow>-->
 
-        <TableRow   android:id="@+id/tableRow1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dip" >
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/O_Autorze_Button"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/spis_ocen" android:clickable="true"
-                    android:onClick="Pokaz_Activity" android:layout_column="0"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/zzzzzzzz" android:layout_row="0" android:layout_column="1"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/ranking_szkol" android:clickable="true"/>
-        </TableRow>
+        <!--<TableRow   android:id="@+id/tableRow1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="5dip" >-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/O_Autorze_Button"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/spis_ocen" android:clickable="true"-->
+                    <!--android:onClick="Pokaz_Activity" android:layout_column="0"/>-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/zzzzzzzz" android:layout_row="0" android:layout_column="1"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/ranking_szkol" android:clickable="true"/>-->
+        <!--</TableRow>-->
 
-        <TableRow   android:id="@+id/tableRow1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                        android:padding="5dip" >
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/DDDDDDDD" android:layout_row="0" android:layout_column="0"
-                    android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/edyt_plac_nauczycieli" android:clickable="true"/>
-        </TableRow>
+        <!--<TableRow   android:id="@+id/tableRow1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                        <!--android:padding="5dip" >-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/DDDDDDDD" android:layout_row="0" android:layout_column="0"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/edyt_plac_nauczycieli" android:clickable="true"/>-->
+        <!--</TableRow>-->
 
-    </TableLayout>
+    <!--</TableLayout>-->
 </RelativeLayout>

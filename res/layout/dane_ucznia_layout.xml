@@ -1,105 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:windowSoftInputMode="adjustPan"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent" android:id="@+id/test">
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Dane ucznia:"
-            android:id="@+id/textView5" android:layout_gravity="center_horizontal"/>
-
-    <TableRow
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-    </TableRow>
-
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="Ania "
-                  android:id="@+id/textView9"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wilczurowska"
-                android:id="@+id/textView7"/>
-    </TableRow>
-    <TextView
+            android:layout_height="fill_parent"
+            android:background="@drawable/images">
+    <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Data Ocena"
-            android:id="@+id/textView6"/>
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="190dp" android:layout_gravity="center_horizontal" android:weightSum="1">
-        <ListView
-                android:windowSoftInputMode="adjustPan"
-                android:layout_width="57dp"
-                android:layout_height="264dp"
-                android:id="@+id/listView3" android:layout_weight="0.14"/>
-        <ListView
-                android:windowSoftInputMode="adjustPan"
-                android:layout_width="53dp"
-                android:layout_height="259dp"
-                android:id="@+id/listView4" android:layout_weight="0.16"/>
-    </TableRow>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wyjdż"
-            android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"/>
+            android:layout_marginTop="50dp">
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:windowSoftInputMode="adjustPan"
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" android:id="@+id/test">
 
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Dane ucznia:"
+                    android:id="@+id/textView5" android:layout_gravity="center_horizontal"/>
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Srednia"
-                android:id="@+id/srednia_button_daneucznia"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mediana"
-                android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wariancja"
-                android:id="@+id/wariancja_button_daneucznia"/>
-    </TableRow>
-
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dominanta"
-                android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Odchylenie"
-                android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kwartyle"
-                android:id="@+id/kwartyle_button_daneucznia"/>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
             </TableRow>
 
 
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-</LinearLayout>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textAppearance="?android:attr/textAppearanceLarge" android:text="Ania "
+                          android:id="@+id/textView9"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Wilczurowska"
+                        android:id="@+id/textView7"/>
+            </TableRow>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Data Ocena"
+                    android:id="@+id/textView6"/>
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp" android:layout_gravity="center_horizontal" android:weightSum="1">
+                <ListView
+                        android:windowSoftInputMode="adjustPan"
+                        android:layout_width="57dp"
+                        android:layout_height="264dp"
+                        android:id="@+id/listView3" android:layout_weight="0.14"/>
+                <ListView
+                        android:windowSoftInputMode="adjustPan"
+                        android:layout_width="53dp"
+                        android:layout_height="259dp"
+                        android:id="@+id/listView4" android:layout_weight="0.16"/>
+            </TableRow>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wyjdż"
+                    android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"/>
+
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+                    android:weightSum="1">
+
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Srednia"
+                        android:id="@+id/srednia_button_daneucznia"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mediana"
+                        android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wariancja"
+                        android:id="@+id/wariancja_button_daneucznia"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+                    android:weightSum="1">
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dominanta"
+                        android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Odchylenie"
+                        android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kwartyle"
+                        android:id="@+id/kwartyle_button_daneucznia"/>
+            </TableRow>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</ScrollView>
