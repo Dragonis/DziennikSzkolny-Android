@@ -5,10 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.security.DomainCombiner;
 import java.util.ArrayList;
@@ -29,6 +26,7 @@ public class DaneUczniaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dane_ucznia_layout);
 
+        pobierzImieiNazwiskozPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
         ListView listaKompoment = (ListView) findViewById(R.id.listView3);
@@ -72,6 +70,16 @@ public class DaneUczniaActivity extends Activity {
 
 
 
+    }
+
+    public void pobierzImieiNazwiskozPoprzedniegoActivity()
+    {
+        // dane pochodza z ListaKlasActivity
+        Bundle przekazanedane = getIntent().getExtras();
+        String przekazanytekst = przekazanedane.getString("ImieiNazwisko");
+
+        TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
+        pokaz_imie_nazwisko_textview.setText(przekazanytekst);
     }
 
     /**

@@ -25,6 +25,7 @@ public class ListaKlasActivity extends Activity {
     private ListView listaKompoment = null;
     private ListView listaKompoment2 = null;
     private Button klasa1 = null;
+    String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class ListaKlasActivity extends Activity {
             }
         });
 
+        // lista osob
         listaKompoment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -56,6 +58,9 @@ public class ListaKlasActivity extends Activity {
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
+                imieiNazwiskoWybranejOsobyzListView = ((TextView)view).getText().toString();
+                Toast.makeText(getApplicationContext(), imieiNazwiskoWybranejOsobyzListView,
+                        Toast.LENGTH_SHORT).show();
 
                 String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
                 ArrayList<String> subjectsL = new ArrayList<String>();
@@ -76,14 +81,15 @@ public class ListaKlasActivity extends Activity {
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
-                Intent intent = new Intent(getApplicationContext(), DaneUczniaActivity.class);
 
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
-                }
+                // Pakujemy go w Bundle
+                Bundle koszyk = new Bundle();
+                koszyk.putString("ImieiNazwisko", imieiNazwiskoWybranejOsobyzListView);
+                // Definiujemy cel
+                Intent cel = new Intent(view.getContext(), DaneUczniaActivity.class);
+                cel.putExtras(koszyk);
+                // Wysyłamy
+                startActivity(cel);
 
 
             }
@@ -127,5 +133,18 @@ public class ListaKlasActivity extends Activity {
         });
     }
 
+    public void wyslijDaneDoNastepnegoActivity()
+    {
+        // Pobieramy tekst z pola
+        String wpisanyTekst = "Witaj swiecie";
+        // Pakujemy go w Bundle
+        Bundle koszyk = new Bundle();
+        koszyk.putString("ImieiNazwisko", imieiNazwiskoWybranejOsobyzListView);
+        // Definiujemy cel
+        Intent cel = new Intent(this, DaneUczniaActivity.class);
+        cel.putExtras(koszyk);
+        // Wysyłamy
+        startActivity(cel);
+    }
 
 }

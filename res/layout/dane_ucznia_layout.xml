@@ -23,14 +23,8 @@
             android:layout_height="wrap_content">
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="Ania "
-                  android:id="@+id/textView9"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wilczurowska"
-                android:id="@+id/textView7"/>
+                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Imie i Nazwisko]"
+                  android:id="@+id/pokazImieiNaziwsko"/>
     </TableRow>
     <TextView
             android:layout_width="wrap_content"
