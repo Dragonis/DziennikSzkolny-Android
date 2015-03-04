@@ -24,7 +24,7 @@ public class DaneUczniaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dane_ucznia_layout);
+        setContentView(R.layout.navigation_dane_ucznia_layout);
 
         pobierzImieiNazwiskozPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
@@ -37,8 +37,8 @@ public class DaneUczniaActivity extends Activity {
         ArrayList<String> datyL = new ArrayList<String>();
         ocenyL.addAll( Arrays.asList(oceny) );
         datyL.addAll( Arrays.asList(daty) );
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.edycja_danych_row, ocenyL);;
-        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.edycja_danych_row, datyL);;
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, ocenyL);;
+        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, datyL);;
         listaKompoment.setAdapter(adapter2);
         listaKompoment2.setAdapter(adapter);
 

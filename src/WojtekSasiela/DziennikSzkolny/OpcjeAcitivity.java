@@ -23,7 +23,7 @@ public class OpcjeAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opcje_layout);
+        setContentView(R.layout.fragment_opcje_layout);
         doORMAccountDatabaseStuff();
 
         // Laczy operacje zamkniecia z konkrentym buttonem

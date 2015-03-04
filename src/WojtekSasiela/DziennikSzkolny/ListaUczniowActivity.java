@@ -25,7 +25,7 @@ public class ListaUczniowActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.uczniowie_layout);
+        setContentView(R.layout.navigation_uczniowie_layout);
         zamknijOkno(R.id.Zamknij_Uczniowie);
         wczytajdoListViewa();
 
@@ -71,7 +71,6 @@ public class ListaUczniowActivity extends Activity {
         map.put("name", "bob");
         mylist.add(map);
 
-//Each row is a new hashmap
         map = new HashMap<String, String>();
         map.put("id", "2");
         map.put("name", "sally");
@@ -89,7 +88,7 @@ public class ListaUczniowActivity extends Activity {
 //ect...
 
        SimpleAdapter mSchedule = new SimpleAdapter(this, mylist,
-                R.layout.row,
+                R.layout.listview_row,
                 new String[] {"id", "name"}, new int[] {R.id.name, R.id.email});
         list.setAdapter(mSchedule);
     }

@@ -31,7 +31,7 @@ public class ListaKlasActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lista_klas_layout);
+        setContentView(R.layout.navigation_lista_klas_layout);
 
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
@@ -65,7 +65,7 @@ public class ListaKlasActivity extends Activity {
                 String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
                 ArrayList<String> subjectsL = new ArrayList<String>();
                 subjectsL.addAll(Arrays.asList(subjects));
-                adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.elementy_listy_glownej, subjectsL);
+                adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
                 listaKompoment2.setAdapter(adapterSubcjets);
             }
         });
@@ -118,7 +118,7 @@ public class ListaKlasActivity extends Activity {
         //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         ArrayList<String> carL = new ArrayList<String>();
         carL.addAll(Arrays.asList(cars));
-        adapter = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, carL);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
         listaKompoment.setAdapter(adapter);
 
     }

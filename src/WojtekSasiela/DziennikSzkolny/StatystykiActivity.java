@@ -17,7 +17,7 @@ public class StatystykiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.statystyki_layout);
+        setContentView(R.layout.navigation_statystyki_layout);
 
 
         Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
