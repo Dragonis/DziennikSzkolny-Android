@@ -17,7 +17,7 @@ public class MedianaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mediana_layout);
+        setContentView(R.layout.fragment_mediana_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 

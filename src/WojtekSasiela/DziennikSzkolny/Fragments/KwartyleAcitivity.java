@@ -17,7 +17,7 @@ public class KwartyleAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kwartyle_layout);
+        setContentView(R.layout.fragment_kwartyle_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 

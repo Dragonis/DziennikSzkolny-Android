@@ -17,7 +17,7 @@ public class DominantaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dominanta_layout);
+        setContentView(R.layout.fragment_dominanta_layout);
 
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 

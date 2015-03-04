@@ -2,7 +2,6 @@ package WojtekSasiela.DziennikSzkolny.Fragments;
 
 import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,7 @@ public class SredniaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.srednia_layout);
+        setContentView(R.layout.fragment_srednia_layout);
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
