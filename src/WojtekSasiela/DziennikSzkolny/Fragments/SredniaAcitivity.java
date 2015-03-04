@@ -22,7 +22,7 @@ public class SredniaAcitivity extends Activity {
         Bundle przekazanedane = getIntent().getExtras();
         String przekazanytekst = przekazanedane.getString("dane");
 
-        TextView textView12 = (TextView) findViewById(R.id.textView12);
+        TextView textView12 = (TextView) findViewById(R.id.textView10);
         textView12.setText(przekazanytekst);
 
         zamknijOkno(R.id.zamknij_srednia);

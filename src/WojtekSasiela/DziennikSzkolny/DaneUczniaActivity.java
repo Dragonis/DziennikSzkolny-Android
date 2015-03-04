@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class DaneUczniaActivity extends Activity {
 
     private ArrayList<HashMap<String, String>> list;
-
+    String ImieiNazwisko = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class DaneUczniaActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Pobieramy tekst z pola
-                String wpisanyTekst = "Witaj swiecie";
+                String wpisanyTekst = ImieiNazwisko;
                 // Pakujemy go w Bundle
                 Bundle koszyk = new Bundle();
                 koszyk.putString("dane", wpisanyTekst);
@@ -76,10 +76,10 @@ public class DaneUczniaActivity extends Activity {
     {
         // dane pochodza z ListaKlasActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String przekazanytekst = przekazanedane.getString("ImieiNazwisko");
+        ImieiNazwisko = przekazanedane.getString("ImieiNazwisko");
 
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
-        pokaz_imie_nazwisko_textview.setText(przekazanytekst);
+        pokaz_imie_nazwisko_textview.setText(ImieiNazwisko);
     }
 
     /**
