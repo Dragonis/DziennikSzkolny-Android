@@ -44,14 +44,33 @@ public class DaneUczniaActivity extends Activity {
         listaKompoment.setAdapter(adapter2);
         listaKompoment2.setAdapter(adapter);
 
-
         // wyswitlanie odpowiednich activity statystycznych
-        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia,getApplicationContext(),SredniaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia,getApplicationContext(),MedianaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia,getApplicationContext(),WariancjaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.dominanta_button_daneucznia,getApplicationContext(),DominantaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.odchylenie_button_daneucznia,getApplicationContext(),OdchylenieAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.kwartyle_button_daneucznia,getApplicationContext(),KwartyleAcitivity.class);
+
+
+        Button srednia_button_dane_ucznia = (Button) findViewById(R.id.srednia_button_daneucznia);
+        srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Pobieramy tekst z pola
+                String wpisanyTekst = "Witaj swiecie";
+                // Pakujemy go w Bundle
+                Bundle koszyk = new Bundle();
+                koszyk.putString("dane", wpisanyTekst);
+                // Definiujemy cel
+                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                cel.putExtras(koszyk);
+                // Wysyłamy
+                startActivity(cel);
+            }
+        });
+
+
 
     }
 

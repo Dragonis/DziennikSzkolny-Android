@@ -17,6 +17,8 @@ public class StatystykiActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statystyki_layout);
+
+
         Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
@@ -25,8 +27,23 @@ public class StatystykiActivity extends Activity {
         Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
         zamknijOkno(R.id.Zamknij_Statystyki);
 
-        rysujWykres();
+        Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
+        srednia_button_statystyki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Pobieramy tekst z pola
+                String wpisanyTekst = "Witaj srednia";
+                // Pakujemy go w Bundle
+                Bundle koszyk = new Bundle();
+                koszyk.putString("dane", wpisanyTekst);
+                // Definiujemy cel
+                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                cel.putExtras(koszyk);
+                // Wysyłamy
+                startActivity(cel);
 
+            }
+        });
     }
 
     public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
@@ -59,9 +76,4 @@ public class StatystykiActivity extends Activity {
         });
     }
 
-    public void rysujWykres()
-    {
-
-
-    }
 }
