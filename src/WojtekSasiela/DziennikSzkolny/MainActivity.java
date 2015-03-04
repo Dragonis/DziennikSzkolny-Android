@@ -39,9 +39,6 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
-        Database databaseInstance = new Database(this,"Student.db",2);
-        databaseInstance.db = openOrCreateDatabase("StudentDB.db", MODE_PRIVATE, null);
-        databaseInstance.getAllData();
 
         //Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
         Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
