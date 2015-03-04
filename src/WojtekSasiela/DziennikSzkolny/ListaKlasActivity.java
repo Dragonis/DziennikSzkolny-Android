@@ -25,6 +25,11 @@ public class ListaKlasActivity extends Activity {
     private ListView listaKompoment = null;
     private ListView listaKompoment2 = null;
     private Button klasa1 = null;
+    private Button klasa2 = null;
+    private Button klasa3 = null;
+    private Button klasa4 = null;
+    private Button klasa5 = null;
+    private Button klasa6 = null;
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -36,11 +41,99 @@ public class ListaKlasActivity extends Activity {
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
         klasa1 = (Button) findViewById(R.id.klasa1);
+        klasa2 = (Button) findViewById(R.id.klasa2);
+        klasa3 = (Button) findViewById(R.id.klasa3);
+        klasa4 = (Button) findViewById(R.id.klasa4);
+        klasa5 = (Button) findViewById(R.id.klasa5);
+        klasa6 = (Button) findViewById(R.id.klasa6);
 
 
         klasa1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                klasa2.setBackgroundColor(Color.TRANSPARENT);
+                klasa3.setBackgroundColor(Color.TRANSPARENT);
+                klasa4.setBackgroundColor(Color.TRANSPARENT);
+                klasa5.setBackgroundColor(Color.TRANSPARENT);
+                klasa6.setBackgroundColor(Color.TRANSPARENT);
+                view.setBackgroundColor(Color.BLUE);
+            
+                pokazListeOsob();
+
+            }
+            
+        });
+
+        klasa2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                klasa1.setBackgroundColor(Color.TRANSPARENT);
+                klasa3.setBackgroundColor(Color.TRANSPARENT);
+                klasa4.setBackgroundColor(Color.TRANSPARENT);
+                klasa5.setBackgroundColor(Color.TRANSPARENT);
+                klasa6.setBackgroundColor(Color.TRANSPARENT);
+
+                view.setBackgroundColor(Color.BLUE);
+
+                pokazListeOsob();
+
+            }
+        });
+
+        klasa3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                klasa1.setBackgroundColor(Color.TRANSPARENT);
+                klasa2.setBackgroundColor(Color.TRANSPARENT);
+                klasa4.setBackgroundColor(Color.TRANSPARENT);
+                klasa5.setBackgroundColor(Color.TRANSPARENT);
+                klasa6.setBackgroundColor(Color.TRANSPARENT);
+
+                view.setBackgroundColor(Color.BLUE);
+
+                pokazListeOsob();
+
+            }
+        });
+        klasa4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                klasa1.setBackgroundColor(Color.TRANSPARENT);
+                klasa2.setBackgroundColor(Color.TRANSPARENT);
+                klasa3.setBackgroundColor(Color.TRANSPARENT);
+                klasa5.setBackgroundColor(Color.TRANSPARENT);
+                klasa6.setBackgroundColor(Color.TRANSPARENT);
+
+                view.setBackgroundColor(Color.BLUE);
+
+                pokazListeOsob();
+
+            }
+        });
+        klasa5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                klasa1.setBackgroundColor(Color.TRANSPARENT);
+                klasa2.setBackgroundColor(Color.TRANSPARENT);
+                klasa3.setBackgroundColor(Color.TRANSPARENT);
+                klasa4.setBackgroundColor(Color.TRANSPARENT);
+                klasa6.setBackgroundColor(Color.TRANSPARENT);
+
+                view.setBackgroundColor(Color.BLUE);
+
+                pokazListeOsob();
+
+            }
+        });
+        klasa6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                klasa1.setBackgroundColor(Color.TRANSPARENT);
+                klasa2.setBackgroundColor(Color.TRANSPARENT);
+                klasa3.setBackgroundColor(Color.TRANSPARENT);
+                klasa4.setBackgroundColor(Color.TRANSPARENT);
+                klasa5.setBackgroundColor(Color.TRANSPARENT);
+
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsob();
