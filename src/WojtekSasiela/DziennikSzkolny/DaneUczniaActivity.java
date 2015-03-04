@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.Fragments.*;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-import java.security.DomainCombiner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;

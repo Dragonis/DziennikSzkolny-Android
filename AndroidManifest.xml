@@ -20,11 +20,11 @@
         <activity android:name=".ListaUczniowActivity" android:label="Lista Uczniow"/>
         <activity android:name=".ListaKlasActivity" android:label="Lista klas"/>
 
-        <activity android:name=".SredniaAcitivity" android:label="Srednia arytmetyczna"/>
-        <activity android:name=".WariancjaAcitivity" android:label="Wariancja"/>
-        <activity android:name=".OdchylenieAcitivity" android:label="Odchylenie standardowe"/>
-        <activity android:name=".MedianaAcitivity" android:label="Mediana"/>
-        <activity android:name=".DominantaAcitivity" android:label="Dominanta"/>
-        <activity android:name=".KwartyleAcitivity" android:label="Kwartyle"/>
+        <activity android:name=".Fragments.SredniaAcitivity" android:label="Srednia arytmetyczna"/>
+        <activity android:name=".Fragments.WariancjaAcitivity" android:label="Wariancja"/>
+        <activity android:name=".Fragments.OdchylenieAcitivity" android:label="Odchylenie standardowe"/>
+        <activity android:name=".Fragments.MedianaAcitivity" android:label="Mediana"/>
+        <activity android:name=".Fragments.DominantaAcitivity" android:label="Dominanta"/>
+        <activity android:name=".Fragments.KwartyleAcitivity" android:label="Kwartyle"/>
     </application>
 </manifest>
