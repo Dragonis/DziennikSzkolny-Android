@@ -102,17 +102,60 @@ public class MainActivity extends Activity {
         AccountDao.create(new Account("Uzytkownik", "Haslo"));
         AccountDao.create(new Account("root", "testABCD"));
 
-        StudentDao.create(new Student("Wojtek", "Sasiela"));
-        StudentDao.create(new Student("Anna", "Kowalska"));
-        StudentDao.create(new Student("Joanna", "Pyrzyńska"));
-        StudentDao.create(new Student("Izabela", "Tarnowska"));
-        StudentDao.create(new Student("Blanka", "Szept"));
-        StudentDao.create(new Student("Paweł", "Paluch"));
-        StudentDao.create(new Student("Piotr", "Mały"));
-        StudentDao.create(new Student("Karol", "Kopytko"));
-        StudentDao.create(new Student("Arkadiusz", "Bąk"));
-        StudentDao.create(new Student("Teresa", "Wawrzyniak"));
-        StudentDao.create(new Student("Katarzyna", "Jagiełło"));
+        StudentDao.create(new Student("Wojtek", "Sasiela",1));
+        StudentDao.create(new Student("Anna", "Kowalska",1));
+        StudentDao.create(new Student("Joanna", "Pyrzyńska",1));
+        StudentDao.create(new Student("Izabela", "Tarnowska",1));
+        StudentDao.create(new Student("Blanka", "Szept",1));
+        StudentDao.create(new Student("Paweł", "Paluch",1));
+        StudentDao.create(new Student("Piotr", "Mały",1));
+        StudentDao.create(new Student("Karol", "Kopytko",1));
+        StudentDao.create(new Student("Arkadiusz", "Bąk",1));
+        StudentDao.create(new Student("Teresa", "Wawrzyniak",1));
+        StudentDao.create(new Student("Katarzyna", "Jagiełło",1));
+
+        StudentDao.create(new Student("111", "111",2));
+        StudentDao.create(new Student("222", "222",2));
+        StudentDao.create(new Student("333", "333",2));
+        StudentDao.create(new Student("333", "333",2));
+        StudentDao.create(new Student("4444", "444",2));
+        StudentDao.create(new Student("555", "555",2));
+        StudentDao.create(new Student("666", "666",2));
+        StudentDao.create(new Student("777", "777",2));
+        StudentDao.create(new Student("888", "888",2));
+        StudentDao.create(new Student("999", "999",2));
+
+        StudentDao.create(new Student("AAA", "AAA",3));
+        StudentDao.create(new Student("BBB", "BBB",3));
+        StudentDao.create(new Student("CCC", "CCC",3));
+        StudentDao.create(new Student("DDD", "DDD",3));
+        StudentDao.create(new Student("EEE", "EEE",3));
+        StudentDao.create(new Student("FFF", "FFF",3));
+        StudentDao.create(new Student("GGG", "GGG",3));
+        StudentDao.create(new Student("HHH", "HHH",3));
+        StudentDao.create(new Student("III", "III",3));
+        StudentDao.create(new Student("JJJ", "JJJ",3));
+
+        StudentDao.create(new Student("4", "klasa",4));
+        StudentDao.create(new Student("czwarta", "test",4));
+        StudentDao.create(new Student("IV", "test2",4));
+        StudentDao.create(new Student("qqq", "qqq",4));
+        StudentDao.create(new Student("www", "www",4));
+        StudentDao.create(new Student("eee", "eee",4));
+
+        StudentDao.create(new Student("V", "abc",5));
+        StudentDao.create(new Student("5", "z",5));
+        StudentDao.create(new Student("piata", "y",5));
+        StudentDao.create(new Student("aaa", "aaa",5));
+        StudentDao.create(new Student("sss", "sss",5));
+        StudentDao.create(new Student("dddd", "ddd",5));
+
+        StudentDao.create(new Student("VI", "numera",6));
+        StudentDao.create(new Student("6", "dzwiek",6));
+        StudentDao.create(new Student("szosta", "woda",6));
+        StudentDao.create(new Student("ppp", "ppp",6));
+        StudentDao.create(new Student("ccc", "ccc",6));
+        StudentDao.create(new Student("nnn", "nnn",6));
 
         TeacherDao.create(new Teacher("Jan", "Kowalski"));
 

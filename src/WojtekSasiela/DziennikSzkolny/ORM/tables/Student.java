@@ -40,9 +40,10 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String surname) {
+    public Student(String name, String surname, Integer classrom) {
         this.name = name;
         this.surname = surname;
+        this.classrom = classrom;
     }
 //
 //    public Student(String name, String surname, Integer classrom, Integer id_Polish, Integer id_English, Integer id_Math, Integer id_Biology, Integer id_Religion, Integer id_WF) {

@@ -13,6 +13,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -58,7 +59,7 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
                 view.setBackgroundColor(Color.BLUE);
             
-                pokazListeOsob();
+                pokazListeOsobzKlasy(1);
 
             }
             
@@ -75,7 +76,7 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsob();
+                pokazListeOsobzKlasy(2);
 
             }
         });
@@ -91,7 +92,7 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsob();
+                pokazListeOsobzKlasy(3);
 
             }
         });
@@ -106,7 +107,7 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsob();
+                pokazListeOsobzKlasy(4);
 
             }
         });
@@ -121,7 +122,7 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsob();
+                pokazListeOsobzKlasy(5);
 
             }
         });
@@ -136,7 +137,7 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsob();
+                pokazListeOsobzKlasy(6);
 
             }
         });
@@ -190,31 +191,34 @@ public class ListaKlasActivity extends Activity {
         zamknijOkno(R.id.Wyjdz_button);
    }
 
-    public void pokazListeOsob() {
-        // Connect with Database ORM
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
-        RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
-        List<Student> students = studentDao.queryForAll();
-        String cars[] =
-                {
-                        students.get(0).getName() + " " + students.get(0).getSurname(),
-                        students.get(1).getName() + " " + students.get(1).getSurname(),
-                        students.get(2).getName() + " " + students.get(2).getSurname(),
-                        students.get(3).getName() + " " + students.get(3).getSurname(),
-                        students.get(4).getName() + " " + students.get(4).getSurname(),
-                        students.get(5).getName() + " " + students.get(5).getSurname(),
-                        students.get(6).getName() + " " + students.get(6).getSurname(),
-                        students.get(7).getName() + " " + students.get(7).getSurname(),
-                        students.get(8).getName() + " " + students.get(8).getSurname(),
-                        students.get(9).getName() + " " + students.get(9).getSurname(),
-                };
-        //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
-        ArrayList<String> carL = new ArrayList<String>();
-        carL.addAll(Arrays.asList(cars));
-        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
-        listaKompoment.setAdapter(adapter);
+    public void pokazListeOsobzKlasy(int nr_klasy) {
+
+            // Connect with Database ORM
+            DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+            RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
+            List<Student> students = studentDao.queryForEq("classrom",nr_klasy);
+            String cars[] =
+                    {
+                            students.get(0).getName() + " " + students.get(0).getSurname(),
+                            students.get(1).getName() + " " + students.get(1).getSurname(),
+                            students.get(2).getName() + " " + students.get(2).getSurname(),
+                            students.get(3).getName() + " " + students.get(3).getSurname(),
+                            students.get(4).getName() + " " + students.get(4).getSurname(),
+                            students.get(5).getName() + " " + students.get(5).getSurname(),
+//                            students.get(6).getName() + " " + students.get(6).getSurname(),
+//                            students.get(7).getName() + " " + students.get(7).getSurname(),
+//                            students.get(8).getName() + " " + students.get(8).getSurname(),
+//                            students.get(9).getName() + " " + students.get(9).getSurname(),
+                    };
+            //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
+            ArrayList<String> carL = new ArrayList<String>();
+            carL.addAll(Arrays.asList(cars));
+            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
+            listaKompoment.setAdapter(adapter);
 
     }
+
+
 
     public void zamknijOkno(int id) {
         Button b = (Button) findViewById(id);

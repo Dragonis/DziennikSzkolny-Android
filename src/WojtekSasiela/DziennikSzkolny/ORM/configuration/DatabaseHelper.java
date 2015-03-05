@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts5.db";
+    private static final String DATABASE_NAME = "Accounts24.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;
@@ -70,6 +70,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase database,
                          ConnectionSource connectionSource) {
         // TODO Auto-generated method stub
+
+
         try {
             TableUtils.createTable(connectionSource, Account.class);
             TableUtils.createTable(connectionSource, Student.class);
