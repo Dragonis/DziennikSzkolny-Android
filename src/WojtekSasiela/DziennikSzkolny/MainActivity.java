@@ -99,73 +99,18 @@ public class MainActivity extends Activity {
         RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao = dbHelper.getOdchylenieRuntimeExceptionDao();
         RuntimeExceptionDao<Wariancja, Integer> WariancjaDao = dbHelper.getWariancjaRuntimeExceptionDao();
 
-        AccountDao.create(new Account("admin login1", "admin password1"));
-        AccountDao.create(new Account("Uzytkownik", "Haslo"));
-        AccountDao.create(new Account("root", "testABCD"));
+        insert_Accounts_IntoDatabase(AccountDao);
 
-        StudentDao.create(new Student("Wojtek", "Sasiela",1));
-        StudentDao.create(new Student("Anna", "Kowalska",1));
-        StudentDao.create(new Student("Joanna", "Pyrzyńska",1));
-        StudentDao.create(new Student("Izabela", "Tarnowska",1));
-        StudentDao.create(new Student("Blanka", "Szept",1));
-        StudentDao.create(new Student("Paweł", "Paluch",1));
-        StudentDao.create(new Student("Piotr", "Mały",1));
-        StudentDao.create(new Student("Karol", "Kopytko",1));
-        StudentDao.create(new Student("Arkadiusz", "Bąk",1));
-        StudentDao.create(new Student("Teresa", "Wawrzyniak",1));
-        StudentDao.create(new Student("Katarzyna", "Jagiełło",1));
+        insert_Students_IntoDatabase(StudentDao);
 
-        StudentDao.create(new Student("111", "111",2));
-        StudentDao.create(new Student("222", "222",2));
-        StudentDao.create(new Student("333", "333",2));
-        StudentDao.create(new Student("333", "333",2));
-        StudentDao.create(new Student("4444", "444",2));
-        StudentDao.create(new Student("555", "555",2));
-        StudentDao.create(new Student("666", "666",2));
-        StudentDao.create(new Student("777", "777",2));
-        StudentDao.create(new Student("888", "888",2));
-        StudentDao.create(new Student("999", "999",2));
+        insert_Teachers_IntoDatabase(TeacherDao);
 
-        StudentDao.create(new Student("AAA", "AAA",3));
-        StudentDao.create(new Student("BBB", "BBB",3));
-        StudentDao.create(new Student("CCC", "CCC",3));
-        StudentDao.create(new Student("DDD", "DDD",3));
-        StudentDao.create(new Student("EEE", "EEE",3));
-        StudentDao.create(new Student("FFF", "FFF",3));
-        StudentDao.create(new Student("GGG", "GGG",3));
-        StudentDao.create(new Student("HHH", "HHH",3));
-        StudentDao.create(new Student("III", "III",3));
-        StudentDao.create(new Student("JJJ", "JJJ",3));
-
-        StudentDao.create(new Student("4", "klasa",4));
-        StudentDao.create(new Student("czwarta", "test",4));
-        StudentDao.create(new Student("IV", "test2",4));
-        StudentDao.create(new Student("qqq", "qqq",4));
-        StudentDao.create(new Student("www", "www",4));
-        StudentDao.create(new Student("eee", "eee",4));
-
-        StudentDao.create(new Student("V", "abc",5));
-        StudentDao.create(new Student("5", "z",5));
-        StudentDao.create(new Student("piata", "y",5));
-        StudentDao.create(new Student("aaa", "aaa",5));
-        StudentDao.create(new Student("sss", "sss",5));
-        StudentDao.create(new Student("dddd", "ddd",5));
-
-        StudentDao.create(new Student("VI", "numera",6));
-        StudentDao.create(new Student("6", "dzwiek",6));
-        StudentDao.create(new Student("szosta", "woda",6));
-        StudentDao.create(new Student("ppp", "ppp",6));
-        StudentDao.create(new Student("ccc", "ccc",6));
-        StudentDao.create(new Student("nnn", "nnn",6));
-
-        TeacherDao.create(new Teacher("Jan", "Kowalski"));
-
-        BiologyDao.create(new Biology(1,3,4,5));
-        EnglishDao.create(new English(1,3,4,5));
-        MathematicDao.create(new Mathematic(1, 3, 4, 5));
-        PolishDao.create(new Polish(1, 3, 4, 5));
-        ReligionDao.create(new Religion(1, 3, 4, 5));
-        WFDao.create(new WF(1,3,4,5));
+        insert_BIOLOGY_GradesIntoDatabase(BiologyDao);
+        insert_ENGLISH_GradesIntoDatabase(EnglishDao);
+        insert_MATHEMATIC_GradesIntoDatabase(MathematicDao);
+        insert_POLISH_GradesIntoDatabases(PolishDao);
+        insert_RELIGION_GradesIntoDatabase(ReligionDao);
+        insert_WF_GradesIntoDatabase(WFDao);
 
         SredniaDao.create(new Srednia(1,3,3,3));
         MedianaDao.create(new Mediana(1,3,3,3));
@@ -225,6 +170,96 @@ public class MainActivity extends Activity {
         OpenHelperManager.releaseHelper();
     }
 
+    private void insert_Teachers_IntoDatabase(RuntimeExceptionDao<Teacher, Integer> teacherDao) {
+        teacherDao.create(new Teacher("Jan", "Kowalski"));
+    }
+
+    private void insert_WF_GradesIntoDatabase(RuntimeExceptionDao<WF, Integer> WFDao) {
+        WFDao.create(new WF(1,3,4,5));
+    }
+
+    private void insert_RELIGION_GradesIntoDatabase(RuntimeExceptionDao<Religion, Integer> religionDao) {
+        religionDao.create(new Religion(1, 3, 4, 5));
+    }
+
+    private void insert_POLISH_GradesIntoDatabases(RuntimeExceptionDao<Polish, Integer> polishDao) {
+        polishDao.create(new Polish(1, 3, 4, 5));
+    }
+
+    private void insert_MATHEMATIC_GradesIntoDatabase(RuntimeExceptionDao<Mathematic, Integer> mathematicDao) {
+        mathematicDao.create(new Mathematic(1, 3, 4, 5));
+    }
+
+    private void insert_ENGLISH_GradesIntoDatabase(RuntimeExceptionDao<English, Integer> englishDao) {
+        englishDao.create(new English(1,3,4,5));
+    }
+
+    private void insert_BIOLOGY_GradesIntoDatabase(RuntimeExceptionDao<Biology, Integer> biologyDao) {
+        biologyDao.create(new Biology(1,3,4,5));
+    }
+
+    public void insert_Students_IntoDatabase(RuntimeExceptionDao<Student, Integer> studentDao) {
+        studentDao.create(new Student("Wojtek", "Sasiela",1));
+        studentDao.create(new Student("Anna", "Kowalska",1));
+        studentDao.create(new Student("Joanna", "Pyrzyńska",1));
+        studentDao.create(new Student("Izabela", "Tarnowska",1));
+        studentDao.create(new Student("Blanka", "Szept",1));
+        studentDao.create(new Student("Paweł", "Paluch",1));
+        studentDao.create(new Student("Piotr", "Mały",1));
+        studentDao.create(new Student("Karol", "Kopytko",1));
+        studentDao.create(new Student("Arkadiusz", "Bąk",1));
+        studentDao.create(new Student("Teresa", "Wawrzyniak",1));
+        studentDao.create(new Student("Katarzyna", "Jagiełło",1));
+
+        studentDao.create(new Student("111", "111",2));
+        studentDao.create(new Student("222", "222",2));
+        studentDao.create(new Student("333", "333",2));
+        studentDao.create(new Student("333", "333",2));
+        studentDao.create(new Student("4444", "444",2));
+        studentDao.create(new Student("555", "555",2));
+        studentDao.create(new Student("666", "666",2));
+        studentDao.create(new Student("777", "777",2));
+        studentDao.create(new Student("888", "888",2));
+        studentDao.create(new Student("999", "999",2));
+
+        studentDao.create(new Student("AAA", "AAA",3));
+        studentDao.create(new Student("BBB", "BBB",3));
+        studentDao.create(new Student("CCC", "CCC",3));
+        studentDao.create(new Student("DDD", "DDD",3));
+        studentDao.create(new Student("EEE", "EEE",3));
+        studentDao.create(new Student("FFF", "FFF",3));
+        studentDao.create(new Student("GGG", "GGG",3));
+        studentDao.create(new Student("HHH", "HHH",3));
+        studentDao.create(new Student("III", "III",3));
+        studentDao.create(new Student("JJJ", "JJJ",3));
+
+        studentDao.create(new Student("4", "klasa",4));
+        studentDao.create(new Student("czwarta", "test",4));
+        studentDao.create(new Student("IV", "test2",4));
+        studentDao.create(new Student("qqq", "qqq",4));
+        studentDao.create(new Student("www", "www",4));
+        studentDao.create(new Student("eee", "eee",4));
+
+        studentDao.create(new Student("V", "abc",5));
+        studentDao.create(new Student("5", "z",5));
+        studentDao.create(new Student("piata", "y",5));
+        studentDao.create(new Student("aaa", "aaa",5));
+        studentDao.create(new Student("sss", "sss",5));
+        studentDao.create(new Student("dddd", "ddd",5));
+
+        studentDao.create(new Student("VI", "numera",6));
+        studentDao.create(new Student("6", "dzwiek",6));
+        studentDao.create(new Student("szosta", "woda",6));
+        studentDao.create(new Student("ppp", "ppp",6));
+        studentDao.create(new Student("ccc", "ccc",6));
+        studentDao.create(new Student("nnn", "nnn",6));
+    }
+
+    public void insert_Accounts_IntoDatabase(RuntimeExceptionDao<Account, Integer> accountDao) {
+        accountDao.create(new Account("admin login1", "admin password1"));
+        accountDao.create(new Account("Uzytkownik", "Haslo"));
+        accountDao.create(new Account("root", "testABCD"));
+    }
 
 
 }
