@@ -35,7 +35,8 @@ public class MainActivity extends Activity {
         try {
             doAccountDataStuff();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            Toast.makeText(getApplicationContext(), "Nie mozna wprowadzic danych do BazyDanych",
+                    Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 

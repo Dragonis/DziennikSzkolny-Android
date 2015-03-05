@@ -205,10 +205,17 @@ public class ListaKlasActivity extends Activity {
                             students.get(3).getName() + " " + students.get(3).getSurname(),
                             students.get(4).getName() + " " + students.get(4).getSurname(),
                             students.get(5).getName() + " " + students.get(5).getSurname(),
-//                            students.get(6).getName() + " " + students.get(6).getSurname(),
+                            students.get(6).getName() + " " + students.get(6).getSurname(),
 //                            students.get(7).getName() + " " + students.get(7).getSurname(),
 //                            students.get(8).getName() + " " + students.get(8).getSurname(),
 //                            students.get(9).getName() + " " + students.get(9).getSurname(),
+
+                                                // TODO POPRAWIENIE BLEDU W LISTAKLAS
+                                               // WYWALA BLEDY GDY:
+                            // przekroczy sie minimalna liczbe osob, ktore zostalo wprowadzone do bazy danych
+                            // przyklad:
+                            // wprowadzono w klasie 1, 5 osob , a w innych klasach powyzej 5 osob.
+                            // wtedy wywala blad przy 6 i wyzej (bo chcesz wyswietlic elementy ktorych nie ma)
                     };
             //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
             ArrayList<String> carL = new ArrayList<String>();
