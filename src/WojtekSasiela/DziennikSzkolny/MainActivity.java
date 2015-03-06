@@ -99,74 +99,88 @@ public class MainActivity extends Activity {
         RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao = dbHelper.getOdchylenieRuntimeExceptionDao();
         RuntimeExceptionDao<Wariancja, Integer> WariancjaDao = dbHelper.getWariancjaRuntimeExceptionDao();
 
-        /** Operacje INSERT **/
-        insert_Accounts_IntoDatabase(AccountDao);
+        if (dbHelper.getReadableDatabase() == null){
+            // wyswietla listeUczniow z bazy danych
 
-        insert_Students_IntoDatabase(StudentDao);
-
-        insert_Teachers_IntoDatabase(TeacherDao);
-
-        insert_BIOLOGY_GradesIntoDatabase(BiologyDao);
-        insert_ENGLISH_GradesIntoDatabase(EnglishDao);
-        insert_MATHEMATIC_GradesIntoDatabase(MathematicDao);
-        insert_POLISH_GradesIntoDatabases(PolishDao);
-        insert_RELIGION_GradesIntoDatabase(ReligionDao);
-        insert_WF_GradesIntoDatabase(WFDao);
-
-        SredniaDao.create(new Srednia(1,3,3,3));
-        MedianaDao.create(new Mediana(1,3,3,3));
-        DominantaDao.create(new Dominanta(1,3,3,3));
-        WariancjaDao.create(new Wariancja(1,3,3,3));
-        KwartyleDao.create(new Kwartyle(1, 3, 3, 3));
-        OdchylenieDao.create(new Odchylenie(1, 3, 3, 3));
+        }else{
+            //TODO Dodaje/Usuwa/Edytuje element(ucznia) do bazy danych
+            insert_Students_IntoDatabase(StudentDao);
+//            List<Student> students = StudentDao.queryForEq("id",1);
+//            Log.d("Student", students.toString());
 
 
-        /** Sprawdzenie czy dane poprawnie sie wyswietlaja **/
 
-        List<Account> accounts = AccountDao.queryForEq("id", 1);
-        Log.d("Account", accounts.toString());
+//
+//            /** Operacje INSERT **/
+//            insert_Accounts_IntoDatabase(AccountDao);
+//
+//            insert_Students_IntoDatabase(StudentDao);
+//
+//            insert_Teachers_IntoDatabase(TeacherDao);
+//
+//            insert_BIOLOGY_GradesIntoDatabase(BiologyDao);
+//            insert_ENGLISH_GradesIntoDatabase(EnglishDao);
+//            insert_MATHEMATIC_GradesIntoDatabase(MathematicDao);
+//            insert_POLISH_GradesIntoDatabases(PolishDao);
+//            insert_RELIGION_GradesIntoDatabase(ReligionDao);
+//            insert_WF_GradesIntoDatabase(WFDao);
+//
+//            SredniaDao.create(new Srednia(1,3,3,3));
+//            MedianaDao.create(new Mediana(1,3,3,3));
+//            DominantaDao.create(new Dominanta(1,3,3,3));
+//            WariancjaDao.create(new Wariancja(1,3,3,3));
+//            KwartyleDao.create(new Kwartyle(1, 3, 3, 3));
+//            OdchylenieDao.create(new Odchylenie(1, 3, 3, 3));
+//
+//
+//            /** Sprawdzenie czy dane poprawnie sie wyswietlaja **/
+//
+//            List<Account> accounts = AccountDao.queryForEq("id", 1);
+//            Log.d("Account", accounts.toString());
+//
+//            List<Student> students = StudentDao.queryForEq("id",1);
+//            Log.d("Student", students.toString());
+//
+//            List<Teacher> teachers = TeacherDao.queryForEq("id",1);
+//            Log.d("Teacher", teachers.toString());
+//
+//            List<Biology> biology_grades = BiologyDao.queryForEq("id",1);
+//            Log.d("Biology", biology_grades.toString());
+//
+//            List<English> english_grades = EnglishDao.queryForEq("id",1);
+//            Log.d("English", english_grades.toString());
+//
+//            List<Mathematic> mathematic_grades = MathematicDao.queryForEq("id",1);
+//            Log.d("Matgematic", mathematic_grades.toString());
+//
+//            List<Polish> polish_grades = PolishDao.queryForEq("id",1);
+//            Log.d("Polish", polish_grades.toString());
+//
+//            List<Religion> religion_grades = ReligionDao.queryForEq("id",1);
+//            Log.d("Religion", religion_grades.toString());
+//
+//            List<WF> wf_grades = WFDao.queryForEq("id",1);
+//            Log.d("WF", wf_grades.toString());
+//
+//            List<Srednia> srednia_dao = SredniaDao.queryForEq("id",1);
+//            Log.d("Srednia", srednia_dao.toString());
+//
+//            List<Mediana> mediana_dao = MedianaDao.queryForEq("id",1);
+//            Log.d("Mediana", mediana_dao.toString());
+//
+//            List<Dominanta> dominanta_dao = DominantaDao.queryForEq("id",1);
+//            Log.d("Dominanta", dominanta_dao.toString());
+//
+//            List<Kwartyle> kwartyle_dao = KwartyleDao.queryForEq("id",1);
+//            Log.d("Kwartyle", kwartyle_dao.toString());
+//
+//            List<Odchylenie> odchylenie_dao = OdchylenieDao.queryForEq("id",1);
+//            Log.d("Odchylenie", odchylenie_dao.toString());
+//
+//            List<Wariancja> wariancjas_dao = WariancjaDao.queryForEq("id",1);
+//            Log.d("Wariancja", wariancjas_dao.toString());
+        }
 
-        List<Student> students = StudentDao.queryForEq("id",1);
-        Log.d("Student", students.toString());
-
-        List<Teacher> teachers = TeacherDao.queryForEq("id",1);
-        Log.d("Teacher", teachers.toString());
-
-        List<Biology> biology_grades = BiologyDao.queryForEq("id",1);
-        Log.d("Biology", biology_grades.toString());
-
-        List<English> english_grades = EnglishDao.queryForEq("id",1);
-        Log.d("English", english_grades.toString());
-
-        List<Mathematic> mathematic_grades = MathematicDao.queryForEq("id",1);
-        Log.d("Matgematic", mathematic_grades.toString());
-
-        List<Polish> polish_grades = PolishDao.queryForEq("id",1);
-        Log.d("Polish", polish_grades.toString());
-
-        List<Religion> religion_grades = ReligionDao.queryForEq("id",1);
-        Log.d("Religion", religion_grades.toString());
-
-        List<WF> wf_grades = WFDao.queryForEq("id",1);
-        Log.d("WF", wf_grades.toString());
-
-        List<Srednia> srednia_dao = SredniaDao.queryForEq("id",1);
-        Log.d("Srednia", srednia_dao.toString());
-
-        List<Mediana> mediana_dao = MedianaDao.queryForEq("id",1);
-        Log.d("Mediana", mediana_dao.toString());
-
-        List<Dominanta> dominanta_dao = DominantaDao.queryForEq("id",1);
-        Log.d("Dominanta", dominanta_dao.toString());
-
-        List<Kwartyle> kwartyle_dao = KwartyleDao.queryForEq("id",1);
-        Log.d("Kwartyle", kwartyle_dao.toString());
-
-        List<Odchylenie> odchylenie_dao = OdchylenieDao.queryForEq("id",1);
-        Log.d("Odchylenie", odchylenie_dao.toString());
-
-        List<Wariancja> wariancjas_dao = WariancjaDao.queryForEq("id",1);
-        Log.d("Wariancja", wariancjas_dao.toString());
 
         OpenHelperManager.releaseHelper();
     }
