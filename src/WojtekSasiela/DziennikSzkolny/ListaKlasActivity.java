@@ -197,18 +197,12 @@ public class ListaKlasActivity extends Activity {
             DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
             RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
             List<Student> students = studentDao.queryForEq("classrom",nr_klasy);
-            String cars[] =
-                    {
-                            students.get(0).getName() + " " + students.get(0).getSurname(),
-                            students.get(1).getName() + " " + students.get(1).getSurname(),
-                            students.get(2).getName() + " " + students.get(2).getSurname(),
-                            students.get(3).getName() + " " + students.get(3).getSurname(),
-                            students.get(4).getName() + " " + students.get(4).getSurname(),
-                            students.get(5).getName() + " " + students.get(5).getSurname(),
-                            students.get(6).getName() + " " + students.get(6).getSurname(),
-//                            students.get(7).getName() + " " + students.get(7).getSurname(),
-//                            students.get(8).getName() + " " + students.get(8).getSurname(),
-//                            students.get(9).getName() + " " + students.get(9).getSurname(),
+            Integer max_liczba_studentow_w_klasie = students.size();
+            String cars[] = new String[max_liczba_studentow_w_klasie];
+            for(int i=0; i <max_liczba_studentow_w_klasie; i++){
+                cars[i] =  students.get(i).getName() + " " + students.get(i).getSurname();
+            }
+
 
                                                 // TODO POPRAWIENIE BLEDU W LISTAKLAS
                                                // WYWALA BLEDY GDY:
@@ -216,7 +210,7 @@ public class ListaKlasActivity extends Activity {
                             // przyklad:
                             // wprowadzono w klasie 1, 5 osob , a w innych klasach powyzej 5 osob.
                             // wtedy wywala blad przy 6 i wyzej (bo chcesz wyswietlic elementy ktorych nie ma)
-                    };
+
             //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
             ArrayList<String> carL = new ArrayList<String>();
             carL.addAll(Arrays.asList(cars));

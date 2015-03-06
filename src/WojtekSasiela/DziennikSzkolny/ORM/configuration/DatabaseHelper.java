@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts25.db";
+    private static final String DATABASE_NAME = "Accounts62.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;
@@ -73,23 +73,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
         try {
-            TableUtils.createTable(connectionSource, Account.class);
-            TableUtils.createTable(connectionSource, Student.class);
-            TableUtils.createTable(connectionSource, Teacher.class);
 
-            TableUtils.createTable(connectionSource, Biology.class);
-            TableUtils.createTable(connectionSource, English.class);
-            TableUtils.createTable(connectionSource, Mathematic.class);
-            TableUtils.createTable(connectionSource, Polish.class);
-            TableUtils.createTable(connectionSource, Religion.class);
-            TableUtils.createTable(connectionSource, WF.class);
-
-            TableUtils.createTable(connectionSource, Srednia.class);
-            TableUtils.createTable(connectionSource, Mediana.class);
-            TableUtils.createTable(connectionSource, Dominanta.class);
-            TableUtils.createTable(connectionSource, Wariancja.class);
-            TableUtils.createTable(connectionSource, Odchylenie.class);
-            TableUtils.createTable(connectionSource, Kwartyle.class);
+            dodajWszystkieTabele(connectionSource);
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -98,28 +83,33 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     }
 
+    private void dodajWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
+        TableUtils.createTable(connectionSource, Account.class);
+        TableUtils.createTable(connectionSource, Student.class);
+        TableUtils.createTable(connectionSource, Teacher.class);
+
+        TableUtils.createTable(connectionSource, Biology.class);
+        TableUtils.createTable(connectionSource, English.class);
+        TableUtils.createTable(connectionSource, Mathematic.class);
+        TableUtils.createTable(connectionSource, Polish.class);
+        TableUtils.createTable(connectionSource, Religion.class);
+        TableUtils.createTable(connectionSource, WF.class);
+
+        TableUtils.createTable(connectionSource, Srednia.class);
+        TableUtils.createTable(connectionSource, Mediana.class);
+        TableUtils.createTable(connectionSource, Dominanta.class);
+        TableUtils.createTable(connectionSource, Wariancja.class);
+        TableUtils.createTable(connectionSource, Odchylenie.class);
+        TableUtils.createTable(connectionSource, Kwartyle.class);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase database,
                           ConnectionSource connectionSource, int oldVersion, int newVersion) {
+
+        // onUpgrade czyli jak jest 2 raz uruchamiana aplikacja i ma modyfikowac dane z poprzedniego uruchomienia
         try {
-            TableUtils.dropTable(connectionSource, Account.class, true);
-            TableUtils.dropTable(connectionSource, Student.class, true);
-            TableUtils.dropTable(connectionSource, Teacher.class, true);
-
-            TableUtils.dropTable(connectionSource, Biology.class, true);
-            TableUtils.dropTable(connectionSource, English.class, true);
-            TableUtils.dropTable(connectionSource, Mathematic.class, true);
-            TableUtils.dropTable(connectionSource, Polish.class, true);
-            TableUtils.dropTable(connectionSource, Religion.class, true);
-            TableUtils.dropTable(connectionSource, WF.class, true);
-
-            TableUtils.dropTable(connectionSource, Srednia.class, true);
-            TableUtils.dropTable(connectionSource, Mediana.class, true);
-            TableUtils.dropTable(connectionSource, Dominanta.class, true);
-            TableUtils.dropTable(connectionSource, Odchylenie.class, true);
-            TableUtils.dropTable(connectionSource, Wariancja.class, true);
-            TableUtils.dropTable(connectionSource, Kwartyle.class, true);
-
+            usunWszystkieTabele(connectionSource);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -127,6 +117,27 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
 
     }
+
+    private void usunWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
+        TableUtils.dropTable(connectionSource, Account.class, true);
+        TableUtils.dropTable(connectionSource, Student.class, true);
+        TableUtils.dropTable(connectionSource, Teacher.class, true);
+
+        TableUtils.dropTable(connectionSource, Biology.class, true);
+        TableUtils.dropTable(connectionSource, English.class, true);
+        TableUtils.dropTable(connectionSource, Mathematic.class, true);
+        TableUtils.dropTable(connectionSource, Polish.class, true);
+        TableUtils.dropTable(connectionSource, Religion.class, true);
+        TableUtils.dropTable(connectionSource, WF.class, true);
+
+        TableUtils.dropTable(connectionSource, Srednia.class, true);
+        TableUtils.dropTable(connectionSource, Mediana.class, true);
+        TableUtils.dropTable(connectionSource, Dominanta.class, true);
+        TableUtils.dropTable(connectionSource, Odchylenie.class, true);
+        TableUtils.dropTable(connectionSource, Wariancja.class, true);
+        TableUtils.dropTable(connectionSource, Kwartyle.class, true);
+    }
+
     public Dao<Account, Integer> getAccountDao() throws SQLException{
         if (AccountDao == null) {
             AccountDao = getDao(Account.class);

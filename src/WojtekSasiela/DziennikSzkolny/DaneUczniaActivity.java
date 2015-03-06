@@ -1,6 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.Fragments.*;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -70,6 +71,13 @@ public class DaneUczniaActivity extends Activity {
 
 
 
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ;
     }
 
     public void pobierzImieiNazwiskozPoprzedniegoActivity()
