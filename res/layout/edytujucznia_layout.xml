@@ -4,9 +4,39 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ID"
+            android:id="@+id/textView15"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText5"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Na"
+            android:id="@+id/textView16" android:layout_gravity="center_horizontal"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceLarge" android:text="Imie"
+              android:id="@+id/textView14"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceLarge" android:text="Nazwisko"
+              android:id="@+id/textView14"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceLarge" android:text="Klasa"
+              android:id="@+id/textView14"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zapisz"
+            android:id="@+id/button3" android:layout_gravity="center_horizontal"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Zamknij"
-            android:id="@+id/zamknij_button_edytujucznia"/>
+            android:id="@+id/zamknij_button_edytujucznia" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
