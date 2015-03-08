@@ -21,6 +21,7 @@ public class DaneUczniaActivity extends Activity {
 
     private ArrayList<HashMap<String, String>> list;
     String ImieiNazwisko = "";
+    String nrKlasy = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +85,14 @@ public class DaneUczniaActivity extends Activity {
     {
         // dane pochodza z ListaKlasActivity
         Bundle przekazanedane = getIntent().getExtras();
+
         ImieiNazwisko = przekazanedane.getString("ImieiNazwisko");
+        nrKlasy = przekazanedane.getString("nrKlasy");
 
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
+        TextView nrKlasy_textview  = (TextView) findViewById(R.id.nrKlasy);
         pokaz_imie_nazwisko_textview.setText(ImieiNazwisko);
+        nrKlasy_textview.setText(nrKlasy);
     }
 
     /**

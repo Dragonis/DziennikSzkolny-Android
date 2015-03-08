@@ -205,14 +205,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
 
-                // Pakujemy go w Bundle
-                Bundle koszyk = new Bundle();
-                koszyk.putString("ImieiNazwisko", imieiNazwiskoWybranejOsobyzListView);
-                // Definiujemy cel
-                Intent cel = new Intent(view.getContext(), DaneUczniaActivity.class);
-                cel.putExtras(koszyk);
-                // Wysyłamy
-                startActivity(cel);
+                wyslijDaneDoNastepnegoActivity();
 
 
             }
@@ -267,6 +260,7 @@ public class ListaKlasActivity extends Activity {
         // Pakujemy go w Bundle
         Bundle koszyk = new Bundle();
         koszyk.putString("ImieiNazwisko", imieiNazwiskoWybranejOsobyzListView);
+        koszyk.putString("nrKlasy", "1");
         // Definiujemy cel
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
