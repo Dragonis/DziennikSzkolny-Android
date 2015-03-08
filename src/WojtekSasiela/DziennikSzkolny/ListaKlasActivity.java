@@ -3,6 +3,7 @@ package WojtekSasiela.DziennikSzkolny;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ public class ListaKlasActivity extends Activity {
     private Button klasa4 = null;
     private Button klasa5 = null;
     private Button klasa6 = null;
+    private Button dodaj = null;
+    private Button edytuj = null;
+    private Button usun = null;
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -38,6 +42,7 @@ public class ListaKlasActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_lista_klas_layout);
+        Pokaz_Activity_z_klasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
 
         listaKompoment = (ListView) findViewById(R.id.listView);
         listaKompoment2 = (ListView) findViewById(R.id.listView0);
@@ -47,6 +52,10 @@ public class ListaKlasActivity extends Activity {
         klasa4 = (Button) findViewById(R.id.klasa4);
         klasa5 = (Button) findViewById(R.id.klasa5);
         klasa6 = (Button) findViewById(R.id.klasa6);
+
+        dodaj = (Button) findViewById(R.id.dodajucznia_button_listaklas);
+        edytuj = (Button) findViewById(R.id.edytujucznia_button_listaklas);
+        usun = (Button) findViewById(R.id.usunucznia_button_listaklas);
 
 
         klasa1.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +148,28 @@ public class ListaKlasActivity extends Activity {
 
                 pokazListeOsobzKlasy(6);
 
+            }
+        });
+
+        dodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setContentView(R.layout.fragment_dodajucznia_layout);
+            }
+        });
+
+        edytuj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.fragment_edytujucznia_layout);
+            }
+        });
+
+        usun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                setContentView(R.layout.fragmnt_usunucznia_layout);
             }
         });
 
@@ -245,4 +276,22 @@ public class ListaKlasActivity extends Activity {
         startActivity(cel);
     }
 
+    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
+    {
+        Button b = (Button)findViewById(id);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, klasa);
+
+                if (intent.resolveActivity(getPackageManager()) != null)
+                    startActivity(intent);
+                else {
+                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
+                            Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+    }
 }

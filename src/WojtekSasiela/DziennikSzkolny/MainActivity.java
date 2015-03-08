@@ -104,7 +104,7 @@ public class MainActivity extends Activity {
 
         }else{
             //TODO Dodaje/Usuwa/Edytuje element(ucznia) do bazy danych
-            insert_Students_IntoDatabase(StudentDao);
+           // insert_Students_IntoDatabase(StudentDao);
 //            List<Student> students = StudentDao.queryForEq("id",1);
 //            Log.d("Student", students.toString());
 
@@ -112,7 +112,7 @@ public class MainActivity extends Activity {
 
 //
 //            /** Operacje INSERT **/
-//            insert_Accounts_IntoDatabase(AccountDao);
+            insert_Accounts_IntoDatabase(AccountDao);
 //
 //            insert_Students_IntoDatabase(StudentDao);
 //
@@ -135,8 +135,8 @@ public class MainActivity extends Activity {
 //
 //            /** Sprawdzenie czy dane poprawnie sie wyswietlaja **/
 //
-//            List<Account> accounts = AccountDao.queryForEq("id", 1);
-//            Log.d("Account", accounts.toString());
+            List<Account> accounts = AccountDao.queryForEq("id", 1);
+            Log.d("Account", accounts.toString());
 //
 //            List<Student> students = StudentDao.queryForEq("id",1);
 //            Log.d("Student", students.toString());
