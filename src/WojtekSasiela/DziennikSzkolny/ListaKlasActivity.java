@@ -3,6 +3,7 @@ package WojtekSasiela.DziennikSzkolny;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,6 +32,9 @@ public class ListaKlasActivity extends Activity {
     private Button klasa4 = null;
     private Button klasa5 = null;
     private Button klasa6 = null;
+    private Button dodaj= null;
+    private Button edytuj= null;
+    private Button usun= null;
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -47,7 +51,32 @@ public class ListaKlasActivity extends Activity {
         klasa4 = (Button) findViewById(R.id.klasa4);
         klasa5 = (Button) findViewById(R.id.klasa5);
         klasa6 = (Button) findViewById(R.id.klasa6);
+        dodaj = (Button) findViewById(R.id.dodajucznia_button_listaklas);
+        edytuj = (Button) findViewById(R.id.edytujucznia_buttonlistaklas);
+        usun = (Button) findViewById(R.id.usunucznia_button_listaklas);
 
+        dodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.dodajucznia_layout);
+            }
+        });
+        Pokaz_Activity_z_klasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
+
+        edytuj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.edytujucznia_layout);
+            }
+        });
+        Pokaz_Activity_z_klasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
+
+        usun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         klasa1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,6 +272,24 @@ public class ListaKlasActivity extends Activity {
         cel.putExtras(koszyk);
         // Wysyłamy
         startActivity(cel);
+    }
+    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
+    {
+        Button b = (Button)findViewById(id);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, klasa);
+
+                if (intent.resolveActivity(getPackageManager()) != null)
+                    startActivity(intent);
+                else {
+                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
+                            Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
     }
 
 }
