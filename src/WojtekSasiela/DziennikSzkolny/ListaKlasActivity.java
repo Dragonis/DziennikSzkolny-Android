@@ -74,6 +74,8 @@ public class ListaKlasActivity extends Activity {
         usun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Użytkownik został usunięty",
+                        Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -224,14 +226,6 @@ public class ListaKlasActivity extends Activity {
             for(int i=0; i <max_liczba_studentow_w_klasie; i++){
                 cars[i] =  students.get(i).getName() + " " + students.get(i).getSurname();
             }
-
-
-                                                // TODO POPRAWIENIE BLEDU W LISTAKLAS
-                                               // WYWALA BLEDY GDY:
-                            // przekroczy sie minimalna liczbe osob, ktore zostalo wprowadzone do bazy danych
-                            // przyklad:
-                            // wprowadzono w klasie 1, 5 osob , a w innych klasach powyzej 5 osob.
-                            // wtedy wywala blad przy 6 i wyzej (bo chcesz wyswietlic elementy ktorych nie ma)
 
             //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
             ArrayList<String> carL = new ArrayList<String>();

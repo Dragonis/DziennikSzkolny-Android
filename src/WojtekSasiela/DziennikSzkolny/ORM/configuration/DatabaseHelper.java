@@ -69,15 +69,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database,
                          ConnectionSource connectionSource) {
-        // TODO Auto-generated method stub
-
 
         try {
 
             dodajWszystkieTabele(connectionSource);
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
@@ -112,7 +110,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             usunWszystkieTabele(connectionSource);
             onCreate(database, connectionSource);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

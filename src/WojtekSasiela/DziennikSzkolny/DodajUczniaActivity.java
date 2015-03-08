@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Created by Wojtek on 2015-03-08.
@@ -14,6 +15,17 @@ public class DodajUczniaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dodajucznia_layout);
 
+        Button zapisz = (Button) findViewById(R.id.zapisz_button_dodajucznia);
+        zapisz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO DOdanie uzytkownika do bazy danych
+
+                Toast.makeText(getApplicationContext(), "Użytkownik został zapisany",
+                        Toast.LENGTH_SHORT).show();
+            finish();
+            }
+        });
 
     zamknijOkno(R.id.zamknij_button_dodajucznia);
 
