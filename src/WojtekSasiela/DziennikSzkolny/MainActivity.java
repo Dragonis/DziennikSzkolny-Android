@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
 
         }else{
             //TODO Dodaje/Usuwa/Edytuje element(ucznia) do bazy danych
+            insert_Accounts_IntoDatabase(AccountDao);
             insert_Students_IntoDatabase(StudentDao);
 //            List<Student> students = StudentDao.queryForEq("id",1);
 //            Log.d("Student", students.toString());

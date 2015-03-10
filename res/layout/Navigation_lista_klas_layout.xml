@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
@@ -40,6 +44,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dip" >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Uczniowie:"
+                android:id="@+id/textView19"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,11 +65,39 @@
                 android:layout_height="wrap_content"
                 android:text="Usun"
                 android:id="@+id/usunucznia_button_listaklas"/>
+
+    </TableRow>
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip" >
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Oceny:"
+                android:id="@+id/textView18"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wyjdz"
-                android:id="@+id/Wyjdz_button"/>
+                android:text="Dodaj"
+                android:id="@+id/button3"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edytuj"
+                android:id="@+id/button4"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuń"
+                android:id="@+id/button5"/>
     </TableRow>
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wyjdz"
+            android:id="@+id/Wyjdz_button"/>
 </LinearLayout>
+    </ScrollView>
