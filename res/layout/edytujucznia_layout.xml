@@ -13,7 +13,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText5"/>
+            android:id="@+id/id_edittext_edytujucznia"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,15 +23,15 @@
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceLarge" android:text="Imie"
               android:id="@+id/textView14"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/imie_edittext_edytujucznia"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceLarge" android:text="Nazwisko"
               android:id="@+id/textView14"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/nazwisko_edittext_edytujucznia"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceLarge" android:text="Klasa"
               android:id="@+id/textView14"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editText4"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/klasa_edittext_edytujucznia"/>
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zapisz"
             android:id="@+id/zapisz_button_edytujucznia" android:layout_gravity="center_horizontal"/>
     <Button
