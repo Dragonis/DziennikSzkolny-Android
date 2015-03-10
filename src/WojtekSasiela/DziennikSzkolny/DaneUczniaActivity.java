@@ -127,7 +127,15 @@ public class DaneUczniaActivity extends Activity {
 
         List<Biology> przedmiot_biologia = BiologyDao.queryForEq("id", student.getId());
         // id przypisanemu tej osobie dziennika z ocenami
-        Biology oceny_z_biologi = przedmiot_biologia.get(0);
+        Biology oceny_z_biologi;
+        if(przedmiot_biologia.get(0) == null)
+        {
+            oceny_z_biologi = new Biology();
+            Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
+                    Toast.LENGTH_LONG).show();
+        }else{
+            oceny_z_biologi = przedmiot_biologia.get(0);
+        }
 
         String grade1 = oceny_z_biologi.getGrade1().toString();
         String grade2 = oceny_z_biologi.getGrade2().toString();
