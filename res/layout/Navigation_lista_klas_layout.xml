@@ -82,17 +82,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dodaj"
-                android:id="@+id/button3"/>
+                android:id="@+id/dodajocene_button_listaklas"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Edytuj"
-                android:id="@+id/button4"/>
+                android:id="@+id/edytujocene_button_listaklas"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Usuń"
-                android:id="@+id/button5"/>
+                android:id="@+id/usunocene_button_listaklas"/>
     </TableRow>
     <Button
             android:layout_width="wrap_content"

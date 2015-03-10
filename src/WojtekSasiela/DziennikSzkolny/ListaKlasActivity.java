@@ -14,7 +14,6 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -32,9 +31,12 @@ public class ListaKlasActivity extends Activity {
     private Button klasa4 = null;
     private Button klasa5 = null;
     private Button klasa6 = null;
-    private Button dodaj= null;
-    private Button edytuj= null;
-    private Button usun= null;
+    private Button dodaj_ucznia = null;
+    private Button edytuj_ucznia = null;
+    private Button usun_ucznia = null;
+    private Button dodaj_ocene = null;
+    private Button edytuj_ocene = null;
+    private Button usun_ocene = null;
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -51,11 +53,14 @@ public class ListaKlasActivity extends Activity {
         klasa4 = (Button) findViewById(R.id.klasa4);
         klasa5 = (Button) findViewById(R.id.klasa5);
         klasa6 = (Button) findViewById(R.id.klasa6);
-        dodaj = (Button) findViewById(R.id.dodajucznia_button_listaklas);
-        edytuj = (Button) findViewById(R.id.edytujucznia_buttonlistaklas);
-        usun = (Button) findViewById(R.id.usunucznia_button_listaklas);
+        dodaj_ucznia = (Button) findViewById(R.id.dodajucznia_button_listaklas);
+        edytuj_ucznia = (Button) findViewById(R.id.edytujucznia_buttonlistaklas);
+        usun_ucznia = (Button) findViewById(R.id.usunucznia_button_listaklas);
+        dodaj_ocene = (Button) findViewById(R.id.dodajocene_button_listaklas);
+        edytuj_ocene = (Button) findViewById(R.id.edytujocene_button_listaklas);
+        usun_ocene = (Button) findViewById(R.id.usunocene_button_listaklas);
 
-        dodaj.setOnClickListener(new View.OnClickListener() {
+        dodaj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.dodajucznia_layout);
@@ -63,7 +68,7 @@ public class ListaKlasActivity extends Activity {
         });
         Pokaz_Activity_z_klasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
 
-        edytuj.setOnClickListener(new View.OnClickListener() {
+        edytuj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.edytujucznia_layout);
@@ -71,7 +76,7 @@ public class ListaKlasActivity extends Activity {
         });
         Pokaz_Activity_z_klasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
 
-        usun.setOnClickListener(new View.OnClickListener() {
+        usun_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Użytkownik został usunięty",
@@ -79,6 +84,22 @@ public class ListaKlasActivity extends Activity {
 
             }
         });
+
+        dodaj_ocene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.dodajocene_layout);
+            }
+        });
+        Pokaz_Activity_z_klasy(R.id.dodajocene_button_listaklas,getApplicationContext(),DodajOceneActivity.class);
+
+        edytuj_ocene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.edytujocene_layout);
+            }
+        });
+        Pokaz_Activity_z_klasy(R.id.edytujocene_button_listaklas,getApplicationContext(),EdytujOceneActivity.class);
 
         klasa1.setOnClickListener(new View.OnClickListener() {
             @Override
