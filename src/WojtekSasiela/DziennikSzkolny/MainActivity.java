@@ -118,12 +118,12 @@ public class MainActivity extends Activity {
 //
 //            insert_Teachers_IntoDatabase(TeacherDao);
 //
-//            insert_BIOLOGY_GradesIntoDatabase(BiologyDao);
-//            insert_ENGLISH_GradesIntoDatabase(EnglishDao);
-//            insert_MATHEMATIC_GradesIntoDatabase(MathematicDao);
-//            insert_POLISH_GradesIntoDatabases(PolishDao);
-//            insert_RELIGION_GradesIntoDatabase(ReligionDao);
-//            insert_WF_GradesIntoDatabase(WFDao);
+            insert_BIOLOGY_GradesIntoDatabase(BiologyDao);
+            insert_ENGLISH_GradesIntoDatabase(EnglishDao);
+            insert_MATHEMATIC_GradesIntoDatabase(MathematicDao);
+            insert_POLISH_GradesIntoDatabases(PolishDao);
+            insert_RELIGION_GradesIntoDatabase(ReligionDao);
+            insert_WF_GradesIntoDatabase(WFDao);
 //
 //            SredniaDao.create(new Srednia(1,3,3,3));
 //            MedianaDao.create(new Mediana(1,3,3,3));
@@ -189,28 +189,41 @@ public class MainActivity extends Activity {
         teacherDao.create(new Teacher("Jan", "Kowalski"));
     }
 
-    private void insert_WF_GradesIntoDatabase(RuntimeExceptionDao<WF, Integer> WFDao) {
+    private void insert_WF_GradesIntoDatabase(RuntimeExceptionDao<WF, Integer> WFDao)
+    {
         WFDao.create(new WF(1,3,4,5));
+        WFDao.create(new WF(2,3,4,5));
+        WFDao.create(new WF(3,3,4,5));
     }
 
     private void insert_RELIGION_GradesIntoDatabase(RuntimeExceptionDao<Religion, Integer> religionDao) {
         religionDao.create(new Religion(1, 3, 4, 5));
+        religionDao.create(new Religion(2, 3, 4, 5));
+        religionDao.create(new Religion(3, 3, 4, 5));
     }
 
     private void insert_POLISH_GradesIntoDatabases(RuntimeExceptionDao<Polish, Integer> polishDao) {
         polishDao.create(new Polish(1, 3, 4, 5));
+        polishDao.create(new Polish(2, 3, 4, 5));
+        polishDao.create(new Polish(3, 3, 4, 5));
     }
 
     private void insert_MATHEMATIC_GradesIntoDatabase(RuntimeExceptionDao<Mathematic, Integer> mathematicDao) {
         mathematicDao.create(new Mathematic(1, 3, 4, 5));
+        mathematicDao.create(new Mathematic(2, 3, 4, 5));
+        mathematicDao.create(new Mathematic(3, 3, 4, 5));
     }
 
     private void insert_ENGLISH_GradesIntoDatabase(RuntimeExceptionDao<English, Integer> englishDao) {
         englishDao.create(new English(1,3,4,5));
+        englishDao.create(new English(2,3,4,5));
+        englishDao.create(new English(3,3,4,5));
     }
 
     private void insert_BIOLOGY_GradesIntoDatabase(RuntimeExceptionDao<Biology, Integer> biologyDao) {
         biologyDao.create(new Biology(1,3,4,5));
+        biologyDao.create(new Biology(2,1,2,3));
+        biologyDao.create(new Biology(3,3,2,1));
     }
 
     public void insert_Students_IntoDatabase(RuntimeExceptionDao<Student, Integer> studentDao) {
