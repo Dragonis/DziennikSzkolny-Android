@@ -213,6 +213,9 @@ public class ListaKlasActivity extends Activity {
                 subjectsL.addAll(Arrays.asList(subjects));
                 adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
                 listaKompoment2.setAdapter(adapterSubcjets);
+
+                edytuj_ucznia.setEnabled(true);
+                usun_ucznia.setEnabled(true);
             }
         });
 
