@@ -245,7 +245,11 @@ public class ListaKlasActivity extends Activity {
         }else if (bundle.getString("Id") != null){
             pobierzDanezEdytujUczniaActivity();
         }else{
-            pobierzDanezDodajUczniaActivity();
+            ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
+
+            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, dane_studenta);
+            listaKompoment.setAdapter(adapter);
+
         }
     }
 
@@ -296,7 +300,7 @@ public class ListaKlasActivity extends Activity {
         startActivity(cel);
     }
 
-    public void pobierzDanezDodajUczniaActivity() {
+    public ArrayList<String> pobierzDanezDodajUczniaActivity() {
 
         Bundle przekazanedane = getIntent().getExtras();
 
@@ -309,12 +313,18 @@ public class ListaKlasActivity extends Activity {
             Toast.makeText(getApplicationContext(), "Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
                     Toast.LENGTH_SHORT).show();
 
+        ArrayList<String> student = new ArrayList<String>();
+        student.add(imie);
+        student.add(nazwisko);
+        student.add(klasa);
+
+        return student;
+
     }
 
     public void pobierzDanezEdytujUczniaActivity() {
 
         Bundle przekazanedane = getIntent().getExtras();
-
 
             String id = przekazanedane.getString("Id");
             String imie = przekazanedane.getString("Imie");
