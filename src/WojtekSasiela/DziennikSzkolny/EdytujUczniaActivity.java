@@ -1,6 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,17 +31,16 @@ public class EdytujUczniaActivity extends Activity {
                 EditText nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_edytujucznia);
                 EditText klasa_edittext = (EditText) findViewById(R.id.klasa_edittext_edytujucznia);
 
-                String id = imie_edittext.getText().toString();
+                String id = id_edittext.getText().toString();
                 String imie = imie_edittext.getText().toString();
                 String nazwisko = nazwisko_edittext.getText().toString();
                 String klasa = klasa_edittext.getText().toString();
 
-                przeslijDaneDoWczesniejszegoActivity(imie,nazwisko,klasa);
+                przeslijDaneDoWczesniejszegoActivity(id,imie,nazwisko,klasa);
 
-                Toast.makeText(getApplicationContext(), "ID: "+ id + " ZMIENIONO NA: Imie: "+ imie + " Naziwsko: "+ nazwisko + " Klasa: "+ klasa,
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "ID: "+ id + " ZMIENIONO NA: Imie: "+ imie + " Naziwsko: "+ nazwisko + " Klasa: "+ klasa,
+//                        Toast.LENGTH_SHORT).show();
 
-                finish();
             }
         });
 
@@ -56,9 +56,21 @@ public class EdytujUczniaActivity extends Activity {
 //        });
     }
 
-    public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa)
+    public void przeslijDaneDoWczesniejszegoActivity(String id, String imie, String nazwisko, String klasa)
     {
+        // Pobieramy tekst z pola
 
+        // Pakujemy go w Bundle
+        Bundle koszyk = new Bundle();
+        koszyk.putString("Id", id);
+        koszyk.putString("Imie", imie);
+        koszyk.putString("Nazwisko", nazwisko);
+        koszyk.putString("Klasa", klasa);
+        // Definiujemy cel
+        Intent cel = new Intent(this, ListaKlasActivity.class);
+        cel.putExtras(koszyk);
+        // Wysyłamy
+        startActivity(cel);
     }
 
     public void zamknijOkno(int id)

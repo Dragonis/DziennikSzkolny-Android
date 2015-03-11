@@ -2,6 +2,7 @@ package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.Biology;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -237,7 +238,16 @@ public class ListaKlasActivity extends Activity {
             }
         });
         zamknijOkno(R.id.Wyjdz_button);
-   }
+        Bundle bundle = getIntent().getExtras();
+        if(bundle == null)
+        {
+
+        }else if (bundle.getString("Id") != null){
+            pobierzDanezEdytujUczniaActivity();
+        }else{
+            pobierzDanezDodajUczniaActivity();
+        }
+    }
 
     public void pokazListeOsobzKlasy(int nr_klasy) {
 
@@ -285,6 +295,37 @@ public class ListaKlasActivity extends Activity {
         // Wysyłamy
         startActivity(cel);
     }
+
+    public void pobierzDanezDodajUczniaActivity() {
+
+        Bundle przekazanedane = getIntent().getExtras();
+
+            // pobierasz dane z DodajUczniaActivity
+
+            String imie = przekazanedane.getString("Imie");
+            String nazwisko = przekazanedane.getString("Nazwisko");
+            String klasa = przekazanedane.getString("Klasa");
+
+            Toast.makeText(getApplicationContext(), "Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
+                    Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void pobierzDanezEdytujUczniaActivity() {
+
+        Bundle przekazanedane = getIntent().getExtras();
+
+
+            String id = przekazanedane.getString("Id");
+            String imie = przekazanedane.getString("Imie");
+            String nazwisko = przekazanedane.getString("Nazwisko");
+            String klasa = przekazanedane.getString("Klasa");
+
+            Toast.makeText(getApplicationContext(), "ID :" + id+ " | Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
+                    Toast.LENGTH_SHORT).show();
+
+    }
+
     public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
     {
         Button b = (Button)findViewById(id);

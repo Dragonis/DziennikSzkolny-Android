@@ -1,6 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -37,9 +38,8 @@ public class DodajUczniaActivity extends Activity {
 //                Toast.makeText(getApplicationContext(), "Użytkownik został zapisany",
 //                        Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(), "Imie: "+ imie + "Naziwsko: "+ nazwisko + "Klasa: "+ klasa,
-                        Toast.LENGTH_SHORT).show();
-            finish();
+//                Toast.makeText(getApplicationContext(), "Imie: "+ imie + "Naziwsko: "+ nazwisko + "Klasa: "+ klasa,
+//                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -56,7 +56,18 @@ public class DodajUczniaActivity extends Activity {
 }
     public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa)
     {
+        // Pobieramy tekst z pola
 
+        // Pakujemy go w Bundle
+        Bundle koszyk = new Bundle();
+        koszyk.putString("Imie", imie);
+        koszyk.putString("Nazwisko", nazwisko);
+        koszyk.putString("Klasa", klasa);
+        // Definiujemy cel
+        Intent cel = new Intent(this, ListaKlasActivity.class);
+        cel.putExtras(koszyk);
+        // Wysyłamy
+        startActivity(cel);
     }
 
     public void zamknijOkno(int id)
