@@ -27,7 +27,8 @@ public class DaneUczniaActivity extends Activity {
     private ArrayList<HashMap<String, String>> list;
     String ImieiNazwisko = "";
     String nrKlasy = "";
-    ArrayList<String> oceny_z_przyrody;
+    ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
+    ArrayList<String> daty_z_przyrody = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class DaneUczniaActivity extends Activity {
         ArrayList<String> datyL = new ArrayList<String>();
         //ocenyL.addAll(Arrays.asList(oceny));
         ocenyL.addAll(oceny_z_przyrody);
-        datyL.addAll(Arrays.asList(daty));
+//        datyL.addAll(Arrays.asList(daty));
+        datyL.addAll(daty_z_przyrody);
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, ocenyL);
         ;
         ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, datyL);
@@ -99,7 +101,23 @@ public class DaneUczniaActivity extends Activity {
         String Imie = split[0] ;
         String Nazwisko = split[1];
 
-        oceny_z_przyrody = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
+        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie,Nazwisko,nrKlasy,"Przyroda");
+        //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
+
+        String grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
+        String grade2 = DanePobranezBazyDanych_Przyroda.getGrade2().toString();
+        String grade3 = DanePobranezBazyDanych_Przyroda.getGrade3().toString();
+
+        String date1 = DanePobranezBazyDanych_Przyroda.getDate1().toString();
+        String date2 = DanePobranezBazyDanych_Przyroda.getDate2().toString();
+        String date3 = DanePobranezBazyDanych_Przyroda.getDate3().toString();
+
+        oceny_z_przyrody.add(grade1);
+        oceny_z_przyrody.add(grade2);
+        oceny_z_przyrody.add(grade3);
+        daty_z_przyrody.add(date1);
+        daty_z_przyrody.add(date2);
+        daty_z_przyrody.add(date3);
 
 
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
@@ -108,7 +126,7 @@ public class DaneUczniaActivity extends Activity {
         nrKlasy_textview.setText(nrKlasy);
     }
 
-    public ArrayList<String> pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
+    public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
         // TODO Pobieranie ocen z bazy danych i wyswietlenie w tabelach
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
         RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
@@ -128,25 +146,17 @@ public class DaneUczniaActivity extends Activity {
         List<Biology> przedmiot_biologia = BiologyDao.queryForEq("id", student.getId());
         // id przypisanemu tej osobie dziennika z ocenami
         Biology oceny_z_biologi;
-        if(przedmiot_biologia.get(0) == null)
+        if(przedmiot_biologia.size() == 0)
         {
-            oceny_z_biologi = new Biology();
+            oceny_z_biologi = new Biology(0,555,555,555,"555","555","555"); // kod informujacy ze pobierasz dane z pustej tablicy
             Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
                     Toast.LENGTH_LONG).show();
         }else{
             oceny_z_biologi = przedmiot_biologia.get(0);
         }
 
-        String grade1 = oceny_z_biologi.getGrade1().toString();
-        String grade2 = oceny_z_biologi.getGrade2().toString();
-        String grade3 = oceny_z_biologi.getGrade3().toString();
+        return oceny_z_biologi;
 
-        ArrayList<String> oceny = new ArrayList<String>();
-        oceny.add(grade1);
-        oceny.add(grade2);
-        oceny.add(grade3);
-
-        return oceny;
     }
 
     /**

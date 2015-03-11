@@ -26,16 +26,52 @@ public class Biology {
     Integer Grade3;
 
     @DatabaseField
+    String  Date1;
+
+    @DatabaseField
+    String  Date2;
+
+    @DatabaseField
+    String  Date3;
+
+    @DatabaseField
     Integer Id_Teacher;
 
     public Biology() {
     }
 
-    public Biology(Integer id_student, Integer grade1, Integer grade2, Integer grade3) {
+    public Biology(Integer id_student, Integer grade1, Integer grade2, Integer grade3, String date1, String date2, String date3) {
         Id_student = id_student;
         Grade1 = grade1;
         Grade2 = grade2;
         Grade3 = grade3;
+        Date1 = date1;
+        Date2 = date2;
+        Date3 = date3;
+    }
+
+    public String getDate1() {
+        return Date1;
+    }
+
+    public void setDate1(String date1) {
+        Date1 = date1;
+    }
+
+    public String getDate2() {
+        return Date2;
+    }
+
+    public void setDate2(String date2) {
+        Date2 = date2;
+    }
+
+    public String getDate3() {
+        return Date3;
+    }
+
+    public void setDate3(String date3) {
+        Date3 = date3;
     }
 
     public Integer getId() {

@@ -222,9 +222,15 @@ public class MainActivity extends Activity {
     }
 
     private void insert_BIOLOGY_GradesIntoDatabase(RuntimeExceptionDao<Biology, Integer> biologyDao) {
-        biologyDao.create(new Biology(1,3,4,5));
-        biologyDao.create(new Biology(2,1,2,3));
-        biologyDao.create(new Biology(3,3,2,1));
+        biologyDao.create(new Biology(1,3,4,5,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(2,1,2,3,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(3,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(4,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(5,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(6,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(7,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(8,0,0,0,"10.10","14.04","5.05"));
+        biologyDao.create(new Biology(9,0,0,0,"10.10","14.04","5.05"));
     }
 
     public void insert_Students_IntoDatabase(RuntimeExceptionDao<Student, Integer> studentDao) {
