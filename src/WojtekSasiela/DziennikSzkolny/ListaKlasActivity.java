@@ -166,6 +166,7 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
+                pokazListeOsobzKlasy(4);
 
                 klasa = "4";
             }
@@ -256,18 +257,19 @@ public class ListaKlasActivity extends Activity {
             pobierzDanezEdytujUczniaActivity();
         }else{
             ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
-            uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
+            pokazListeOsobzKlasy(4);
+                uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
 
-            ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
+                ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
 
-            // @DOWN dodajesz do listview imie + " " + nazwisko (jest jeszcze do dyspozycji zmienna nrKlasy czyli get(2)
-            nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
+                // @DOWN dodajesz do listview imie + " " + nazwisko (jest jeszcze do dyspozycji zmienna nrKlasy czyli get(2)
+                nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
 
-            nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
-            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
-            listaKompoment.setAdapter(adapter);
-             //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
-            // dodajemy do powyzszego listview, stworzony przez nas teraz element
+                nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
+                adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
+                listaKompoment.setAdapter(adapter);
+                //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
+                // dodajemy do powyzszego listview, stworzony przez nas teraz element
 
 
         }
