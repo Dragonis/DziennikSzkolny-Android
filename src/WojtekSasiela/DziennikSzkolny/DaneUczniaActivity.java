@@ -14,7 +14,6 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,8 +24,10 @@ import java.util.List;
 public class DaneUczniaActivity extends Activity {
 
     private ArrayList<HashMap<String, String>> list;
-    String ImieiNazwisko = "";
+    String Imie = "";
+    String Nazwisko = "";
     String nrKlasy = "";
+    String przedmiot = "";
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
 
@@ -69,7 +70,7 @@ public class DaneUczniaActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Pobieramy tekst z pola
-                String wpisanyTekst = ImieiNazwisko;
+                String wpisanyTekst = Imie +  " " + Nazwisko;
                 // Pakujemy go w Bundle
                 Bundle koszyk = new Bundle();
                 koszyk.putString("dane", wpisanyTekst);
@@ -95,11 +96,10 @@ public class DaneUczniaActivity extends Activity {
         // dane pochodza z ListaKlasActivity
         Bundle przekazanedane = getIntent().getExtras();
 
-        ImieiNazwisko = przekazanedane.getString("ImieiNazwisko");
+        Imie = przekazanedane.getString("Imie");
+        Nazwisko = przekazanedane.getString("Nazwisko");
         nrKlasy = przekazanedane.getString("nrKlasy");
-        String[] split = ImieiNazwisko.split(" ");
-        String Imie = split[0] ;
-        String Nazwisko = split[1];
+        przedmiot = przekazanedane.getString("przedmiot");
 
         Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie,Nazwisko,nrKlasy,"Przyroda");
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
@@ -122,8 +122,11 @@ public class DaneUczniaActivity extends Activity {
 
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
         TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
+        TextView przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
+
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
         nrKlasy_textview.setText(nrKlasy);
+        przedmiot_textview.setText(przedmiot);
     }
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {

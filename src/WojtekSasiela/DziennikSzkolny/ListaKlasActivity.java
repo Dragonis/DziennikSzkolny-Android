@@ -38,6 +38,9 @@ public class ListaKlasActivity extends Activity {
     private Button dodaj_ocene = null;
     private Button edytuj_ocene = null;
     private Button usun_ocene = null;
+    String imie = "";
+    String nazwisko = "";
+    String klasa = "";
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -288,11 +291,17 @@ public class ListaKlasActivity extends Activity {
     public void wyslijDaneDoNastepnegoActivity()
     {
         // Pobieramy tekst z pola
-        String wpisanyTekst = "Witaj swiecie";
+
         // Pakujemy go w Bundle
+
         Bundle koszyk = new Bundle();
-        koszyk.putString("ImieiNazwisko", imieiNazwiskoWybranejOsobyzListView);
+        String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
+         imie = split[0] ;
+         nazwisko = split[1];
+        koszyk.putString("Imie", imie);
+        koszyk.putString("Nazwisko", nazwisko);
         koszyk.putString("nrKlasy", "1");
+        koszyk.putString("przedmiot", "Przyroda");
         // Definiujemy cel
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
@@ -306,9 +315,9 @@ public class ListaKlasActivity extends Activity {
 
             // pobierasz dane z DodajUczniaActivity
 
-            String imie = przekazanedane.getString("Imie");
-            String nazwisko = przekazanedane.getString("Nazwisko");
-            String klasa = przekazanedane.getString("Klasa");
+           imie = przekazanedane.getString("Imie");
+           nazwisko  = przekazanedane.getString("Nazwisko");
+           klasa = przekazanedane.getString("Klasa");
 
             Toast.makeText(getApplicationContext(), "Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
                     Toast.LENGTH_SHORT).show();
