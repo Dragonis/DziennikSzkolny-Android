@@ -167,7 +167,6 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
 
-                pokazListeOsobzKlasy(4);
                 klasa = "4";
             }
         });
@@ -260,7 +259,10 @@ public class ListaKlasActivity extends Activity {
             uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
 
             ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
-            nowoutowrzona_listastudentow.addAll(dane_studenta);
+
+            // @DOWN dodajesz do listview imie + " " + nazwisko (jest jeszcze do dyspozycji zmienna nrKlasy czyli get(2)
+            nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
+
             nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
             adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
             listaKompoment.setAdapter(adapter);

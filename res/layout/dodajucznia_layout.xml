@@ -13,7 +13,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imie_edittext_dodajucznia"/>
+            android:id="@+id/imie_edittext_dodajucznia" android:text="a"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nazwisko_edittext_dodajucznia"/>
+            android:id="@+id/nazwisko_edittext_dodajucznia" android:text="b"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/klasa_edittext_dodajucznia"/>
+            android:id="@+id/klasa_edittext_dodajucznia" android:text="4"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
