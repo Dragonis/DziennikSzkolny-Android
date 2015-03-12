@@ -41,6 +41,7 @@ public class ListaKlasActivity extends Activity {
     String imie = "";
     String nazwisko = "";
     String klasa = "";
+    String przedmiot = "";
     String imieiNazwiskoWybranejOsobyzListView = null;
 
     @Override
@@ -290,18 +291,16 @@ public class ListaKlasActivity extends Activity {
 
     public void wyslijDaneDoNastepnegoActivity()
     {
-        // Pobieramy tekst z pola
-
-        // Pakujemy go w Bundle
-
-        Bundle koszyk = new Bundle();
+         Bundle koszyk = new Bundle();
         String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
          imie = split[0] ;
          nazwisko = split[1];
+        klasa = "1";
+        przedmiot = "Przyroda";
         koszyk.putString("Imie", imie);
         koszyk.putString("Nazwisko", nazwisko);
-        koszyk.putString("nrKlasy", "1");
-        koszyk.putString("przedmiot", "Przyroda");
+        koszyk.putString("nrKlasy", klasa);
+        koszyk.putString("przedmiot", przedmiot);
         // Definiujemy cel
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);

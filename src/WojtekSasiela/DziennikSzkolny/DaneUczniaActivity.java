@@ -69,11 +69,12 @@ public class DaneUczniaActivity extends Activity {
         srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Pobieramy tekst z pola
-                String wpisanyTekst = Imie +  " " + Nazwisko;
-                // Pakujemy go w Bundle
+
                 Bundle koszyk = new Bundle();
-                koszyk.putString("dane", wpisanyTekst);
+                koszyk.putString("imie", Imie);
+                koszyk.putString("nazwisko", Nazwisko);
+                koszyk.putString("klasa", nrKlasy);
+                koszyk.putString("przedmiot", przedmiot);
                 // Definiujemy cel
                 Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
                 cel.putExtras(koszyk);

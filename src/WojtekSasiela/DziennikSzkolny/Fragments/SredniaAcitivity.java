@@ -20,10 +20,13 @@ public class SredniaAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String przekazanytekst = przekazanedane.getString("dane");
+        String imie = przekazanedane.getString("imie");
+        String nazwisko = przekazanedane.getString("nazwisko");
+        String klasa = przekazanedane.getString("klasa");
+        String przedmiot = przekazanedane.getString("przedmiot");
 
         TextView textView12 = (TextView) findViewById(R.id.textView10);
-        textView12.setText(przekazanytekst);
+        textView12.setText(imie + " " + nazwisko);
 
         zamknijOkno(R.id.zamknij_srednia);
     }
