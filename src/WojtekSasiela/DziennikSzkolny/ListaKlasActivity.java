@@ -117,6 +117,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
             
                 pokazListeOsobzKlasy(1);
+                klasa = "1";
 
             }
             
@@ -134,6 +135,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(2);
+                klasa = "2";
 
             }
         });
@@ -150,7 +152,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(3);
-
+                klasa = "3";
             }
         });
         klasa4.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +167,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(4);
-
+                klasa = "4";
             }
         });
         klasa5.setOnClickListener(new View.OnClickListener() {
@@ -180,7 +182,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(5);
-
+                klasa = "5";
             }
         });
         klasa6.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +197,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(6);
-
+                klasa = "6";
             }
         });
 
@@ -219,6 +221,10 @@ public class ListaKlasActivity extends Activity {
                 adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
                 listaKompoment2.setAdapter(adapterSubcjets);
 
+                String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
+                imie = split[0] ;
+                nazwisko = split[1];
+
                 edytuj_ucznia.setEnabled(true);
                 usun_ucznia.setEnabled(true);
             }
@@ -235,7 +241,7 @@ public class ListaKlasActivity extends Activity {
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
-
+                przedmiot = ((TextView)view).getText().toString();
                 wyslijDaneDoNastepnegoActivity();
 
 
@@ -292,11 +298,7 @@ public class ListaKlasActivity extends Activity {
     public void wyslijDaneDoNastepnegoActivity()
     {
          Bundle koszyk = new Bundle();
-        String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
-         imie = split[0] ;
-         nazwisko = split[1];
-        klasa = "1";
-        przedmiot = "Przyroda";
+
         koszyk.putString("Imie", imie);
         koszyk.putString("Nazwisko", nazwisko);
         koszyk.putString("nrKlasy", klasa);
