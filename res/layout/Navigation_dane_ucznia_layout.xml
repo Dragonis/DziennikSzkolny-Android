@@ -55,24 +55,19 @@
             android:text="Data Ocena"
             android:id="@+id/textView6"/>
     <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="190dp" android:layout_gravity="center_horizontal" android:weightSum="1">
+            android:layout_width="wrap_content"
+            android:layout_height="190dp" android:weightSum="1">
         <ListView
                 android:windowSoftInputMode="adjustPan"
-                android:layout_width="57dp"
+                android:layout_width="92dp"
                 android:layout_height="203dp"
-                android:id="@+id/listView3" android:layout_weight="0.10"/>
+                android:id="@+id/listView3"/>
         <ListView
                 android:windowSoftInputMode="adjustPan"
-                android:layout_width="53dp"
+                android:layout_width="105dp"
                 android:layout_height="match_parent"
                 android:id="@+id/listView4"/>
     </TableRow>
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Wyjdż"
-            android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"/>
 
 
     <TableRow
@@ -95,7 +90,6 @@
                 android:text="Wariancja"
                 android:id="@+id/wariancja_button_daneucznia"/>
     </TableRow>
-
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
@@ -115,7 +109,11 @@
                 android:text="Kwartyle"
                 android:id="@+id/kwartyle_button_daneucznia"/>
             </TableRow>
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wyjdż"
+            android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"/>
 
 
 </LinearLayout>
