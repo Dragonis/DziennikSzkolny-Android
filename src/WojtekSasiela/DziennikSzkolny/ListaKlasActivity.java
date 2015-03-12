@@ -2,7 +2,6 @@ package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.Biology;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +12,7 @@ import android.widget.*;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +43,7 @@ public class ListaKlasActivity extends Activity {
     String klasa = "";
     String przedmiot = "";
     String imieiNazwiskoWybranejOsobyzListView = null;
-
+    ArrayList<String> uzupelniony_danymi_listview_klasa4 = new ArrayList<String>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -64,6 +64,7 @@ public class ListaKlasActivity extends Activity {
         dodaj_ocene = (Button) findViewById(R.id.dodajocene_button_listaklas);
         edytuj_ocene = (Button) findViewById(R.id.edytujocene_button_listaklas);
         usun_ocene = (Button) findViewById(R.id.usunocene_button_listaklas);
+
 
         dodaj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,30 +257,39 @@ public class ListaKlasActivity extends Activity {
             pobierzDanezEdytujUczniaActivity();
         }else{
             ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
+            uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
 
-            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, dane_studenta);
+            ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
+            nowoutowrzona_listastudentow.addAll(dane_studenta);
+            nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
+            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
             listaKompoment.setAdapter(adapter);
+             //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
+            // dodajemy do powyzszego listview, stworzony przez nas teraz element
+
 
         }
     }
 
-    public void pokazListeOsobzKlasy(int nr_klasy) {
+    public ArrayList<String> pokazListeOsobzKlasy(int nr_klasy) {
 
             // Connect with Database ORM
             DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
             RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
             List<Student> students = studentDao.queryForEq("classrom",nr_klasy);
             Integer max_liczba_studentow_w_klasie = students.size();
-            String cars[] = new String[max_liczba_studentow_w_klasie];
+            ArrayList<String> cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
             for(int i=0; i <max_liczba_studentow_w_klasie; i++){
-                cars[i] =  students.get(i).getName() + " " + students.get(i).getSurname();
+                cars.add(students.get(i).getName() + " " + students.get(i).getSurname());
             }
 
             //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
             ArrayList<String> carL = new ArrayList<String>();
-            carL.addAll(Arrays.asList(cars));
+            carL.addAll(cars);
             adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
             listaKompoment.setAdapter(adapter);
+            return cars;
+        //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
 
     }
 

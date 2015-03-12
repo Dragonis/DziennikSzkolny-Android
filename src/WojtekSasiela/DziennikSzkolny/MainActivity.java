@@ -81,8 +81,8 @@ public class MainActivity extends Activity {
 
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
 
-        RuntimeExceptionDao<Account, Integer> AccountDao = dbHelper.getAccountRuntimeExceptionDao();
         RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
+        RuntimeExceptionDao<Account, Integer> AccountDao = dbHelper.getAccountRuntimeExceptionDao();
         RuntimeExceptionDao<Teacher, Integer> TeacherDao = dbHelper.getTeacherRuntimeExceptionDao();
 
         RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
