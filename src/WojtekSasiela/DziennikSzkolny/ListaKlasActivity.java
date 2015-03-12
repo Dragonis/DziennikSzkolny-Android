@@ -250,29 +250,38 @@ public class ListaKlasActivity extends Activity {
         });
         zamknijOkno(R.id.Wyjdz_button);
         Bundle bundle = getIntent().getExtras();
-        if(bundle == null)
+        if(bundle != null)
         {
 
-        }else if (bundle.getString("Id") != null){
+
+        if (bundle.getString("Id") != null){
             pobierzDanezEdytujUczniaActivity();
-        }else{
-            ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
-            pokazListeOsobzKlasy(4);
-                uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
-
-                ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
-
-                // @DOWN dodajesz do listview imie + " " + nazwisko (jest jeszcze do dyspozycji zmienna nrKlasy czyli get(2)
-                nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
-
-                nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
-                adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
-                listaKompoment.setAdapter(adapter);
-                //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
-                // dodajemy do powyzszego listview, stworzony przez nas teraz element
-
-
         }
+        // Zrob iteracje by sprawdzic W KTOREJ KLASIE (1,2,3 a moze6?) nalezy dodac nowego ucznia,
+        for(Integer i=1; i<=6; i++) {
+            if (bundle.getString("Klasa") == i.toString()) {
+                // jezeli z np. DodajUczniaButton pobranym id_klasy jest cyfra 4, to zapisuj wszystkie dane z DodajUczniaActivity do bazy danych dla klasy 4
+                DodajUczniaKlasy(i);
+            }
+        }
+        }
+    }
+
+    private void DodajUczniaKlasy(Integer nr_klasy) {
+        ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
+        pokazListeOsobzKlasy(nr_klasy);
+        uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(nr_klasy);
+
+        ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
+
+        // @DOWN dodajesz do listview imie + " " + nazwisko (jest jeszcze do dyspozycji zmienna nrKlasy czyli get(2)
+        nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
+
+        nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
+        listaKompoment.setAdapter(adapter);
+        //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
+        // dodajemy do powyzszego listview, stworzony przez nas teraz element
     }
 
     public ArrayList<String> pokazListeOsobzKlasy(int nr_klasy) {
