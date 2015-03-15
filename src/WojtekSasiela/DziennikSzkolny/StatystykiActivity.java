@@ -15,13 +15,14 @@ import java.util.ArrayList;
  * Created by Wojtek on 2014-11-23.
  */
 public class StatystykiActivity extends Activity {
-
+    ArrayList<String> ocenyArray;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_statystyki_layout);
 
 
+        Button pokaz_button_statystyki = (Button) findViewById(R.id.pokaz_button_statystyki);
         Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
@@ -30,25 +31,35 @@ public class StatystykiActivity extends Activity {
         Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
         zamknijOkno(R.id.Zamknij_Statystyki);
 
-        Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
+        final Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
         srednia_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Pobieramy tekst z pola
                 //TODO W ocenyArray wsadz dane o ocenach z danej klasy
-                ArrayList<String> ocenyArray = new ArrayList<String>();
+                ocenyArray = new ArrayList<String>();
                 ocenyArray.add("0");
                 ocenyArray.add("0");
                 ocenyArray.add("0");
                 // Pakujemy go w Bundle
                 Bundle koszyk = new Bundle();
                 koszyk.putStringArrayList("ocenyArray", ocenyArray);
-                // Definiujemy cel
                 Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
                 cel.putExtras(koszyk);
-                // Wysyłamy
                 startActivity(cel);
 
+
+            }
+        });
+
+        pokaz_button_statystyki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle koszyk = new Bundle();
+                koszyk.putStringArrayList("ocenyArray", ocenyArray);
+                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                cel.putExtras(koszyk);
+                startActivity(cel);
             }
         });
     }
