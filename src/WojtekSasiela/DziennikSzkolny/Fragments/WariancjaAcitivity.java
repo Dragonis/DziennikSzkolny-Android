@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny.Fragments;
 
+import WojtekSasiela.DziennikSzkolny.MiaryStatystyczne;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.app.Activity;
 import android.graphics.Color;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
@@ -21,6 +23,8 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
+
+import java.util.ArrayList;
 
 /**
  * Created by Wojtek on 2014-11-23.
@@ -38,11 +42,26 @@ public class WariancjaAcitivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_wariancja_layout);
-
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
         //rysujWykres_Wariancja();
         openChart();
+
+        MiaryStatystyczne statystyka = new MiaryStatystyczne();
+
+        // dane pochodza z DaneUczniaActivity badz StatystykaActivity
+        Bundle przekazanedane = getIntent().getExtras();
+        String imie = przekazanedane.getString("imie");
+        String nazwisko = przekazanedane.getString("nazwisko");
+        String klasa = przekazanedane.getString("klasa");
+        String przedmiot = przekazanedane.getString("przedmiot");
+        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+
+        String obliczona_wariancja = Float.toString((float) statystyka.Wariancja(oceny));
+
+        TextView wariancja_textview = (TextView) findViewById(R.id.obliczWariancje_textview);
+        wariancja_textview.setText(obliczona_wariancja);
+
         // Laczy operacje zamkniecia z konkrentym buttonem
         zamknijOkno(R.id.zamknij_wariancja);
     }

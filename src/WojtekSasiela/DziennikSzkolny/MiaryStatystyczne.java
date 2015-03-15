@@ -25,27 +25,27 @@ public final class MiaryStatystyczne {
         return srednia;
     }
 
-    public double Mediana(){
+    public double Mediana(ArrayList<String> oceny){
 
         return 3.14;
     }
 
-    public double Dominanta(){
+    public double Dominanta(ArrayList<String> oceny){
 
         return 3.14;
     }
 
-    public double Wariancja(){
+    public double Wariancja(ArrayList<String> oceny){
 
         return 3.14;
     }
 
-    public double Odchylenie(){
+    public double Odchylenie(ArrayList<String> oceny){
 
         return 3.14;
     }
 
-    public double Kwartyle(){
+    public double Kwartyle(ArrayList<String> oceny){
 
         return 3.14;
     }

@@ -31,7 +31,7 @@ public class DaneUczniaActivity extends Activity {
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
     ListView listaKompoment2;
-
+    Intent cel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +51,57 @@ public class DaneUczniaActivity extends Activity {
         Pokaz_Activity_z_klasy(R.id.odchylenie_button_daneucznia, getApplicationContext(), OdchylenieAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.kwartyle_button_daneucznia, getApplicationContext(), KwartyleAcitivity.class);
 
-
         Button srednia_button_dane_ucznia = (Button) findViewById(R.id.srednia_button_daneucznia);
+        Button dominanta_button_dane_ucznia = (Button) findViewById(R.id.dominanta_button_daneucznia);
+        Button kwartyle_button_dane_ucznia = (Button) findViewById(R.id.kwartyle_button_daneucznia);
+        Button mediana_button_dane_ucznia = (Button) findViewById(R.id.mediana_button_daneucznia);
+        Button odchylenie_button_dane_ucznia = (Button) findViewById(R.id.odchylenie_button_daneucznia);
+        Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
+
         srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
+                cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                wyslijDaneDoNastepnegoActivity(view);
+            }
+        });
 
+        dominanta_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), DominantaAcitivity.class);
+                wyslijDaneDoNastepnegoActivity(view);
+            }
+        });
+
+        kwartyle_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), KwartyleAcitivity.class);
+                wyslijDaneDoNastepnegoActivity(view);
+            }
+        });
+
+        mediana_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), MedianaAcitivity.class);
+                wyslijDaneDoNastepnegoActivity(view);
+            }
+        });
+
+        odchylenie_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
+                wyslijDaneDoNastepnegoActivity(view);
+            }
+        });
+
+        wariancja_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), WariancjaAcitivity.class);
                 wyslijDaneDoNastepnegoActivity(view);
             }
         });
@@ -72,7 +117,6 @@ public class DaneUczniaActivity extends Activity {
         koszyk.putString("przedmiot", przedmiot);
         koszyk.putStringArrayList("ocenyArray", oceny_z_przyrody);
         // Definiujemy cel
-        Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
         cel.putExtras(koszyk);
         // Wysyłamy
         startActivity(cel);
