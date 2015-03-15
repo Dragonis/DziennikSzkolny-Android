@@ -14,6 +14,7 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,31 +31,18 @@ public class DaneUczniaActivity extends Activity {
     String przedmiot = "";
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
+    ListView listaKompoment2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dane_ucznia_layout);
 
+        listaKompoment2 = (ListView) findViewById(R.id.listView4);
         pobierzImieiNazwiskozPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
         ListView listaKompoment = (ListView) findViewById(R.id.listView3);
-        ListView listaKompoment2 = (ListView) findViewById(R.id.listView4);
-        String daty[] = {"10.10", "05.03", "12.04", "15.01", "17.09", "16.02", "24.08", "15.08", "13.03"};
-        //String oceny[] = {"5", "4", "3", "2", "1", "6", "4", "5", "3"};
-        ArrayList<String> ocenyL = new ArrayList<String>();
-        ArrayList<String> datyL = new ArrayList<String>();
-        //ocenyL.addAll(Arrays.asList(oceny));
-        ocenyL.addAll(oceny_z_przyrody);
-//        datyL.addAll(Arrays.asList(daty));
-        datyL.addAll(daty_z_przyrody);
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, ocenyL);
-        ;
-        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, datyL);
-        ;
-        listaKompoment.setAdapter(adapter2);
-        listaKompoment2.setAdapter(adapter);
 
         // wyswitlanie odpowiednich activity statystycznych
         Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
@@ -120,7 +108,6 @@ public class DaneUczniaActivity extends Activity {
         daty_z_przyrody.add(date2);
         daty_z_przyrody.add(date3);
 
-
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
         TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
         TextView przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
@@ -128,6 +115,14 @@ public class DaneUczniaActivity extends Activity {
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
         nrKlasy_textview.setText(nrKlasy);
         przedmiot_textview.setText(przedmiot);
+
+        ArrayList<String> data_z_ocena = new ArrayList<String>();
+        for(Integer i=0; i< daty_z_przyrody.size(); i++) {
+
+                data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
+        }
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
+        listaKompoment2.setAdapter(adapter);
     }
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
