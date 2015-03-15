@@ -118,6 +118,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
             
                 pokazListeOsobzKlasy(1);
+                listaKompoment2.setAdapter(null);
                 klasa = "1";
 
             }
@@ -136,6 +137,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(2);
+                listaKompoment2.setAdapter(null);
                 klasa = "2";
 
             }
@@ -153,6 +155,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(3);
+                listaKompoment2.setAdapter(null);
                 klasa = "3";
             }
         });
@@ -166,6 +169,7 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
+                listaKompoment2.setAdapter(null);
                 pokazListeOsobzKlasy(4);
 
                 klasa = "4";
@@ -183,6 +187,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(5);
+                listaKompoment2.setAdapter(null);
                 klasa = "5";
             }
         });
@@ -198,6 +203,7 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 pokazListeOsobzKlasy(6);
+                listaKompoment2.setAdapter(null);
                 klasa = "6";
             }
         });

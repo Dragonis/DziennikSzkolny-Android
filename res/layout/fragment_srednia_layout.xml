@@ -8,8 +8,8 @@
             android:layout_height="wrap_content"
             android:text="zamknij"
             android:id="@+id/zamknij_srednia"
-            android:layout_below="@+id/textView12" android:layout_alignLeft="@+id/textView12"
-            android:layout_alignStart="@+id/textView12" android:layout_marginTop="49dp"/>
+            android:layout_below="@+id/oblicz_srednia_textview" android:layout_alignLeft="@+id/oblicz_srednia_textview"
+            android:layout_alignStart="@+id/oblicz_srednia_textview" android:layout_marginTop="49dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +29,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="[srednia]"
-            android:id="@+id/textView12"
+            android:id="@+id/oblicz_srednia_textview"
             android:layout_below="@+id/textView11" android:layout_centerHorizontal="true"/>
 </RelativeLayout>

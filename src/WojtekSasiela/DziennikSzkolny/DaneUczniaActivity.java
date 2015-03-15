@@ -14,7 +14,6 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class DaneUczniaActivity extends Activity {
         setContentView(R.layout.navigation_dane_ucznia_layout);
 
         listaKompoment2 = (ListView) findViewById(R.id.listView4);
-        pobierzImieiNazwiskozPoprzedniegoActivity();
+        pobierzDanezPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
         ListView listaKompoment = (ListView) findViewById(R.id.listView3);
@@ -58,20 +57,25 @@ public class DaneUczniaActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                Bundle koszyk = new Bundle();
-                koszyk.putString("imie", Imie);
-                koszyk.putString("nazwisko", Nazwisko);
-                koszyk.putString("klasa", nrKlasy);
-                koszyk.putString("przedmiot", przedmiot);
-                // Definiujemy cel
-                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
-                cel.putExtras(koszyk);
-                // Wysyłamy
-                startActivity(cel);
+                wyslijDaneDoNastepnegoActivity(view);
             }
         });
 
 
+    }
+
+    private void wyslijDaneDoNastepnegoActivity(View view) {
+        Bundle koszyk = new Bundle();
+        koszyk.putString("imie", Imie);
+        koszyk.putString("nazwisko", Nazwisko);
+        koszyk.putString("klasa", nrKlasy);
+        koszyk.putString("przedmiot", przedmiot);
+        koszyk.putStringArrayList("ocenyArray", oceny_z_przyrody);
+        // Definiujemy cel
+        Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+        cel.putExtras(koszyk);
+        // Wysyłamy
+        startActivity(cel);
     }
 
 
@@ -81,7 +85,7 @@ public class DaneUczniaActivity extends Activity {
         ;
     }
 
-    public void pobierzImieiNazwiskozPoprzedniegoActivity() {
+    public void pobierzDanezPoprzedniegoActivity() {
         // dane pochodza z ListaKlasActivity
         Bundle przekazanedane = getIntent().getExtras();
 
