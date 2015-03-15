@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
  * Created by Wojtek on 2014-11-23.
  */
 public class OdchylenieAcitivity extends Activity {
+    String obliczone_odchylenie;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +33,24 @@ public class OdchylenieAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+        if (przekazanedane == null) {
+            Toast.makeText(getApplicationContext(), "Pobrane dane sa puste!", Toast.LENGTH_SHORT);
+            obliczone_odchylenie = "0.0";
+        } else {
+            String imie = przekazanedane.getString("imie");
+            String nazwisko = przekazanedane.getString("nazwisko");
+            String klasa = przekazanedane.getString("klasa");
+            String przedmiot = przekazanedane.getString("przedmiot");
+            ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
 
-        String obliczona_odchylenie = Float.toString((float) statystyka.Odchylenie(oceny));
-
+            if (oceny == null) {
+                obliczone_odchylenie = "0.0";
+            } else {
+                obliczone_odchylenie = Float.toString((float) statystyka.Srednia(oceny));
+            }
+        }
         TextView odchylenie_textview = (TextView) findViewById(R.id.obliczOdchylenie_textview);
-        odchylenie_textview.setText(obliczona_odchylenie);
+        odchylenie_textview.setText(obliczone_odchylenie);
 
         // Laczy operacje zamkniecia z konkrentym buttonem
         zamknijOkno(R.id.zamknij_odchylenie);

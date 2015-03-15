@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
  * Created by Wojtek on 2014-11-23.
  */
 public class KwartyleAcitivity extends Activity {
+    String obliczone_kwartyle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +33,21 @@ public class KwartyleAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
-
-        String obliczone_kwartyle = Float.toString((float) statystyka.Kwartyle(oceny));
+        if (przekazanedane == null) {
+            Toast.makeText(getApplicationContext(), "Pobrane dane sa puste!", Toast.LENGTH_SHORT);
+            obliczone_kwartyle = "0.0";
+        } else {
+            String imie = przekazanedane.getString("imie");
+            String nazwisko = przekazanedane.getString("nazwisko");
+            String klasa = przekazanedane.getString("klasa");
+            String przedmiot = przekazanedane.getString("przedmiot");
+            ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+            if (oceny == null) {
+                obliczone_kwartyle = "0.0";
+            } else {
+                obliczone_kwartyle = Float.toString((float) statystyka.Srednia(oceny));
+            }
+        }
 
         TextView kwartyle_textview = (TextView) findViewById(R.id.obliczKwartle_textview);
         kwartyle_textview.setText(obliczone_kwartyle);

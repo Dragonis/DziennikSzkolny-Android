@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
  * Created by Wojtek on 2014-11-23.
  */
 public class DominantaAcitivity extends Activity {
+    String obliczona_dominanta;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +30,22 @@ public class DominantaAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+        if (przekazanedane == null) {
+            Toast.makeText(getApplicationContext(), "Pobrane dane sa puste!", Toast.LENGTH_SHORT);
+            obliczona_dominanta = "0.0";
+        } else {
+            String imie = przekazanedane.getString("imie");
+            String nazwisko = przekazanedane.getString("nazwisko");
+            String klasa = przekazanedane.getString("klasa");
+            String przedmiot = przekazanedane.getString("przedmiot");
+            ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
 
-        String obliczona_dominanta = Float.toString((float) statystyka.Dominanta(oceny));
-
+            if (oceny == null) {
+                obliczona_dominanta = "0.0";
+            } else {
+                obliczona_dominanta = Float.toString((float) statystyka.Srednia(oceny));
+            }
+        }
         TextView dominanta_textview = (TextView) findViewById(R.id.obliczDominante_textview);
         dominanta_textview.setText(obliczona_dominanta);
 

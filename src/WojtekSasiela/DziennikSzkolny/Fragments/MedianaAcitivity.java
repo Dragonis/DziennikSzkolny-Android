@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
  * Created by Wojtek on 2014-11-23.
  */
 public class MedianaAcitivity extends Activity {
+    String obliczona_mediana;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +31,22 @@ public class MedianaAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+        if (przekazanedane == null) {
+            Toast.makeText(getApplicationContext(), "Pobrane dane sa puste!", Toast.LENGTH_SHORT);
+            obliczona_mediana = "0.0";
+        } else {
+            String imie = przekazanedane.getString("imie");
+            String nazwisko = przekazanedane.getString("nazwisko");
+            String klasa = przekazanedane.getString("klasa");
+            String przedmiot = przekazanedane.getString("przedmiot");
+            ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+            if (oceny == null) {
+                obliczona_mediana = "0.0";
+            } else {
+                obliczona_mediana = Float.toString((float) statystyka.Srednia(oceny));
+            }
 
-        String obliczona_mediana = Float.toString((float) statystyka.Mediana(oceny));
-
+        }
         TextView mediana_textview = (TextView) findViewById(R.id.obliczMediane_textview);
         mediana_textview.setText(obliczona_mediana);
 

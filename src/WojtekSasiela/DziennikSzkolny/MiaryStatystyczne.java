@@ -7,47 +7,62 @@ import java.util.ArrayList;
  */
 public final class MiaryStatystyczne {
 
+    int suma_ocen = 0;
+    int ilosc_ocen = 0;
+    float srednia = 0.0f;
+
     public MiaryStatystyczne() {
     }
 
     public double Srednia(ArrayList<String> oceny){
+    if (oceny == null){ return 0;}
+        else {
+        ilosc_ocen = oceny.size();
 
-        int suma_ocen = 0;
-        int ilosc_ocen = oceny.size();
-        float srednia = 0.0f;
-        for (String ocena: oceny)
-        {
+        for (String ocena : oceny) {
+
             suma_ocen += Integer.parseInt(ocena);
         }
 
-        srednia = suma_ocen / ilosc_ocen ;
+        srednia = suma_ocen / ilosc_ocen;
 
         return srednia;
+        }
     }
 
     public double Mediana(ArrayList<String> oceny){
-
-        return 3.14;
+        if (oceny == null){ return 0;}
+        else {
+            return 3.14;
+        }
     }
 
     public double Dominanta(ArrayList<String> oceny){
-
-        return 3.14;
+        if (oceny == null){ return 0;}
+        else {
+            return 3.14;
+        }
     }
 
     public double Wariancja(ArrayList<String> oceny){
-
-        return 3.14;
+        if (oceny == null){ return 0;}
+        else {
+            return 3.14;
+        }
     }
 
     public double Odchylenie(ArrayList<String> oceny){
-
-        return 3.14;
+        if (oceny == null){ return 0;}
+        else {
+            return 3.14;
+        }
     }
 
     public double Kwartyle(ArrayList<String> oceny){
-
-        return 3.14;
+        if (oceny == null){ return 0;}
+        else {
+            return 3.14;
+        }
     }
 
 }

@@ -37,7 +37,7 @@ public class WariancjaAcitivity extends Activity {
             "Jan", "Feb" , "Mar", "Apr", "May", "Jun",
             "Jul", "Aug" , "Sep", "Oct", "Nov", "Dec"
     };
-
+    String obliczona_wariancja;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +51,27 @@ public class WariancjaAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+        if (przekazanedane == null) {
+            Toast.makeText(getApplicationContext(),"Pobrane dane sa puste!",Toast.LENGTH_SHORT);
+            obliczona_wariancja = "0.0";
+        } else {
 
-        String obliczona_wariancja = Float.toString((float) statystyka.Wariancja(oceny));
 
+            String imie = przekazanedane.getString("imie");
+            String nazwisko = przekazanedane.getString("nazwisko");
+            String klasa = przekazanedane.getString("klasa");
+            String przedmiot = przekazanedane.getString("przedmiot");
+
+            ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+
+            if (oceny == null) {
+                obliczona_wariancja = "0.0";
+            } else {
+                obliczona_wariancja = Float.toString((float) statystyka.Srednia(oceny));
+            }
+
+
+        }
         TextView wariancja_textview = (TextView) findViewById(R.id.obliczWariancje_textview);
         wariancja_textview.setText(obliczona_wariancja);
 

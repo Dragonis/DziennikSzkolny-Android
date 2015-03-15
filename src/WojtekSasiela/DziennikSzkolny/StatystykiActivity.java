@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by Wojtek on 2014-11-23.
  */
@@ -33,10 +35,14 @@ public class StatystykiActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Pobieramy tekst z pola
-                String wpisanyTekst = "Witaj srednia";
+                //TODO W ocenyArray wsadz dane o ocenach z danej klasy
+                ArrayList<String> ocenyArray = new ArrayList<String>();
+                ocenyArray.add("0");
+                ocenyArray.add("0");
+                ocenyArray.add("0");
                 // Pakujemy go w Bundle
                 Bundle koszyk = new Bundle();
-                koszyk.putString("dane", wpisanyTekst);
+                koszyk.putStringArrayList("ocenyArray", ocenyArray);
                 // Definiujemy cel
                 Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
                 cel.putExtras(koszyk);

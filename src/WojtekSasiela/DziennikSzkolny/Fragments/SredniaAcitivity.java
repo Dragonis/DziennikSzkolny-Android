@@ -16,6 +16,12 @@ import java.util.ArrayList;
  */
 public class SredniaAcitivity extends Activity {
 
+    String imie;
+    String nazwisko;
+    String klasa;
+    String przedmiot;
+    ArrayList<String> oceny;
+    String obliczona_srednia;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,13 +32,18 @@ public class SredniaAcitivity extends Activity {
 
         // dane pochodza z DaneUczniaActivity badz StatystykaActivity
         Bundle przekazanedane = getIntent().getExtras();
-        String imie = przekazanedane.getString("imie");
-        String nazwisko = przekazanedane.getString("nazwisko");
-        String klasa = przekazanedane.getString("klasa");
-        String przedmiot = przekazanedane.getString("przedmiot");
-        ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
 
-        String obliczona_srednia = Float.toString((float) statystyka.Srednia(oceny));
+            imie = przekazanedane.getString("imie");
+            nazwisko = przekazanedane.getString("nazwisko");
+            klasa = przekazanedane.getString("klasa");
+            przedmiot = przekazanedane.getString("przedmiot");
+            oceny = przekazanedane.getStringArrayList("ocenyArray");
+            if(oceny == null)
+            {
+                obliczona_srednia = "0.0";
+            }else {
+                obliczona_srednia = Float.toString((float) statystyka.Srednia(oceny));
+            }
 
         TextView textView12 = (TextView) findViewById(R.id.textView10);
         TextView obliczsrednia_textview = (TextView) findViewById(R.id.oblicz_srednia_textview);
