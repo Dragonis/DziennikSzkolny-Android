@@ -6,8 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.ArrayList;
 
@@ -16,11 +15,18 @@ import java.util.ArrayList;
  */
 public class StatystykiActivity extends Activity {
     ArrayList<String> ocenyArray;
+    // get the selected radio button from the group
+    RadioGroup radioGroup;
+    RatingBar ratingBar;
+    float liczba_gwiazdek;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_statystyki_layout);
-
+        radioGroup = (RadioGroup) findViewById(R.id.radioSets);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         Button pokaz_button_statystyki = (Button) findViewById(R.id.pokaz_button_statystyki);
         Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
@@ -55,6 +61,18 @@ public class StatystykiActivity extends Activity {
         pokaz_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                int selectedOption = radioGroup.getCheckedRadioButtonId();
+                	            // find the radiobutton by the previously returned id
+
+                                liczba_gwiazdek = ratingBar.getRating();
+                	            RadioButton radioGenderButton = (RadioButton) findViewById(selectedOption);
+                	            Toast.makeText(StatystykiActivity.this, radioGenderButton.getText() + " " + liczba_gwiazdek
+                , Toast.LENGTH_SHORT).show();
+
+
+
                 Bundle koszyk = new Bundle();
                 koszyk.putStringArrayList("ocenyArray", ocenyArray);
                 Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
@@ -63,6 +81,7 @@ public class StatystykiActivity extends Activity {
             }
         });
     }
+
 
     public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
     {
