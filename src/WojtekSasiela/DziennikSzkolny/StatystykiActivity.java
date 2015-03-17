@@ -67,15 +67,41 @@ public class StatystykiActivity extends Activity {
                 	            // find the radiobutton by the previously returned id
 
                                 liczba_gwiazdek = ratingBar.getRating();
-                	            RadioButton radioGenderButton = (RadioButton) findViewById(selectedOption);
-                	            Toast.makeText(StatystykiActivity.this, radioGenderButton.getText() + " " + liczba_gwiazdek
+                	            RadioButton radioButton = (RadioButton) findViewById(selectedOption);
+                	            Toast.makeText(StatystykiActivity.this, radioButton.getText() + " " + liczba_gwiazdek
                 , Toast.LENGTH_SHORT).show();
 
 
 
                 Bundle koszyk = new Bundle();
+                Intent cel = new Intent();
                 koszyk.putStringArrayList("ocenyArray", ocenyArray);
-                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+
+                if(radioButton.getText().equals("Srednia arytmetyczna")) {
+                    cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                }
+                if(radioButton.getText().equals("Wariancja"))
+                {
+                     cel = new Intent(view.getContext(), WariancjaAcitivity.class);
+                }
+                if(radioButton.getText().equals("Odchylenie standardowe"))
+                {
+                     cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
+                }
+                if(radioButton.getText().equals("Mediana"))
+                {
+                    cel = new Intent(view.getContext(), MedianaAcitivity.class);
+                }
+                if(radioButton.getText().equals("Dominanta"))
+                {
+                    cel = new Intent(view.getContext(), DominantaAcitivity.class);
+                }
+                if(radioButton.getText().equals("Kwartyle"))
+                {
+                    cel = new Intent(view.getContext(), KwartyleAcitivity.class);
+                }
+
+
                 cel.putExtras(koszyk);
                 startActivity(cel);
             }
