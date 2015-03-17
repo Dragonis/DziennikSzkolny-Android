@@ -29,39 +29,47 @@ public class StatystykiActivity extends Activity {
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         Button pokaz_button_statystyki = (Button) findViewById(R.id.pokaz_button_statystyki);
-        Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), MedianaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_dominanta_button, getApplicationContext(), DominantaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
+          //Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), OdchylenieAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), MedianaAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), DominantaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);    Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), MedianaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.otworz_dominanta_button, getApplicationContext(), DominantaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
         zamknijOkno(R.id.Zamknij_Statystyki);
 
-        final Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
-        srednia_button_statystyki.setOnClickListener(new View.OnClickListener() {
+//        final Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
+//        srednia_button_statystyki.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Pobieramy tekst z pola
+//                //TODO W ocenyArray wsadz dane o ocenach z danej klasy
+//                ocenyArray = new ArrayList<String>();
+//                ocenyArray.add("0");
+//                ocenyArray.add("0");
+//                ocenyArray.add("0");
+//                // Pakujemy go w Bundle
+//                Bundle koszyk = new Bundle();
+//                koszyk.putStringArrayList("ocenyArray", ocenyArray);
+//                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
+//                cel.putExtras(koszyk);
+//                startActivity(cel);
+//
+//
+//            }
+//        });
+
+        pokaz_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Pobieramy tekst z pola
                 //TODO W ocenyArray wsadz dane o ocenach z danej klasy
                 ocenyArray = new ArrayList<String>();
                 ocenyArray.add("0");
                 ocenyArray.add("0");
                 ocenyArray.add("0");
-                // Pakujemy go w Bundle
-                Bundle koszyk = new Bundle();
-                koszyk.putStringArrayList("ocenyArray", ocenyArray);
-                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
-                cel.putExtras(koszyk);
-                startActivity(cel);
-
-
-            }
-        });
-
-        pokaz_button_statystyki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
 
                 int selectedOption = radioGroup.getCheckedRadioButtonId();
                 	            // find the radiobutton by the previously returned id
@@ -79,6 +87,8 @@ public class StatystykiActivity extends Activity {
 
                 if(radioButton.getText().equals("Srednia arytmetyczna")) {
                     cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                    Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
+
                 }
                 if(radioButton.getText().equals("Wariancja"))
                 {

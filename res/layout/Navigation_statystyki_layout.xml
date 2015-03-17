@@ -33,40 +33,40 @@
             <!-- 2 wykres -->
 
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Srednia arytmetyczna"
-                    android:id="@+id/otworz_srednia_button"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Srednia arytmetyczna"-->
+                    <!--android:id="@+id/otworz_srednia_button"/>-->
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wariancja"
-                    android:id="@+id/otworz_wariancja_button"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Wariancja"-->
+                    <!--android:id="@+id/otworz_wariancja_button"/>-->
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/otworz_odchylenie_button" android:text="Odchylenie standardowe"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/otworz_odchylenie_button" android:text="Odchylenie standardowe"/>-->
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mediana"
-                    android:id="@+id/otworz_mediana_button"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Mediana"-->
+                    <!--android:id="@+id/otworz_mediana_button"/>-->
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dominanta"
-                    android:id="@+id/otworz_dominanta_button"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Dominanta"-->
+                    <!--android:id="@+id/otworz_dominanta_button"/>-->
 
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kwartyle"
-                    android:id="@+id/otworz_kwartyle_button"/>
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Kwartyle"-->
+                    <!--android:id="@+id/otworz_kwartyle_button"/>-->
 
             <RadioGroup
                     android:id="@+id/radioSets"
