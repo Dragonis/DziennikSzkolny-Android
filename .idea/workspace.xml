@@ -80,10 +80,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3a2e45e-ff7f-479b-bdcc-96da7136560e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/navigation_oautorze_layout.xml" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android90\res\layout\Navigation_uczniowie_layout.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\wojteks\DziennikSzkolny-Android90\src\WojtekSasiela\DziennikSzkolny\ListaUczniowActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OAutorzeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -124,32 +120,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DominantaAcitivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/DominantaAcitivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="1309">
-              <caret line="45" column="82" selection-start-line="45" selection-start-column="82" selection-end-line="45" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KwartyleAcitivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/KwartyleAcitivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="1326">
-              <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MedianaAcitivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/MedianaAcitivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.07600596" vertical-offset="0" max-vertical-offset="1547">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-              <folding />
+            <state vertical-scroll-proportion="0.58352405" vertical-offset="0" max-vertical-offset="1547">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -177,9 +155,12 @@
       <file leaf-file-name="OAutorzeActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OAutorzeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="1564">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding>
+                <element signature="e#1838#1983#0" expanded="true" />
+                <element signature="e#1982#1983#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -200,13 +181,33 @@
       <file leaf-file-name="main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="34" max-vertical-offset="1683">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="47" />
+            <state vertical-scroll-proportion="-3.4" vertical-offset="816" max-vertical-offset="1683">
+              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="4845">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="680">
+              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -268,7 +269,6 @@
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/EdytujOceneActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/EdytujUczniaActivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/Student.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DodajUczniaActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/dodajucznia_layout.xml" />
@@ -291,9 +291,10 @@
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/MedianaAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/OdchylenieAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/WariancjaAcitivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/res/layout/navigation_oautorze_layout.xml" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OAutorzeActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -910,7 +911,7 @@
       <workItem from="1426161374063" duration="12664000" />
       <workItem from="1426542122768" duration="2124000" />
       <workItem from="1426599717120" duration="6919000" />
-      <workItem from="1426670101445" duration="8685000" />
+      <workItem from="1426670101445" duration="9115000" />
     </task>
     <task id="LOCAL-00001" summary="Wstepny zarys aplikacji&#10;* Brakuje wykresow&#10;*Brakuej Bazy danych">
       <created>1416760005647</created>
@@ -970,7 +971,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307722000" />
+    <option name="totallyTimeSpent" value="308152000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1012,7 +1013,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3964111" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32771823" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33476394" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33476394" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2473525" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32771823" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1208,16 +1209,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="680">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-          <folding>
-            <element signature="e#494#512#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/dodajocene_layout.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
@@ -1304,14 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1326">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4344" max-vertical-offset="4845">
-          <caret line="290" column="5" selection-start-line="235" selection-start-column="2" selection-end-line="290" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1583,17 +1566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1683">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/navigation_oautorze_layout.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.04" vertical-offset="1133" max-vertical-offset="1615">
@@ -1615,19 +1587,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4" vertical-offset="816" max-vertical-offset="1683">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="21" max-vertical-offset="680">
+          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="4845">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OAutorzeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="1564">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#1838#1983#0" expanded="true" />
+            <element signature="e#1982#1983#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Fragments/MedianaAcitivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07600596" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-          <folding />
+        <state vertical-scroll-proportion="0.58352405" vertical-offset="0" max-vertical-offset="1547">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

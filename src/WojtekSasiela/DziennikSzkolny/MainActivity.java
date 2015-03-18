@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 
 
         //Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
-        Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
 
 
         // Buttony przekierowywujace na konkretne Activity
