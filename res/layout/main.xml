@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="1"
                     android:drawableBottom="@drawable/ic_launcher"
-                    android:text="@string/Uczniowie" />
+                    android:text="O Autorze" />
         </TableRow>
 
         <TableRow   android:id="@+id/tableRow1"

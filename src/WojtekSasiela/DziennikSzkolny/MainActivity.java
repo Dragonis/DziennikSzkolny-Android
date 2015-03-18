@@ -10,7 +10,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,7 +17,6 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class MainActivity extends Activity {
     /**
@@ -48,7 +46,7 @@ public class MainActivity extends Activity {
         // Buttony przekierowywujace na konkretne Activity
         // laczy Vidok z Controllerem
         Pokaz_Activity_z_klasy(R.id.OpcjeButton, getApplicationContext(),OpcjeAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),ListaUczniowActivity.class);
+        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),OAutorzeActivity.class);
         Pokaz_Activity_z_klasy(R.id.ZobaczStatyButton, getApplicationContext(), StatystykiActivity.class);
         Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
         //BaseSQLite baseSQLite = BaseSQLite.getInstance(getApplicationContext());

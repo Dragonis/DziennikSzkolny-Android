@@ -21,7 +21,7 @@
         <activity android:name=".OpcjeAcitivity" android:label="Edytuj opcje"/>
         <activity android:name=".DaneUczniaActivity" android:label="Dane ucznia"/>
         <activity android:name=".StatystykiActivity" android:label="Statystyki ocen"/>
-        <activity android:name=".ListaUczniowActivity" android:label="Lista Uczniow"/>
+        <activity android:name=".OAutorzeActivity" android:label="Lista Uczniow"/>
         <activity android:name=".ListaKlasActivity" android:label="Lista klas"/>
 
         <activity android:name=".Fragments.SredniaAcitivity" android:label="Srednia arytmetyczna"/>
