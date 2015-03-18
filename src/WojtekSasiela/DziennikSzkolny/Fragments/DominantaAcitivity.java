@@ -43,7 +43,7 @@ public class DominantaAcitivity extends Activity {
             if (oceny == null) {
                 obliczona_dominanta = "0.0";
             } else {
-                obliczona_dominanta = Float.toString((float) statystyka.Srednia(oceny));
+                obliczona_dominanta = Float.toString((float) statystyka.Dominanta(oceny));
             }
         }
         TextView dominanta_textview = (TextView) findViewById(R.id.obliczDominante_textview);

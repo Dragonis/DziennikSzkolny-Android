@@ -43,7 +43,7 @@ public class MedianaAcitivity extends Activity {
             if (oceny == null) {
                 obliczona_mediana = "0.0";
             } else {
-                obliczona_mediana = Float.toString((float) statystyka.Srednia(oceny));
+                obliczona_mediana = Float.toString((float) statystyka.Mediana(oceny));
             }
 
         }

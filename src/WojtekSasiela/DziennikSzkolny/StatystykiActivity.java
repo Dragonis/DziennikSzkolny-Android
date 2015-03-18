@@ -87,7 +87,6 @@ public class StatystykiActivity extends Activity {
 
                 if(radioButton.getText().equals("Srednia arytmetyczna")) {
                     cel = new Intent(view.getContext(), SredniaAcitivity.class);
-                    Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
 
                 }
                 if(radioButton.getText().equals("Wariancja"))

@@ -67,7 +67,7 @@ public class WariancjaAcitivity extends Activity {
             if (oceny == null) {
                 obliczona_wariancja = "0.0";
             } else {
-                obliczona_wariancja = Float.toString((float) statystyka.Srednia(oceny));
+                obliczona_wariancja = Float.toString((float) statystyka.Wariancja(oceny));
             }
 
 

@@ -46,7 +46,7 @@ public class OdchylenieAcitivity extends Activity {
             if (oceny == null) {
                 obliczone_odchylenie = "0.0";
             } else {
-                obliczone_odchylenie = Float.toString((float) statystyka.Srednia(oceny));
+                obliczone_odchylenie = Float.toString((float) statystyka.Odchylenie(oceny));
             }
         }
         TextView odchylenie_textview = (TextView) findViewById(R.id.obliczOdchylenie_textview);
