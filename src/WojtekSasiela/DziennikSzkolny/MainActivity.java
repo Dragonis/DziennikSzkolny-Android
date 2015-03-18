@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
      * Called when the activity is first created.
      */
     public static String TAG = "DziennikSzkolny";
+
     Button zamknij_aplikacje;
 
     @Override
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
             }
         });
 //        Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
-        Pokaz_Activity_z_klasy(R.id.Wyloguj_button, getApplicationContext(), OpcjeAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.Wyloguj_button, getApplicationContext(), LogowanieActivity.class);
 
 
         // Buttony przekierowywujace na konkretne Activity
@@ -59,6 +60,10 @@ public class MainActivity extends Activity {
         Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
         //BaseSQLite baseSQLite = BaseSQLite.getInstance(getApplicationContext());
 
+        // Zamkniecie aplikacji po kliknieicu na Zakoncz aplikacje w LogowanieActivity
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
     }
 
     public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
