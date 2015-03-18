@@ -30,18 +30,17 @@ public class DaneUczniaActivity extends Activity {
     String przedmiot = "";
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
-    ListView listaKompoment2;
+    ListView data_z_ocena_listview;
     Intent cel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dane_ucznia_layout);
 
-        listaKompoment2 = (ListView) findViewById(R.id.listView4);
+        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
         pobierzDanezPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
-        ListView listaKompoment = (ListView) findViewById(R.id.listView3);
 
         // wyswitlanie odpowiednich activity statystycznych
         Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
@@ -170,7 +169,7 @@ public class DaneUczniaActivity extends Activity {
                 data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
         }
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
-        listaKompoment2.setAdapter(adapter);
+        data_z_ocena_listview.setAdapter(adapter);
     }
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {

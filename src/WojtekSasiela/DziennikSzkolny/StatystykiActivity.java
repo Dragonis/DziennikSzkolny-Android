@@ -84,7 +84,7 @@ public class StatystykiActivity extends Activity {
                 koszyk.putStringArrayList("ocenyArray", ocenyArray);
                 if (radioButton == null)
                 {
-                    Toast.makeText(getApplicationContext(), "Wybierz miare statystyczna", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Wybierz miare statystyczna i nr klasy", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
