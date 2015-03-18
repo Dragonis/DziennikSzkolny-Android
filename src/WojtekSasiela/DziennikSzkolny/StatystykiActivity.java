@@ -18,7 +18,9 @@ public class StatystykiActivity extends Activity {
     // get the selected radio button from the group
     RadioGroup radioGroup;
     RatingBar ratingBar;
+    RadioButton radioButton;
     float liczba_gwiazdek;
+    int selectedOption;
 
 
     @Override
@@ -29,7 +31,7 @@ public class StatystykiActivity extends Activity {
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         Button pokaz_button_statystyki = (Button) findViewById(R.id.pokaz_button_statystyki);
-          //Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
+        //Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), OdchylenieAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), MedianaAcitivity.class);
@@ -71,56 +73,55 @@ public class StatystykiActivity extends Activity {
                 ocenyArray.add("0");
                 ocenyArray.add("0");
 
-                int selectedOption = radioGroup.getCheckedRadioButtonId();
-                	            // find the radiobutton by the previously returned id
+                selectedOption = radioGroup.getCheckedRadioButtonId();
+                // find the radiobutton by the previously returned id
 
-                                liczba_gwiazdek = ratingBar.getRating();
-                	            RadioButton radioButton = (RadioButton) findViewById(selectedOption);
-                	            Toast.makeText(StatystykiActivity.this, radioButton.getText() + " " + liczba_gwiazdek
-                , Toast.LENGTH_SHORT).show();
-
-
+                liczba_gwiazdek = ratingBar.getRating();
+                radioButton = (RadioButton) findViewById(selectedOption);
 
                 Bundle koszyk = new Bundle();
                 Intent cel = new Intent();
                 koszyk.putStringArrayList("ocenyArray", ocenyArray);
+                if (radioButton == null)
+                {
+                    Toast.makeText(getApplicationContext(), "Wybierz miare statystyczna", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
-                if(radioButton.getText().equals("Srednia arytmetyczna")) {
-                    cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                    if (radioButton.getText().equals("Srednia arytmetyczna")) {
+                        cel = new Intent(view.getContext(), SredniaAcitivity.class);
+                    }
+                    if (radioButton.getText().equals("Wariancja")) {
+                        cel = new Intent(view.getContext(), WariancjaAcitivity.class);
+                    }
+                    if (radioButton.getText().equals("Odchylenie standardowe")) {
+                        cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
+                    }
+                    if (radioButton.getText().equals("Mediana")) {
+                        cel = new Intent(view.getContext(), MedianaAcitivity.class);
+                    }
+                    if (radioButton.getText().equals("Dominanta")) {
+                        cel = new Intent(view.getContext(), DominantaAcitivity.class);
+                    }
+                    if (radioButton.getText().equals("Kwartyle")) {
+                        cel = new Intent(view.getContext(), KwartyleAcitivity.class);
+                    }
+
+                        Toast.makeText(getApplicationContext(),
+                                radioButton.getText() + " " + String.valueOf(liczba_gwiazdek)
+                                , Toast.LENGTH_SHORT).show();
+
+                        cel.putExtras(koszyk);
+                        startActivity(cel);
 
                 }
-                if(radioButton.getText().equals("Wariancja"))
-                {
-                     cel = new Intent(view.getContext(), WariancjaAcitivity.class);
-                }
-                if(radioButton.getText().equals("Odchylenie standardowe"))
-                {
-                     cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
-                }
-                if(radioButton.getText().equals("Mediana"))
-                {
-                    cel = new Intent(view.getContext(), MedianaAcitivity.class);
-                }
-                if(radioButton.getText().equals("Dominanta"))
-                {
-                    cel = new Intent(view.getContext(), DominantaAcitivity.class);
-                }
-                if(radioButton.getText().equals("Kwartyle"))
-                {
-                    cel = new Intent(view.getContext(), KwartyleAcitivity.class);
-                }
-
-
-                cel.putExtras(koszyk);
-                startActivity(cel);
             }
         });
     }
 
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
+    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,9 +138,8 @@ public class StatystykiActivity extends Activity {
         });
     }
 
-    public void zamknijOkno(int id)
-    {
-        Button b = (Button)findViewById(id);
+    public void zamknijOkno(int id) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
