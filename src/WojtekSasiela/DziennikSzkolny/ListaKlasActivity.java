@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class ListaKlasActivity extends Activity {
 
+    Integer nr_kliknietego_elementu_z_listview_przedmioty;
     ArrayList<String> cars;
     ArrayList<String> carL;
     private ArrayAdapter<String> adapter = null;
@@ -248,6 +249,7 @@ public class ListaKlasActivity extends Activity {
                 edytuj_ucznia.setEnabled(true);
                 usun_ucznia.setEnabled(true);
 
+                nr_kliknietego_elementu_z_listview_przedmioty = position;
                 usun_ucznia.setTag(position);
             }
         });

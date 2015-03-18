@@ -212,7 +212,7 @@
       <file leaf-file-name="ListaKlasActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7848101" vertical-offset="3685" max-vertical-offset="6817">
+            <state vertical-scroll-proportion="0.8333333" vertical-offset="3685" max-vertical-offset="6817">
               <caret line="250" column="39" selection-start-line="250" selection-start-column="39" selection-end-line="250" selection-end-column="39" />
               <folding>
                 <element signature="e#2759#2939#0" expanded="true" />
@@ -237,12 +237,12 @@
                 <element signature="e#8145#8146#0" expanded="true" />
                 <element signature="e#8183#8787#0" expanded="true" />
                 <element signature="e#8786#8787#0" expanded="true" />
-                <element signature="e#8859#10301#0" expanded="true" />
-                <element signature="e#10300#10301#0" expanded="true" />
-                <element signature="e#10428#11029#0" expanded="true" />
-                <element signature="e#11028#11029#0" expanded="true" />
-                <element signature="e#16055#16561#0" expanded="true" />
-                <element signature="e#16560#16561#0" expanded="true" />
+                <element signature="e#8859#10285#0" expanded="true" />
+                <element signature="e#10284#10285#0" expanded="true" />
+                <element signature="e#10412#10997#0" expanded="true" />
+                <element signature="e#10996#10997#0" expanded="true" />
+                <element signature="e#16023#16529#0" expanded="true" />
+                <element signature="e#16528#16529#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1011,7 +1011,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317971000" />
+    <option name="totallyTimeSpent" value="318115000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1035,7 +1035,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1058,8 +1058,8 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2473525" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32771823" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3132137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28874388" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32626426" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28874388" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21331316" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1678,7 +1678,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7848101" vertical-offset="3685" max-vertical-offset="6817">
+        <state vertical-scroll-proportion="0.8333333" vertical-offset="3685" max-vertical-offset="6817">
           <caret line="250" column="39" selection-start-line="250" selection-start-column="39" selection-end-line="250" selection-end-column="39" />
           <folding>
             <element signature="e#2759#2939#0" expanded="true" />
@@ -1703,12 +1703,12 @@
             <element signature="e#8145#8146#0" expanded="true" />
             <element signature="e#8183#8787#0" expanded="true" />
             <element signature="e#8786#8787#0" expanded="true" />
-            <element signature="e#8859#10301#0" expanded="true" />
-            <element signature="e#10300#10301#0" expanded="true" />
-            <element signature="e#10428#11029#0" expanded="true" />
-            <element signature="e#11028#11029#0" expanded="true" />
-            <element signature="e#16055#16561#0" expanded="true" />
-            <element signature="e#16560#16561#0" expanded="true" />
+            <element signature="e#8859#10285#0" expanded="true" />
+            <element signature="e#10284#10285#0" expanded="true" />
+            <element signature="e#10412#10997#0" expanded="true" />
+            <element signature="e#10996#10997#0" expanded="true" />
+            <element signature="e#16023#16529#0" expanded="true" />
+            <element signature="e#16528#16529#0" expanded="true" />
           </folding>
         </state>
       </provider>
