@@ -23,12 +23,14 @@ public class MainActivity extends Activity {
      * Called when the activity is first created.
      */
     public static String TAG = "DziennikSzkolny";
-
+    Button zamknij_aplikacje;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        zamknij_aplikacje = (Button) findViewById(R.id.zamknijaplikacje_button);
 
         try {
             doAccountDataStuff();
@@ -38,9 +40,15 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
-
-        //Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
-//        Pokaz_Activity_z_klasy(R.id.O_Autorze_Button, getApplicationContext(), OpcjeAcitivity.class);
+        zamknij_aplikacje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                System.exit(0);
+            }
+        });
+//        Pokaz_Activity(R.id.O_Autorze_Button, Intent.ACTION_VIEW, "http://www.google.pl");
+        Pokaz_Activity_z_klasy(R.id.Wyloguj_button, getApplicationContext(), OpcjeAcitivity.class);
 
 
         // Buttony przekierowywujace na konkretne Activity
