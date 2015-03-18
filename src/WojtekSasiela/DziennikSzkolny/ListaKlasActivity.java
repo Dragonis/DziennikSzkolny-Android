@@ -22,6 +22,8 @@ import java.util.List;
  */
 public class ListaKlasActivity extends Activity {
 
+    ArrayList<String> cars;
+    ArrayList<String> carL;
     private ArrayAdapter<String> adapter = null;
     private ArrayAdapter<String> adapterSubcjets = null;
     private ListView listaKompoment = null;
@@ -82,14 +84,25 @@ public class ListaKlasActivity extends Activity {
         });
         Pokaz_Activity_z_klasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
 
+
         usun_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Toast.makeText(getApplicationContext(), "Użytkownik został usunięty",
                         Toast.LENGTH_SHORT).show();
 
+                // TODO: DOKONCZYC - Narazie usuwa zaznaczony elelement z listview, ale z konca listy, i nie usuwa z bazy danych
+//                cars.remove(((TextView)view).getText().toString());
+
+                //((TextView) view).getText().toString()
+                int position=(Integer)view.getTag();
+                carL.remove(position);
+                adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, carL);
+                listaKompoment.setAdapter(adapter);
             }
         });
+
 
         dodaj_ocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,7 +224,7 @@ public class ListaKlasActivity extends Activity {
         // lista osob
         listaKompoment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 for (int j = 0; j < adapterView.getChildCount(); j++)
                     adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
 
@@ -234,6 +247,8 @@ public class ListaKlasActivity extends Activity {
 
                 edytuj_ucznia.setEnabled(true);
                 usun_ucznia.setEnabled(true);
+
+                usun_ucznia.setTag(position);
             }
         });
 
@@ -241,7 +256,7 @@ public class ListaKlasActivity extends Activity {
         //interakcja na klikniecie na nazwe przedmioty z listy przedmiotow
         listaKompoment2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 for (int j = 0; j < adapterView.getChildCount(); j++)
                     adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
 
@@ -250,6 +265,7 @@ public class ListaKlasActivity extends Activity {
 
                 przedmiot = ((TextView)view).getText().toString();
                 wyslijDaneDoNastepnegoActivity();
+
 
 
             }
@@ -297,13 +313,13 @@ public class ListaKlasActivity extends Activity {
             RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
             List<Student> students = studentDao.queryForEq("classrom",nr_klasy);
             Integer max_liczba_studentow_w_klasie = students.size();
-            ArrayList<String> cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
+            cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
             for(int i=0; i <max_liczba_studentow_w_klasie; i++){
                 cars.add(students.get(i).getName() + " " + students.get(i).getSurname());
             }
 
             //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
-            ArrayList<String> carL = new ArrayList<String>();
+            carL = new ArrayList<String>();
             carL.addAll(cars);
             adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
             listaKompoment.setAdapter(adapter);
@@ -392,6 +408,9 @@ public class ListaKlasActivity extends Activity {
 
             }
         });
+
+
     }
+
 
 }
