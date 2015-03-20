@@ -14,12 +14,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".StatystykiDaneUczniaActivity" android:label="Statystyki ucznia"/>
         <activity android:name=".LogowanieActivity" android:label="Logowanie"/>
         <activity android:name=".DodajUczniaActivity" android:label="Dodaj ucznia"/>
         <activity android:name=".DodajOceneActivity" android:label="Dodaj ocene"/>
-        <activity android:name=".EdytujUczniaActivity" android:label="Edytuj ucznia"/>
         <activity android:name=".EdytujOceneActivity" android:label="Edytuj ocene"/>
+        <activity android:name=".EdytujUczniaActivity" android:label="Edytuj ucznia"/>
         <activity android:name=".OpcjeAcitivity" android:label="Edytuj opcje"/>
         <activity android:name=".DaneUczniaActivity" android:label="Dane ucznia"/>
         <activity android:name=".StatystykiActivity" android:label="Statystyki ocen"/>

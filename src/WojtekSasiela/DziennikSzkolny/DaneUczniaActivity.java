@@ -43,7 +43,8 @@ public class DaneUczniaActivity extends Activity {
 
 
         // wyswitlanie odpowiednich activity statystycznych
-        Pokaz_Activity_z_klasy(R.id.statystyki_button_daneucznia, getApplicationContext(), StatystykiDaneUczniaActivity.class);
+        Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
+        Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
         Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia, getApplicationContext(), MedianaAcitivity.class);
         Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia, getApplicationContext(), WariancjaAcitivity.class);
