@@ -14,6 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".StatystykiDaneUczniaActivity" android:label="Statystyki ucznia"/>
         <activity android:name=".LogowanieActivity" android:label="Logowanie"/>
         <activity android:name=".DodajUczniaActivity" android:label="Dodaj ucznia"/>
         <activity android:name=".DodajOceneActivity" android:label="Dodaj ocene"/>
