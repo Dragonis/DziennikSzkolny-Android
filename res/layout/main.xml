@@ -17,10 +17,17 @@
                    android:baselineAligned="false">
 
         <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello World, MyActivity"/>
-
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Jesteś zalogowany/a jako:"
+                android:id="@+id/textView37" android:layout_column="0"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="[Imie Nazwisko]"
+                android:id="@+id/textView38" android:layout_column="0"/>
         <TableRow   android:id="@+id/tableRow1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -49,7 +56,7 @@
                     android:id="@+id/OpcjeButton"
                     android:drawableBottom="@drawable/zebatka"
                     android:text="@string/Opcje" android:clickable="true"
-                    />
+                    android:layout_column="0"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,6 +82,10 @@
                     android:id="@+id/zamknijaplikacje_button" android:layout_row="0" android:layout_column="1"
                     android:drawableBottom="@drawable/zamknij"
                     android:text="Zamknij" android:clickable="true"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
         </TableRow>
 
         <!--<TableRow   android:id="@+id/tableRow1"-->
