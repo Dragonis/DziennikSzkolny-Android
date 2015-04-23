@@ -23,6 +23,7 @@ public class LogowanieActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logowanie_layout);
 
+
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
 
@@ -30,6 +31,15 @@ public class LogowanieActivity extends Activity {
         @Override
         public void onClick(View view) {
 
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Bundle koszyk = new Bundle();
+
+            koszyk.putString("Login", "Jan");
+            koszyk.putString("Password","Kowalski");
+            intent.putExtras(koszyk);
+
+            setResult(RESULT_OK, intent);
+            startActivity(intent);
         }
     });
 
@@ -48,7 +58,6 @@ public class LogowanieActivity extends Activity {
             }
         });
 
-        Pokaz_Activity_z_klasy(R.id.zaloguj_button_logowanie, getApplicationContext(),MainActivity.class);
 
 
     }

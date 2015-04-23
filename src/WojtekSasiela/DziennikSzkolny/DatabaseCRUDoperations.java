@@ -73,7 +73,7 @@ public class DatabaseCRUDoperations {
              * costamDao.delete(Obiekt9wartosc));
             */
 
-        }
+    }
 
         OpenHelperManager.releaseHelper();
     }

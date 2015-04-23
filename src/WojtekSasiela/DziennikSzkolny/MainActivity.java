@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        odbierzDanezPoprzedniegoActivity_iWyswietl();
 
         zamknij_aplikacje = (Button) findViewById(R.id.zamknijaplikacje_button);
 
@@ -50,8 +52,8 @@ public class MainActivity extends Activity {
 
         // Buttony przekierowywujace na konkretne Activity
         // laczy Vidok z Controllerem
-        Pokaz_Activity_z_klasy(R.id.OpcjeButton, getApplicationContext(),OpcjeAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(),OAutorzeActivity.class);
+        Pokaz_Activity_z_klasy(R.id.OpcjeButton, getApplicationContext(), OpcjeAcitivity.class);
+        Pokaz_Activity_z_klasy(R.id.UczniowieButton, getApplicationContext(), OAutorzeActivity.class);
         Pokaz_Activity_z_klasy(R.id.ZobaczStatyButton, getApplicationContext(), StatystykiActivity.class);
         Pokaz_Activity_z_klasy(R.id.ListaKlas_Button, getApplicationContext(), ListaKlasActivity.class);
         //BaseSQLite baseSQLite = BaseSQLite.getInstance(getApplicationContext());
@@ -62,9 +64,8 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
+    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,8 +80,17 @@ public class MainActivity extends Activity {
 
             }
         });
+
     }
 
+    public void odbierzDanezPoprzedniegoActivity_iWyswietl() {
+        Intent intent = new Intent();
+        Bundle przekazanedane = getIntent().getExtras();
 
+        String login = przekazanedane.getString("Login");
+        String password = przekazanedane.getString("Password");
+        TextView imieinazwisko = (TextView) findViewById(R.id.textviewImieiNazwisko);
+        imieinazwisko.setText(login + " " + password);
+    }
 
 }
