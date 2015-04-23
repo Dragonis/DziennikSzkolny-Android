@@ -1,12 +1,21 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+
+import java.sql.SQLException;
+import java.util.List;
 
 import static WojtekSasiela.DziennikSzkolny.R.id.zaloguj_button_logowanie;
 
@@ -17,6 +26,8 @@ public class LogowanieActivity extends Activity {
 
     Button zaloguj;
     Button zamknij;
+    DatabaseHelper dbHelper;
+    RuntimeExceptionDao<Account, Integer> AccountDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +37,40 @@ public class LogowanieActivity extends Activity {
 
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
+        dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
 
     zaloguj.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
+            AccountDao = dbHelper.getAccountRuntimeExceptionDao();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             Bundle koszyk = new Bundle();
 
-            koszyk.putString("Login", "Jan");
-            koszyk.putString("Password","Kowalski");
-            intent.putExtras(koszyk);
+            TextView login_textview = (TextView) findViewById(R.id.loginTextView);
+            TextView password_textview = (TextView) findViewById(R.id.passwordTextView);
 
-            setResult(RESULT_OK, intent);
-            startActivity(intent);
+            String username = login_textview.getText().toString();
+            String password = password_textview.getText().toString();
+
+            //TODO sprawdzanie czy dane logowania sa poprawne
+            List<Account> accounts = AccountDao.queryForEq("username", username);
+
+           if (accounts.size() == 0)
+           {
+               Toast.makeText(getApplicationContext(),"Nie ma takiego uzytkownika",Toast.LENGTH_SHORT).show();
+           }else {
+
+               String imie = accounts.get(0).getUsername();
+               String nazwisko = accounts.get(0).getPassword();
+
+               koszyk.putString("Imie", imie);
+               koszyk.putString("Nazwisko", nazwisko);
+               intent.putExtras(koszyk);
+
+               setResult(RESULT_OK, intent);
+               startActivity(intent);
+           }
         }
     });
 
