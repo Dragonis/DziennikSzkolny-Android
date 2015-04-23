@@ -2,6 +2,7 @@ package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,8 +27,10 @@ public class LogowanieActivity extends Activity {
 
     Button zaloguj;
     Button zamknij;
+    Button przykladowa_baza_danych_button;
     DatabaseHelper dbHelper;
     RuntimeExceptionDao<Account, Integer> AccountDao;
+    RuntimeExceptionDao<Student, Integer> StudentDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,8 @@ public class LogowanieActivity extends Activity {
 
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
+        przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
+
         dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
 
     zaloguj.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +49,7 @@ public class LogowanieActivity extends Activity {
         public void onClick(View view) {
 
             AccountDao = dbHelper.getAccountRuntimeExceptionDao();
+            StudentDao = dbHelper.getStudentRuntimeExceptionDao();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             Bundle koszyk = new Bundle();
 
@@ -89,7 +95,19 @@ public class LogowanieActivity extends Activity {
             }
         });
 
-
+przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        DatabaseCRUDoperations crud = new DatabaseCRUDoperations();
+        try{
+            crud.insert_Accounts_IntoDatabase(AccountDao);
+            crud.insert_Students_IntoDatabase(StudentDao);
+            crud.insert_sample_database();
+        }catch(Exception ex){
+            ex.getStackTrace();
+        }
+    }
+});
 
     }
 

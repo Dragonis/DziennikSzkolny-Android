@@ -42,4 +42,9 @@
             android:layout_height="wrap_content"
             android:text="Zakończ"
             android:id="@+id/zamknij_button_logowanie" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wprowadz przykladowa baze danych"
+            android:id="@+id/przykladowabazaDanychButton"/>
 </LinearLayout>

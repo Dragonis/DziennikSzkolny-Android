@@ -78,7 +78,7 @@ public class DatabaseCRUDoperations {
         OpenHelperManager.releaseHelper();
     }
 
-    private void insert_sample_database() {
+    public void insert_sample_database() {
         insert_Accounts_IntoDatabase(AccountDao);
         insert_Students_IntoDatabase(StudentDao);
 
@@ -194,9 +194,9 @@ public class DatabaseCRUDoperations {
     }
 
     public void insert_Accounts_IntoDatabase(RuntimeExceptionDao<Account, Integer> accountDao) {
-        accountDao.create(new Account("admin login1", "admin password1"));
-        accountDao.create(new Account("Uzytkownik", "Haslo"));
-        accountDao.create(new Account("root", "testABCD"));
+        accountDao.create(new Account("Jan","Kowalski","admin login1", "admin password1"));
+        accountDao.create(new Account("Johny","Brown","Uzytkownik", "Haslo"));
+        accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
     }
 
 }

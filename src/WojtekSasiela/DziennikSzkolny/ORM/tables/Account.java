@@ -19,12 +19,23 @@ public class Account {
     String password;
 
     @DatabaseField
+    String name;
+
+    @DatabaseField
+    String surname;
+
+    /**
+     * Account data created
+     */
+    @DatabaseField
     Date date;
 
     public Account() {
     }
 
-    public Account(String username, String password) {
+    public Account(String name, String surname, String username, String password) {
+        this.name = name;
+        this.surname = surname;
         this.username = username;
         this.password = password;
         this.date = new Date(System.currentTimeMillis());
@@ -60,6 +71,22 @@ public class Account {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
