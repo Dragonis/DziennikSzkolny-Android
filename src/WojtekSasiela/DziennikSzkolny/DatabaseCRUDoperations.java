@@ -65,6 +65,14 @@ public class DatabaseCRUDoperations {
         } else {
             //TODO Dodaje/Usuwa/Edytuje element(ucznia) do bazy danych
             insert_sample_database();
+            /**
+            *Aby dodac rekordy do bazy danych uzywasz
+             costamDao.create(Obiekt(wartosci);
+
+             *Aby usunac
+             * costamDao.delete(Obiekt9wartosc));
+            */
+
         }
 
         OpenHelperManager.releaseHelper();
