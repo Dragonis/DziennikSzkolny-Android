@@ -67,8 +67,8 @@ public class LogowanieActivity extends Activity {
                Toast.makeText(getApplicationContext(),"Nie ma takiego uzytkownika",Toast.LENGTH_SHORT).show();
            }else {
 
-               String imie = accounts.get(0).getUsername();
-               String nazwisko = accounts.get(0).getPassword();
+               String imie = accounts.get(0).getName();
+               String nazwisko = accounts.get(0).getSurname();
 
                koszyk.putString("Imie", imie);
                koszyk.putString("Nazwisko", nazwisko);

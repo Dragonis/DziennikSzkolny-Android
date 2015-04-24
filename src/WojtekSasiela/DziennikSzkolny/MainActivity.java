@@ -86,10 +86,10 @@ public class MainActivity extends Activity {
     public void odbierzDanezPoprzedniegoActivity_iWyswietl() {
         Bundle przekazanedane = getIntent().getExtras();
 
-        String login = przekazanedane.getString("Imie");
-        String password = przekazanedane.getString("Nazwisko");
+        String imie = przekazanedane.getString("Imie");
+        String nazwisko = przekazanedane.getString("Nazwisko");
         TextView imieinazwisko = (TextView) findViewById(R.id.textviewImieiNazwisko);
-        imieinazwisko.setText(login + " " + password);
+        imieinazwisko.setText(imie + " " + nazwisko);
     }
 
 }
