@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/images">
+    <HorizontalScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp" >
+
+    <TableLayout  android:id="@+id/app_name"
+                  xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                   android:orientation="vertical"
+                   android:baselineAligned="false">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Jesteś zalogowany/a jako:"
+                android:id="@+id/textView37" android:layout_column="0"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="[Imie Nazwisko]"
+                android:id="@+id/textviewImieiNazwisko" android:layout_column="0"/>
+        <TableRow   android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip" >
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ListaKlas_Button" android:layout_row="0" android:layout_column="0"
+                    android:drawableBottom="@drawable/lista"
+                    android:text="@string/lista_klas" android:clickable="true"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ZobaczStatyButton" android:layout_row="0" android:layout_column="1"
+                    android:drawableBottom="@drawable/wykres"
+                    android:text="@string/Zob_Statyst" android:clickable="true"/>
+        </TableRow>
+
+        <TableRow   android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip" >
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/OpcjeButton"
+                    android:drawableBottom="@drawable/zebatka"
+                    android:text="@string/Opcje" android:clickable="true"
+                    android:layout_column="0"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/UczniowieButton" android:layout_row="0" android:layout_column="1"
+                    android:drawableBottom="@drawable/user"
+                    android:text="O Autorze" />
+        </TableRow>
+
+        <TableRow   android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip" >
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Wyloguj_button"
+                    android:drawableBottom="@drawable/klodka"
+                    android:text="Wyloguj" android:clickable="true"
+                    android:onClick="Pokaz_Activity" android:layout_column="0"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/zamknijaplikacje_button" android:layout_row="0" android:layout_column="1"
+                    android:drawableBottom="@drawable/zamknij"
+                    android:text="Zamknij" android:clickable="true"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+        </TableRow>
+
+        <!--<TableRow   android:id="@+id/tableRow1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                        <!--android:padding="5dip" >-->
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/DDDDDDDD" android:layout_row="0" android:layout_column="0"-->
+                    <!--android:drawableBottom="@drawable/ic_launcher"-->
+                    <!--android:text="@string/edyt_plac_nauczycieli" android:clickable="true"/>-->
+        <!--</TableRow>-->
+
+    </TableLayout>
+</HorizontalScrollView>
+</ScrollView>

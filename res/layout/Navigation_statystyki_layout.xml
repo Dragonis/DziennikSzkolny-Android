@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:background="@drawable/images">
+
+<HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+        >
+
+        <!--Wykres 1 -->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="vertical"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/glowne_okno">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Srednia ocen na liczbe uczniow"
+                    android:id="@+id/qqqw" android:layout_gravity="center_horizontal"
+                    android:layout_toEndOf="@+id/zzzyubl" android:layout_above="@+id/Zamknij_Statystyki"
+                    android:layout_alignParentStart="true"/>
+
+            <!-- 1 wykres -->
+
+            <!-- 2 wykres -->
+
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Srednia arytmetyczna"-->
+                    <!--android:id="@+id/otworz_srednia_button"/>-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Wariancja"-->
+                    <!--android:id="@+id/otworz_wariancja_button"/>-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/otworz_odchylenie_button" android:text="Odchylenie standardowe"/>-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Mediana"-->
+                    <!--android:id="@+id/otworz_mediana_button"/>-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Dominanta"-->
+                    <!--android:id="@+id/otworz_dominanta_button"/>-->
+
+            <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Kwartyle"-->
+                    <!--android:id="@+id/otworz_kwartyle_button"/>-->
+
+            <RadioGroup
+                    android:id="@+id/radioSets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Srednia arytmetyczna"
+                        android:id="@+id/radioButton_srednia" android:layout_gravity="center_horizontal"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wariancja"
+                        android:id="@+id/radioButton_wariancja" android:layout_gravity="center_horizontal"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Odchylenie standardowe"
+                        android:id="@+id/radioButton_odchylenie" android:layout_gravity="center_horizontal"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mediana"
+                        android:id="@+id/radioButton_mediana" android:layout_gravity="center_horizontal"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dominanta"
+                        android:id="@+id/radioButton_dominanta" android:layout_gravity="center_horizontal"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kwartyle"
+                        android:id="@+id/radioButton_kwartyle" android:layout_gravity="center_horizontal"/>
+
+            </RadioGroup>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Dla klasy:"
+                    android:id="@+id/textView4" android:layout_gravity="center_horizontal"/>
+            <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar" android:layout_gravity="center_horizontal" android:numStars="6"
+                    android:indeterminateOnly="false" android:stepSize="1"/>
+            <TableRow   android:id="@+id/tableRow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dip" >
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Zamknij"
+                        android:id="@+id/Zamknij_Statystyki"
+                        android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                        />
+                <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pokaż"
+                                android:id="@+id/pokaz_button_statystyki" android:layout_gravity="center_horizontal"/>
+            </TableRow>
+
+
+
+
+
+        </LinearLayout>
+</HorizontalScrollView>
+</ScrollView>

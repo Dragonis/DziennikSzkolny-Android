@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:windowSoftInputMode="adjustPan"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:id="@+id/test">
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Imię i Nazwisko: "
+            android:id="@+id/textView5"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Imie i Nazwisko]"
+              android:id="@+id/pokazImieiNaziwsko"/>
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5dip">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="Klasa: "
+                  android:id="@+id/textView17"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Klasa]"
+                  android:id="@+id/nrKlasy" android:layout_gravity="center_horizontal"/>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+        </TableRow>
+    </TableRow>
+    <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+    </TableRow>
+
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Przedmiot: "
+                android:id="@+id/textView20"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="[Przedmiot]"
+                android:id="@+id/przedmiot"/>
+    </TableRow>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Data Ocena"
+            android:id="@+id/textView6"/>
+    <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="190dp" android:weightSum="1">
+        <ListView
+                android:windowSoftInputMode="adjustPan"
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:id="@+id/data_z_ocena_listview"/>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dodaj"
+                    android:id="@+id/dodaj_ocene_button_daneucznia" android:layout_gravity="right"
+                    android:layout_above="@+id/edytuj_ocene_button_daneucznia" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edytuj"
+                    android:id="@+id/edytuj_ocene_button_daneucznia"
+                    android:layout_above="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Usun"
+                    android:id="@+id/usun_ocene_button_daneucznia"
+                    android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Ocena:"
+                    android:id="@+id/textView36"/>
+        </RelativeLayout>
+    </TableRow>
+
+
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Srednia"
+                android:id="@+id/srednia_button_daneucznia"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mediana"
+                android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wariancja"
+                android:id="@+id/wariancja_button_daneucznia"/>
+    </TableRow>
+    <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dominanta"
+                android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Odchylenie"
+                android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kwartyle"
+                android:id="@+id/kwartyle_button_daneucznia"/>
+            </TableRow>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wyjdż"
+            android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+
+</LinearLayout>
