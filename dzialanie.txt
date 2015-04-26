@@ -1,4 +1,0 @@
-
-=== Dzialanie ORM ===
-* w MainActivity - dane do bazy danych sa wyyslane
-* w np. OpcjeActivity, dane sa pobierane z bazy danych, a nastepnie wyswietlane
