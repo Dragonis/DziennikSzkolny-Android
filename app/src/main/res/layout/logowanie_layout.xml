@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="\n Panel logowania \n"
+            android:id="@+id/textView35" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="\nUżytkownik:"
+            android:id="@+id/textView33" android:layout_gravity="center_horizontal"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/loginTextView" android:text="root" android:textAlignment="center"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="\nHasło:"
+            android:id="@+id/textView34" android:layout_gravity="center_horizontal"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/passwordTextView" android:text="testABCD" android:textAlignment="center"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zaloguj"
+            android:id="@+id/zaloguj_button_logowanie" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zakończ"
+            android:id="@+id/zamknij_button_logowanie" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wprowadz przykladowa baze danych"
+            android:id="@+id/przykladowabazaDanychButton"/>
+</LinearLayout>

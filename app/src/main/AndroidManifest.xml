@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="sasiela.wojtek.dziennikszkolny" >
+
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+        <activity android:name=".LogowanieActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--<activity android:name=".LogowanieActivity" android:label="Logowanie"/>-->
+        <activity android:name=".MainActivity" android:label="Menu główne"/>
+        <activity android:name=".DodajUczniaActivity" android:label="Dodaj ucznia"/>
+        <activity android:name=".DodajOceneActivity" android:label="Dodaj ocene"/>
+        <activity android:name=".EdytujOceneActivity" android:label="Edytuj ocene"/>
+        <activity android:name=".EdytujUczniaActivity" android:label="Edytuj ucznia"/>
+        <activity android:name=".OpcjeAcitivity" android:label="Edytuj opcje"/>
+        <activity android:name=".DaneUczniaActivity" android:label="Dane ucznia"/>
+        <activity android:name=".StatystykiActivity" android:label="Statystyki ocen"/>
+        <activity android:name=".OAutorzeActivity" android:label="Lista Uczniow"/>
+        <activity android:name=".ListaKlasActivity" android:label="Lista klas"/>
+
+        <activity android:name=".Fragments.SredniaAcitivity" android:label="Srednia arytmetyczna"/>
+        <activity android:name=".Fragments.WariancjaAcitivity" android:label="Wariancja"/>
+        <activity android:name=".Fragments.OdchylenieAcitivity" android:label="Odchylenie standardowe"/>
+        <activity android:name=".Fragments.MedianaAcitivity" android:label="Mediana"/>
+        <activity android:name=".Fragments.DominantaAcitivity" android:label="Dominanta"/>
+        <activity android:name=".Fragments.KwartyleAcitivity" android:label="Kwartyle"/>
+    </application>
+
+</manifest>
