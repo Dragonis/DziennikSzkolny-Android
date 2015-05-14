@@ -30,14 +30,14 @@ public class DaneUczniaActivity extends Activity {
     String przedmiot = "";
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
-    ListView data_z_ocena_listview;
+//    ListView data_z_ocena_listview;
     Intent cel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dane_ucznia_layout);
 
-        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
+//        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
         pobierzDanezPoprzedniegoActivity();
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
@@ -161,6 +161,15 @@ public class DaneUczniaActivity extends Activity {
         TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
         TextView przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
 
+        // ponizsze textviewy znajduja sie w tabeli tzw checkbox, data_textview i ocena_textview
+        TextView data_textview = (TextView) findViewById(R.id.data_textview);
+        TextView ocena_textview = (TextView) findViewById(R.id.ocena_textview);
+        TextView data_textview2 = (TextView) findViewById(R.id.data_textview2);
+        TextView ocena_textview2 = (TextView) findViewById(R.id.ocena_textview2);
+        TextView data_textview3 = (TextView) findViewById(R.id.data_textview3);
+        TextView ocena_textview3 = (TextView) findViewById(R.id.ocena_textview3);
+
+
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
         nrKlasy_textview.setText(nrKlasy);
         przedmiot_textview.setText(przedmiot);
@@ -170,8 +179,14 @@ public class DaneUczniaActivity extends Activity {
 
                 data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
         }
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
-        data_z_ocena_listview.setAdapter(adapter);
+        data_textview.setText(date1);
+        ocena_textview.setText(grade1);
+        data_textview2.setText(date2);
+        ocena_textview2.setText(grade2);
+        data_textview3.setText(date3);
+        ocena_textview3.setText(grade3);
+//        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
+//        data_z_ocena_listview.setAdapter(adapter);
     }
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
