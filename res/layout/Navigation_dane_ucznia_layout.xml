@@ -4,26 +4,17 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent" android:id="@+id/test">
+    <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5dip">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Imię i Nazwisko: "
             android:id="@+id/textView5"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/pokazImieiNaziwsko" android:layout_gravity="center_horizontal"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/pokazImieiNaziwsko" android:layout_gravity="center_horizontal"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Imie i Nazwisko]"
               android:id="@+id/pokazImieiNaziwsko"/>
+    </TableRow>
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5dip">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:textAppearance="?android:attr/textAppearanceLarge" android:text="Klasa: "
@@ -128,10 +119,9 @@
                     android:layout_column="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:gravity="left"
                     android:padding="3dip"
-                    android:id="@+id/checkBox"/>
+                    android:id="@+id/checkBox1" android:checked="false"/>
             <TextView
 
                     android:gravity="left"
@@ -145,10 +135,9 @@
                     android:layout_column="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:gravity="left"
                     android:padding="3dip"
-                    android:id="@+id/checkBox"/>
+                    android:id="@+id/checkBox2" android:checked="false"/>
             <TextView
 
                     android:gravity="left"
@@ -173,14 +162,14 @@
                     android:text="Edytuj"
                     android:id="@+id/edytuj_ocene_button_daneucznia"
                     android:layout_above="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" android:layout_column="2"/>
+                    android:layout_alignParentStart="true" android:layout_column="2" android:enabled="false"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Usun"
                     android:id="@+id/usun_ocene_button_daneucznia"
                     android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" android:layout_column="3"/>
+                    android:layout_alignParentStart="true" android:layout_column="3" android:enabled="false"/>
         </TableRow>
 
     </TableLayout>

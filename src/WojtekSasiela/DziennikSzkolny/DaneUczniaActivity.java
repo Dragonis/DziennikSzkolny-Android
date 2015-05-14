@@ -32,10 +32,28 @@ public class DaneUczniaActivity extends Activity {
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
 //    ListView data_z_ocena_listview;
     Intent cel;
+    CheckBox checkbox;
+    CheckBox checkbox1 ;
+    CheckBox checkbox2 ;
+
+    Button edytujocene;
+    Button usunocene;
+    Button dodajocene;
+
+    boolean zaznaczony_jakikolwiek_checkbox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dane_ucznia_layout);
+
+        checkbox = (CheckBox) findViewById(R.id.checkBox);
+        checkbox1 = (CheckBox) findViewById(R.id.checkBox1);
+        checkbox2 = (CheckBox) findViewById(R.id.checkBox2);
+        edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
+        usunocene = (Button) findViewById(R.id.usun_ocene_button_daneucznia);
+        dodajocene = (Button) findViewById(R.id.dodaj_ocene_button_daneucznia);
+        zaznaczony_jakikolwiek_checkbox = false;
 
 //        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
         pobierzDanezPoprzedniegoActivity();
@@ -58,6 +76,7 @@ public class DaneUczniaActivity extends Activity {
         Button mediana_button_dane_ucznia = (Button) findViewById(R.id.mediana_button_daneucznia);
         Button odchylenie_button_dane_ucznia = (Button) findViewById(R.id.odchylenie_button_daneucznia);
         Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
+
 
         srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -107,7 +126,7 @@ public class DaneUczniaActivity extends Activity {
             }
         });
 
-
+        jesliCheckBoxZaznaczonyToWlaczButtony();
     }
 
     private void wyslijDaneDoNastepnegoActivity(View view) {
@@ -244,6 +263,62 @@ public class DaneUczniaActivity extends Activity {
 
             }
         });
+    }
+
+    public void jesliCheckBoxZaznaczonyToWlaczButtony()
+    {
+
+
+        checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkbox.isChecked()) {
+                    edytujocene.setEnabled(true);
+                    usunocene.setEnabled(true);
+                    dodajocene.setEnabled(false);
+                    zaznaczony_jakikolwiek_checkbox = true;
+                }else{
+                    edytujocene.setEnabled(false);
+                    usunocene.setEnabled(false);
+                    dodajocene.setEnabled(true);
+                }
+            }
+        });
+
+        checkbox1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkbox1.isChecked()) {
+                    edytujocene.setEnabled(true);
+                    usunocene.setEnabled(true);
+                    dodajocene.setEnabled(false);
+                    zaznaczony_jakikolwiek_checkbox = true;
+                }else{
+                    edytujocene.setEnabled(false);
+                    usunocene.setEnabled(false);
+                    dodajocene.setEnabled(true);
+                }
+            }
+        });
+
+        checkbox2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if(checkbox2.isChecked()) {
+                    edytujocene.setEnabled(true);
+                    usunocene.setEnabled(true);
+                    dodajocene.setEnabled(false);
+                    zaznaczony_jakikolwiek_checkbox = true;
+                }else{
+                    edytujocene.setEnabled(false);
+                    usunocene.setEnabled(false);
+                    dodajocene.setEnabled(true);
+
+                }
+            }
+        });
+
     }
 
     public void zamknijOkno(int id) {
