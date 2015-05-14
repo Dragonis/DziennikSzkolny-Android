@@ -74,12 +74,12 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseHelper.java" line="24" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" line="229" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" line="228" mnemonic="3" />
     <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DodajUczniaActivity.java" line="43" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3a2e45e-ff7f-479b-bdcc-96da7136560e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
@@ -150,28 +150,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaneUczniaActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DaneUczniaActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.37226278">
+              <caret line="284" column="63" selection-start-line="284" selection-start-column="63" selection-end-line="284" selection-end-column="63" />
               <folding>
-                <element signature="e#11541#12101#0" expanded="true" />
-                <element signature="e#12100#12101#0" expanded="true" />
-                <element signature="e#12142#12703#0" expanded="true" />
-                <element signature="e#12702#12703#0" expanded="true" />
-                <element signature="e#12744#13307#0" expanded="true" />
-                <element signature="e#13306#13307#0" expanded="true" />
+                <element signature="e#11423#12719#0" expanded="true" />
+                <element signature="e#12398#12693#0" expanded="true" />
+                <element signature="e#12692#12693#0" expanded="true" />
+                <element signature="e#12718#12719#0" expanded="true" />
+                <element signature="e#12760#14058#0" expanded="true" />
+                <element signature="e#13737#14032#0" expanded="true" />
+                <element signature="e#14031#14032#0" expanded="true" />
+                <element signature="e#14057#14058#0" expanded="true" />
+                <element signature="e#14099#15398#0" expanded="true" />
+                <element signature="e#15077#15372#0" expanded="true" />
+                <element signature="e#15371#15372#0" expanded="true" />
+                <element signature="e#15397#15398#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListaKlasActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ListaKlasActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21223022">
-              <caret line="319" column="160" selection-start-line="319" selection-start-column="160" selection-end-line="319" selection-end-column="160" />
+            <state vertical-scroll-proportion="-5.2413793">
+              <caret line="321" column="9" selection-start-line="321" selection-start-column="9" selection-end-line="321" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -193,8 +199,8 @@
       <file leaf-file-name="navigation_dane_ucznia_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/navigation_dane_ucznia_layout.xml">
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3392856">
-              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+            <state vertical-scroll-proportion="-4.553571">
+              <caret line="20" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="229" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -303,8 +309,8 @@
       <list>
         <option value="$PROJECT_DIR$/res/layout/Navigation_dane_ucznia_layout.xml" />
         <option value="$PROJECT_DIR$/res/layout/navigation_dane_ucznia_layout.xml" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
       </list>
     </option>
   </component>
@@ -602,6 +608,74 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -616,6 +690,16 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
@@ -648,12 +732,26 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -682,6 +780,15 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
     <configuration default="false" name="DziennikSzkolny" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -878,7 +985,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367348000" />
+    <option name="totallyTimeSpent" value="370331000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -917,7 +1024,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32771823" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30831975" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3034258" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28384992" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28384992" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2246596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
@@ -1005,7 +1112,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java</url>
-          <line>137</line>
+          <line>136</line>
           <properties />
           <option name="timeStamp" value="76" />
         </line-breakpoint>
@@ -1129,12 +1236,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
           <folding>
-            <element signature="e#11541#12101#0" expanded="true" />
-            <element signature="e#12100#12101#0" expanded="true" />
-            <element signature="e#12142#12703#0" expanded="true" />
-            <element signature="e#12702#12703#0" expanded="true" />
-            <element signature="e#12744#13307#0" expanded="true" />
-            <element signature="e#13306#13307#0" expanded="true" />
+            <element signature="e#11423#12719#0" expanded="true" />
+            <element signature="e#12398#12693#0" expanded="true" />
+            <element signature="e#12692#12693#0" expanded="true" />
+            <element signature="e#12718#12719#0" expanded="true" />
+            <element signature="e#12760#14058#0" expanded="true" />
+            <element signature="e#13737#14032#0" expanded="true" />
+            <element signature="e#14031#14032#0" expanded="true" />
+            <element signature="e#14057#14058#0" expanded="true" />
+            <element signature="e#14099#15398#0" expanded="true" />
+            <element signature="e#15077#15372#0" expanded="true" />
+            <element signature="e#15371#15372#0" expanded="true" />
+            <element signature="e#15397#15398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1199,12 +1312,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
           <folding>
-            <element signature="e#11541#12101#0" expanded="true" />
-            <element signature="e#12100#12101#0" expanded="true" />
-            <element signature="e#12142#12703#0" expanded="true" />
-            <element signature="e#12702#12703#0" expanded="true" />
-            <element signature="e#12744#13307#0" expanded="true" />
-            <element signature="e#13306#13307#0" expanded="true" />
+            <element signature="e#11423#12719#0" expanded="true" />
+            <element signature="e#12398#12693#0" expanded="true" />
+            <element signature="e#12692#12693#0" expanded="true" />
+            <element signature="e#12718#12719#0" expanded="true" />
+            <element signature="e#12760#14058#0" expanded="true" />
+            <element signature="e#13737#14032#0" expanded="true" />
+            <element signature="e#14031#14032#0" expanded="true" />
+            <element signature="e#14057#14058#0" expanded="true" />
+            <element signature="e#14099#15398#0" expanded="true" />
+            <element signature="e#15077#15372#0" expanded="true" />
+            <element signature="e#15371#15372#0" expanded="true" />
+            <element signature="e#15397#15398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1553,29 +1672,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/navigation_dane_ucznia_layout.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3392856">
-          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="302" column="0" selection-start-line="302" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
-          <folding>
-            <element signature="e#11541#12101#0" expanded="true" />
-            <element signature="e#12100#12101#0" expanded="true" />
-            <element signature="e#12142#12703#0" expanded="true" />
-            <element signature="e#12702#12703#0" expanded="true" />
-            <element signature="e#12744#13307#0" expanded="true" />
-            <element signature="e#13306#13307#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-5.2413793">
+          <caret line="321" column="9" selection-start-line="321" selection-start-column="9" selection-end-line="321" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1590,11 +1691,35 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21223022">
-          <caret line="319" column="160" selection-start-line="319" selection-start-column="160" selection-end-line="319" selection-end-column="160" />
+    <entry file="file://$PROJECT_DIR$/res/layout/navigation_dane_ucznia_layout.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.553571">
+          <caret line="20" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="229" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37226278">
+          <caret line="284" column="63" selection-start-line="284" selection-start-column="63" selection-end-line="284" selection-end-column="63" />
+          <folding>
+            <element signature="e#11423#12719#0" expanded="true" />
+            <element signature="e#12398#12693#0" expanded="true" />
+            <element signature="e#12692#12693#0" expanded="true" />
+            <element signature="e#12718#12719#0" expanded="true" />
+            <element signature="e#12760#14058#0" expanded="true" />
+            <element signature="e#13737#14032#0" expanded="true" />
+            <element signature="e#14031#14032#0" expanded="true" />
+            <element signature="e#14057#14058#0" expanded="true" />
+            <element signature="e#14099#15398#0" expanded="true" />
+            <element signature="e#15077#15372#0" expanded="true" />
+            <element signature="e#15371#15372#0" expanded="true" />
+            <element signature="e#15397#15398#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
