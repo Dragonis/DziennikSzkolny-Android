@@ -30,11 +30,11 @@ public class DaneUczniaActivity extends Activity {
     String przedmiot = "";
     ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
-//    ListView data_z_ocena_listview;
+    //    ListView data_z_ocena_listview;
     Intent cel;
     CheckBox checkbox;
-    CheckBox checkbox1 ;
-    CheckBox checkbox2 ;
+    CheckBox checkbox1;
+    CheckBox checkbox2;
 
     Button edytujocene;
     Button usunocene;
@@ -158,7 +158,7 @@ public class DaneUczniaActivity extends Activity {
         nrKlasy = przekazanedane.getString("nrKlasy");
         przedmiot = przekazanedane.getString("przedmiot");
 
-        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie,Nazwisko,nrKlasy,"Przyroda");
+        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
         String grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
@@ -194,9 +194,9 @@ public class DaneUczniaActivity extends Activity {
         przedmiot_textview.setText(przedmiot);
 
         ArrayList<String> data_z_ocena = new ArrayList<String>();
-        for(Integer i=0; i< daty_z_przyrody.size(); i++) {
+        for (Integer i = 0; i < daty_z_przyrody.size(); i++) {
 
-                data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
+            data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
         }
         data_textview.setText(date1);
         ocena_textview.setText(grade1);
@@ -213,7 +213,7 @@ public class DaneUczniaActivity extends Activity {
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
         RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
         RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
-        List<Student> students = StudentDao.queryForEq("surname",nazwisko);
+        List<Student> students = StudentDao.queryForEq("surname", nazwisko);
         // id kliknietej osoby (nizej)
         Student student = students.get(0);
 
@@ -228,12 +228,11 @@ public class DaneUczniaActivity extends Activity {
         List<Biology> przedmiot_biologia = BiologyDao.queryForEq("id", student.getId());
         // id przypisanemu tej osobie dziennika z ocenami
         Biology oceny_z_biologi;
-        if(przedmiot_biologia.size() == 0)
-        {
-            oceny_z_biologi = new Biology(0,555,555,555,"555","555","555"); // kod informujacy ze pobierasz dane z pustej tablicy
+        if (przedmiot_biologia.size() == 0) {
+            oceny_z_biologi = new Biology(0, 555, 555, 555, "555", "555", "555"); // kod informujacy ze pobierasz dane z pustej tablicy
             Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
                     Toast.LENGTH_LONG).show();
-        }else{
+        } else {
             oceny_z_biologi = przedmiot_biologia.get(0);
         }
 
@@ -265,19 +264,18 @@ public class DaneUczniaActivity extends Activity {
         });
     }
 
-    public void jesliCheckBoxZaznaczonyToWlaczButtony()
-    {
+    public void jesliCheckBoxZaznaczonyToWlaczButtony() {
 
 
         checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkbox.isChecked()) {
+                if (checkbox.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
-                }else{
+                } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
                     dodajocene.setEnabled(true);
@@ -288,12 +286,12 @@ public class DaneUczniaActivity extends Activity {
         checkbox1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkbox1.isChecked()) {
+                if (checkbox1.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
-                }else{
+                } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
                     dodajocene.setEnabled(true);
@@ -305,12 +303,12 @@ public class DaneUczniaActivity extends Activity {
 
             @Override
             public void onClick(View view) {
-                if(checkbox2.isChecked()) {
+                if (checkbox2.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
-                }else{
+                } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
                     dodajocene.setEnabled(true);
