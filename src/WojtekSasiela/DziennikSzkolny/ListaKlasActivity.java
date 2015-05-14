@@ -47,6 +47,7 @@ public class ListaKlasActivity extends Activity {
     String przedmiot = "";
     String imieiNazwiskoWybranejOsobyzListView = null;
     ArrayList<String> uzupelniony_danymi_listview_klasa4 = new ArrayList<String>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -97,7 +98,7 @@ public class ListaKlasActivity extends Activity {
 //                cars.remove(((TextView)view).getText().toString());
 
                 //((TextView) view).getText().toString()
-                int position=(Integer)view.getTag();
+                int position = (Integer) view.getTag();
                 carL.remove(position);
                 adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, carL);
                 listaKompoment.setAdapter(adapter);
@@ -111,7 +112,7 @@ public class ListaKlasActivity extends Activity {
                 setContentView(R.layout.dodajocene_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.dodajocene_button_listaklas,getApplicationContext(),DodajOceneActivity.class);
+        Pokaz_Activity_z_klasy(R.id.dodajocene_button_listaklas, getApplicationContext(), DodajOceneActivity.class);
 
         edytuj_ocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +120,7 @@ public class ListaKlasActivity extends Activity {
                 setContentView(R.layout.edytujocene_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.edytujocene_button_listaklas,getApplicationContext(),EdytujOceneActivity.class);
+        Pokaz_Activity_z_klasy(R.id.edytujocene_button_listaklas, getApplicationContext(), EdytujOceneActivity.class);
 
         klasa1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,13 +131,13 @@ public class ListaKlasActivity extends Activity {
                 klasa5.setBackgroundColor(Color.TRANSPARENT);
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
                 view.setBackgroundColor(Color.BLUE);
-            
+
                 pokazListeOsobzKlasy(1);
                 listaKompoment2.setAdapter(null);
                 klasa = "1";
 
             }
-            
+
         });
 
         klasa2.setOnClickListener(new View.OnClickListener() {
@@ -232,7 +233,7 @@ public class ListaKlasActivity extends Activity {
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
-                imieiNazwiskoWybranejOsobyzListView = ((TextView)view).getText().toString();
+                imieiNazwiskoWybranejOsobyzListView = ((TextView) view).getText().toString();
                 Toast.makeText(getApplicationContext(), imieiNazwiskoWybranejOsobyzListView,
                         Toast.LENGTH_SHORT).show();
 
@@ -243,7 +244,7 @@ public class ListaKlasActivity extends Activity {
                 listaKompoment2.setAdapter(adapterSubcjets);
 
                 String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
-                imie = split[0] ;
+                imie = split[0];
                 nazwisko = split[1];
 
                 edytuj_ucznia.setEnabled(true);
@@ -265,29 +266,27 @@ public class ListaKlasActivity extends Activity {
                 // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
-                przedmiot = ((TextView)view).getText().toString();
+                przedmiot = ((TextView) view).getText().toString();
                 wyslijDaneDoNastepnegoActivity();
-
 
 
             }
         });
         zamknijOkno(R.id.Wyjdz_button);
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null)
-        {
+        if (bundle != null) {
 
 
-        if (bundle.getString("Id") != null){
-            pobierzDanezEdytujUczniaActivity();
-        }
-        // Zrob iteracje by sprawdzic W KTOREJ KLASIE (1,2,3 a moze6?) nalezy dodac nowego ucznia,
-        for(Integer i=1; i<=6; i++) {
-            if (bundle.getString("Klasa") == i.toString()) {
-                // jezeli z np. DodajUczniaButton pobranym id_klasy jest cyfra 4, to zapisuj wszystkie dane z DodajUczniaActivity do bazy danych dla klasy 4
-                DodajUczniaKlasy(i);
+            if (bundle.getString("Id") != null) {
+                pobierzDanezEdytujUczniaActivity();
             }
-        }
+            // Zrob iteracje by sprawdzic W KTOREJ KLASIE (1,2,3 a moze6?) nalezy dodac nowego ucznia,
+            for (Integer i = 1; i <= 6; i++) {
+                if (bundle.getString("Klasa") == i.toString()) {
+                    // jezeli z np. DodajUczniaButton pobranym id_klasy jest cyfra 4, to zapisuj wszystkie dane z DodajUczniaActivity do bazy danych dla klasy 4
+                    DodajUczniaKlasy(i);
+                }
+            }
         }
     }
 
@@ -310,26 +309,29 @@ public class ListaKlasActivity extends Activity {
 
     public ArrayList<String> pokazListeOsobzKlasy(int nr_klasy) {
 
-            // Connect with Database ORM
-            DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
-            RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
-            List<Student> students = studentDao.queryForEq("classrom",nr_klasy);
-            Integer max_liczba_studentow_w_klasie = students.size();
-            cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
-            for(int i=0; i <max_liczba_studentow_w_klasie; i++){
-                cars.add(students.get(i).getName() + " " + students.get(i).getSurname());
-            }
+        // Connect with Database ORM
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
+        List<Student> students = studentDao.queryForEq("classrom", nr_klasy);
+        Integer max_liczba_studentow_w_klasie = students.size();
+        cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
+        try{
+        for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
+            cars.add(new String(students.get(i).getName().getBytes("ISO-8859-1"),"UTF-8") + " " + new String(students.get(i).getSurname().getBytes("ISO-8859-1"),"UTF-8"));
+        }}catch(Exception e)
+        {
+            e.getStackTrace();
+        }
 
-            //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
-            carL = new ArrayList<String>();
-            carL.addAll(cars);
-            adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
-            listaKompoment.setAdapter(adapter);
-            return cars;
+        //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
+        carL = new ArrayList<String>();
+        carL.addAll(cars);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
+        listaKompoment.setAdapter(adapter);
+        return cars;
         //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
 
     }
-
 
 
     public void zamknijOkno(int id) {
@@ -342,9 +344,8 @@ public class ListaKlasActivity extends Activity {
         });
     }
 
-    public void wyslijDaneDoNastepnegoActivity()
-    {
-         Bundle koszyk = new Bundle();
+    public void wyslijDaneDoNastepnegoActivity() {
+        Bundle koszyk = new Bundle();
 
         koszyk.putString("Imie", imie);
         koszyk.putString("Nazwisko", nazwisko);
@@ -361,41 +362,49 @@ public class ListaKlasActivity extends Activity {
 
         Bundle przekazanedane = getIntent().getExtras();
 
-            // pobierasz dane z DodajUczniaActivity
+        // pobierasz dane z DodajUczniaActivity
 
-           imie = przekazanedane.getString("Imie");
-           nazwisko  = przekazanedane.getString("Nazwisko");
-           klasa = przekazanedane.getString("Klasa");
+        imie = przekazanedane.getString("Imie");
+        nazwisko = przekazanedane.getString("Nazwisko");
+        klasa = przekazanedane.getString("Klasa");
+        ArrayList<String> student = new ArrayList<String>();
+        try {
+            byte[] imie_bytes = imie.getBytes("UTF-8");
+            byte[] nazwisko_bytes = nazwisko.getBytes("UTF-8");
 
-            Toast.makeText(getApplicationContext(), "Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
+            String imie_UTF8 = new String(imie_bytes, "UTF-8");
+            String nazwisko_UTF8 = new String(nazwisko_bytes, "UTF-8");
+
+            Toast.makeText(getApplicationContext(), "Imie: " + imie_UTF8 + "Nazwisko: " + nazwisko_UTF8 + "Klasa: " + klasa,
                     Toast.LENGTH_SHORT).show();
 
-        ArrayList<String> student = new ArrayList<String>();
-        student.add(imie);
-        student.add(nazwisko);
-        student.add(klasa);
 
+            student.add(imie_UTF8);
+            student.add(nazwisko_UTF8);
+            student.add(klasa);
+            return student;
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
         return student;
-
     }
 
     public void pobierzDanezEdytujUczniaActivity() {
 
         Bundle przekazanedane = getIntent().getExtras();
 
-            String id = przekazanedane.getString("Id");
-            String imie = przekazanedane.getString("Imie");
-            String nazwisko = przekazanedane.getString("Nazwisko");
-            String klasa = przekazanedane.getString("Klasa");
+        String id = przekazanedane.getString("Id");
+        String imie = przekazanedane.getString("Imie");
+        String nazwisko = przekazanedane.getString("Nazwisko");
+        String klasa = przekazanedane.getString("Klasa");
 
-            Toast.makeText(getApplicationContext(), "ID :" + id+ " | Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
-                    Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "ID :" + id + " | Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
+                Toast.LENGTH_SHORT).show();
 
     }
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
+    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
