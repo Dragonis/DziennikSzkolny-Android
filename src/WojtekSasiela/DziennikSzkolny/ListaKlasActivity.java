@@ -317,7 +317,7 @@ public class ListaKlasActivity extends Activity {
         cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
         try{
         for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
-            cars.add(new String(students.get(i).getName().getBytes("ISO-8859-1"),"UTF-8") + " " + new String(students.get(i).getSurname().getBytes("ISO-8859-1"),"UTF-8"));
+            cars.add(new String(students.get(i).getName().getBytes("UTF-8"),"UTF-8") + " " + new String(students.get(i).getSurname().getBytes("UTF-8"),"UTF-8"));
         }}catch(Exception e)
         {
             e.getStackTrace();
