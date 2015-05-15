@@ -12,7 +12,6 @@ import android.widget.*;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +22,8 @@ import java.util.List;
 public class ListaKlasActivity extends Activity {
 
     Integer nr_kliknietego_elementu_z_listview_przedmioty;
-    ArrayList<String> cars;
-    ArrayList<String> carL;
+    ArrayList<String> osoby;
+    ArrayList<String> listaOsob;
     private ArrayAdapter<String> adapter = null;
     private ArrayAdapter<String> adapterSubcjets = null;
     private ListView listaKompoment = null;
@@ -95,12 +94,12 @@ public class ListaKlasActivity extends Activity {
                         Toast.LENGTH_SHORT).show();
 
                 // TODO: DOKONCZYC - Narazie usuwa zaznaczony elelement z listview, ale z konca listy, i nie usuwa z bazy danych
-//                cars.remove(((TextView)view).getText().toString());
+//                osoby.remove(((TextView)view).getText().toString());
 
                 //((TextView) view).getText().toString()
                 int position = (Integer) view.getTag();
-                carL.remove(position);
-                adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, carL);
+                listaOsob.remove(position);
+                adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, listaOsob);
                 listaKompoment.setAdapter(adapter);
             }
         });
@@ -314,21 +313,23 @@ public class ListaKlasActivity extends Activity {
         RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
         List<Student> students = studentDao.queryForEq("classrom", nr_klasy);
         Integer max_liczba_studentow_w_klasie = students.size();
-        cars = new ArrayList<String>(max_liczba_studentow_w_klasie);
+        osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
         try{
         for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
-            cars.add(new String(students.get(i).getName().getBytes("UTF-8"),"UTF-8") + " " + new String(students.get(i).getSurname().getBytes("UTF-8"),"UTF-8"));
+            String name_UTF8 = new String(students.get(i).getName().getBytes("UTF-8"), "UTF-8");
+            String surname_UTF8 = new String(students.get(i).getSurname().getBytes("UTF-8"), "UTF-8");
+            osoby.add(name_UTF8 + " " + surname_UTF8);
         }}catch(Exception e)
         {
             e.getStackTrace();
         }
 
-        //String cars[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
-        carL = new ArrayList<String>();
-        carL.addAll(cars);
-        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, carL);
+        //String osoby[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
+        listaOsob = new ArrayList<String>();
+        listaOsob.addAll(osoby);
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, listaOsob);
         listaKompoment.setAdapter(adapter);
-        return cars;
+        return osoby;
         //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
 
     }
