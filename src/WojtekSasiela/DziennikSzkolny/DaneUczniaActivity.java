@@ -85,6 +85,24 @@ public class DaneUczniaActivity extends Activity {
         Button odchylenie_button_dane_ucznia = (Button) findViewById(R.id.odchylenie_button_daneucznia);
         Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
 
+        dodajocene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), DodajOceneActivity.class);
+
+                Bundle koszyk = new Bundle();
+                koszyk.putString("Imie", Imie);
+                koszyk.putString("Nazwisko", Nazwisko);
+                koszyk.putString("Klasa", nrKlasy);
+                koszyk.putString("Przedmiot", przedmiot);
+                koszyk.putString("Data", date1);
+                koszyk.putString("Ocena", grade1);
+                // Definiujemy cel
+                cel.putExtras(koszyk);
+                // Wysyłamy
+                startActivity(cel);
+            }
+        });
 
         edytujocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -303,7 +321,7 @@ public class DaneUczniaActivity extends Activity {
                     zaznaczony_jakikolwiek_checkbox = true;
                     radioButton2.setChecked(false);
                     radioButton3.setChecked(false);
-                    Toast.makeText(getApplicationContext(),"Data: " +  date1 + " Ocena: "+ grade1 ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data: " + date1 + " Ocena: " + grade1, Toast.LENGTH_SHORT).show();
                 } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
@@ -322,7 +340,7 @@ public class DaneUczniaActivity extends Activity {
                     zaznaczony_jakikolwiek_checkbox = true;
                     radioButton1.setChecked(false);
                     radioButton3.setChecked(false);
-                    Toast.makeText(getApplicationContext(),"Data: " +  date2 + " Ocena: "+ grade2 ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data: " + date2 + " Ocena: " + grade2, Toast.LENGTH_SHORT).show();
 
                 } else {
                     edytujocene.setEnabled(false);
@@ -343,7 +361,7 @@ public class DaneUczniaActivity extends Activity {
                     zaznaczony_jakikolwiek_checkbox = true;
                     radioButton1.setChecked(false);
                     radioButton2.setChecked(false);
-                    Toast.makeText(getApplicationContext(),"Data: " +  date3 + " Ocena: "+ grade3 ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data: " + date3 + " Ocena: " + grade3, Toast.LENGTH_SHORT).show();
 
                 } else {
                     edytujocene.setEnabled(false);
