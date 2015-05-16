@@ -86,6 +86,25 @@ public class DaneUczniaActivity extends Activity {
         Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
 
 
+        edytujocene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cel = new Intent(view.getContext(), EdytujOceneActivity.class);
+
+                Bundle koszyk = new Bundle();
+                koszyk.putString("Imie", Imie);
+                koszyk.putString("Nazwisko", Nazwisko);
+                koszyk.putString("Klasa", nrKlasy);
+                koszyk.putString("Przedmiot", przedmiot);
+                koszyk.putString("Data", date1);
+                koszyk.putString("Ocena", grade1);
+                // Definiujemy cel
+                cel.putExtras(koszyk);
+                // Wysyłamy
+                startActivity(cel);
+            }
+        });
+
         srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
