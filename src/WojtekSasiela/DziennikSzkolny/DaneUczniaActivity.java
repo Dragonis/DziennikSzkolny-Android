@@ -32,13 +32,21 @@ public class DaneUczniaActivity extends Activity {
     ArrayList<String> daty_z_przyrody = new ArrayList<String>();
     //    ListView data_z_ocena_listview;
     Intent cel;
-    CheckBox checkbox;
-    CheckBox checkbox1;
-    CheckBox checkbox2;
+    RadioButton radioButton1;
+    RadioButton radioButton2;
+    RadioButton radioButton3;
 
     Button edytujocene;
     Button usunocene;
     Button dodajocene;
+
+    // daty wpisu i oceny ucznia
+    String grade1;
+    String grade2;
+    String grade3;
+    String date1;
+    String date2;
+    String date3;
 
     boolean zaznaczony_jakikolwiek_checkbox;
 
@@ -47,9 +55,9 @@ public class DaneUczniaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_dane_ucznia_layout);
 
-        checkbox = (CheckBox) findViewById(R.id.checkBox);
-        checkbox1 = (CheckBox) findViewById(R.id.checkBox1);
-        checkbox2 = (CheckBox) findViewById(R.id.checkBox2);
+        radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
+        radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
+        radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
         edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
         usunocene = (Button) findViewById(R.id.usun_ocene_button_daneucznia);
         dodajocene = (Button) findViewById(R.id.dodaj_ocene_button_daneucznia);
@@ -146,7 +154,6 @@ public class DaneUczniaActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ;
     }
 
     public void pobierzDanezPoprzedniegoActivity() {
@@ -161,13 +168,13 @@ public class DaneUczniaActivity extends Activity {
         Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
-        String grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
-        String grade2 = DanePobranezBazyDanych_Przyroda.getGrade2().toString();
-        String grade3 = DanePobranezBazyDanych_Przyroda.getGrade3().toString();
+        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
+        grade2 = DanePobranezBazyDanych_Przyroda.getGrade2().toString();
+        grade3 = DanePobranezBazyDanych_Przyroda.getGrade3().toString();
 
-        String date1 = DanePobranezBazyDanych_Przyroda.getDate1().toString();
-        String date2 = DanePobranezBazyDanych_Przyroda.getDate2().toString();
-        String date3 = DanePobranezBazyDanych_Przyroda.getDate3().toString();
+        date1 = DanePobranezBazyDanych_Przyroda.getDate1().toString();
+        date2 = DanePobranezBazyDanych_Przyroda.getDate2().toString();
+        date3 = DanePobranezBazyDanych_Przyroda.getDate3().toString();
 
         oceny_z_przyrody.add(grade1);
         oceny_z_przyrody.add(grade2);
@@ -267,14 +274,17 @@ public class DaneUczniaActivity extends Activity {
     public void jesliCheckBoxZaznaczonyToWlaczButtony() {
 
 
-        checkbox.setOnClickListener(new View.OnClickListener() {
+        radioButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkbox.isChecked()) {
+                if (radioButton1.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
+                    radioButton2.setChecked(false);
+                    radioButton3.setChecked(false);
+                    Toast.makeText(getApplicationContext(),"Data: " +  date1 + " Ocena: "+ grade1 ,Toast.LENGTH_SHORT).show();
                 } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
@@ -283,14 +293,18 @@ public class DaneUczniaActivity extends Activity {
             }
         });
 
-        checkbox1.setOnClickListener(new View.OnClickListener() {
+        radioButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkbox1.isChecked()) {
+                if (radioButton2.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
+                    radioButton1.setChecked(false);
+                    radioButton3.setChecked(false);
+                    Toast.makeText(getApplicationContext(),"Data: " +  date2 + " Ocena: "+ grade2 ,Toast.LENGTH_SHORT).show();
+
                 } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);
@@ -299,15 +313,19 @@ public class DaneUczniaActivity extends Activity {
             }
         });
 
-        checkbox2.setOnClickListener(new View.OnClickListener() {
+        radioButton3.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                if (checkbox2.isChecked()) {
+                if (radioButton3.isChecked()) {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
                     zaznaczony_jakikolwiek_checkbox = true;
+                    radioButton1.setChecked(false);
+                    radioButton2.setChecked(false);
+                    Toast.makeText(getApplicationContext(),"Data: " +  date3 + " Ocena: "+ grade3 ,Toast.LENGTH_SHORT).show();
+
                 } else {
                     edytujocene.setEnabled(false);
                     usunocene.setEnabled(false);

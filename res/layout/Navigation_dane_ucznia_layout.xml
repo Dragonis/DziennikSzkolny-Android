@@ -97,15 +97,15 @@
                     android:padding="3dip" />
 
         </TableRow>
+
         <TableRow>
-            <CheckBox
+            <RadioButton
                     android:layout_column="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:gravity="left"
                     android:padding="3dip"
-                    android:id="@+id/checkBox"/>
+                    android:id="@+id/radioButton1" android:checked="false"/>
             <TextView
 
                     android:gravity="left"
@@ -115,13 +115,13 @@
                     android:padding="3dip" android:id="@+id/ocena_textview"/>
         </TableRow>
         <TableRow>
-            <CheckBox
+            <RadioButton
                     android:layout_column="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:padding="3dip"
-                    android:id="@+id/checkBox1" android:checked="false"/>
+                    android:id="@+id/radioButton2" android:checked="false"/>
             <TextView
 
                     android:gravity="left"
@@ -131,13 +131,14 @@
                     android:padding="3dip" android:id="@+id/ocena_textview2"/>
         </TableRow>
         <TableRow>
-            <CheckBox
+
+            <RadioButton
                     android:layout_column="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:padding="3dip"
-                    android:id="@+id/checkBox2" android:checked="false"/>
+                    android:id="@+id/radioButton3" android:checked="false"/>
             <TextView
 
                     android:gravity="left"
@@ -146,6 +147,7 @@
                     android:gravity="left"
                     android:padding="3dip" android:id="@+id/ocena_textview3"/>
         </TableRow>
+
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
