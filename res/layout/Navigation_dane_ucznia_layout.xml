@@ -82,7 +82,7 @@
                  android:stretchColumns="5">
         <TableRow>
             <TextView
-                    android:layout_column="1"
+                    android:layout_column="0"
                     android:text="Zaznacz:"
                     android:gravity="left"
                     android:padding="3dip" />
@@ -100,7 +100,7 @@
 
         <TableRow>
             <RadioButton
-                    android:layout_column="1"
+                    android:layout_column="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -116,7 +116,7 @@
         </TableRow>
         <TableRow>
             <RadioButton
-                    android:layout_column="1"
+                    android:layout_column="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -133,7 +133,7 @@
         <TableRow>
 
             <RadioButton
-                    android:layout_column="1"
+                    android:layout_column="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
@@ -157,24 +157,22 @@
                     android:text="Dodaj"
                     android:id="@+id/dodaj_ocene_button_daneucznia" android:layout_gravity="right"
                     android:layout_above="@+id/edytuj_ocene_button_daneucznia" android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" android:layout_column="1"/>
+                    android:layout_alignParentStart="true" android:layout_column="0"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edytuj"
                     android:id="@+id/edytuj_ocene_button_daneucznia"
                     android:layout_above="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" android:layout_column="2" android:enabled="false"/>
+                    android:layout_alignParentStart="true" android:layout_column="1" android:enabled="false"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Usun"
                     android:id="@+id/usun_ocene_button_daneucznia"
                     android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" android:layout_column="3" android:enabled="false"/>
+                    android:layout_alignParentStart="true" android:layout_column="2" android:enabled="false"/>
         </TableRow>
-
-    </TableLayout>
 
 
     <TableRow
@@ -225,8 +223,7 @@
             android:layout_alignParentStart="true"/>
 
 
-
-
+    </TableLayout>
 
 
 </LinearLayout>
