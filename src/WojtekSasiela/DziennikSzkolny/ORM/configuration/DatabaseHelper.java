@@ -22,7 +22,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts201.db";
+    private static final String DATABASE_NAME = "Accounts202.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;

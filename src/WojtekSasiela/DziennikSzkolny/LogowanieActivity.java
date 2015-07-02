@@ -3,6 +3,7 @@ package WojtekSasiela.DziennikSzkolny;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import static WojtekSasiela.DziennikSzkolny.R.id.zaloguj_button_logowanie;

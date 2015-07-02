@@ -1,6 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

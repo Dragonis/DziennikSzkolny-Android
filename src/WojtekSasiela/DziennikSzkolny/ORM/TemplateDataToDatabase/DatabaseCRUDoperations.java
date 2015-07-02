@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny;
+package WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
