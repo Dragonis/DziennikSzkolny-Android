@@ -1,6 +1,10 @@
 package WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.Classroom;
+import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
+import WojtekSasiela.DziennikSzkolny.ORM.Student_NewVersion;
+import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
@@ -15,6 +19,12 @@ import java.sql.SQLException;
  * Created by Wojtek on 2015-04-23.
  */
 public class DatabaseCRUDoperations {
+
+
+    RuntimeExceptionDao<Classroom, Integer> ClassroomDao;
+    RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_Dao;
+    RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao;
+    RuntimeExceptionDao<Subcjet, Integer> SubcjetDao;
 
     RuntimeExceptionDao<Student, Integer> StudentDao;
     RuntimeExceptionDao<Account, Integer> AccountDao;
@@ -37,7 +47,12 @@ public class DatabaseCRUDoperations {
     }
 
 
-    public void doAccountDataStuff(DatabaseHelper dbHelper) throws SQLException {
+    public void doAccountDataStuff(DatabaseDataObjects dbHelper) throws SQLException {
+
+        ClassroomDao = dbHelper.getClassroomRuntimeExceptionDao();
+        Student_NewVersion_Dao = dbHelper.getStudent_NewVersion_RuntimeExceptionDao();
+        StudentGradesDao = dbHelper.getStudentGradesRuntimeExceptionDao();
+        SubcjetDao = dbHelper.getSubcjetRuntimeExceptionDao();
 
         StudentDao = dbHelper.getStudentRuntimeExceptionDao();
         AccountDao = dbHelper.getAccountRuntimeExceptionDao();
@@ -79,6 +94,12 @@ public class DatabaseCRUDoperations {
     }
 
     public void insert_sample_database() {
+
+        insert_Classroom_IntoDatabase(ClassroomDao);
+        insert_Student_NewVersion_IntoDatabase(Student_NewVersion_Dao);
+        insert_StudentGrades_IntoDatabase(StudentGradesDao);
+        insert_Subcjet_IntoDatabase(SubcjetDao);
+
         insert_Accounts_IntoDatabase(AccountDao);
         insert_Students_IntoDatabase(StudentDao);
 
@@ -88,6 +109,25 @@ public class DatabaseCRUDoperations {
         insert_POLISH_GradesIntoDatabases(PolishDao);
         insert_RELIGION_GradesIntoDatabase(ReligionDao);
         insert_WF_GradesIntoDatabase(WFDao);
+    }
+
+    private void insert_Subcjet_IntoDatabase(RuntimeExceptionDao<Subcjet, Integer> subcjetDao) {
+        subcjetDao.create(new Subcjet(1,1,1,"Przykladowa nazwa przedmiotu"));
+    }
+
+    private void insert_StudentGrades_IntoDatabase(RuntimeExceptionDao<StudentGrades, Integer> studentGradesDao) {
+        studentGradesDao.create(new StudentGrades(1,1,5));
+        studentGradesDao.create(new StudentGrades(1,1,3));
+        studentGradesDao.create(new StudentGrades(1,1,4));
+        studentGradesDao.create(new StudentGrades(1,1,6));
+    }
+
+    private void insert_Student_NewVersion_IntoDatabase(RuntimeExceptionDao<Student_NewVersion, Integer> student_newVersion_dao) {
+        student_newVersion_dao.create(new Student_NewVersion(1,1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
+    }
+
+    private void insert_Classroom_IntoDatabase(RuntimeExceptionDao<Classroom, Integer> classroomDao) {
+        classroomDao.create(new Classroom(1,"Przykladowa nazwa klasy"));
     }
 
     private void insert_Teachers_IntoDatabase(RuntimeExceptionDao<Teacher, Integer> teacherDao) {

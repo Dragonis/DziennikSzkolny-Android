@@ -1,16 +1,13 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -37,7 +34,7 @@ public class DodajUczniaActivity extends Activity {
                 String nazwisko = nazwisko_edittext.getText().toString();
                 String klasa = klasa_edittext.getText().toString();
 
-                DatabaseHelper dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseHelper.class);
+                DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseDataObjects.class);
 
                 RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
 

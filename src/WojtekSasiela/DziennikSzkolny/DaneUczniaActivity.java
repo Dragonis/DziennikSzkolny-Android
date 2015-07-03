@@ -1,7 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.Fragments.*;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.Biology;
 import android.app.Activity;
@@ -254,7 +254,7 @@ public class DaneUczniaActivity extends Activity {
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
         // TODO Pobieranie ocen z bazy danych i wyswietlenie w tabelach
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
         RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
         RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
         List<Student> students = StudentDao.queryForEq("surname", nazwisko);

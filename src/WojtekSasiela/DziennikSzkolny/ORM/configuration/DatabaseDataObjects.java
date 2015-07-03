@@ -4,6 +4,10 @@ package WojtekSasiela.DziennikSzkolny.ORM.configuration;
  * Created by Wojtek on 2015-02-05.
  */
 
+import WojtekSasiela.DziennikSzkolny.ORM.Classroom;
+import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
+import WojtekSasiela.DziennikSzkolny.ORM.Student_NewVersion;
+import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
@@ -21,9 +25,14 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 
-public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts202.db";
+public class DatabaseDataObjects extends OrmLiteSqliteOpenHelper {
+    private static final String DATABASE_NAME = "Accounts212.db";
     private static final int DATABASE_VERSION = 1;
+
+    private Dao<Classroom, Integer> ClassroomDao = null;
+    private Dao<Student_NewVersion, Integer> Student_NewVersion_Dao = null;
+    private Dao<StudentGrades, Integer> StudentGradesDao = null;
+    private Dao<Subcjet, Integer> SubcjetDao = null;
 
     private Dao<Account, Integer> AccountDao = null;
     private Dao<Student, Integer> StudentDao = null;
@@ -44,6 +53,11 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Wariancja, Integer> WariancjaDao = null;
 
 
+    private RuntimeExceptionDao<Classroom, Integer> ClassroomRuntimeDao = null;
+    private RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_RuntimeDao = null;
+    private RuntimeExceptionDao<StudentGrades, Integer> StudentGradesRuntimeDao = null;
+    private RuntimeExceptionDao<Subcjet, Integer> SubcjetRuntimeDao = null;
+
     private RuntimeExceptionDao<Account, Integer> AccountRuntimeDao = null;
     private RuntimeExceptionDao<Student, Integer> StudentRuntimeDao = null;
     private RuntimeExceptionDao<Teacher, Integer> TeacherRuntimeDao = null;
@@ -62,7 +76,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieRuntimeDao = null;
     private RuntimeExceptionDao<Wariancja, Integer> WariancjaRuntimeDao = null;
 
-    public DatabaseHelper(Context context){
+    public DatabaseDataObjects(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 
@@ -82,6 +96,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     private void dodajWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
+
+        TableUtils.createTable(connectionSource, Classroom.class);
+        TableUtils.createTable(connectionSource, Student_NewVersion.class);
+        TableUtils.createTable(connectionSource, StudentGrades.class);
+        TableUtils.createTable(connectionSource, Subcjet.class);
+
         TableUtils.createTable(connectionSource, Account.class);
         TableUtils.createTable(connectionSource, Student.class);
         TableUtils.createTable(connectionSource, Teacher.class);
@@ -117,6 +137,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     private void usunWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
+
+        TableUtils.dropTable(connectionSource, Classroom.class, true);
+        TableUtils.dropTable(connectionSource, Student_NewVersion.class, true);
+        TableUtils.dropTable(connectionSource, StudentGrades.class, true);
+        TableUtils.dropTable(connectionSource, Subcjet.class, true);
+
         TableUtils.dropTable(connectionSource, Account.class, true);
         TableUtils.dropTable(connectionSource, Student.class, true);
         TableUtils.dropTable(connectionSource, Teacher.class, true);
@@ -135,6 +161,35 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, Wariancja.class, true);
         TableUtils.dropTable(connectionSource, Kwartyle.class, true);
     }
+
+    public Dao<Classroom, Integer> getClassroomDao() throws SQLException{
+        if (ClassroomDao == null) {
+            ClassroomDao = getDao(Classroom.class);
+        }
+        return ClassroomDao;
+    }
+
+    public Dao<Student_NewVersion, Integer> getStudent_NewVersion_Dao() throws SQLException{
+        if (Student_NewVersion_Dao == null) {
+            Student_NewVersion_Dao = getDao(Student_NewVersion.class);
+        }
+        return Student_NewVersion_Dao;
+    }
+
+    public Dao<StudentGrades, Integer> getStudentGradesDao() throws SQLException{
+        if (StudentGradesDao == null) {
+            StudentGradesDao = getDao(StudentGrades.class);
+        }
+        return StudentGradesDao;
+    }
+
+    public Dao<Subcjet, Integer> getSubcjetDao() throws SQLException{
+        if (SubcjetDao == null) {
+            SubcjetDao = getDao(Subcjet.class);
+        }
+        return SubcjetDao;
+    }
+
 
     public Dao<Account, Integer> getAccountDao() throws SQLException{
         if (AccountDao == null) {
@@ -241,6 +296,35 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         return WariancjaDao;
     }
+
+    public RuntimeExceptionDao<Classroom, Integer> getClassroomRuntimeExceptionDao(){
+        if (ClassroomRuntimeDao == null) {
+            ClassroomRuntimeDao = getRuntimeExceptionDao(Classroom.class);
+        }
+        return ClassroomRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Student_NewVersion, Integer> getStudent_NewVersion_RuntimeExceptionDao(){
+        if (Student_NewVersion_RuntimeDao == null) {
+            Student_NewVersion_RuntimeDao = getRuntimeExceptionDao(Student_NewVersion.class);
+        }
+        return Student_NewVersion_RuntimeDao;
+    }
+
+    public RuntimeExceptionDao<StudentGrades, Integer> getStudentGradesRuntimeExceptionDao(){
+        if (StudentGradesRuntimeDao == null) {
+            StudentGradesRuntimeDao = getRuntimeExceptionDao(StudentGrades.class);
+        }
+        return StudentGradesRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Subcjet, Integer> getSubcjetRuntimeExceptionDao(){
+        if (SubcjetRuntimeDao == null) {
+            SubcjetRuntimeDao = getRuntimeExceptionDao(Subcjet.class);
+        }
+        return SubcjetRuntimeDao;
+    }
+
     public RuntimeExceptionDao<Account, Integer> getAccountRuntimeExceptionDao(){
         if (AccountRuntimeDao == null) {
             AccountRuntimeDao = getRuntimeExceptionDao(Account.class);

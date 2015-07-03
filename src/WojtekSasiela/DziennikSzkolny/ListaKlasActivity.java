@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
 import android.content.Context;
@@ -309,7 +309,7 @@ public class ListaKlasActivity extends Activity {
     public ArrayList<String> pokazListeOsobzKlasy(int nr_klasy) {
 
         // Connect with Database ORM
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
         RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
         List<Student> students = studentDao.queryForEq("classrom", nr_klasy);
         Integer max_liczba_studentow_w_klasie = students.size();

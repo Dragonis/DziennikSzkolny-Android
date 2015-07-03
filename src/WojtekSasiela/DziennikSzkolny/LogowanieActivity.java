@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase.DatabaseCRUDoperations;
@@ -27,7 +27,7 @@ public class LogowanieActivity extends Activity {
     Button zaloguj;
     Button zamknij;
     Button przykladowa_baza_danych_button;
-    DatabaseHelper dbHelper;
+    DatabaseDataObjects dbHelper;
     RuntimeExceptionDao<Account, Integer> AccountDao;
     RuntimeExceptionDao<Student, Integer> StudentDao;
 
@@ -41,7 +41,7 @@ public class LogowanieActivity extends Activity {
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
 
-        dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
 
     zaloguj.setOnClickListener(new View.OnClickListener() {
         @Override

@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseHelper;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 
         try {
             DatabaseCRUDoperations dbo = new DatabaseCRUDoperations();
-            DatabaseHelper dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+            DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
             dbo.doAccountDataStuff(dbHelper);
         } catch (SQLException e) {
             Toast.makeText(getApplicationContext(), "Nie mozna wprowadzic danych do BazyDanych",
