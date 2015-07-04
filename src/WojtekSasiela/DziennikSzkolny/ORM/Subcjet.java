@@ -18,16 +18,15 @@ public class Subcjet {
     int ID_Student;
 
     @DatabaseField
-    String subcjetName;
+    String subcjet;
 
     public Subcjet() {
     }
 
-    public Subcjet(int ID_Subcjet, int ID_Teacher, int ID_Student, String subcjetName) {
-        this.ID_Subcjet = ID_Subcjet;
+    public Subcjet( int ID_Teacher, int ID_Student, String subcjet) {
         this.ID_Teacher = ID_Teacher;
         this.ID_Student = ID_Student;
-        this.subcjetName = subcjetName;
+        this.subcjet = subcjet;
     }
 
     public int getID_Subcjet() {
@@ -54,11 +53,11 @@ public class Subcjet {
         this.ID_Student = ID_Student;
     }
 
-    public String getSubcjetName() {
-        return subcjetName;
+    public String getSubcjet() {
+        return subcjet;
     }
 
-    public void setSubcjetName(String subcjetName) {
-        this.subcjetName = subcjetName;
+    public void setSubcjet(String subcjet) {
+        this.subcjet = subcjet;
     }
 }

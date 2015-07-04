@@ -16,8 +16,8 @@ public class Classroom {
     public Classroom() {
     }
 
-    public Classroom(int ID_Classroom, String name) {
-        this.ID_Classroom = ID_Classroom;
+    public Classroom(String name) {
+        //this.ID_Classroom = ID_Classroom;
         Name = name;
     }
 

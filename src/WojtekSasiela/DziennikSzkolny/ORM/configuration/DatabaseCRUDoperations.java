@@ -1,5 +1,6 @@
-package WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase;
+package WojtekSasiela.DziennikSzkolny.ORM.configuration;
 
+import WojtekSasiela.DziennikSzkolny.MainActivity;
 import WojtekSasiela.DziennikSzkolny.ORM.Classroom;
 import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
 import WojtekSasiela.DziennikSzkolny.ORM.Student_NewVersion;
@@ -10,15 +11,19 @@ import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.*;
+import android.app.Activity;
+import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Wojtek on 2015-04-23.
  */
-public class DatabaseCRUDoperations {
+public final class DatabaseCRUDoperations {
 
 
     RuntimeExceptionDao<Classroom, Integer> ClassroomDao;
@@ -47,7 +52,7 @@ public class DatabaseCRUDoperations {
     }
 
 
-    public void doAccountDataStuff(DatabaseDataObjects dbHelper) throws SQLException {
+    public void DatabaseCRUDOperations(DatabaseDataObjects dbHelper) throws SQLException {
 
         ClassroomDao = dbHelper.getClassroomRuntimeExceptionDao();
         Student_NewVersion_Dao = dbHelper.getStudent_NewVersion_RuntimeExceptionDao();
@@ -80,6 +85,7 @@ public class DatabaseCRUDoperations {
         } else {
             //TODO Dodaje/Usuwa/Edytuje element(ucznia) do bazy danych
             insert_sample_database();
+            load_sample_database();
             /**
             *Aby dodac rekordy do bazy danych uzywasz
              costamDao.create(Obiekt(wartosci);
@@ -111,23 +117,31 @@ public class DatabaseCRUDoperations {
         insert_WF_GradesIntoDatabase(WFDao);
     }
 
-    private void insert_Subcjet_IntoDatabase(RuntimeExceptionDao<Subcjet, Integer> subcjetDao) {
-        subcjetDao.create(new Subcjet(1,1,1,"Przykladowa nazwa przedmiotu"));
+    public void load_sample_database()
+    {
+        load_Subcjet_FromDatabase();
+        load_Classroom_FromDatabase();
+        load_StudentGrades_FromDatabase();
+        load_Student_NewVersion_FromDatabase();
+    }
+
+    public void insert_Subcjet_IntoDatabase(RuntimeExceptionDao<Subcjet, Integer> subcjetDao) {
+        subcjetDao.create(new Subcjet(1,1,"Przykladowa nazwa przedmiotu"));
     }
 
     private void insert_StudentGrades_IntoDatabase(RuntimeExceptionDao<StudentGrades, Integer> studentGradesDao) {
-        studentGradesDao.create(new StudentGrades(1,1,5));
-        studentGradesDao.create(new StudentGrades(1,1,3));
-        studentGradesDao.create(new StudentGrades(1,1,4));
-        studentGradesDao.create(new StudentGrades(1,1,6));
+        studentGradesDao.create(new StudentGrades(1,5));
+        studentGradesDao.create(new StudentGrades(1,3));
+        studentGradesDao.create(new StudentGrades(1,4));
+        studentGradesDao.create(new StudentGrades(1,6));
     }
 
     private void insert_Student_NewVersion_IntoDatabase(RuntimeExceptionDao<Student_NewVersion, Integer> student_newVersion_dao) {
-        student_newVersion_dao.create(new Student_NewVersion(1,1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
+        student_newVersion_dao.create(new Student_NewVersion(1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
     }
 
     private void insert_Classroom_IntoDatabase(RuntimeExceptionDao<Classroom, Integer> classroomDao) {
-        classroomDao.create(new Classroom(1,"Przykladowa nazwa klasy"));
+        classroomDao.create(new Classroom("Przykladowa nazwa klasy"));
     }
 
     private void insert_Teachers_IntoDatabase(RuntimeExceptionDao<Teacher, Integer> teacherDao) {
@@ -237,6 +251,64 @@ public class DatabaseCRUDoperations {
         accountDao.create(new Account("Jan","Kowalski","admin login1", "admin password1"));
         accountDao.create(new Account("Johny","Brown","Uzytkownik", "Haslo"));
         accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
+    }
+
+    public void load_Subcjet_FromDatabase()
+    {
+        // Connect with Database ORM
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseDataObjects.class);
+        RuntimeExceptionDao<Subcjet, Integer> subcjetDao = dbHelper.getSubcjetRuntimeExceptionDao();
+        List<Subcjet> subcjets = subcjetDao.queryForEq("subcjet", "Przykladowa nazwa przedmiotu");
+        Log.e("SubcjetTableDB",subcjets.get(0).getSubcjet());
+
+        //Integer max_liczba_studentow_w_klasie = students.size();
+        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
+    }
+
+    public void load_Classroom_FromDatabase()
+    {
+        // Connect with Database ORM
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseDataObjects.class);
+        RuntimeExceptionDao<Classroom, Integer> classroomDao = dbHelper.getClassroomRuntimeExceptionDao();
+        List<Classroom> classrooms = classroomDao.queryForEq("Name", "Przykladowa nazwa klasy");
+        Log.e("ClassroomTableDB",classrooms.get(0).getName());
+
+        //Integer max_liczba_studentow_w_klasie = students.size();
+        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
+    }
+
+    public void load_StudentGrades_FromDatabase()
+    {
+        // Connect with Database ORM
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseDataObjects.class);
+        RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao = dbHelper.getStudentGradesRuntimeExceptionDao();
+        List<StudentGrades> studentGrades = StudentGradesDao.queryForEq("Grade", 3);
+
+        if(!studentGrades.isEmpty())
+        {
+            Log.e("StudentGradesTableDB",Integer.toString(studentGrades.get(0).getGrade()));
+        }
+        else
+        {
+            Log.e("StudentGradesTableDB","Nie ma takiej wartoœci w tabeli StudentGrades");
+        }
+
+
+        //Integer max_liczba_studentow_w_klasie = students.size();
+        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
+    }
+
+    public void load_Student_NewVersion_FromDatabase()
+    {
+        // Connect with Database ORM
+        DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseDataObjects.class);
+        RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_Dao = dbHelper.getStudent_NewVersion_RuntimeExceptionDao();
+        List<Student_NewVersion> studentNewVersion = Student_NewVersion_Dao.queryForEq("name", "Imie nowego studenta");
+        Log.e("StudentGradesTableDB", studentNewVersion.get(0).getName());
+
+
+        //Integer max_liczba_studentow_w_klasie = students.size();
+        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
     }
 
 }

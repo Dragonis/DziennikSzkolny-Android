@@ -28,8 +28,8 @@ public class Student_NewVersion {
     public Student_NewVersion() {
     }
 
-    public Student_NewVersion(int ID_Student, int ID_StudentGrades, int ID_Classroom, String name, String surname, Integer classrom) {
-        this.ID_Student = ID_Student;
+    public Student_NewVersion(int ID_StudentGrades, int ID_Classroom, String name, String surname, Integer classrom) {
+        //this.ID_Student = ID_Student;
         this.ID_StudentGrades = ID_StudentGrades;
         this.ID_Classroom = ID_Classroom;
         this.name = name;

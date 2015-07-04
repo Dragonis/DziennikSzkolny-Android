@@ -19,8 +19,8 @@ public class StudentGrades {
     public StudentGrades() {
     }
 
-    public StudentGrades(int ID_StudentGrades, int ID_Subcjet, int grade) {
-        this.ID_StudentGrades = ID_StudentGrades;
+    public StudentGrades(int ID_Subcjet, int grade) {
+        //this.ID_StudentGrades = ID_StudentGrades;
         this.ID_Subcjet = ID_Subcjet;
         Grade = grade;
     }

@@ -3,7 +3,7 @@ package WojtekSasiela.DziennikSzkolny;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.TemplateDataToDatabase.DatabaseCRUDoperations;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -102,6 +102,8 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
             crud.insert_Accounts_IntoDatabase(AccountDao);
             crud.insert_Students_IntoDatabase(StudentDao);
             crud.insert_sample_database();
+
+            crud.load_Subcjet_FromDatabase();
         }catch(Exception ex){
             ex.getStackTrace();
         }
