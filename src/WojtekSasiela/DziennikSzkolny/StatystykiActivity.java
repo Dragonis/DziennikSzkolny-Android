@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.Fragments.*;
+import WojtekSasiela.DziennikSzkolny.StatisticActivity.*;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

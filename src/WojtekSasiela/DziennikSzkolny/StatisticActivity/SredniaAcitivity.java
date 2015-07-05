@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.Fragments;
+package WojtekSasiela.DziennikSzkolny.StatisticActivity;
 
 import WojtekSasiela.DziennikSzkolny.MiaryStatystyczne;
 import WojtekSasiela.DziennikSzkolny.R;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**

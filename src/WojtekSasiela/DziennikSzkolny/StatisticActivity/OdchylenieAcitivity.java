@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.Fragments;
+package WojtekSasiela.DziennikSzkolny.StatisticActivity;
 
 import WojtekSasiela.DziennikSzkolny.MiaryStatystyczne;
 import WojtekSasiela.DziennikSzkolny.R;
@@ -18,16 +18,16 @@ import java.util.ArrayList;
 /**
  * Created by Wojtek on 2014-11-23.
  */
-public class KwartyleAcitivity extends Activity {
-    String obliczone_kwartyle;
+public class OdchylenieAcitivity extends Activity {
+    String obliczone_odchylenie;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_kwartyle_layout);
+        setContentView(R.layout.fragment_odchylenie_layout);
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
-        rysujWykres_Kwartyle();
+            rysujWykres_Srednia();
 
         MiaryStatystyczne statystyka = new MiaryStatystyczne();
 
@@ -35,28 +35,28 @@ public class KwartyleAcitivity extends Activity {
         Bundle przekazanedane = getIntent().getExtras();
         if (przekazanedane == null) {
             Toast.makeText(getApplicationContext(), "Pobrane dane sa puste!", Toast.LENGTH_SHORT);
-            obliczone_kwartyle = "0.0";
+            obliczone_odchylenie = "0.0";
         } else {
             String imie = przekazanedane.getString("imie");
             String nazwisko = przekazanedane.getString("nazwisko");
             String klasa = przekazanedane.getString("klasa");
             String przedmiot = przekazanedane.getString("przedmiot");
             ArrayList<String> oceny = przekazanedane.getStringArrayList("ocenyArray");
+
             if (oceny == null) {
-                obliczone_kwartyle = "0.0";
+                obliczone_odchylenie = "0.0";
             } else {
-                obliczone_kwartyle = Float.toString((float) statystyka.Srednia(oceny));
+                obliczone_odchylenie = Float.toString((float) statystyka.Odchylenie(oceny));
             }
         }
-
-        TextView kwartyle_textview = (TextView) findViewById(R.id.obliczKwartle_textview);
-        kwartyle_textview.setText(obliczone_kwartyle);
+        TextView odchylenie_textview = (TextView) findViewById(R.id.obliczOdchylenie_textview);
+        odchylenie_textview.setText(obliczone_odchylenie);
 
         // Laczy operacje zamkniecia z konkrentym buttonem
-        zamknijOkno(R.id.zamknij_kwartyle);
+        zamknijOkno(R.id.zamknij_odchylenie);
     }
 
-    public void rysujWykres_Kwartyle()
+    public void rysujWykres_Srednia()
     {
         // init example series data
         GraphViewSeries exampleSeries = new GraphViewSeries(new GraphView.GraphViewData[] {
@@ -68,15 +68,16 @@ public class KwartyleAcitivity extends Activity {
 
         GraphView graphView = new LineGraphView(
                 this // context
-                , "Kwartyle" // heading
+                , "Odchylenie standardowe" // heading
         );
 
         graphView.addSeries(exampleSeries); // data
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.kwartyle_layout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.odchylenie_layout);
         layout.addView(graphView);
 
     }
+
 
     public void zamknijOkno(int id)
     {

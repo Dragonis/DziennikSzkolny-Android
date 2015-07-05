@@ -25,8 +25,8 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 
-public class DatabaseDataObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts221.db";
+public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
+    private static final String DATABASE_NAME = "Accounts222.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Classroom, Integer> ClassroomDao = null;
@@ -76,7 +76,7 @@ public class DatabaseDataObjects extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieRuntimeDao = null;
     private RuntimeExceptionDao<Wariancja, Integer> WariancjaRuntimeDao = null;
 
-    public DatabaseDataObjects(Context context){
+    public DatabaseAccessObjects(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 

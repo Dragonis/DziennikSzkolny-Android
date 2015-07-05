@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import android.app.Activity;
 import android.os.Bundle;
@@ -33,7 +33,7 @@ public class OpcjeAcitivity extends Activity {
     public void doORMAccountDatabaseStuff() {
 
         // POBIERASZ REKORDY Z BAZY DANYCH PO CZYM WYSWIETLASZ
-        DatabaseDataObjects dh = OpenHelperManager.getHelper(this,DatabaseDataObjects.class);
+        DatabaseAccessObjects dh = OpenHelperManager.getHelper(this,DatabaseAccessObjects.class);
         RuntimeExceptionDao<Account, Integer> userDao = dh.getAccountRuntimeExceptionDao();
 
         //pobieranie i wyswietlanei danych

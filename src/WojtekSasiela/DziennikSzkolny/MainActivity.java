@@ -1,7 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseCRUDoperations;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 
         try {
             DatabaseCRUDoperations dbo = new DatabaseCRUDoperations();
-            DatabaseDataObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
+            DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
             dbo.DatabaseCRUDOperations(dbHelper);
 
 

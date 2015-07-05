@@ -1,4 +1,4 @@
-package WojtekSasiela.DziennikSzkolny.Fragments;
+package WojtekSasiela.DziennikSzkolny.StatisticActivity;
 
 import WojtekSasiela.DziennikSzkolny.MiaryStatystyczne;
 import WojtekSasiela.DziennikSzkolny.R;

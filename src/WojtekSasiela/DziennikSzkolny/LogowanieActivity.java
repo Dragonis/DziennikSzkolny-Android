@@ -1,9 +1,10 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseDataObjects;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseCRUDoperations;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,43 +25,35 @@ import static WojtekSasiela.DziennikSzkolny.R.id.zaloguj_button_logowanie;
  */
 public class LogowanieActivity extends Activity {
 
-    Button zaloguj;
-    Button zamknij;
-    Button przykladowa_baza_danych_button;
-    DatabaseDataObjects dbHelper;
-    RuntimeExceptionDao<Account, Integer> AccountDao;
-    RuntimeExceptionDao<Student, Integer> StudentDao;
+    Button zaloguj, zamknij, przykladowa_baza_danych_button;
+    TextView login_textview, password_textview;
+    Intent intent;  Bundle koszyk;
+    String username, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logowanie_layout);
-
-
+        intent = new Intent(getApplicationContext(), MainActivity.class);
+        koszyk = new Bundle();
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
+        login_textview = (TextView) findViewById(R.id.loginTextView);
+        password_textview = (TextView) findViewById(R.id.passwordTextView);
 
-        dbHelper = OpenHelperManager.getHelper(this, DatabaseDataObjects.class);
 
-    zaloguj.setOnClickListener(new View.OnClickListener() {
+        zaloguj.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
-            AccountDao = dbHelper.getAccountRuntimeExceptionDao();
-            StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle koszyk = new Bundle();
+            LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
 
-            TextView login_textview = (TextView) findViewById(R.id.loginTextView);
-            TextView password_textview = (TextView) findViewById(R.id.passwordTextView);
-
-            String username = login_textview.getText().toString();
-            String password = password_textview.getText().toString();
+            username = login_textview.getText().toString();
+            password = password_textview.getText().toString();
 
             //TODO sprawdzanie czy dane logowania sa poprawne
-            List<Account> accounts = AccountDao.queryForEq("username", username);
-
+            List<Account> accounts = LoadDataFromDatabase.load_Account_fromDatabase(username);
            if (accounts.size() == 0)
            {
                Toast.makeText(getApplicationContext(),"Nie ma takiego uzytkownika",Toast.LENGTH_SHORT).show();
@@ -97,13 +90,11 @@ public class LogowanieActivity extends Activity {
 przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        DatabaseCRUDoperations crud = new DatabaseCRUDoperations();
-        try{
-            crud.insert_Accounts_IntoDatabase(AccountDao);
-            crud.insert_Students_IntoDatabase(StudentDao);
-            crud.insert_sample_database();
 
-            crud.load_Subcjet_FromDatabase();
+        try{
+            DatabaseCRUDoperations.insert_sample_database();
+            DatabaseCRUDoperations.load_sample_database();
+
         }catch(Exception ex){
             ex.getStackTrace();
         }
