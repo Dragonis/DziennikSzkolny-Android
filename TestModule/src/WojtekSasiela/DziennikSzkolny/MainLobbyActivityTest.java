@@ -12,10 +12,10 @@ import android.test.ActivityInstrumentationTestCase2;
  * -e class WojtekSasiela.DziennikSzkolny.MainActivityTest \
  * WojtekSasiela.DziennikSzkolny.tests/android.test.InstrumentationTestRunner
  */
-public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class MainLobbyActivityTest extends ActivityInstrumentationTestCase2<MainLobbyActivity> {
 
-    public MainActivityTest() {
-        super("WojtekSasiela.DziennikSzkolny", MainActivity.class);
+    public MainLobbyActivityTest() {
+        super("WojtekSasiela.DziennikSzkolny", MainLobbyActivity.class);
     }
 
 }

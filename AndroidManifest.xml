@@ -15,7 +15,7 @@
             </intent-filter>
         </activity>
         <!--<activity android:name=".LogowanieActivity" android:label="Logowanie"/>-->
-        <activity android:name=".MainActivity" android:label="Menu główne"/>
+        <activity android:name=".MainLobbyActivity" android:label="Menu główne"/>
         <activity android:name=".DodajUczniaActivity" android:label="Dodaj ucznia"/>
         <activity android:name=".DodajOceneActivity" android:label="Dodaj ocene"/>
         <activity android:name=".EdytujOceneActivity" android:label="Edytuj ocene"/>

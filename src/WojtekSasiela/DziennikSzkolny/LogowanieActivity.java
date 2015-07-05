@@ -1,20 +1,15 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.List;
 
@@ -27,63 +22,43 @@ public class LogowanieActivity extends Activity {
 
     Button zaloguj, zamknij, przykladowa_baza_danych_button;
     TextView login_textview, password_textview;
-    Intent intent;  Bundle koszyk;
-    String username, password;
+    Intent login_intent, exit_intent;
+    Bundle paczka;
+    String textview_username, textview_password;
+    List<Account> accounts; // Pobrana lista osob z bazy danych
+    String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logowanie_layout);
-        intent = new Intent(getApplicationContext(), MainActivity.class);
-        koszyk = new Bundle();
+
+        login_intent = new Intent(getApplicationContext(), MainLobbyActivity.class);
+        paczka = new Bundle();
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
         login_textview = (TextView) findViewById(R.id.loginTextView);
         password_textview = (TextView) findViewById(R.id.passwordTextView);
 
+        LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
 
         zaloguj.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
-            LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
+            textview_username = login_textview.getText().toString();
+            textview_password = password_textview.getText().toString();
 
-            username = login_textview.getText().toString();
-            password = password_textview.getText().toString();
-
-            //TODO sprawdzanie czy dane logowania sa poprawne
-            List<Account> accounts = LoadDataFromDatabase.load_Account_fromDatabase(username);
-           if (accounts.size() == 0)
-           {
-               Toast.makeText(getApplicationContext(),"Nie ma takiego uzytkownika",Toast.LENGTH_SHORT).show();
-           }else {
-
-               String imie = accounts.get(0).getName();
-               String nazwisko = accounts.get(0).getSurname();
-
-               koszyk.putString("Imie", imie);
-               koszyk.putString("Nazwisko", nazwisko);
-               intent.putExtras(koszyk);
-
-               setResult(RESULT_OK, intent);
-               startActivity(intent);
-           }
+            SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(textview_username,textview_password);
         }
     });
 
         zamknij.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
-
                 finish();
                 System.exit(0);
-
             }
         });
 
@@ -103,22 +78,22 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
 
     }
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, klasa);
+    public void SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(String username, String password) {
+        accounts = LoadDataFromDatabase.load_Account_fromDatabase(username);
+        if (accounts.size() == 0)
+        {
+            Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
+        }
+        db_imie = accounts.get(0).getName();
+        db_nazwisko = accounts.get(0).getSurname();
 
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
-                }
+        paczka.putString("Imie", db_imie);
+        paczka.putString("Nazwisko", db_nazwisko);
+        login_intent.putExtras(paczka);
 
-            }
-        });
+        setResult(RESULT_OK, login_intent);
+        startActivity(login_intent);
     }
+
+
 }
