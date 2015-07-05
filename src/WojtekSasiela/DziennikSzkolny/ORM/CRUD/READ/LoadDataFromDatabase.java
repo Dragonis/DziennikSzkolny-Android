@@ -90,6 +90,18 @@ public class LoadDataFromDatabase {
         return accounts;
     }
 
+    public static List<Account> load_Account_fromDatabase(int id)
+    {
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<Account> accounts = Account_Dao.queryForEq("id", id);
+        Log.e("AccountTableDB", accounts.get(0).getName());
+        Log.e("AccountTableDB", accounts.get(0).getSurname());
+        return accounts;
+    }
+
     public static List<Student> load_Student_fromDatabase(String imie_studenta)
     {
         // Connect with Database ORM

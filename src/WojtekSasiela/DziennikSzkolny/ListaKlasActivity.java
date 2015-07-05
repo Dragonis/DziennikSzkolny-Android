@@ -27,9 +27,9 @@ public class ListaKlasActivity extends Activity {
     ArrayAdapter<String> adapter, adapterSubcjets;
     ListView listView_ImionaiNazwiska, ListView_NazwyPrzedmiotow;
     Button klasa1, klasa2, klasa3, klasa4, klasa5, klasa6,
-           dodaj_ucznia, dodaj_ocene,
-           edytuj_ucznia, edytuj_ocene,
-           usun_ucznia, usun_ocene;
+            dodaj_ucznia, dodaj_ocene,
+            edytuj_ucznia, edytuj_ocene,
+            usun_ucznia, usun_ocene;
     String imie, nazwisko, klasa, przedmiot, imieiNazwiskoWybranejOsobyzListView;
     //endregion
 
@@ -235,8 +235,6 @@ public class ListaKlasActivity extends Activity {
         przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie();
     }
 
-
-
     public void przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -324,11 +322,11 @@ public class ListaKlasActivity extends Activity {
         Integer max_liczba_studentow_w_klasie = students.size();
         osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
         try{
-        for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
-            String name_UTF8 = new String(students.get(i).getName().getBytes("UTF-8"), "UTF-8");
-            String surname_UTF8 = new String(students.get(i).getSurname().getBytes("UTF-8"), "UTF-8");
-            osoby.add(name_UTF8 + " " + surname_UTF8);
-        }}catch(Exception e)
+            for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
+                String name_UTF8 = new String(students.get(i).getName().getBytes("UTF-8"), "UTF-8");
+                String surname_UTF8 = new String(students.get(i).getSurname().getBytes("UTF-8"), "UTF-8");
+                osoby.add(name_UTF8 + " " + surname_UTF8);
+            }}catch(Exception e)
         {
             e.getStackTrace();
         }

@@ -1,6 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.UPDATE.UpdateDataInDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.List;
 
@@ -18,27 +17,30 @@ import java.util.List;
  */
 public class OpcjeAcitivity extends Activity {
 
-
+    Button update_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_opcje_layout);
-        doORMAccountDatabaseStuff();
+
+        wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(3);
+
+        update_button = (Button) findViewById(R.id.update_password_button);
+        update_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UpdateDataInDatabase.aktualizujDaneUzytkownika(3, "z", "z");
+            }
+        });
 
         // Laczy operacje zamkniecia z konkrentym buttonem
         zamknijOkno(R.id.BackOptionsButton);
     }
 
-    public void doORMAccountDatabaseStuff() {
+    public void wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(int uzytkownik_o_id) {
 
-        // POBIERASZ REKORDY Z BAZY DANYCH PO CZYM WYSWIETLASZ
-        DatabaseAccessObjects dh = OpenHelperManager.getHelper(this,DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Account, Integer> userDao = dh.getAccountRuntimeExceptionDao();
-
-        //pobieranie i wyswietlanei danych
-
-        List<Account> uzytkownicy = userDao.queryForEq("id", 1);
+        List<Account> uzytkownicy = LoadDataFromDatabase.load_Account_fromDatabase(uzytkownik_o_id);
         Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: " + uzytkownicy.get(0).getPassword().toString());
 
         // wyswietlanei danych w widoku
@@ -47,8 +49,6 @@ public class OpcjeAcitivity extends Activity {
 
         login.setText(uzytkownicy.get(0).getUsername().toString());
         password.setText(uzytkownicy.get(0).getPassword().toString());
-
-        OpenHelperManager.releaseHelper();
 
     }
 
