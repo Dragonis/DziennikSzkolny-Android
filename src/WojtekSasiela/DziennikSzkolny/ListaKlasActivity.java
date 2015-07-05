@@ -21,31 +21,17 @@ import java.util.List;
  */
 public class ListaKlasActivity extends Activity {
 
+    //region Zmienne
     Integer nr_kliknietego_elementu_z_listview_przedmioty;
-    ArrayList<String> osoby;
-    ArrayList<String> listaOsob;
-    private ArrayAdapter<String> adapter = null;
-    private ArrayAdapter<String> adapterSubcjets = null;
-    private ListView listaKompoment = null;
-    private ListView listaKompoment2 = null;
-    private Button klasa1 = null;
-    private Button klasa2 = null;
-    private Button klasa3 = null;
-    private Button klasa4 = null;
-    private Button klasa5 = null;
-    private Button klasa6 = null;
-    private Button dodaj_ucznia = null;
-    private Button edytuj_ucznia = null;
-    private Button usun_ucznia = null;
-    private Button dodaj_ocene = null;
-    private Button edytuj_ocene = null;
-    private Button usun_ocene = null;
-    String imie = "";
-    String nazwisko = "";
-    String klasa = "";
-    String przedmiot = "";
-    String imieiNazwiskoWybranejOsobyzListView = null;
-    ArrayList<String> uzupelniony_danymi_listview_klasa4 = new ArrayList<String>();
+    ArrayList<String> osoby, listaOsob, uzupelniony_danymi_listview_klasa4 = new ArrayList<String>();
+    ArrayAdapter<String> adapter, adapterSubcjets;
+    ListView listView_ImionaiNazwiska, ListView_NazwyPrzedmiotow;
+    Button klasa1, klasa2, klasa3, klasa4, klasa5, klasa6,
+           dodaj_ucznia, dodaj_ocene,
+           edytuj_ucznia, edytuj_ocene,
+           usun_ucznia, usun_ocene;
+    String imie, nazwisko, klasa, przedmiot, imieiNazwiskoWybranejOsobyzListView;
+    //endregion
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,8 +39,9 @@ public class ListaKlasActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation_lista_klas_layout);
 
-        listaKompoment = (ListView) findViewById(R.id.listView);
-        listaKompoment2 = (ListView) findViewById(R.id.listView0);
+        //region Inicjacja_zmiennych
+        listView_ImionaiNazwiska = (ListView) findViewById(R.id.listView_ImieiNazwisko);
+        ListView_NazwyPrzedmiotow = (ListView) findViewById(R.id.listView_NazwyPrzedmiotow);
         klasa1 = (Button) findViewById(R.id.klasa1);
         klasa2 = (Button) findViewById(R.id.klasa2);
         klasa3 = (Button) findViewById(R.id.klasa3);
@@ -67,15 +54,16 @@ public class ListaKlasActivity extends Activity {
         dodaj_ocene = (Button) findViewById(R.id.dodajocene_button_listaklas);
         edytuj_ocene = (Button) findViewById(R.id.edytujocene_button_listaklas);
         usun_ocene = (Button) findViewById(R.id.usunocene_button_listaklas);
+        //endregion
 
-
+        //region Button'y
         dodaj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.dodajucznia_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
+        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
 
         edytuj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,27 +71,7 @@ public class ListaKlasActivity extends Activity {
                 setContentView(R.layout.edytujucznia_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
-
-
-        usun_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(), "Użytkownik został usunięty",
-                        Toast.LENGTH_SHORT).show();
-
-                // TODO: DOKONCZYC - Narazie usuwa zaznaczony elelement z listview, ale z konca listy, i nie usuwa z bazy danych
-//                osoby.remove(((TextView)view).getText().toString());
-
-                //((TextView) view).getText().toString()
-                int position = (Integer) view.getTag();
-                listaOsob.remove(position);
-                adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, listaOsob);
-                listaKompoment.setAdapter(adapter);
-            }
-        });
-
+        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
 
         dodaj_ocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +79,7 @@ public class ListaKlasActivity extends Activity {
                 setContentView(R.layout.dodajocene_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.dodajocene_button_listaklas, getApplicationContext(), DodajOceneActivity.class);
+        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.dodajocene_button_listaklas, getApplicationContext(), DodajOceneActivity.class);
 
         edytuj_ocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,20 +87,30 @@ public class ListaKlasActivity extends Activity {
                 setContentView(R.layout.edytujocene_layout);
             }
         });
-        Pokaz_Activity_z_klasy(R.id.edytujocene_button_listaklas, getApplicationContext(), EdytujOceneActivity.class);
+        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.edytujocene_button_listaklas, getApplicationContext(), EdytujOceneActivity.class);
+
+        usun_ucznia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UsunZaznaczonegoUczniazListView(view);
+            }
+        });
+
+        zamknijOkno(R.id.Wyjdz_button);
 
         klasa1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa2.setBackgroundColor(Color.TRANSPARENT);
                 klasa3.setBackgroundColor(Color.TRANSPARENT);
                 klasa4.setBackgroundColor(Color.TRANSPARENT);
                 klasa5.setBackgroundColor(Color.TRANSPARENT);
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
                 view.setBackgroundColor(Color.BLUE);
-
+                //endregion
                 pokazListeOsobzKlasy(1);
-                listaKompoment2.setAdapter(null);
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "1";
 
             }
@@ -142,16 +120,16 @@ public class ListaKlasActivity extends Activity {
         klasa2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa1.setBackgroundColor(Color.TRANSPARENT);
                 klasa3.setBackgroundColor(Color.TRANSPARENT);
                 klasa4.setBackgroundColor(Color.TRANSPARENT);
                 klasa5.setBackgroundColor(Color.TRANSPARENT);
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
-
                 view.setBackgroundColor(Color.BLUE);
-
+                //endregion
                 pokazListeOsobzKlasy(2);
-                listaKompoment2.setAdapter(null);
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "2";
 
             }
@@ -160,6 +138,7 @@ public class ListaKlasActivity extends Activity {
         klasa3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa1.setBackgroundColor(Color.TRANSPARENT);
                 klasa2.setBackgroundColor(Color.TRANSPARENT);
                 klasa4.setBackgroundColor(Color.TRANSPARENT);
@@ -167,15 +146,16 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
-
+                //endregion
                 pokazListeOsobzKlasy(3);
-                listaKompoment2.setAdapter(null);
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "3";
             }
         });
         klasa4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa1.setBackgroundColor(Color.TRANSPARENT);
                 klasa2.setBackgroundColor(Color.TRANSPARENT);
                 klasa3.setBackgroundColor(Color.TRANSPARENT);
@@ -183,7 +163,8 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
-                listaKompoment2.setAdapter(null);
+                //endregion
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 pokazListeOsobzKlasy(4);
 
                 klasa = "4";
@@ -192,6 +173,7 @@ public class ListaKlasActivity extends Activity {
         klasa5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa1.setBackgroundColor(Color.TRANSPARENT);
                 klasa2.setBackgroundColor(Color.TRANSPARENT);
                 klasa3.setBackgroundColor(Color.TRANSPARENT);
@@ -199,15 +181,16 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
-
+                //endregion
                 pokazListeOsobzKlasy(5);
-                listaKompoment2.setAdapter(null);
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "5";
             }
         });
         klasa6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //region Zmiana_kolorow_odpowiednich_buttonow
                 klasa1.setBackgroundColor(Color.TRANSPARENT);
                 klasa2.setBackgroundColor(Color.TRANSPARENT);
                 klasa3.setBackgroundColor(Color.TRANSPARENT);
@@ -215,48 +198,24 @@ public class ListaKlasActivity extends Activity {
                 klasa5.setBackgroundColor(Color.TRANSPARENT);
 
                 view.setBackgroundColor(Color.BLUE);
-
+                //endregion
                 pokazListeOsobzKlasy(6);
-                listaKompoment2.setAdapter(null);
+                ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "6";
             }
         });
+        //endregion
 
-        // lista osob
-        listaKompoment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //region ListView'y
+        listView_ImionaiNazwiska.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                for (int j = 0; j < adapterView.getChildCount(); j++)
-                    adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
-
-                // change the background color of the selected element
-                view.setBackgroundColor(Color.BLUE);
-
-                imieiNazwiskoWybranejOsobyzListView = ((TextView) view).getText().toString();
-                Toast.makeText(getApplicationContext(), imieiNazwiskoWybranejOsobyzListView,
-                        Toast.LENGTH_SHORT).show();
-
-                String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
-                ArrayList<String> subjectsL = new ArrayList<String>();
-                subjectsL.addAll(Arrays.asList(subjects));
-                adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
-                listaKompoment2.setAdapter(adapterSubcjets);
-
-                String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
-                imie = split[0];
-                nazwisko = split[1];
-
-                edytuj_ucznia.setEnabled(true);
-                usun_ucznia.setEnabled(true);
-
-                nr_kliknietego_elementu_z_listview_przedmioty = position;
-                usun_ucznia.setTag(position);
+                WyswietlOsobywListView1(adapterView, view, position);
+                WyswietlPrzedmiotywListView2(view, position);
             }
         });
 
-
-        //interakcja na klikniecie na nazwe przedmioty z listy przedmiotow
-        listaKompoment2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListView_NazwyPrzedmiotow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 for (int j = 0; j < adapterView.getChildCount(); j++)
@@ -271,7 +230,14 @@ public class ListaKlasActivity extends Activity {
 
             }
         });
-        zamknijOkno(R.id.Wyjdz_button);
+        //endregion
+
+        przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie();
+    }
+
+
+
+    public void przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
 
@@ -283,13 +249,56 @@ public class ListaKlasActivity extends Activity {
             for (Integer i = 1; i <= 6; i++) {
                 if (bundle.getString("Klasa") == i.toString()) {
                     // jezeli z np. DodajUczniaButton pobranym id_klasy jest cyfra 4, to zapisuj wszystkie dane z DodajUczniaActivity do bazy danych dla klasy 4
-                    DodajUczniaKlasy(i);
+                    DodajUczniaDoKonkretnejKlasywListViewUczniowie(i);
                 }
             }
         }
     }
 
-    private void DodajUczniaKlasy(Integer nr_klasy) {
+    public void WyswietlPrzedmiotywListView2(View view, int position) {
+        String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
+        ArrayList<String> subjectsL = new ArrayList<String>();
+        subjectsL.addAll(Arrays.asList(subjects));
+        adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
+        ListView_NazwyPrzedmiotow.setAdapter(adapterSubcjets);
+        nr_kliknietego_elementu_z_listview_przedmioty = position;
+    }
+
+    public void WyswietlOsobywListView1(AdapterView<?> adapterView, View view, int position) {
+        for (int j = 0; j < adapterView.getChildCount(); j++)
+            adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
+
+        // change the background color of the selected element
+        view.setBackgroundColor(Color.BLUE);
+
+        imieiNazwiskoWybranejOsobyzListView = ((TextView) view).getText().toString();
+        Toast.makeText(getApplicationContext(), imieiNazwiskoWybranejOsobyzListView,
+                Toast.LENGTH_SHORT).show();
+
+        String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
+        imie = split[0];
+        nazwisko = split[1];
+
+        edytuj_ucznia.setEnabled(true);
+        usun_ucznia.setEnabled(true);
+        usun_ucznia.setTag(position);
+    }
+
+    public void UsunZaznaczonegoUczniazListView(View view) {
+        Toast.makeText(getApplicationContext(), "Użytkownik został usunięty",
+                Toast.LENGTH_SHORT).show();
+
+        // TODO: DOKONCZYC - Narazie usuwa zaznaczony elelement z listview, ale z konca listy, i nie usuwa z bazy danych
+//                osoby.remove(((TextView)view).getText().toString());
+
+        //((TextView) view).getText().toString()
+        int position = (Integer) view.getTag();
+        listaOsob.remove(position);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, listaOsob);
+        listView_ImionaiNazwiska.setAdapter(adapter);
+    }
+
+    private void DodajUczniaDoKonkretnejKlasywListViewUczniowie(Integer nr_klasy) {
         ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
         pokazListeOsobzKlasy(nr_klasy);
         uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(nr_klasy);
@@ -301,7 +310,7 @@ public class ListaKlasActivity extends Activity {
 
         nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
         adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
-        listaKompoment.setAdapter(adapter);
+        listView_ImionaiNazwiska.setAdapter(adapter);
         //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
         // dodajemy do powyzszego listview, stworzony przez nas teraz element
     }
@@ -328,12 +337,11 @@ public class ListaKlasActivity extends Activity {
         listaOsob = new ArrayList<String>();
         listaOsob.addAll(osoby);
         adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, listaOsob);
-        listaKompoment.setAdapter(adapter);
+        listView_ImionaiNazwiska.setAdapter(adapter);
         return osoby;
         //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
 
     }
-
 
     public void zamknijOkno(int id) {
         Button b = (Button) findViewById(id);
@@ -404,7 +412,7 @@ public class ListaKlasActivity extends Activity {
 
     }
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa) {
+    public void WyswietlButton_i_PrzelaczNaActivityzKlasy(int id, final Context context, final Class<?> klasa) {
         Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override

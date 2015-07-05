@@ -20,6 +20,7 @@ import static WojtekSasiela.DziennikSzkolny.R.id.zaloguj_button_logowanie;
  */
 public class LogowanieActivity extends Activity {
 
+    //region Zmienne
     Button zaloguj, zamknij, przykladowa_baza_danych_button;
     TextView login_textview, password_textview;
     Intent login_intent, exit_intent;
@@ -27,12 +28,14 @@ public class LogowanieActivity extends Activity {
     String textview_username, textview_password;
     List<Account> accounts; // Pobrana lista osob z bazy danych
     String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logowanie_layout);
 
+        //region Inicjalizacja_zmiennych
         login_intent = new Intent(getApplicationContext(), MainLobbyActivity.class);
         paczka = new Bundle();
         zaloguj = (Button) findViewById(zaloguj_button_logowanie);
@@ -40,6 +43,7 @@ public class LogowanieActivity extends Activity {
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
         login_textview = (TextView) findViewById(R.id.loginTextView);
         password_textview = (TextView) findViewById(R.id.passwordTextView);
+        //endregion
 
         LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
 

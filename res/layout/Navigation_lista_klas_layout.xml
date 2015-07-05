@@ -33,9 +33,9 @@
             android:id="@+id/klasa6"/>
     </LinearLayout>
         <LinearLayout android:orientation="horizontal" android:layout_width="100dp" android:layout_height="wrap_content">
-            <ListView android:layout_width="match_parent" android:layout_height="400dp" android:id="@+id/listView"/>
+            <ListView android:layout_width="match_parent" android:layout_height="400dp" android:id="@+id/listView_ImieiNazwisko"/>
         </LinearLayout>
-        <ListView android:layout_width="wrap_content" android:layout_height="382dp" android:id="@+id/listView0"
+        <ListView android:layout_width="wrap_content" android:layout_height="382dp" android:id="@+id/listView_NazwyPrzedmiotow"
                 />
 
     </LinearLayout>
