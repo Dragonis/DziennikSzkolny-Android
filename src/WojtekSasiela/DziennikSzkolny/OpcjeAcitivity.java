@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DELETE.DeleteDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.UPDATE.UpdateDataInDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
@@ -30,7 +31,17 @@ public class OpcjeAcitivity extends Activity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UpdateDataInDatabase.aktualizujDaneUzytkownika(3, "z", "z");
+
+                int ID_Account_toModyfy = 3;
+                String nowy_login = "z";
+                String nowe_haslo = "z";
+
+                UpdateDataInDatabase.aktualizujDaneUzytkownika(ID_Account_toModyfy, nowy_login, nowe_haslo);
+                // UWAGA:
+                // Po uzyciu ponizszej instrukcji, rekord zostanie usuniety w bazie danych,
+                // tylko ze problemem jest to ze program korzysta z pierwotnie stworzonej bazy,
+                // a nie tej zaaktualizowanej bazy, z usunietymi rekordami, ponizsza instrukcja
+                //DeleteDataFromDatabase.usunDaneUzytkownika(ID_Account_toModyfy);
             }
         });
 
