@@ -1,15 +1,18 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import java.util.List;
 
@@ -70,9 +73,23 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
 
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
         try{
-            DatabaseCRUDoperations.insert_sample_database();
-            DatabaseCRUDoperations.load_sample_database();
+
+            DatabaseCRUDoperations crud = new DatabaseCRUDoperations(dbHelper);
+            crud.insert_sample_database();
+            crud.load_sample_database();
+
+//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
+//             RuntimeExceptionDao<Account, Integer> AccountDao;
+//            RuntimeExceptionDao<Student, Integer> StudentDao;
+//            AccountDao = dbHelper.getAccountRuntimeExceptionDao();
+//            StudentDao = dbHelper.getStudentRuntimeExceptionDao();
+//            accounts = AccountDao.queryForEq("username", username);
+//
+//            AccountDao.create(new Account("Jan","Kowalski","admin login1", "admin password1"));
+//            AccountDao.create(new Account("Johny", "Brown", "Uzytkownik", "Haslo"));
+//            AccountDao.create(new Account("Wojciech", "Sasiela", "root", "testABCD"));
 
         }catch(Exception ex){
             ex.getStackTrace();
@@ -87,16 +104,18 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
         if (accounts.size() == 0)
         {
             Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
+        }else {
+            db_imie = accounts.get(0).getName();
+            db_nazwisko = accounts.get(0).getSurname();
+            Log.e("AccountTableDB", db_imie);
+            Log.e("AccountTableDB", db_nazwisko);
+            paczka.putString("Imie", db_imie);
+            paczka.putString("Nazwisko", db_nazwisko);
+            login_intent.putExtras(paczka);
+
+            setResult(RESULT_OK, login_intent);
+            startActivity(login_intent);
         }
-        db_imie = accounts.get(0).getName();
-        db_nazwisko = accounts.get(0).getSurname();
-
-        paczka.putString("Imie", db_imie);
-        paczka.putString("Nazwisko", db_nazwisko);
-        login_intent.putExtras(paczka);
-
-        setResult(RESULT_OK, login_intent);
-        startActivity(login_intent);
     }
 
 

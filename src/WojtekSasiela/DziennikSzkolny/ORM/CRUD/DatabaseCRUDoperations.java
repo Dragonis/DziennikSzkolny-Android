@@ -23,33 +23,32 @@ import java.sql.SQLException;
 public class DatabaseCRUDoperations {
 
 
-    static RuntimeExceptionDao<Classroom, Integer> ClassroomDao;
-    static RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_Dao;
-    static RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao;
-    static RuntimeExceptionDao<Subcjet, Integer> SubcjetDao;
+    private RuntimeExceptionDao<Classroom, Integer> ClassroomDao;
+    private RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_Dao;
+    private RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao;
+    private RuntimeExceptionDao<Subcjet, Integer> SubcjetDao;
 
-    static RuntimeExceptionDao<Student, Integer> StudentDao;
-    static RuntimeExceptionDao<Account, Integer> AccountDao;
-    static RuntimeExceptionDao<Teacher, Integer> TeacherDao;
-    static RuntimeExceptionDao<Biology, Integer> BiologyDao;
-    static RuntimeExceptionDao<English, Integer> EnglishDao;
-    static RuntimeExceptionDao<Mathematic, Integer> MathematicDao;
-    static RuntimeExceptionDao<Polish, Integer> PolishDao;
-    static RuntimeExceptionDao<Religion, Integer> ReligionDao;
-    static RuntimeExceptionDao<WF, Integer> WFDao;
-
-    static RuntimeExceptionDao<Srednia, Integer> SredniaDao;
-    static RuntimeExceptionDao<Mediana, Integer> MedianaDao;
-    static RuntimeExceptionDao<Dominanta, Integer> DominantaDao;
-    static RuntimeExceptionDao<Kwartyle, Integer> KwartyleDao;
-    static RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao;
-    static RuntimeExceptionDao<Wariancja, Integer> WariancjaDao;
+    private RuntimeExceptionDao<Student, Integer> StudentDao;
+    private RuntimeExceptionDao<Account, Integer> AccountDao;
+    private RuntimeExceptionDao<Teacher, Integer> TeacherDao;
+    private RuntimeExceptionDao<Biology, Integer> BiologyDao;
+    private RuntimeExceptionDao<English, Integer> EnglishDao;
+    private RuntimeExceptionDao<Mathematic, Integer> MathematicDao;
+    private RuntimeExceptionDao<Polish, Integer> PolishDao;
+    private RuntimeExceptionDao<Religion, Integer> ReligionDao;
+    private RuntimeExceptionDao<WF, Integer> WFDao;
+    private RuntimeExceptionDao<Srednia, Integer> SredniaDao;
+    private RuntimeExceptionDao<Mediana, Integer> MedianaDao;
+    private RuntimeExceptionDao<Dominanta, Integer> DominantaDao;
+    private RuntimeExceptionDao<Kwartyle, Integer> KwartyleDao;
+    private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao;
+    private RuntimeExceptionDao<Wariancja, Integer> WariancjaDao;
     
     public DatabaseCRUDoperations() {
     }
 
 
-    public void DatabaseCRUDOperations(DatabaseAccessObjects dbHelper) throws SQLException {
+    public DatabaseCRUDoperations(DatabaseAccessObjects dbHelper) {
 
         ClassroomDao = dbHelper.getClassroomRuntimeExceptionDao();
         Student_NewVersion_Dao = dbHelper.getStudent_NewVersion_RuntimeExceptionDao();
@@ -98,7 +97,7 @@ public class DatabaseCRUDoperations {
         OpenHelperManager.releaseHelper();
     }
     
-    public static void insert_sample_database() {
+    public void insert_sample_database() {
   
         InsertDataToDatabase.insert_Classroom_IntoDatabase(ClassroomDao);
         InsertDataToDatabase.insert_Student_NewVersion_IntoDatabase(Student_NewVersion_Dao);
@@ -116,7 +115,7 @@ public class DatabaseCRUDoperations {
         InsertDataToDatabase.insert_WF_GradesIntoDatabase(WFDao);
     }
 
-    public static void load_sample_database()
+    public void load_sample_database()
     {
         
         LoadDataFromDatabase.load_Subcjet_FromDatabase();

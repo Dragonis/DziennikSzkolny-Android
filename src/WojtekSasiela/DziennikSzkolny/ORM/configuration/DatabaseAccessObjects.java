@@ -26,7 +26,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts222.db";
+    private static final String DATABASE_NAME = "Accounts250.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Classroom, Integer> ClassroomDao = null;

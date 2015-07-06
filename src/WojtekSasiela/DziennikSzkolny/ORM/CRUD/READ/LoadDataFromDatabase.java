@@ -85,8 +85,6 @@ public class LoadDataFromDatabase {
         RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
         List<Account> accounts = Account_Dao.queryForEq("username", username);
-        Log.e("AccountTableDB", accounts.get(0).getName());
-        Log.e("AccountTableDB", accounts.get(0).getSurname());
         return accounts;
     }
 
@@ -97,8 +95,6 @@ public class LoadDataFromDatabase {
         RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
         List<Account> accounts = Account_Dao.queryForEq("id", id);
-        Log.e("AccountTableDB", accounts.get(0).getName());
-        Log.e("AccountTableDB", accounts.get(0).getSurname());
         return accounts;
     }
 
