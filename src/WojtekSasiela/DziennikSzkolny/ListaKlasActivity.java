@@ -257,7 +257,7 @@ public class ListaKlasActivity extends Activity {
         String subjects[] = {"Polski", "Angielski", "Matematyka", "Przyroda", "Religia", "WF"};
         ArrayList<String> subjectsL = new ArrayList<String>();
         subjectsL.addAll(Arrays.asList(subjects));
-        adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.listview_elementy_listy_glownej, subjectsL);
+        adapterSubcjets = new ArrayAdapter<String>(view.getContext(), R.layout.elementy_listy_glownej, subjectsL);
         ListView_NazwyPrzedmiotow.setAdapter(adapterSubcjets);
         nr_kliknietego_elementu_z_listview_przedmioty = position;
     }
@@ -292,7 +292,7 @@ public class ListaKlasActivity extends Activity {
         //((TextView) view).getText().toString()
         int position = (Integer) view.getTag();
         listaOsob.remove(position);
-        adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.listview_elementy_listy_glownej, listaOsob);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.elementy_listy_glownej, listaOsob);
         listView_ImionaiNazwiska.setAdapter(adapter);
     }
 
@@ -307,7 +307,7 @@ public class ListaKlasActivity extends Activity {
         nowoutowrzona_listastudentow.add(dane_studenta.get(0) + " " + dane_studenta.get(1));
 
         nowoutowrzona_listastudentow.addAll(uzupelniony_danymi_listview_klasa4);
-        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, nowoutowrzona_listastudentow);
+        adapter = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, nowoutowrzona_listastudentow);
         listView_ImionaiNazwiska.setAdapter(adapter);
         //uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(4);
         // dodajemy do powyzszego listview, stworzony przez nas teraz element
@@ -334,7 +334,7 @@ public class ListaKlasActivity extends Activity {
         //String osoby[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         listaOsob = new ArrayList<String>();
         listaOsob.addAll(osoby);
-        adapter = new ArrayAdapter<String>(this, R.layout.listview_elementy_listy_glownej, listaOsob);
+        adapter = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, listaOsob);
         listView_ImionaiNazwiska.setAdapter(adapter);
         return osoby;
         //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
