@@ -1,3 +1,0 @@
-dependencies {
-    compile "com.androidplot:androidplot-core:0.6.1"
-}

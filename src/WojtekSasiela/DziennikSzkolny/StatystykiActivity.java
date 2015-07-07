@@ -26,7 +26,7 @@ public class StatystykiActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_statystyki_layout);
+        setContentView(R.layout.statystyki_layout);
         radioGroup = (RadioGroup) findViewById(R.id.radioSets);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 

@@ -41,7 +41,7 @@ public class WariancjaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_wariancja_layout);
+        setContentView(R.layout.statystyka_wariancja_layout);
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
         //rysujWykres_Wariancja();

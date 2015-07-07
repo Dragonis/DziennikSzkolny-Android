@@ -25,7 +25,7 @@ public class SredniaAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_srednia_layout);
+        setContentView(R.layout.statystyka_srednia_layout);
 
         MiaryStatystyczne statystyka = new MiaryStatystyczne();
 

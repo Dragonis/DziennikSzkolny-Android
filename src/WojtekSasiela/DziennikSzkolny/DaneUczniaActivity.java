@@ -53,7 +53,7 @@ public class DaneUczniaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_dane_ucznia_layout);
+        setContentView(R.layout.dane_ucznia_layout);
 
         radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
         radioButton2 = (RadioButton) findViewById(R.id.radioButton2);

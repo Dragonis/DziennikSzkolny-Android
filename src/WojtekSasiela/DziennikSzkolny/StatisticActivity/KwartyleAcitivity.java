@@ -24,7 +24,7 @@ public class KwartyleAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_kwartyle_layout);
+        setContentView(R.layout.statystyka_kwartyle_layout);
         // Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(),SredniaAcitivity.class);
 
         rysujWykres_Kwartyle();

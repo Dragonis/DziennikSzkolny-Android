@@ -23,7 +23,7 @@ public class OpcjeAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_opcje_layout);
+        setContentView(R.layout.statystyka_opcje_layout);
 
         wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(3);
 

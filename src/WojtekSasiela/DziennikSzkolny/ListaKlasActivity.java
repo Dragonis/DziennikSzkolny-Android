@@ -37,7 +37,7 @@ public class ListaKlasActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_lista_klas_layout);
+        setContentView(R.layout.lista_klas_layout);
 
         //region Inicjacja_zmiennych
         listView_ImionaiNazwiska = (ListView) findViewById(R.id.listView_ImieiNazwisko);

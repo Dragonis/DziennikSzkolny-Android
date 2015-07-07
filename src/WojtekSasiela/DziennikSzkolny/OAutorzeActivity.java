@@ -25,7 +25,7 @@ public class OAutorzeActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_oautorze_layout);
+        setContentView(R.layout.oautorze_layout);
         zamknijOkno(R.id.Zamknij_Uczniowie);
 //        wczytajdoListViewa();
 //
