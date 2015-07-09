@@ -16,18 +16,57 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 public class InsertDataToDatabase {
 
 
+    //region Lepsze_podejscie_tworzenia_tabel
     public static void insert_Subcjet_IntoDatabase(RuntimeExceptionDao<Subcjet, Integer> subcjetDao) {
-        subcjetDao.create(new Subcjet(1,1,"Przykladowa nazwa przedmiotu"));
+        // Subcjet(ID_Subcjet,NazwaPrzedmiotu);
+        subcjetDao.create(new Subcjet(1,"Polski"));
+        subcjetDao.create(new Subcjet(1,"Angielski"));
+        subcjetDao.create(new Subcjet(1,"Matematyka"));
+        subcjetDao.create(new Subcjet(1,"Przyroda"));
+        subcjetDao.create(new Subcjet(1,"Religia"));
+        subcjetDao.create(new Subcjet(1,"WF"));
     }
 
     public static void insert_StudentGrades_IntoDatabase(RuntimeExceptionDao<StudentGrades, Integer> studentGradesDao) {
-        studentGradesDao.create(new StudentGrades(1,5));
-        studentGradesDao.create(new StudentGrades(1,3));
-        studentGradesDao.create(new StudentGrades(1,4));
-        studentGradesDao.create(new StudentGrades(1,6));
+        // StudentGrades(ID_Student,ID_NazwaPrzedmiotu,Ocena);
+
+        //region Oceny dla_kazdego_przedmiotu_dla_uzytownika_o_ID=3
+        studentGradesDao.create(new StudentGrades(3,1,5));
+        studentGradesDao.create(new StudentGrades(3,1,3));
+        studentGradesDao.create(new StudentGrades(3,1,4));
+        studentGradesDao.create(new StudentGrades(3,1,6));
+
+        studentGradesDao.create(new StudentGrades(3,2,5));
+        studentGradesDao.create(new StudentGrades(3,2,3));
+        studentGradesDao.create(new StudentGrades(3,2,4));
+        studentGradesDao.create(new StudentGrades(3,2,6));
+
+        studentGradesDao.create(new StudentGrades(3,3,5));
+        studentGradesDao.create(new StudentGrades(3,3,3));
+        studentGradesDao.create(new StudentGrades(3,3,4));
+        studentGradesDao.create(new StudentGrades(3,3,6));
+
+        studentGradesDao.create(new StudentGrades(3,4,5));
+        studentGradesDao.create(new StudentGrades(3,4,3));
+        studentGradesDao.create(new StudentGrades(3,4,4));
+        studentGradesDao.create(new StudentGrades(3,4,6));
+
+        studentGradesDao.create(new StudentGrades(3,5,5));
+        studentGradesDao.create(new StudentGrades(3,5,3));
+        studentGradesDao.create(new StudentGrades(3,5,4));
+        studentGradesDao.create(new StudentGrades(3,5,6));
+
+        studentGradesDao.create(new StudentGrades(3,6,5));
+        studentGradesDao.create(new StudentGrades(3,6,3));
+        studentGradesDao.create(new StudentGrades(3,6,4));
+        studentGradesDao.create(new StudentGrades(3,6,6));
+        //endregion
     }
 
     public static void insert_Student_NewVersion_IntoDatabase(RuntimeExceptionDao<Student_NewVersion, Integer> student_newVersion_dao) {
+        //int ID_StudentGrades, int ID_Classroom, String name, String surname, Integer classrom
+        student_newVersion_dao.create(new Student_NewVersion(1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
+        student_newVersion_dao.create(new Student_NewVersion(1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
         student_newVersion_dao.create(new Student_NewVersion(1,1,"Imie nowego studenta","Naziwsko nowego studenta",1));
     }
 
@@ -38,7 +77,9 @@ public class InsertDataToDatabase {
     public static void insert_Teachers_IntoDatabase(RuntimeExceptionDao<Teacher, Integer> teacherDao) {
         teacherDao.create(new Teacher("Jan", "Kowalski"));
     }
+    //endregion
 
+    //region stare_podejscie_tworzenia_tabel
     public static void insert_WF_GradesIntoDatabase(RuntimeExceptionDao<WF, Integer> WFDao) {
         WFDao.create(new WF(1, 3, 4, 5));
         WFDao.create(new WF(2, 3, 4, 5));
@@ -94,48 +135,28 @@ public class InsertDataToDatabase {
         studentDao.create(new Student("Teresa", "Wawrzyniak", 1));
         studentDao.create(new Student("Katarzyna", "Jagie³³o", 1));
 
-        studentDao.create(new Student("111", "111", 2));
-        studentDao.create(new Student("222", "222", 2));
-        studentDao.create(new Student("333", "333", 2));
-//        studentDao.create(new Student("333", "333",2));
-//        studentDao.create(new Student("4444", "444",2));
-//        studentDao.create(new Student("555", "555",2));
-//        studentDao.create(new Student("666", "666",2));
-//        studentDao.create(new Student("777", "777",2));
-//        studentDao.create(new Student("888", "888",2));
-//        studentDao.create(new Student("999", "999",2));
+        studentDao.create(new Student("Barbara", "Lewandowska", 2));
+        studentDao.create(new Student("Ewelina", "2elik", 2));
+        studentDao.create(new Student("Diana", "Kosma³a", 2));
 
-        studentDao.create(new Student("AAA", "AAA", 3));
-        studentDao.create(new Student("BBB", "BBB", 3));
-        studentDao.create(new Student("CCC", "CCC", 3));
-        studentDao.create(new Student("DDD", "DDD", 3));
-        studentDao.create(new Student("EEE", "EEE", 3));
-//        studentDao.create(new Student("FFF", "FFF",3));
-//        studentDao.create(new Student("GGG", "GGG",3));
-//        studentDao.create(new Student("HHH", "HHH",3));
-//        studentDao.create(new Student("III", "III",3));
-//        studentDao.create(new Student("JJJ", "JJJ",3));
+        studentDao.create(new Student("Karolina", "Ordon", 3));
+        studentDao.create(new Student("Joanna", "Pieprzyk", 3));
 
-        studentDao.create(new Student("4", "klasa", 4));
-//        studentDao.create(new Student("czwarta", "test",4));
-//        studentDao.create(new Student("IV", "test2",4));
-//        studentDao.create(new Student("qqq", "qqq",4));
-//        studentDao.create(new Student("www", "www",4));
-//        studentDao.create(new Student("eee", "eee",4));
+        studentDao.create(new Student("Stefan", "Batory", 3));
+        studentDao.create(new Student("Bartosz", "Zuch", 3));
+        studentDao.create(new Student("Jadwiga", "Konieczko", 3));
 
-        studentDao.create(new Student("V", "abc", 5));
-        studentDao.create(new Student("5", "z", 5));
-//        studentDao.create(new Student("piata", "y",5));
-//        studentDao.create(new Student("aaa", "aaa",5));
-//        studentDao.create(new Student("sss", "sss",5));
-//        studentDao.create(new Student("dddd", "ddd",5));
+        studentDao.create(new Student("Amelia", "Koral", 4));
 
-        studentDao.create(new Student("VI", "numera", 6));
-        studentDao.create(new Student("6", "dzwiek", 6));
-        studentDao.create(new Student("szosta", "woda", 6));
-        studentDao.create(new Student("ppp", "ppp", 6));
-        studentDao.create(new Student("ccc", "ccc", 6));
-        studentDao.create(new Student("nnn", "nnn", 6));
+        studentDao.create(new Student("Justyna", "Boœ", 5));
+        studentDao.create(new Student("Alicja", "Stêpieñ", 5));
+
+        studentDao.create(new Student("Kamila", "P{aw³owska", 6));
+        studentDao.create(new Student("Roksana", "Fajna", 6));
+        studentDao.create(new Student("Beata", "Bezpieczna", 6));
+        studentDao.create(new Student("Maria", "Ciekawska", 6));
+        studentDao.create(new Student("Marta", "Okoñ", 6));
+        studentDao.create(new Student("Angelika", "Weso³owska", 6));
     }
 
     public static void insert_Accounts_IntoDatabase(RuntimeExceptionDao<Account, Integer> accountDao) {
@@ -143,5 +164,6 @@ public class InsertDataToDatabase {
         accountDao.create(new Account("Johny","Brown","Uzytkownik", "Haslo"));
         accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
     }
+    //endregion
 
 }

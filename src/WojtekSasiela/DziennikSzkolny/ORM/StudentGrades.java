@@ -11,6 +11,9 @@ public class StudentGrades {
     int ID_StudentGrades;
 
     @DatabaseField
+    int ID_Student;
+
+    @DatabaseField
     int ID_Subcjet;
 
     @DatabaseField
@@ -19,8 +22,8 @@ public class StudentGrades {
     public StudentGrades() {
     }
 
-    public StudentGrades(int ID_Subcjet, int grade) {
-        //this.ID_StudentGrades = ID_StudentGrades;
+    public StudentGrades(int ID_Student, int ID_Subcjet, int grade) {
+        this.ID_Student = ID_Student;
         this.ID_Subcjet = ID_Subcjet;
         Grade = grade;
     }
@@ -31,6 +34,14 @@ public class StudentGrades {
 
     public void setID_StudentGrades(int ID_StudentGrades) {
         this.ID_StudentGrades = ID_StudentGrades;
+    }
+
+    public int getID_Student() {
+        return ID_Student;
+    }
+
+    public void setID_Student(int ID_Student) {
+        this.ID_Student = ID_Student;
     }
 
     public int getID_Subcjet() {

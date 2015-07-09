@@ -1,11 +1,18 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import junit.framework.TestCase;
-import android.widget.EditText;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
+import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import android.widget.TextView;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.widget.Button;
+import android.widget.Toast;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
+
+import java.util.List;
 
 /**
  * Created by Wojtek on 2015-07-08.
@@ -14,7 +21,8 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 
     LogowanieActivity logowanie_activity;
     TextView login_textview;
-    private Button greetButton;
+    private Button zaloguj_button;
+    private Button wprowadz_baze_button;
 
     public LogowanieActivityTest() {
         super(LogowanieActivity.class);
@@ -24,7 +32,8 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
         super.setUp();
         logowanie_activity = getActivity();
         login_textview = (TextView) logowanie_activity.findViewById(R.id.loginTextView);
-        greetButton = (Button) logowanie_activity.findViewById(R.id.zaloguj_button_logowanie);
+        zaloguj_button = (Button) logowanie_activity.findViewById(R.id.zaloguj_button_logowanie);
+        wprowadz_baze_button = (Button) logowanie_activity.findViewById(R.id.przykladowabazaDanychButton);
     }
 
     public void testActivityExists()
@@ -63,7 +72,7 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 //        Obtains the text of the TextView element by calling getText method.
 //            Calls assertEquals to compare the expected message "Hello, Jake!" with the actual message from the TextView.
 
-    }
+
 //    This is what this code does:
 //
 //    Selects the text input by calling nameEditText.requestFocus() in the main thread of the app.
@@ -72,9 +81,11 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 //    http://evgenii.com/blog/testing-activity-in-android-studio-tutorial-part-3/
 
 
+    }
+
 
     public void ClickOnTheButton() {
-        TouchUtils.clickView(this, greetButton);
+        TouchUtils.clickView(this, zaloguj_button);
 
 //        This code does two things:
 //
@@ -84,22 +95,45 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
     }
 
 
-//    public void testCzyLoginextViewMaNapisRoot() {
-//        String actual = login_textview.getText().toString();
-//        assertEquals("root", actual);
+    public void testCzyLoginextViewMaNapisRoot() {
+        String actual = login_textview.getText().toString();
+        assertEquals("root", actual);
+    }
+
+    public void testCzyNazwaAplikacjiNieJestPusta() {
+        String expected = logowanie_activity.getString(R.string.app_name);
+        assertEquals("Dziennik szkoly podstaowej nr 3 w Tarnobrzegu",expected);
+    }
+
+//    public void testCzyPojawiaSieWiadomosc_NieMaTakiegoUzytkownika_przyPustejBazieDanych(){
+//        Toast someToast;
+//        boolean isShown;
+//
+//        TouchUtils.clickView(this, zaloguj_button); //Naciskasz przycisk Zaloguj
+//        someToast = Toast.makeText(this, "Nie ma takiego uzytkownika", Toast.LENGTH_LONG);
+//        isShown = someToast.getView().isShown();
+//
+//        assertTrue(isShown);
 //    }
 //
-//    public void testCzyNazwaAplikacjiNieJestPusta() {
-//        String expected = logowanie_activity.getString(R.string.app_name);
 //
+//    public void testCzyMoznaWczytacPrzykladoweOceny() {
+//        TouchUtils.clickView(this, zaloguj_button); //Naciskasz przycisk 'Wprwoadz przykladowa baze danych'
+//
+//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+//        RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao = dbHelper.getStudentGradesRuntimeExceptionDao();
+//        List<StudentGrades> studentGrades = StudentGradesDao.queryForEq("Grade", 3);
+//        assertNotNull(studentGrades);
 //    }
 //
-//    public void tearDown() throws Exception {
+//    public void testCzyMoznaWczytacPrzykladowychStudentow() {
+//        TouchUtils.clickView(this, zaloguj_button); //Naciskasz przycisk 'Wprwoadz przykladowa baze danych'
 //
+//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+//        RuntimeExceptionDao<Student, Integer> StudentsDao = dbHelper.getStudentRuntimeExceptionDao();
+//        List<Student> students = StudentsDao.queryForAll();;
+//        assertNotNull(students);
 //    }
-//
-//    public void testCzyMoznaStworzycPrzykladowaBazeDanych()
-//    {
-//
+
 
 }
