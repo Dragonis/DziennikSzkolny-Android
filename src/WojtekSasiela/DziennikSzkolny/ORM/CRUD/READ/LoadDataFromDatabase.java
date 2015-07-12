@@ -12,6 +12,8 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -98,13 +100,28 @@ public class LoadDataFromDatabase {
         return accounts;
     }
 
-    public static List<Student> load_Student_fromDatabase(String imie_studenta)
+    public static Student load_Student_fromDatabase(String imie_studenta, String surname)
     {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Student, Integer> Student_Dao = dbHelper.getStudentRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
-        List<Student> students = Student_Dao.queryForEq("name", imie_studenta);
+        Student student = null;
+        try {
+            student = Student_Dao.queryBuilder().where().eq("name",imie_studenta).and().eq("surname",surname).queryForFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return student;
+    }
+
+    public static List<Student> load_Student_fromDatabase(int id)
+    {
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Student, Integer> Student_Dao = dbHelper.getStudentRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<Student> students = Student_Dao.queryForEq("id", id);
         Log.e("AccountTableDB", students.get(0).getName());
         Log.e("AccountTableDB", students.get(0).getSurname());
         return students;
@@ -121,6 +138,26 @@ public class LoadDataFromDatabase {
         //Log.e("AccountTableDB", students.get(0).getName());
         //Log.e("AccountTableDB", students.get(0).getSurname());
         return students;
+    }
+
+    public static List<Integer> loadStudentGrades(int id_ucznia,int id_przedmiotu)
+    {
+        List<Integer> oceny = new ArrayList<>();
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<StudentGrades> studentGrades = null;
+        try {
+            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for(int i=0;i<studentGrades.size();i++)
+        {
+            oceny.add((Integer) studentGrades.get(i).getGrade());
+        }
+        return oceny;
     }
 
 }

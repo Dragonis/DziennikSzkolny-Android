@@ -138,10 +138,19 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 //        assertNotNull(students);
 //    }
 
-    public void testCzyMoznaWczytacStudenta()
+    public void testCzyMoznaWczytacStudentaPoImieniuINazwisku()
     {
         TouchUtils.clickView(this, zaloguj_button);
-        List<Student> student = LoadDataFromDatabase.load_Student_fromDatabase("Wojtek");
+        Student student = LoadDataFromDatabase.load_Student_fromDatabase("Wojtek","Sasiela");
+        assertEquals("Wojtek",student.getName());
+        assertEquals("Sasiela",student.getSurname());
+        assertEquals(1,(int)student.getClassrom());
+    }
+
+    public void testCzyMoznaWczytacStudentaPoId()
+    {
+        TouchUtils.clickView(this, zaloguj_button);
+        List<Student> student = LoadDataFromDatabase.load_Student_fromDatabase(1); //Student_ID
         String name = student.get(0).getName();
         String surname = student.get(0).getSurname();
         int studnet_class = student.get(0).getClassrom();
@@ -150,11 +159,32 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
         assertEquals(1,studnet_class);
     }
 
+    public void testWczytajOcenyDanegoPrzedmiotuDanegoUczniaODanymID()
+    {
+        List<Integer> oceny = null;
+        TouchUtils.clickView(this, zaloguj_button);
+        oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
+        int id_ucznia = 1;
+        int id_przedmiotu = 1;
+        assertEquals(5,(int)oceny.get(0));
+        assertEquals(3,(int)oceny.get(1));
+        assertEquals(4,(int)oceny.get(2));
+        assertEquals(6,(int)oceny.get(3));
+        id_ucznia = 2;
+        oceny = null;
+        oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
+        assertEquals(5,(int)oceny.get(0));
+        assertEquals(3,(int)oceny.get(1));
+        assertEquals(4,(int)oceny.get(2));
+        assertEquals(6,(int)oceny.get(3));
+    }
+
     public void testCzyMoznaWczytacWszystkichStudentowzDB()
     {
         TouchUtils.clickView(this, zaloguj_button);
         List<Student> students = logowanie_activity.wczytajWszystkichStudentowzDB();
         List<Student> student = new ArrayList<Student>();
+        DatabaseCRUDoperations crud = new DatabaseCRUDoperations();
         //region przytkladowa_baza_studentow
         student.add(new Student("Wojtek", "Sasiela", 1));
         student.add(new Student("Anna", "Kowalska", 1));
