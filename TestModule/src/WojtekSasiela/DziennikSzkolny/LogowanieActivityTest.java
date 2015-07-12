@@ -161,11 +161,11 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 
     public void testWczytajOcenyDanegoPrzedmiotuDanegoUczniaODanymID()
     {
+        int id_ucznia = 1;
+        int id_przedmiotu = 1;
         List<Integer> oceny = null;
         TouchUtils.clickView(this, zaloguj_button);
         oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        int id_ucznia = 1;
-        int id_przedmiotu = 1;
         assertEquals(5,(int)oceny.get(0));
         assertEquals(3,(int)oceny.get(1));
         assertEquals(4,(int)oceny.get(2));

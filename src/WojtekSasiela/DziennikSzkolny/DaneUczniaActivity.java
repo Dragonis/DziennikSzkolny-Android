@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.StatisticActivity.*;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
@@ -49,6 +50,10 @@ public class DaneUczniaActivity extends Activity {
     String date3;
 
     boolean zaznaczony_jakikolwiek_checkbox;
+    private int id_studenta;
+    private Student pobrany_student_z_db;
+    private List<Integer> oceny_studenta_z_matematyki;
+    private List<Integer> pobrane_oceny_studenta_z_matematyki;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,13 +239,14 @@ public class DaneUczniaActivity extends Activity {
 
 
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
+        pobrane_oceny_studenta_z_matematyki = pobierz_oceny_studenta_z_matematyki_z_db();
         nrKlasy_textview.setText(nrKlasy);
         przedmiot_textview.setText(przedmiot);
 
         ArrayList<String> data_z_ocena = new ArrayList<String>();
         for (Integer i = 0; i < daty_z_przyrody.size(); i++) {
 
-            data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_z_przyrody.get(i));
+            data_z_ocena.add(daty_z_przyrody.get(i) + " - " + pobrane_oceny_studenta_z_matematyki.get(i));
         }
         data_textview.setText(date1);
         ocena_textview.setText(grade1);
@@ -250,6 +256,13 @@ public class DaneUczniaActivity extends Activity {
         ocena_textview3.setText(grade3);
 //        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
 //        data_z_ocena_listview.setAdapter(adapter);
+    }
+
+    private List<Integer> pobierz_oceny_studenta_z_matematyki_z_db() {
+        pobrany_student_z_db = LoadDataFromDatabase.load_Student_fromDatabase(Imie, Nazwisko);
+        id_studenta = pobrany_student_z_db.getId();
+        oceny_studenta_z_matematyki = LoadDataFromDatabase.loadStudentGrades(id_studenta, 1);
+        return oceny_studenta_z_matematyki;
     }
 
     public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
