@@ -37,6 +37,7 @@ public class DatabaseCRUDoperations {
     private RuntimeExceptionDao<Polish, Integer> PolishDao;
     private RuntimeExceptionDao<Religion, Integer> ReligionDao;
     private RuntimeExceptionDao<WF, Integer> WFDao;
+
     private RuntimeExceptionDao<Srednia, Integer> SredniaDao;
     private RuntimeExceptionDao<Mediana, Integer> MedianaDao;
     private RuntimeExceptionDao<Dominanta, Integer> DominantaDao;

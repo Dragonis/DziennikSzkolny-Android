@@ -1,5 +1,7 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
@@ -12,6 +14,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -135,5 +138,67 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 //        assertNotNull(students);
 //    }
 
+    public void testCzyMoznaWczytacStudenta()
+    {
+        TouchUtils.clickView(this, zaloguj_button);
+        List<Student> student = LoadDataFromDatabase.load_Student_fromDatabase("Wojtek");
+        String name = student.get(0).getName();
+        String surname = student.get(0).getSurname();
+        int studnet_class = student.get(0).getClassrom();
+        assertEquals("Wojtek",name);
+        assertEquals("Sasiela",surname);
+        assertEquals(1,studnet_class);
+    }
+
+    public void testCzyMoznaWczytacWszystkichStudentowzDB()
+    {
+        TouchUtils.clickView(this, zaloguj_button);
+        List<Student> students = logowanie_activity.wczytajWszystkichStudentowzDB();
+        List<Student> student = new ArrayList<Student>();
+        //region przytkladowa_baza_studentow
+        student.add(new Student("Wojtek", "Sasiela", 1));
+        student.add(new Student("Anna", "Kowalska", 1));
+        student.add(new Student("Joanna", "Pyrzyñska", 1));
+        student.add(new Student("Izabela", "Tarnowska", 1));
+        student.add(new Student("Blanka", "Szept", 1));
+        student.add(new Student("Pawe³", "Paluch", 1));
+        student.add(new Student("Piotr", "Ma³y", 1));
+        student.add(new Student("Karol", "Kopytko", 1));
+        student.add(new Student("Arkadiusz", "B¹k", 1));
+        student.add(new Student("Teresa", "Wawrzyniak", 1));
+        student.add(new Student("Katarzyna", "Jagie³³o", 1));
+
+        student.add(new Student("Barbara", "Lewandowska", 2));
+        student.add(new Student("Ewelina", "2elik", 2));
+        student.add(new Student("Diana", "Kosma³a", 2));
+
+        student.add(new Student("Karolina", "Ordon", 3));
+        student.add(new Student("Joanna", "Pieprzyk", 3));
+
+        student.add(new Student("Stefan", "Batory", 3));
+        student.add(new Student("Bartosz", "Zuch", 3));
+        student.add(new Student("Jadwiga", "Konieczko", 3));
+
+        student.add(new Student("Amelia", "Koral", 4));
+
+        student.add(new Student("Justyna", "Boœ", 5));
+        student.add(new Student("Alicja", "Stêpieñ", 5));
+
+        student.add(new Student("Kamila", "P{aw³owska", 6));
+        student.add(new Student("Roksana", "Fajna", 6));
+        student.add(new Student("Beata", "Bezpieczna", 6));
+        student.add(new Student("Maria", "Ciekawska", 6));
+        student.add(new Student("Marta", "Okoñ", 6));
+        student.add(new Student("Angelika", "Weso³owska", 6));
+        //endregion
+
+        for(int i=0; i<students.size(); i++)
+        {
+            assertEquals(student.get(i).getName(), students.get(i).getName());
+            assertEquals(student.get(i).getSurname(), students.get(i).getSurname());
+            assertEquals(student.get(i).getClassrom(), students.get(i).getClassrom());
+        };
+
+    }
 
 }

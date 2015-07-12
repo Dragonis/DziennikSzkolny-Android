@@ -4,6 +4,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,7 +49,7 @@ public class LogowanieActivity extends Activity {
         password_textview = (TextView) findViewById(R.id.passwordTextView);
         //endregion
 
-        LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
+        wczytajWszystkichStudentowzDB();
 
         zaloguj.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -97,6 +98,11 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
     }
 });
 
+    }
+
+    public List<Student> wczytajWszystkichStudentowzDB() {
+        List<Student> students = LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
+        return students;
     }
 
     public void SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(String username, String password) {
