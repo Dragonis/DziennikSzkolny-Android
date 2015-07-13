@@ -31,4 +31,19 @@
             android:text="[srednia]"
             android:id="@+id/oblicz_srednia_textview"
             android:layout_below="@+id/textView11" android:layout_centerHorizontal="true"/>
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            android:id="@+id/tabelka_z_ocenami" android:layout_above="@+id/textView10" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New RadioButton"
+            android:clickable="false"
+            android:focusable="false"
+            android:id="@+id/radioButton"
+            android:layout_below="@+id/oblicz_srednia_textview" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 </RelativeLayout>

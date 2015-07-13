@@ -125,19 +125,18 @@ public class InsertDataToDatabase {
     public static void insert_Students_IntoDatabase(RuntimeExceptionDao<Student, Integer> studentDao) {
         studentDao.create(new Student("Wojtek", "Sasiela", 1));
         studentDao.create(new Student("Anna", "Kowalska", 1));
-        studentDao.create(new Student("Joanna", "Pyrzyñska", 1));
         studentDao.create(new Student("Izabela", "Tarnowska", 1));
         studentDao.create(new Student("Blanka", "Szept", 1));
-        studentDao.create(new Student("Pawe³", "Paluch", 1));
-        studentDao.create(new Student("Piotr", "Ma³y", 1));
+        studentDao.create(new Student("PaweÅ‚", "Paluch", 1));
+        studentDao.create(new Student("Piotr", "MaÅ‚y", 1));
         studentDao.create(new Student("Karol", "Kopytko", 1));
-        studentDao.create(new Student("Arkadiusz", "B¹k", 1));
+        studentDao.create(new Student("Arkadiusz", "BÄ…k", 1));
         studentDao.create(new Student("Teresa", "Wawrzyniak", 1));
-        studentDao.create(new Student("Katarzyna", "Jagie³³o", 1));
+        studentDao.create(new Student("Katarzyna", "JagieÅ‚Å‚o", 1));
 
         studentDao.create(new Student("Barbara", "Lewandowska", 2));
         studentDao.create(new Student("Ewelina", "2elik", 2));
-        studentDao.create(new Student("Diana", "Kosma³a", 2));
+        studentDao.create(new Student("Diana", "KosmaÅ‚a", 2));
 
         studentDao.create(new Student("Karolina", "Ordon", 3));
         studentDao.create(new Student("Joanna", "Pieprzyk", 3));
@@ -148,15 +147,15 @@ public class InsertDataToDatabase {
 
         studentDao.create(new Student("Amelia", "Koral", 4));
 
-        studentDao.create(new Student("Justyna", "Boœ", 5));
-        studentDao.create(new Student("Alicja", "Stêpieñ", 5));
+        studentDao.create(new Student("Justyna", "BoÅ›", 5));
+        studentDao.create(new Student("Alicja", "StÄ™pieÅ„", 5));
 
-        studentDao.create(new Student("Kamila", "P{aw³owska", 6));
+        studentDao.create(new Student("Kamila", "Piotrowska", 6));
         studentDao.create(new Student("Roksana", "Fajna", 6));
         studentDao.create(new Student("Beata", "Bezpieczna", 6));
         studentDao.create(new Student("Maria", "Ciekawska", 6));
-        studentDao.create(new Student("Marta", "Okoñ", 6));
-        studentDao.create(new Student("Angelika", "Weso³owska", 6));
+        studentDao.create(new Student("Marta", "OkoÅ„", 6));
+        studentDao.create(new Student("Angelika", "WesoÅ‚owska", 6));
     }
 
     public static void insert_Accounts_IntoDatabase(RuntimeExceptionDao<Account, Integer> accountDao) {
