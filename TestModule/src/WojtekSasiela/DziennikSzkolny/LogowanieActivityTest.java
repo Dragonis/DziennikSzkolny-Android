@@ -188,19 +188,19 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
         //region przytkladowa_baza_studentow
         student.add(new Student("Wojtek", "Sasiela", 1));
         student.add(new Student("Anna", "Kowalska", 1));
-        student.add(new Student("Joanna", "Pyrzyñska", 1));
+        student.add(new Student("Joanna", "Pyrzyï¿½ska", 1));
         student.add(new Student("Izabela", "Tarnowska", 1));
         student.add(new Student("Blanka", "Szept", 1));
-        student.add(new Student("Pawe³", "Paluch", 1));
-        student.add(new Student("Piotr", "Ma³y", 1));
+        student.add(new Student("Paweï¿½", "Paluch", 1));
+        student.add(new Student("Piotr", "Maï¿½y", 1));
         student.add(new Student("Karol", "Kopytko", 1));
-        student.add(new Student("Arkadiusz", "B¹k", 1));
+        student.add(new Student("Arkadiusz", "Bï¿½k", 1));
         student.add(new Student("Teresa", "Wawrzyniak", 1));
-        student.add(new Student("Katarzyna", "Jagie³³o", 1));
+        student.add(new Student("Katarzyna", "Jagieï¿½ï¿½o", 1));
 
         student.add(new Student("Barbara", "Lewandowska", 2));
         student.add(new Student("Ewelina", "2elik", 2));
-        student.add(new Student("Diana", "Kosma³a", 2));
+        student.add(new Student("Diana", "Kosmaï¿½a", 2));
 
         student.add(new Student("Karolina", "Ordon", 3));
         student.add(new Student("Joanna", "Pieprzyk", 3));
@@ -211,15 +211,15 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
 
         student.add(new Student("Amelia", "Koral", 4));
 
-        student.add(new Student("Justyna", "Boœ", 5));
-        student.add(new Student("Alicja", "Stêpieñ", 5));
+        student.add(new Student("Justyna", "Boï¿½", 5));
+        student.add(new Student("Alicja", "Stï¿½pieï¿½", 5));
 
-        student.add(new Student("Kamila", "P{aw³owska", 6));
+        student.add(new Student("Kamila", "P{awï¿½owska", 6));
         student.add(new Student("Roksana", "Fajna", 6));
         student.add(new Student("Beata", "Bezpieczna", 6));
         student.add(new Student("Maria", "Ciekawska", 6));
-        student.add(new Student("Marta", "Okoñ", 6));
-        student.add(new Student("Angelika", "Weso³owska", 6));
+        student.add(new Student("Marta", "Okoï¿½", 6));
+        student.add(new Student("Angelika", "Wesoï¿½owska", 6));
         //endregion
 
         for(int i=0; i<students.size(); i++)
@@ -229,6 +229,40 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
             assertEquals(student.get(i).getClassrom(), students.get(i).getClassrom());
         };
 
+    }
+
+    public void testSprawdzZgodnosc_Danych_Studenta()
+    {
+        DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
+        Student student = daneuczniaActivity.pobierz_wszystkie_dane_studenta_z_db();
+        int id = student.getId();
+        String name = student.getName();
+        String surname = student.getSurname();
+        Integer classrom = student.getClassrom();
+        assertEquals(1,id);
+        assertEquals("Wojtek",name);
+        assertEquals("Sasiela",surname);
+        assertEquals(1,(int)classrom);
+    }
+
+    public void testSprawdzZgodnosc_Ocen_Studenta()
+    {
+        DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
+        List<Integer> oceny = daneuczniaActivity.pobierz_oceny();
+
+        assertEquals(5,(int)oceny.get(0));
+        assertEquals(3,(int)oceny.get(1));
+        assertEquals(4,(int)oceny.get(2));
+    }
+
+    public void testSprawdzZgodnosc_DatyWystawionychOcen_Studenta()
+    {
+        DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
+        List<String> daty = daneuczniaActivity.pobierz_daty_wystawionych_ocen();
+
+        assertEquals("10.10",daty.get(0).toString());
+        assertEquals("10.10",daty.get(1).toString());
+        assertEquals("10.10",daty.get(2).toString());
     }
 
 }

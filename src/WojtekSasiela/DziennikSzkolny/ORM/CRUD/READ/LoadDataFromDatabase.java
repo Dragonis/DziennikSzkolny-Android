@@ -160,4 +160,24 @@ public class LoadDataFromDatabase {
         return oceny;
     }
 
+    public static List<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
+    {
+        List<String> daty = new ArrayList<>();
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<StudentGrades> studentGrades = null;
+        try {
+            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Date").query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for(int i=0;i<studentGrades.size();i++)
+        {
+            daty.add(studentGrades.get(i).getDate());
+        }
+        return daty;
+    }
+
 }

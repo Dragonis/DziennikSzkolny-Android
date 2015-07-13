@@ -19,13 +19,25 @@ public class StudentGrades {
     @DatabaseField
     int Grade;
 
+    @DatabaseField
+    String Date;
+
     public StudentGrades() {
     }
 
-    public StudentGrades(int ID_Student, int ID_Subcjet, int grade) {
+    public StudentGrades(int ID_Student, int ID_Subcjet, int grade, String date) {
         this.ID_Student = ID_Student;
         this.ID_Subcjet = ID_Subcjet;
         Grade = grade;
+        Date = date;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
     }
 
     public int getID_StudentGrades() {

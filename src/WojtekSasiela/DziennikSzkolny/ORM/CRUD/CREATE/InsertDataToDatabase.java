@@ -31,35 +31,35 @@ public class InsertDataToDatabase {
         // StudentGrades(ID_Student,ID_NazwaPrzedmiotu,Ocena);
 
         //region Oceny dla_kazdego_przedmiotu_dla_uzytownika_o_ID=3
-        studentGradesDao.create(new StudentGrades(3,1,5));
-        studentGradesDao.create(new StudentGrades(3,1,3));
-        studentGradesDao.create(new StudentGrades(3,1,4));
-        studentGradesDao.create(new StudentGrades(3,1,6));
+        studentGradesDao.create(new StudentGrades(3,1,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,1,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,1,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,1,6,"10.10"));
 
-        studentGradesDao.create(new StudentGrades(3,2,5));
-        studentGradesDao.create(new StudentGrades(3,2,3));
-        studentGradesDao.create(new StudentGrades(3,2,4));
-        studentGradesDao.create(new StudentGrades(3,2,6));
+        studentGradesDao.create(new StudentGrades(3,2,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,2,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,2,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,2,6,"10.10"));
 
-        studentGradesDao.create(new StudentGrades(3,3,5));
-        studentGradesDao.create(new StudentGrades(3,3,3));
-        studentGradesDao.create(new StudentGrades(3,3,4));
-        studentGradesDao.create(new StudentGrades(3,3,6));
+        studentGradesDao.create(new StudentGrades(3,3,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,3,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,3,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,3,6,"10.10"));
 
-        studentGradesDao.create(new StudentGrades(3,4,5));
-        studentGradesDao.create(new StudentGrades(3,4,3));
-        studentGradesDao.create(new StudentGrades(3,4,4));
-        studentGradesDao.create(new StudentGrades(3,4,6));
+        studentGradesDao.create(new StudentGrades(3,4,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,4,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,4,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,4,6,"10.10"));
 
-        studentGradesDao.create(new StudentGrades(3,5,5));
-        studentGradesDao.create(new StudentGrades(3,5,3));
-        studentGradesDao.create(new StudentGrades(3,5,4));
-        studentGradesDao.create(new StudentGrades(3,5,6));
+        studentGradesDao.create(new StudentGrades(3,5,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,5,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,5,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,5,6,"10.10"));
 
-        studentGradesDao.create(new StudentGrades(3,6,5));
-        studentGradesDao.create(new StudentGrades(3,6,3));
-        studentGradesDao.create(new StudentGrades(3,6,4));
-        studentGradesDao.create(new StudentGrades(3,6,6));
+        studentGradesDao.create(new StudentGrades(3,6,5,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,6,3,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,6,4,"10.10"));
+        studentGradesDao.create(new StudentGrades(3,6,6,"10.10"));
         //endregion
     }
 
