@@ -8,8 +8,8 @@
             android:layout_height="wrap_content"
             android:text="zamknij"
             android:id="@+id/zamknij_srednia"
-            android:layout_below="@+id/oblicz_srednia_textview" android:layout_alignLeft="@+id/oblicz_srednia_textview"
-            android:layout_alignStart="@+id/oblicz_srednia_textview" android:layout_marginTop="49dp"/>
+            android:layout_below="@+id/oblicz_srednia_textview" android:layout_alignLeft="@+id/textView11"
+            android:layout_alignStart="@+id/textView11"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,17 +31,20 @@
             android:text="[srednia]"
             android:id="@+id/oblicz_srednia_textview"
             android:layout_below="@+id/textView11" android:layout_centerHorizontal="true"/>
-    <TextView android:layout_width="fill_parent"
+    <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content" android:padding="10dp"
-              android:text="@string/some_text" android:textSize="20sp" />
+              android:text="@string/some_text" android:textSize="20sp" android:id="@+id/textView39"/>
 
 
     <Button
             android:id="@+id/findSelected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Find countries that are Selected" />
+            android:text="Find countries that are Selected"
+            android:layout_below="@+id/zamknij_srednia" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
     <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
-              android:layout_height="fill_parent" />
+              android:layout_height="fill_parent" android:layout_above="@+id/textView10"
+              android:layout_below="@+id/textView39"/>
 </RelativeLayout>
