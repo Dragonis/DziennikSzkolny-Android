@@ -23,8 +23,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a507650d-74c7-4ee0-b46d-c960fd7bd44c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/country_info.xml" afterPath="$PROJECT_DIR$/res/layout/country_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
@@ -80,12 +78,12 @@
       <file leaf-file-name="SredniaAcitivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7837838">
+              <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
               <folding>
-                <element signature="e#7997#7998#0" expanded="false" />
-                <element signature="e#8037#8038#0" expanded="false" />
-                <marker date="1436871171857" expanded="true" signature="65:860" placeholder="..." />
+                <element signature="e#7480#7481#0" expanded="false" />
+                <element signature="e#7520#7521#0" expanded="false" />
+                <marker date="1436873023339" expanded="true" signature="65:860" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -95,173 +93,17 @@
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="373" column="20" selection-start-line="373" selection-start-column="20" selection-end-line="373" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Country.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/Student.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+              <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
               <folding>
-                <element signature="e#1300#1301#0" expanded="false" />
-                <element signature="e#1327#1328#0" expanded="false" />
-                <element signature="e#1367#1368#0" expanded="false" />
-                <element signature="e#1399#1400#0" expanded="false" />
-                <element signature="e#1425#1426#0" expanded="false" />
-                <element signature="e#1450#1451#0" expanded="false" />
-                <element signature="e#1483#1484#0" expanded="false" />
-                <element signature="e#1511#1512#0" expanded="false" />
-                <element signature="e#1545#1546#0" expanded="false" />
-                <element signature="e#1575#1576#0" expanded="false" />
-                <element signature="e#1621#1622#0" expanded="false" />
-                <element signature="e#1659#1660#0" expanded="false" />
-                <element signature="e#1695#1696#0" expanded="false" />
-                <element signature="e#1726#1727#0" expanded="false" />
-                <element signature="e#1775#1776#0" expanded="false" />
-                <element signature="e#1815#1816#0" expanded="false" />
-                <element signature="e#1852#1853#0" expanded="false" />
-                <element signature="e#1884#1885#0" expanded="false" />
-                <element signature="e#1935#1936#0" expanded="false" />
-                <element signature="e#1972#1973#0" expanded="false" />
-                <element signature="e#2010#2011#0" expanded="false" />
-                <element signature="e#2043#2044#0" expanded="false" />
-                <element signature="e#2096#2097#0" expanded="false" />
-                <element signature="e#2135#2136#0" expanded="false" />
-                <element signature="e#2170#2171#0" expanded="false" />
-                <element signature="e#2200#2201#0" expanded="false" />
-                <element signature="e#2247#2248#0" expanded="false" />
-                <element signature="e#2280#2281#0" expanded="false" />
-                <element signature="e#2318#2319#0" expanded="false" />
-                <element signature="e#2351#2352#0" expanded="false" />
-                <element signature="e#2404#2405#0" expanded="false" />
-                <element signature="e#2443#2444#0" expanded="false" />
-                <element signature="e#2482#2483#0" expanded="false" />
-                <element signature="e#2516#2517#0" expanded="false" />
-                <element signature="e#2571#2572#0" expanded="false" />
-                <element signature="e#2612#2613#0" expanded="false" />
-                <element signature="e#2645#2646#0" expanded="false" />
-                <element signature="e#2673#2674#0" expanded="false" />
-                <element signature="e#2716#2717#0" expanded="false" />
-                <element signature="e#2745#2746#0" expanded="false" />
+                <element signature="e#1995#2026#0" expanded="false" />
+                <element signature="e#4346#4373#0" expanded="false" />
+                <element signature="e#5141#5169#0" expanded="false" />
+                <element signature="e#5939#5963#0" expanded="false" />
+                <element signature="e#6302#6328#0" expanded="false" />
+                <element signature="e#6669#6694#0" expanded="false" />
+                <element signature="e#7033#7057#0" expanded="false" />
+                <element signature="e#7394#7433#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListaKlasActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="247" column="36" selection-start-line="247" selection-start-column="36" selection-end-line="247" selection-end-column="36" />
-              <folding>
-                <element signature="e#827#835#0" expanded="false" />
-                <element signature="e#2500#2680#0" expanded="false" />
-                <element signature="e#2679#2680#0" expanded="false" />
-                <element signature="e#2863#3044#0" expanded="false" />
-                <element signature="e#3043#3044#0" expanded="false" />
-                <element signature="e#3226#3405#0" expanded="false" />
-                <element signature="e#3404#3405#0" expanded="false" />
-                <element signature="e#3585#3765#0" expanded="false" />
-                <element signature="e#3764#3765#0" expanded="false" />
-                <element signature="e#3946#4120#0" expanded="false" />
-                <element signature="e#4119#4120#0" expanded="false" />
-                <element signature="e#4199#4903#0" expanded="false" />
-                <element signature="e#4902#4903#0" expanded="false" />
-                <element signature="e#4941#5644#0" expanded="false" />
-                <element signature="e#5643#5644#0" expanded="false" />
-                <element signature="e#5682#6385#0" expanded="false" />
-                <element signature="e#6384#6385#0" expanded="false" />
-                <element signature="e#6422#7126#0" expanded="false" />
-                <element signature="e#7125#7126#0" expanded="false" />
-                <element signature="e#7163#7866#0" expanded="false" />
-                <element signature="e#7865#7866#0" expanded="false" />
-                <element signature="e#7903#8606#0" expanded="false" />
-                <element signature="e#8605#8606#0" expanded="false" />
-                <element signature="e#8714#9030#0" expanded="false" />
-                <element signature="e#9029#9030#0" expanded="false" />
-                <element signature="e#9091#9676#0" expanded="false" />
-                <element signature="e#9675#9676#0" expanded="false" />
-                <element signature="e#10794#10802#0" expanded="false" />
-                <element signature="e#12952#12960#0" expanded="false" />
-                <element signature="e#15226#15371#0" expanded="false" />
-                <element signature="e#15370#15371#0" expanded="false" />
-                <element signature="e#16210#16218#0" expanded="false" />
-                <element signature="e#17620#18126#0" expanded="false" />
-                <element signature="e#18125#18126#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statystyka_srednia_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/statystyka_srednia_layout.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.481482">
-              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="country_info.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/country_info.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.814815">
-              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9444444">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dane_ucznia_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/dane_ucznia_layout.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -621,7 +463,6 @@
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/WariancjaAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OAutorzeActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/MedianaAcitivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/KwartyleAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OpcjeAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatystykiActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/DominantaAcitivity.java" />
@@ -643,8 +484,10 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java" />
         <option value="$PROJECT_DIR$/res/layout/statystyka_srednia_layout.xml" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/country_info.xml" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/KwartyleAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java" />
       </list>
     </option>
@@ -1503,7 +1346,7 @@
       <workItem from="1436617051212" duration="143000" />
       <workItem from="1436695654354" duration="10536000" />
       <workItem from="1436859098736" duration="558000" />
-      <workItem from="1436863131262" duration="6652000" />
+      <workItem from="1436863131262" duration="8446000" />
     </task>
     <servers />
   </component>
@@ -1540,7 +1383,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43811000" />
+    <option name="totallyTimeSpent" value="45605000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
@@ -1548,7 +1391,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32796317" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1558,7 +1401,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30379745" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24395858" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24395858" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25080907" sideWeight="0.49421486" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
@@ -1621,35 +1464,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DodajOceneActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="50" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestModule/src/WojtekSasiela/DziennikSzkolny/MainLobbyActivityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2056,14 +1870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/statystyka_srednia_layout.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2071,14 +1877,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.481482">
           <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="373" column="20" selection-start-line="373" selection-start-column="20" selection-end-line="373" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -2094,14 +1892,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/adt-bundle-windows-x86-20140702/sdk/platforms/android-19/android.jar!/android/content/Intent.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18545455">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/adt-bundle-windows-x86-20140702/sdk/platforms/android-19/android.jar!/android/os/Bundle.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34971645">
+          <caret line="308" column="30" selection-start-line="308" selection-start-column="30" selection-end-line="308" selection-end-column="30" />
+          <folding>
+            <element signature="e#8174#8175#0" expanded="true" />
+            <element signature="e#8225#8226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1195841">
+          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/KwartyleAcitivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1258993">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36378738">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+          <folding>
+            <element signature="e#1995#2026#0" expanded="false" />
+            <element signature="e#4346#4373#0" expanded="false" />
+            <element signature="e#5141#5169#0" expanded="false" />
+            <element signature="e#5939#5963#0" expanded="false" />
+            <element signature="e#6302#6328#0" expanded="false" />
+            <element signature="e#6669#6694#0" expanded="false" />
+            <element signature="e#7033#7057#0" expanded="false" />
+            <element signature="e#7394#7433#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7837838">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
-            <element signature="e#7997#7998#0" expanded="false" />
-            <element signature="e#8037#8038#0" expanded="false" />
-            <marker date="1436871171857" expanded="true" signature="65:860" placeholder="..." />
+            <element signature="e#7480#7481#0" expanded="false" />
+            <element signature="e#7520#7521#0" expanded="false" />
+            <marker date="1436873023339" expanded="true" signature="65:860" placeholder="..." />
           </folding>
         </state>
       </provider>

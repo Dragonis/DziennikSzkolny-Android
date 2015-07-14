@@ -39,7 +39,6 @@ public class SredniaAcitivity extends Activity {
     String przedmiot;
     ArrayList<String> oceny;
     String obliczona_srednia;
-    ListView tabelka_z_ocenami;
 
     private boolean zaznaczony_jakikolwiek_radiobutton = false;
 
@@ -49,10 +48,6 @@ public class SredniaAcitivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statystyka_srednia_layout);
-
-        //Generate list View from ArrayList
-        displayListView();
-        checkButtonClick();
 
         MiaryStatystyczne statystyka = new MiaryStatystyczne();
 
@@ -77,6 +72,9 @@ public class SredniaAcitivity extends Activity {
         obliczsrednia_textview.setText(obliczona_srednia);
         zamknijOkno(R.id.zamknij_srednia);
 
+        //Generate list View from ArrayList
+        displayListView();
+        checkButtonClick();
     }
 
     private class MyCustomAdapter extends ArrayAdapter<Country> {
@@ -183,20 +181,10 @@ public class SredniaAcitivity extends Activity {
 
         //Array list of countries
         ArrayList<Country> countryList = new ArrayList<Country>();
-        Country country = new Country("AFG","Afghanistan",false);
-        countryList.add(country);
-        country = new Country("ALB","Albania",true);
-        countryList.add(country);
-        country = new Country("DZA","Algeria",false);
-        countryList.add(country);
-        country = new Country("ASM","American Samoa",true);
-        countryList.add(country);
-        country = new Country("AND","Andorra",true);
-        countryList.add(country);
-        country = new Country("AGO","Angola",false);
-        countryList.add(country);
-        country = new Country("AIA","Anguilla",false);
-        countryList.add(country);
+        for(String ocena : oceny) {
+            Country country = new Country("AFG", ocena, false);
+            countryList.add(country);
+        }
 
         //create an ArrayAdaptar from the String Array
         dataAdapter = new MyCustomAdapter(this,
