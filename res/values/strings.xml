@@ -10,4 +10,8 @@
     <string name="edyt_plac_nauczycieli">Edycja plac nauczycieli</string>
     <string name="ranking_szkol">Ranking szkół</string>
     <string name="spis_ocen">Spis ocen</string>
+    <string name="some_text">
+        Some North American Countries!
+    </string>
+
 </resources>
