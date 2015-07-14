@@ -5,22 +5,20 @@
                 android:orientation="vertical"
                 android:padding="6dip" >
 
-    <CheckBox
-            android:id="@+id/checkBox1"
+    <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:text="CheckBox" />
-
+            android:text="New RadioButton"
+            android:id="@+id/radioButton_ocena_z_data" android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
     <TextView
             android:id="@+id/code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/checkBox1"
-            android:layout_alignBottom="@+id/checkBox1"
-            android:layout_toRightOf="@+id/checkBox1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp" android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/radioButton_ocena_z_data"
+            android:layout_toEndOf="@+id/radioButton_ocena_z_data"/>
 
 </RelativeLayout>

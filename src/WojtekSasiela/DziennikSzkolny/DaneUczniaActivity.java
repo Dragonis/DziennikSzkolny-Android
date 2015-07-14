@@ -47,7 +47,7 @@ public class DaneUczniaActivity extends Activity {
     String date2;
     String date3;
 
-    boolean zaznaczony_jakikolwiek_checkbox;
+    boolean zaznaczony_jakikolwiek_radiobutton;
     private int id_studenta;
     private Student pobrany_student_z_db;
     private List<Integer> oceny_studenta;
@@ -70,7 +70,7 @@ public class DaneUczniaActivity extends Activity {
         edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
         usunocene = (Button) findViewById(R.id.usun_ocene_button_daneucznia);
         dodajocene = (Button) findViewById(R.id.dodaj_ocene_button_daneucznia);
-        zaznaczony_jakikolwiek_checkbox = false;
+        zaznaczony_jakikolwiek_radiobutton = false;
 
 //        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
         pobierzDanezPoprzedniegoActivity();
@@ -371,7 +371,7 @@ public class DaneUczniaActivity extends Activity {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_checkbox = true;
+                    zaznaczony_jakikolwiek_radiobutton = true;
                     radioButton2.setChecked(false);
                     radioButton3.setChecked(false);
                     Toast.makeText(getApplicationContext(), "Data: " + date1 + " Ocena: " + grade1, Toast.LENGTH_SHORT).show();
@@ -390,7 +390,7 @@ public class DaneUczniaActivity extends Activity {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_checkbox = true;
+                    zaznaczony_jakikolwiek_radiobutton = true;
                     radioButton1.setChecked(false);
                     radioButton3.setChecked(false);
                     Toast.makeText(getApplicationContext(), "Data: " + date2 + " Ocena: " + grade2, Toast.LENGTH_SHORT).show();
@@ -411,7 +411,7 @@ public class DaneUczniaActivity extends Activity {
                     edytujocene.setEnabled(true);
                     usunocene.setEnabled(true);
                     dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_checkbox = true;
+                    zaznaczony_jakikolwiek_radiobutton = true;
                     radioButton1.setChecked(false);
                     radioButton2.setChecked(false);
                     Toast.makeText(getApplicationContext(), "Data: " + date3 + " Ocena: " + grade3, Toast.LENGTH_SHORT).show();
