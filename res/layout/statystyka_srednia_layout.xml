@@ -47,4 +47,8 @@
     <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
               android:layout_height="fill_parent" android:layout_above="@+id/textView10"
               android:layout_below="@+id/textView39"/>
+    <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:id="@+id/radioGroup">
+    </RadioGroup>
 </RelativeLayout>

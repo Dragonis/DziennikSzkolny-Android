@@ -82,6 +82,8 @@ public class SredniaAcitivity extends Activity {
     private class MyCustomAdapter extends ArrayAdapter<Country> {
 
         private ArrayList<Country> countryList;
+        private RadioButton zaznaczony_radio_button = null;
+        private RadioButton cb = null;
 
         public MyCustomAdapter(Context context, int textViewResourceId,
                                ArrayList<Country> countryList) {
@@ -99,6 +101,8 @@ public class SredniaAcitivity extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder = null;
+            final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
             Log.v("ConvertView", String.valueOf(position));
 
             if (convertView == null) {
@@ -113,21 +117,35 @@ public class SredniaAcitivity extends Activity {
 
                 holder.name.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
-                        RadioButton cb = (RadioButton) v ;
+                        cb = (RadioButton) v ;
+
                         Country country = (Country) cb.getTag();
-                        if(cb.isChecked() == zaznaczony_jakikolwiek_radiobutton )
-                        {
-                            zaznaczony_jakikolwiek_radiobutton = false;
-                            cb.setChecked(false);
-                        }
-                        else
-                        {
-                            zaznaczony_jakikolwiek_radiobutton = true;
-                            cb.setChecked(true);
-                        }
 
 
-                        Toast.makeText(getApplicationContext(),
+
+                                if(zaznaczony_radio_button != null)
+                                {
+                                    if(zaznaczony_radio_button == cb)
+                                    {
+
+                                    }else{
+                                        radioGroup.clearCheck();
+                                        zaznaczony_radio_button.setChecked(false);
+
+                                        zaznaczony_radio_button = cb;
+                                        cb.setChecked(true);
+                                    }
+                                }else {
+                                    radioGroup.clearCheck();
+                                    zaznaczony_radio_button = cb;
+                                    cb.setChecked(true);
+                                }
+
+
+
+
+
+                            Toast.makeText(getApplicationContext(),
                                 "Clicked on Checkbox: " + cb.getText() +
                                         " is " + cb.isChecked(),
                                 Toast.LENGTH_LONG).show();
@@ -140,7 +158,7 @@ public class SredniaAcitivity extends Activity {
             }
 
             Country country = countryList.get(position);
-            holder.code.setText(" (" +  country.getCode() + ")");
+            holder.code.setText(" (" + country.getCode() + ")");
             holder.name.setText(country.getName());
             holder.name.setChecked(country.isSelected());
             holder.name.setTag(country);
