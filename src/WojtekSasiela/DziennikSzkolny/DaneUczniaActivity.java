@@ -206,7 +206,8 @@ public class DaneUczniaActivity extends Activity {
         koszyk.putString("nazwisko", Nazwisko);
         koszyk.putString("klasa", nrKlasy);
         koszyk.putString("przedmiot", przedmiot);
-        koszyk.putStringArrayList("ocenyArray", oceny_z_przyrody);
+        koszyk.putStringArrayList("ocenyArray", (ArrayList<String>) oceny_z_przyrody);
+        koszyk.putStringArrayList("datyArray", (ArrayList<String>) daty_ocen);
         // Definiujemy cel
         cel.putExtras(koszyk);
         // Wysyłamy

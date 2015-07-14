@@ -38,6 +38,7 @@ public class SredniaAcitivity extends Activity {
     String klasa;
     String przedmiot;
     ArrayList<String> oceny;
+    ArrayList<String> daty;
     String obliczona_srednia;
 
     private boolean zaznaczony_jakikolwiek_radiobutton = false;
@@ -59,6 +60,7 @@ public class SredniaAcitivity extends Activity {
             klasa = przekazanedane.getString("klasa");
             przedmiot = przekazanedane.getString("przedmiot");
             oceny = przekazanedane.getStringArrayList("ocenyArray");
+            daty = przekazanedane.getStringArrayList("datyArray");
             if(oceny == null)
             {
                 obliczona_srednia = "0.0";
@@ -181,8 +183,9 @@ public class SredniaAcitivity extends Activity {
 
         //Array list of countries
         ArrayList<Country> countryList = new ArrayList<Country>();
-        for(String ocena : oceny) {
-            Country country = new Country("AFG", ocena, false);
+        for(int i=0; i < oceny.size(); i++) {
+
+            Country country = new Country(daty.get(i), oceny.get(i), false);
             countryList.add(country);
         }
 
