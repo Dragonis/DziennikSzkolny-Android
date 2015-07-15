@@ -27,10 +27,7 @@ public final class MiaryStatystyczne {
 
         srednia = suma_ocen / ilosc_ocen;
 
-        String.format("%.2f", srednia);
-
-//        return srednia;
-        return 5;
+        return srednia;
         }
     }
 
@@ -61,12 +58,8 @@ public final class MiaryStatystyczne {
 
 
 
-            String.format("%.2f", mediana);
+            return mediana;
 
-//            return mediana;
-            return 5;
-
-            //return 3.14;
         }
     }
 
@@ -91,13 +84,9 @@ public final class MiaryStatystyczne {
 
                 }
             }
-            //return 3.14;
 
 
-            String.format("%.2f", dominanta);
-
-//            return dominanta;
-            return 5;
+            return dominanta;
         }
     }
 
@@ -112,12 +101,8 @@ public final class MiaryStatystyczne {
             }
             wariancja = wariancja / ilosc_elementow;
 
+           return wariancja;
 
-            String.format("%.2f", wariancja);
-
-//            return wariancja;
-            return 5;
-//            return 3.14;
         }
     }
 
@@ -127,26 +112,18 @@ public final class MiaryStatystyczne {
             double wariancja = 0.0;
             double odchylenie = 0.0;
             wariancja = Wariancja(oceny);
-            odchylenie = Math.sqrt(wariancja);
 
-
-            String.format("%.2f", odchylenie);
-
-//            return odchylenie;
-            return 5;
-//            return 3.14;
+            return odchylenie;
         }
     }
 
     public double Kwartyle(ArrayList<String> oceny){
         if (oceny == null){ return 0;}
         else {
-            double kwartyle = 3.14;
+            double kwartyle = 3.1414;
 
-            String.format("%.2f", kwartyle);
 
-//            return kwartyle;
-            return 5;
+            return kwartyle;
         }
     }
 

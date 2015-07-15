@@ -165,21 +165,21 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Wariancja:"
                 android:id="@+id/napis_wariancja" android:textSize="13dp"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Srednia"
-                android:id="@+id/srednia_button_daneucznia"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mediana"
-                android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wariancja"
-                android:id="@+id/wariancja_button_daneucznia"/>
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Srednia"-->
+                <!--android:id="@+id/srednia_button_daneucznia"/>-->
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Mediana"-->
+                <!--android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>-->
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Wariancja"-->
+                <!--android:id="@+id/wariancja_button_daneucznia"/>-->
     </TableRow>
     <TableRow
             android:layout_width="match_parent"
@@ -202,24 +202,24 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Kwartyle:"
                 android:id="@+id/napis_kwartyle" android:textSize="13dp"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Dominanta"
-                android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Odchylenie"
-                android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kwartyle"
-                android:id="@+id/kwartyle_button_daneucznia"/>
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Dominanta"-->
+                <!--android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>-->
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Odchylenie"-->
+                <!--android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>-->
+        <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Kwartyle"-->
+                <!--android:id="@+id/kwartyle_button_daneucznia"/>-->
             </TableRow>
     <Button
-            android:layout_width="wrap_content"
+            android:layout_width="221dp"
             android:layout_height="wrap_content"
             android:text="Wyjdż"
             android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"

@@ -111,21 +111,21 @@ public class DaneUczniaActivity extends Activity {
 
 
         // wyswitlanie odpowiednich activity statystycznych
-        Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
-        Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
-        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia, getApplicationContext(), MedianaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia, getApplicationContext(), WariancjaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.dominanta_button_daneucznia, getApplicationContext(), DominantaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.odchylenie_button_daneucznia, getApplicationContext(), OdchylenieAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.kwartyle_button_daneucznia, getApplicationContext(), KwartyleAcitivity.class);
-
-        Button srednia_button_dane_ucznia = (Button) findViewById(R.id.srednia_button_daneucznia);
-        Button dominanta_button_dane_ucznia = (Button) findViewById(R.id.dominanta_button_daneucznia);
-        Button kwartyle_button_dane_ucznia = (Button) findViewById(R.id.kwartyle_button_daneucznia);
-        Button mediana_button_dane_ucznia = (Button) findViewById(R.id.mediana_button_daneucznia);
-        Button odchylenie_button_dane_ucznia = (Button) findViewById(R.id.odchylenie_button_daneucznia);
-        Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
+//        Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
+//        Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
+//        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia, getApplicationContext(), MedianaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia, getApplicationContext(), WariancjaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.dominanta_button_daneucznia, getApplicationContext(), DominantaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.odchylenie_button_daneucznia, getApplicationContext(), OdchylenieAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.kwartyle_button_daneucznia, getApplicationContext(), KwartyleAcitivity.class);
+//
+//        Button srednia_button_dane_ucznia = (Button) findViewById(R.id.srednia_button_daneucznia);
+//        Button dominanta_button_dane_ucznia = (Button) findViewById(R.id.dominanta_button_daneucznia);
+//        Button kwartyle_button_dane_ucznia = (Button) findViewById(R.id.kwartyle_button_daneucznia);
+//        Button mediana_button_dane_ucznia = (Button) findViewById(R.id.mediana_button_daneucznia);
+//        Button odchylenie_button_dane_ucznia = (Button) findViewById(R.id.odchylenie_button_daneucznia);
+//        Button wariancja_button_dane_ucznia = (Button) findViewById(R.id.wariancja_button_daneucznia);
         //endregion
 
         //region dodajocene_onClick
@@ -171,63 +171,63 @@ public class DaneUczniaActivity extends Activity {
         //endregion
 
         //region srednia_onClick
-        srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), SredniaAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), SredniaAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
         //region dominanta_onClick
-        dominanta_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), DominantaAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        dominanta_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), DominantaAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
         //region kwartyle_onClick
-        kwartyle_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), KwartyleAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        kwartyle_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), KwartyleAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
         //region mediana_onClick
-        mediana_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), MedianaAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        mediana_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), MedianaAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
         //region odchylenie_standardowe_onClick
-        odchylenie_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        odchylenie_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
         //region wariancja_onClick
-        wariancja_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cel = new Intent(view.getContext(), WariancjaAcitivity.class);
-                wyslijDaneDoNastepnegoActivity(view);
-            }
-        });
+//        wariancja_button_dane_ucznia.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                cel = new Intent(view.getContext(), WariancjaAcitivity.class);
+//                wyslijDaneDoNastepnegoActivity(view);
+//            }
+//        });
         //endregion
 
     }
