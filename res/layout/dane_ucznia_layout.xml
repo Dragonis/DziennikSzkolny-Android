@@ -152,19 +152,19 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Srednia:"
-                android:id="@+id/napis_srednia"/>
+                android:id="@+id/napis_srednia" android:textSize="13dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Mediana:"
-                android:id="@+id/napis_mediana"/>
+                android:id="@+id/napis_mediana" android:textSize="13dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Wariancja:"
-                android:id="@+id/napis_wariancja"/>
+                android:id="@+id/napis_wariancja" android:textSize="13dp"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -189,19 +189,19 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Dominanta:"
-                android:id="@+id/napis_dominanta"/>
+                android:id="@+id/napis_dominanta" android:textSize="13dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Odchylenie:"
-                android:id="@+id/napis_odchylenie"/>
+                android:id="@+id/napis_odchylenie" android:textSize="13dp"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Kwartyle:"
-                android:id="@+id/napis_kwartyle"/>
+                android:id="@+id/napis_kwartyle" android:textSize="13dp"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -92,6 +92,23 @@ public class DaneUczniaActivity extends Activity {
 
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
+        MiaryStatystyczne statystyka= new MiaryStatystyczne();
+
+        TextView napis_wariancja_przedmiotu = (TextView) findViewById(R.id.napis_wariancja);
+        TextView napis_srednia_przedmiotu = (TextView) findViewById(R.id.napis_srednia);
+        TextView napis_dominanta_przedmiotu = (TextView) findViewById(R.id.napis_dominanta);
+        TextView napis_mediana_przedmiotu = (TextView) findViewById(R.id.napis_mediana);
+        TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
+        TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
+
+        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
+        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
+        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
+        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
+        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
+        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
+
+
 
         // wyswitlanie odpowiednich activity statystycznych
         Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);

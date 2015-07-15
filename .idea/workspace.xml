@@ -25,6 +25,8 @@
     <list default="true" id="a507650d-74c7-4ee0-b46d-c960fd7bd44c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/dane_ucznia_layout.xml" afterPath="$PROJECT_DIR$/res/layout/dane_ucznia_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,14 +91,14 @@
       <file leaf-file-name="DaneUczniaActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.655172">
-              <caret line="100" column="14" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="false" />
                 <element signature="method#zamknijOkno#0;class#DaneUczniaActivity#0" expanded="false" />
-                <element signature="e#14350#14495#0" expanded="false" />
-                <element signature="e#14494#14495#0" expanded="false" />
-                <marker date="1436976462417" expanded="true" signature="14229:14235" placeholder="{...}" />
+                <element signature="e#15590#15735#0" expanded="false" />
+                <element signature="e#15734#15735#0" expanded="false" />
+                <marker date="1436977064517" expanded="true" signature="15469:15475" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -129,9 +131,20 @@
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="String.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/adt-bundle-windows-x86-20140702/sdk/platforms/android-19/android.jar!/java/lang/String.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.0">
+              <caret line="328" column="25" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="false" />
+                <element signature="e#8584#8585#0" expanded="true" />
+                <element signature="e#8635#8636#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,29 +189,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Country.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-              <folding>
-                <element signature="e#390#391#0" expanded="false" />
-                <element signature="e#417#418#0" expanded="false" />
-                <element signature="e#456#457#0" expanded="false" />
-                <element signature="e#488#489#0" expanded="false" />
-                <element signature="e#518#519#0" expanded="false" />
-                <element signature="e#545#546#0" expanded="false" />
-                <element signature="e#584#585#0" expanded="false" />
-                <element signature="e#616#617#0" expanded="false" />
-                <element signature="e#651#652#0" expanded="false" />
-                <element signature="e#682#683#0" expanded="false" />
-                <element signature="e#730#731#0" expanded="false" />
-                <element signature="e#770#771#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dane_ucznia_layout.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/dane_ucznia_layout.xml">
           <provider selected="true" editor-type-id="android-designer">
@@ -208,7 +198,7 @@
             <state vertical-scroll-proportion="-9.107142">
               <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
               <folding>
-                <marker date="1436976536226" expanded="true" signature="10702:11086" placeholder="..." />
+                <marker date="1436978300772" expanded="true" signature="10872:11256" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -602,12 +592,12 @@
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java" />
         <option value="$PROJECT_DIR$/res/layout/country_info.xml" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/KwartyleAcitivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatisticActivity/SredniaAcitivity.java" />
         <option value="$PROJECT_DIR$/res/layout/statystyka_srednia_layout.xml" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java" />
         <option value="$PROJECT_DIR$/res/layout/dane_ucznia_layout.xml" />
       </list>
     </option>
@@ -1418,7 +1408,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57959000" />
+    <option name="totallyTimeSpent" value="59641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
@@ -1872,16 +1862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/adt-bundle-windows-x86-20140702/sdk/platforms/android-19/android.jar!/org/w3c/dom/Text.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7777777">
@@ -1903,15 +1883,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DaneUczniaActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.655172">
-          <caret line="100" column="14" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="17" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="method#zamknijOkno#0;class#DaneUczniaActivity#0" expanded="false" />
-            <element signature="e#14350#14495#0" expanded="false" />
-            <element signature="e#14494#14495#0" expanded="false" />
-            <marker date="1436976462417" expanded="true" signature="14229:14235" placeholder="{...}" />
+            <element signature="e#15590#15735#0" expanded="false" />
+            <element signature="e#15734#15735#0" expanded="false" />
+            <marker date="1436977064517" expanded="true" signature="15469:15475" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/adt-bundle-windows-x86-20140702/sdk/platforms/android-19/android.jar!/java/lang/String.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.0">
+          <caret line="328" column="25" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
+          <folding>
+            <element signature="e#8584#8585#0" expanded="true" />
+            <element signature="e#8635#8636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1923,7 +1922,7 @@
         <state vertical-scroll-proportion="-9.107142">
           <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
           <folding>
-            <marker date="1436976536226" expanded="true" signature="10702:11086" placeholder="..." />
+            <marker date="1436978300772" expanded="true" signature="10872:11256" placeholder="..." />
           </folding>
         </state>
       </provider>
