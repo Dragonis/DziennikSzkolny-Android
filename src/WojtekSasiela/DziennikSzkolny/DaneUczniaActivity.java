@@ -1,7 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
-import WojtekSasiela.DziennikSzkolny.StatisticActivity.*;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.Biology;
@@ -110,9 +109,9 @@ public class DaneUczniaActivity extends Activity {
 
 
 
-        // wyswitlanie odpowiednich activity statystycznych
-//        Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
-//        Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
+//         wyswitlanie odpowiednich activity statystycznych
+        Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
+        Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
 //        Pokaz_Activity_z_klasy(R.id.srednia_button_daneucznia, getApplicationContext(), SredniaAcitivity.class);
 //        Pokaz_Activity_z_klasy(R.id.mediana_button_daneucznia, getApplicationContext(), MedianaAcitivity.class);
 //        Pokaz_Activity_z_klasy(R.id.wariancja_button_daneucznia, getApplicationContext(), WariancjaAcitivity.class);
@@ -267,6 +266,8 @@ public class DaneUczniaActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 
     public void pobierzDanezPoprzedniegoActivity() {
         // dane pochodza z ListaKlasActivity
@@ -456,6 +457,7 @@ public class DaneUczniaActivity extends Activity {
                         }
 
 
+                        uaktywnijReszteButtonowPoKliknieciuNaJakiegokolwiekRadioButtona();
 
 
 
@@ -510,6 +512,13 @@ public class DaneUczniaActivity extends Activity {
 //        });
 //
 //    }
+
+    private void uaktywnijReszteButtonowPoKliknieciuNaJakiegokolwiekRadioButtona() {
+
+            edytujocene.setEnabled(true);
+            usunocene.setEnabled(true);
+
+    }
 
     private void displayListView() {
 
