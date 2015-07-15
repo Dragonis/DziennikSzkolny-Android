@@ -140,9 +140,9 @@ public class LoadDataFromDatabase {
         return students;
     }
 
-    public static List<Integer> loadStudentGrades(int id_ucznia,int id_przedmiotu)
+    public static ArrayList<String> loadStudentGrades(int id_ucznia,int id_przedmiotu)
     {
-        List<Integer> oceny = new ArrayList<>();
+        ArrayList<String> oceny = new ArrayList<String>();
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
@@ -155,14 +155,14 @@ public class LoadDataFromDatabase {
         }
         for(int i=0;i<studentGrades.size();i++)
         {
-            oceny.add((Integer) studentGrades.get(i).getGrade());
+            oceny.add(Integer.toString(studentGrades.get(i).getGrade()));
         }
         return oceny;
     }
 
-    public static List<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
+    public static ArrayList<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
     {
-        List<String> daty = new ArrayList<>();
+        ArrayList<String> daty = new ArrayList<String>();
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
