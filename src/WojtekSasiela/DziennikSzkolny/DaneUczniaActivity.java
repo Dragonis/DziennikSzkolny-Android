@@ -54,6 +54,7 @@ public class DaneUczniaActivity extends Activity {
     private List<String> oceny_studenta;
     private List<String> daty_ocen;
     private int id_przegladanego_przedmiotu;
+    int id_kliknietego_elementu_w_ListView;
 
     ArrayList<String> oceny = new ArrayList<String>();
     ArrayList<String> daty = new ArrayList<String>();
@@ -168,6 +169,14 @@ public class DaneUczniaActivity extends Activity {
             }
         });
         //endregion
+
+        usunocene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Usunięto element: "+id_kliknietego_elementu_w_ListView,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //region srednia_onClick
 //        srednia_button_dane_ucznia.setOnClickListener(new Button.OnClickListener() {
@@ -413,7 +422,7 @@ public class DaneUczniaActivity extends Activity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             ViewHolder holder = null;
             final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -437,7 +446,6 @@ public class DaneUczniaActivity extends Activity {
                         Country country = (Country) cb.getTag();
 
 
-
                         if(zaznaczony_radio_button != null)
                         {
                             if(zaznaczony_radio_button == cb)
@@ -453,8 +461,11 @@ public class DaneUczniaActivity extends Activity {
                         }else {
                             radioGroup.clearCheck();
                             zaznaczony_radio_button = cb;
+                            zaznaczony_jakikolwiek_radiobutton = true;
                             cb.setChecked(true);
                         }
+
+                        id_kliknietego_elementu_w_ListView = position;
 
 
                         uaktywnijReszteButtonowPoKliknieciuNaJakiegokolwiekRadioButtona();
