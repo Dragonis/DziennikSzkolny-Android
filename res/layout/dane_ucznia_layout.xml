@@ -98,56 +98,6 @@
 
         </TableRow>
 
-        <TableRow>
-            <RadioButton
-                    android:layout_column="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:padding="3dip"
-                    android:id="@+id/radioButton1" android:checked="false"/>
-            <TextView
-
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/data_textview"/>
-            <TextView
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/ocena_textview"/>
-        </TableRow>
-        <TableRow>
-            <RadioButton
-                    android:layout_column="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:padding="3dip"
-                    android:id="@+id/radioButton2" android:checked="false"/>
-            <TextView
-
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/data_textview2"/>
-            <TextView
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/ocena_textview2"/>
-        </TableRow>
-        <TableRow>
-
-            <RadioButton
-                    android:layout_column="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:padding="3dip"
-                    android:id="@+id/radioButton3" android:checked="false"/>
-            <TextView
-
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/data_textview3"/>
-            <TextView
-                    android:gravity="left"
-                    android:padding="3dip" android:id="@+id/ocena_textview3"/>
-        </TableRow>
-
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">

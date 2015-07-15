@@ -64,9 +64,7 @@ public class DaneUczniaActivity extends Activity {
         id_przegladanego_przedmiotu = 1;
 
         //region zainicjalizuj_formatke
-        radioButton1 = (RadioButton) findViewById(R.id.radioButton1);
-        radioButton2 = (RadioButton) findViewById(R.id.radioButton2);
-        radioButton3 = (RadioButton) findViewById(R.id.radioButton3);
+
         edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
         usunocene = (Button) findViewById(R.id.usun_ocene_button_daneucznia);
         dodajocene = (Button) findViewById(R.id.dodaj_ocene_button_daneucznia);
@@ -197,7 +195,6 @@ public class DaneUczniaActivity extends Activity {
         });
         //endregion
 
-        jesliCheckBoxZaznaczonyToWlaczButtony();
     }
 
     private void wyslijDaneDoNastepnegoActivity(View view) {
@@ -278,13 +275,6 @@ public class DaneUczniaActivity extends Activity {
         TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
         TextView przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
 
-        // ponizsze textviewy znajduja sie w tabeli tzw checkbox, data_textview i ocena_textview
-        TextView data_textview = (TextView) findViewById(R.id.data_textview);
-        TextView ocena_textview = (TextView) findViewById(R.id.ocena_textview);
-        TextView data_textview2 = (TextView) findViewById(R.id.data_textview2);
-        TextView ocena_textview2 = (TextView) findViewById(R.id.ocena_textview2);
-        TextView data_textview3 = (TextView) findViewById(R.id.data_textview3);
-        TextView ocena_textview3 = (TextView) findViewById(R.id.ocena_textview3);
 
 
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
@@ -296,12 +286,7 @@ public class DaneUczniaActivity extends Activity {
 
             data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_studenta.get(i));
         }
-        data_textview.setText(date1);
-        ocena_textview.setText(grade1);
-        data_textview2.setText(date2);
-        ocena_textview2.setText(grade2);
-        data_textview3.setText(date3);
-        ocena_textview3.setText(grade3);
+
 //        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
 //        data_z_ocena_listview.setAdapter(adapter);
     }
@@ -338,11 +323,7 @@ public class DaneUczniaActivity extends Activity {
 
     }
 
-    /**
-     * @param button_id R.id.button_name
-     * @param context   insert 'getApplicationContext()'
-     * @param klasa     example: StatystykaActivity.class
-     */
+
     public void Pokaz_Activity_z_klasy(int button_id, final Context context, final Class<?> klasa) {
         Button b = (Button) findViewById(button_id);
         b.setOnClickListener(new View.OnClickListener() {
@@ -360,71 +341,9 @@ public class DaneUczniaActivity extends Activity {
 
             }
         });
-    }
-
-    public void jesliCheckBoxZaznaczonyToWlaczButtony() {
 
 
-        radioButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (radioButton1.isChecked()) {
-                    edytujocene.setEnabled(true);
-                    usunocene.setEnabled(true);
-                    dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_radiobutton = true;
-                    radioButton2.setChecked(false);
-                    radioButton3.setChecked(false);
-                    Toast.makeText(getApplicationContext(), "Data: " + date1 + " Ocena: " + grade1, Toast.LENGTH_SHORT).show();
-                } else {
-                    edytujocene.setEnabled(false);
-                    usunocene.setEnabled(false);
-                    dodajocene.setEnabled(true);
-                }
-            }
-        });
 
-        radioButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (radioButton2.isChecked()) {
-                    edytujocene.setEnabled(true);
-                    usunocene.setEnabled(true);
-                    dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_radiobutton = true;
-                    radioButton1.setChecked(false);
-                    radioButton3.setChecked(false);
-                    Toast.makeText(getApplicationContext(), "Data: " + date2 + " Ocena: " + grade2, Toast.LENGTH_SHORT).show();
-
-                } else {
-                    edytujocene.setEnabled(false);
-                    usunocene.setEnabled(false);
-                    dodajocene.setEnabled(true);
-                }
-            }
-        });
-
-        radioButton3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                if (radioButton3.isChecked()) {
-                    edytujocene.setEnabled(true);
-                    usunocene.setEnabled(true);
-                    dodajocene.setEnabled(false);
-                    zaznaczony_jakikolwiek_radiobutton = true;
-                    radioButton1.setChecked(false);
-                    radioButton2.setChecked(false);
-                    Toast.makeText(getApplicationContext(), "Data: " + date3 + " Ocena: " + grade3, Toast.LENGTH_SHORT).show();
-
-                } else {
-                    edytujocene.setEnabled(false);
-                    usunocene.setEnabled(false);
-                    dodajocene.setEnabled(true);
-
-                }
-            }
-        });
 
     }
 
