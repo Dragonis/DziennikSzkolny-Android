@@ -166,17 +166,17 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
         List<String> oceny = null;
         TouchUtils.clickView(this, zaloguj_button);
         oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals("5",oceny.get(0));
-        assertEquals("3",oceny.get(1));
-        assertEquals("4",oceny.get(2));
-        assertEquals("6",oceny.get(3));
+        assertEquals(5,oceny.get(0));
+        assertEquals(3,oceny.get(1));
+        assertEquals(4,oceny.get(2));
+        assertEquals(6,oceny.get(3));
         id_ucznia = 2;
         oceny = null;
         oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals("5",oceny.get(0));
-        assertEquals("3",oceny.get(1));
-        assertEquals("4",oceny.get(2));
-        assertEquals("6",oceny.get(3));
+        assertEquals(5,oceny.get(0));
+        assertEquals(3,oceny.get(1));
+        assertEquals(4,oceny.get(2));
+        assertEquals(6,oceny.get(3));
     }
 
 //    public void testCzyMoznaWczytacWszystkichStudentowzDB()
