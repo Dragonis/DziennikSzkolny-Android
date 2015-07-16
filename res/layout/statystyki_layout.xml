@@ -76,75 +76,117 @@
                 <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Srednia arytmetyczna"
-                        android:id="@+id/radioButton_srednia" android:layout_gravity="center_horizontal"/>
+                        android:text="Polski"
+                        android:id="@+id/radioButton_polski" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
 
 
                 <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Wariancja"
-                        android:id="@+id/radioButton_wariancja" android:layout_gravity="center_horizontal"/>
+                        android:text="Angielski"
+                        android:id="@+id/radioButton_angielski" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
 
                 <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Odchylenie standardowe"
-                        android:id="@+id/radioButton_odchylenie" android:layout_gravity="center_horizontal"/>
+                        android:text="Matematyka"
+                        android:id="@+id/radioButton_matematyka" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
                 <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mediana"
-                        android:id="@+id/radioButton_mediana" android:layout_gravity="center_horizontal"/>
+                        android:text="Przyroda"
+                        android:id="@+id/radioButton_przyroda" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
 
-
-                <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dominanta"
-                        android:id="@+id/radioButton_dominanta" android:layout_gravity="center_horizontal"/>
 
                 <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kwartyle"
-                        android:id="@+id/radioButton_kwartyle" android:layout_gravity="center_horizontal"/>
+                        android:text="Religia"
+                        android:id="@+id/radioButton_religia" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
 
-            </RadioGroup>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Dla klasy:"
-                    android:id="@+id/textView4" android:layout_gravity="center_horizontal"/>
-            <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ratingBar" android:layout_gravity="center_horizontal" android:numStars="6"
-                    android:indeterminateOnly="false" android:stepSize="1"/>
-            <TableRow   android:id="@+id/tableRow1"
+                <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dip" >
-                <Button
+                        android:text="WF"
+                        android:id="@+id/radioButton_wf" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Zamknij"
-                        android:id="@+id/Zamknij_Statystyki"
-                        android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Dla klasy:"
+                        android:id="@+id/textView4" android:layout_gravity="center_horizontal"/>
+                <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ratingBar" android:layout_gravity="center_horizontal" android:numStars="6"
+                        android:indeterminateOnly="false" android:stepSize="1" android:layout_marginLeft="15dp"/>
+
                 <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Pokaż"
-                                android:id="@+id/pokaz_button_statystyki" android:layout_gravity="center_horizontal"/>
+                                android:text="Oblicz"
+                                android:id="@+id/oblicz_button_statystyki" android:layout_gravity="center_horizontal"/>
+
+            </RadioGroup>
+
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Srednia:"
+                        android:id="@+id/srednia_statystyki_klasy"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Wariancja:"
+                        android:id="@+id/wariancja_statystyki_klasy"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Mediana:"
+                        android:id="@+id/mediana_statystyki_klasy"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Dominanta:"
+                        android:id="@+id/dominanta_statystyki_klasy"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Odchylenie:"
+                        android:id="@+id/odchylenie_statystyki_klasy"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Kwartyle:"
+                        android:id="@+id/kwartyle_statystyki_klasy"/>
             </TableRow>
 
-
-
-
-
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zamknij"
+                    android:id="@+id/Zamknij_Statystyki"
+                    android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 </HorizontalScrollView>
 </ScrollView>
