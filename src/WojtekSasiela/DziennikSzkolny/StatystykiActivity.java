@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.StatisticActivity.*;
 import android.app.Activity;
 import android.content.Context;
@@ -19,8 +20,12 @@ public class StatystykiActivity extends Activity {
     RadioGroup radioGroup;
     RatingBar ratingBar;
     RadioButton radioButton;
-    float liczba_gwiazdek;
+    int liczba_gwiazdek;
     int selectedOption;
+
+    ArrayList<String> oceny = new ArrayList<String>();
+    ArrayList<String> daty = new ArrayList<String>();
+    private CharSequence kliknieta_nazwa_przedmiotu;
 
 
     @Override
@@ -29,13 +34,25 @@ public class StatystykiActivity extends Activity {
         setContentView(R.layout.statystyki_layout);
         radioGroup = (RadioGroup) findViewById(R.id.radioSets);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        int id_studenta = 1;
+        int id_przegladanego_przedmiotu = 1;
+        oceny =  LoadDataFromDatabase.loadStudentGrades(id_studenta, id_przegladanego_przedmiotu);
 
         Button oblicz_button_statystyki = (Button) findViewById(R.id.oblicz_button_statystyki);
+
+        TextView srednia_klasy_statystyki = (TextView) findViewById(R.id.srednia_klasy_statystyki);
+        TextView mediana_klasy_statystyki = (TextView) findViewById(R.id.mediana_klasy_statystyki);
+        TextView dominanta_klasy_statystyki = (TextView) findViewById(R.id.dominanta_klasy_statystyki);
+        TextView odchylenie_klasy_statystyki = (TextView) findViewById(R.id.odchylenie_klasy_statystyki);
+        TextView kwartyle_klasy_statystyki = (TextView) findViewById(R.id.kwartyle_klasy_statystyki);
+
+
+
         //Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), OdchylenieAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), MedianaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), DominantaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), OdchylenieAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), MedianaAcitivity.class);
+//        Pokaz_Activity_z_klasy(R.id.oblicz_button_statystyki, getApplicationContext(), DominantaAcitivity.class);
 //        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);    Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
 //        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
 //        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), MedianaAcitivity.class);
@@ -105,8 +122,24 @@ public class StatystykiActivity extends Activity {
 //                        cel = new Intent(view.getContext(), KwartyleAcitivity.class);
 //                    }
 
+                    kliknieta_nazwa_przedmiotu = radioButton.getText();
+
+                    /*
+                     Zmienna - Opis
+                     oceny - Tablica ocen
+                     liczba_gwiazdek - kliknieta liczba gwiazdek
+                    kliknieta_nazwa_przedmiotu - kliknieta nazwa przedmiotu
+                     */
+
+                    srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
+                    mediana_klasy_statystyki.setText("Mediana: " + oceny.get(0));
+                    dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
+                    odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(0));
+                    kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(0));
+
+
                     Toast.makeText(getApplicationContext(),
-                            radioButton.getText() + " " + String.valueOf(liczba_gwiazdek)
+                            kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
                             , Toast.LENGTH_SHORT).show();
 
 //                        cel.putExtras(koszyk);

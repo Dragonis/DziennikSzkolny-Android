@@ -143,19 +143,19 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Srednia:"
-                        android:id="@+id/srednia_statystyki_klasy"/>
+                        android:id="@+id/srednia_klasy_statystyki"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Wariancja:"
-                        android:id="@+id/wariancja_statystyki_klasy"/>
+                        android:id="@+id/wariancja_klasy_statystyki"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Mediana:"
-                        android:id="@+id/mediana_statystyki_klasy"/>
+                        android:id="@+id/mediana_klasy_statystyki"/>
             </TableRow>
             <TableRow
                     android:layout_width="fill_parent"
@@ -165,19 +165,19 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Dominanta:"
-                        android:id="@+id/dominanta_statystyki_klasy"/>
+                        android:id="@+id/dominanta_klasy_statystyki"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Odchylenie:"
-                        android:id="@+id/odchylenie_statystyki_klasy"/>
+                        android:id="@+id/odchylenie_klasy_statystyki"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Kwartyle:"
-                        android:id="@+id/kwartyle_statystyki_klasy"/>
+                        android:id="@+id/kwartyle_klasy_statystyki"/>
             </TableRow>
 
             <Button
