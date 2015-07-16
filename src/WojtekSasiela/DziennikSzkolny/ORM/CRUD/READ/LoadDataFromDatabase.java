@@ -58,7 +58,7 @@ public class LoadDataFromDatabase {
         }
         else
         {
-            Log.e("StudentGradesTableDB","Nie ma takiej wartoœci w tabeli StudentGrades");
+            Log.e("StudentGradesTableDB","Nie ma takiej wartoï¿½ci w tabeli StudentGrades");
         }
 
 
@@ -178,6 +178,26 @@ public class LoadDataFromDatabase {
             daty.add(studentGrades.get(i).getDate());
         }
         return daty;
+    }
+
+    public static ArrayList<String> loadStudentClassGrades(int nr_klasy,int id_przedmiotu)
+    {
+        ArrayList<String> oceny = new ArrayList<String>();
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<StudentGrades> studentGrades = null;
+        try {
+            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").where().eq("ID_Subcjet",id_przedmiotu).query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for(int i=0;i<studentGrades.size();i++)
+        {
+            oceny.add(Integer.toString(studentGrades.get(i).getGrade()));
+        }
+        return oceny;
     }
 
 }
