@@ -163,20 +163,20 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
     {
         int id_ucznia = 1;
         int id_przedmiotu = 1;
-        List<Integer> oceny = null;
+        List<String> oceny = null;
         TouchUtils.clickView(this, zaloguj_button);
         oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals(5,(int)oceny.get(0));
-        assertEquals(3,(int)oceny.get(1));
-        assertEquals(4,(int)oceny.get(2));
-        assertEquals(6,(int)oceny.get(3));
+        assertEquals("5",oceny.get(0));
+        assertEquals("3",oceny.get(1));
+        assertEquals("4",oceny.get(2));
+        assertEquals("6",oceny.get(3));
         id_ucznia = 2;
         oceny = null;
         oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals(5,(int)oceny.get(0));
-        assertEquals(3,(int)oceny.get(1));
-        assertEquals(4,(int)oceny.get(2));
-        assertEquals(6,(int)oceny.get(3));
+        assertEquals("5",oceny.get(0));
+        assertEquals("3",oceny.get(1));
+        assertEquals("4",oceny.get(2));
+        assertEquals("6",oceny.get(3));
     }
 
 //    public void testCzyMoznaWczytacWszystkichStudentowzDB()
@@ -247,11 +247,11 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
     public void testSprawdzZgodnosc_Ocen_Studenta()
     {
         DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
-        List<Integer> oceny = daneuczniaActivity.pobierz_oceny();
+        List<String> oceny = daneuczniaActivity.pobierz_oceny();
 
-        assertEquals(5,(int)oceny.get(0));
-        assertEquals(3,(int)oceny.get(1));
-        assertEquals(4,(int)oceny.get(2));
+        assertEquals("5",oceny.get(0));
+        assertEquals("3",oceny.get(1));
+        assertEquals("4",oceny.get(2));
     }
 
     public void testSprawdzZgodnosc_DatyWystawionychOcen_Studenta()
