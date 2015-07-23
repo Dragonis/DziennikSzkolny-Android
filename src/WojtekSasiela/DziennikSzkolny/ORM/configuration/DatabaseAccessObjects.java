@@ -26,7 +26,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts29992.db";
+    private static final String DATABASE_NAME = "Accdsalounts.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Classroom, Integer> ClassroomDao = null;
@@ -85,9 +85,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
                          ConnectionSource connectionSource) {
 
         try {
-
             dodajWszystkieTabele(connectionSource);
-
         } catch (SQLException e) {
 
             e.printStackTrace();

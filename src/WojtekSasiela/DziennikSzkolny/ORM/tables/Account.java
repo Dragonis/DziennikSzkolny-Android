@@ -24,12 +24,6 @@ public class Account {
     @DatabaseField
     String surname;
 
-    /**
-     * Account data created
-     */
-    @DatabaseField
-    Date date;
-
     public Account() {
     }
 
@@ -38,7 +32,6 @@ public class Account {
         this.surname = surname;
         this.username = username;
         this.password = password;
-        this.date = new Date(System.currentTimeMillis());
     }
 
     public int getId() {
@@ -65,14 +58,6 @@ public class Account {
         this.password = password;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public String getName() {
         return name;
     }
@@ -92,7 +77,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account: [id=" + id + ", username=" + username + ", password=" + password
-                + ", date=" + date + "]";
+                + "]";
 
     }
 }

@@ -140,48 +140,30 @@ public class LoadDataFromDatabase {
         return students;
     }
 
+
     public static ArrayList<String> loadStudentGrades(int id_ucznia,int id_przedmiotu)
     {
         ArrayList<String> oceny = new ArrayList<String>();
+        List<StudentGrades> studentGrades = null;
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
-        List<StudentGrades> studentGrades = null;
         try {
-            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").query();
+            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").where().eq("ID_Student",id_ucznia).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for(int i=0;i<studentGrades.size();i++)
+
+        for(StudentGrades sg : studentGrades)
         {
-            oceny.add(Integer.toString(studentGrades.get(i).getGrade()));
+            oceny.add(Integer.toString(sg.getGrade()));
         }
         return oceny;
     }
 
     public static ArrayList<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
     {
-        ArrayList<String> daty = new ArrayList<String>();
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
-        //TODO sprawdzanie czy dane logowania sa poprawne
-        List<StudentGrades> studentGrades = null;
-        try {
-            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Date").query();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        for(int i=0;i<studentGrades.size();i++)
-        {
-            daty.add(studentGrades.get(i).getDate());
-        }
-        return daty;
-    }
-
-    public static ArrayList<String> loadStudentClassGrades(int nr_klasy,int id_przedmiotu)
-    {
         ArrayList<String> oceny = new ArrayList<String>();
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
@@ -189,7 +171,7 @@ public class LoadDataFromDatabase {
         //TODO sprawdzanie czy dane logowania sa poprawne
         List<StudentGrades> studentGrades = null;
         try {
-            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").where().eq("ID_Subcjet",id_przedmiotu).query();
+            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Date").where().eq("ID_Student",id_ucznia).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }

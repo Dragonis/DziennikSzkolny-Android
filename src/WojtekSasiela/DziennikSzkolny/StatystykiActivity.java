@@ -34,9 +34,6 @@ public class StatystykiActivity extends Activity {
         setContentView(R.layout.statystyki_layout);
         radioGroup = (RadioGroup) findViewById(R.id.radioSets);
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        final int nr_klasy = 1;
-        final int id_przegladanego_przedmiotu = 1;
-        oceny =  LoadDataFromDatabase.loadStudentGrades(nr_klasy, id_przegladanego_przedmiotu);
 
         Button oblicz_button_statystyki = (Button) findViewById(R.id.oblicz_button_statystyki);
 
@@ -132,14 +129,16 @@ public class StatystykiActivity extends Activity {
                     kliknieta_nazwa_przedmiotu - kliknieta nazwa przedmiotu
                      */
 
-                    oceny = LoadDataFromDatabase.loadStudentClassGrades(nr_klasy,id_przegladanego_przedmiotu);
+                    final int id_ucznia = 1;
+                    final int id_przegladanego_przedmiotu = 1;
+                    oceny =  LoadDataFromDatabase.loadStudentGrades(id_ucznia, id_przegladanego_przedmiotu);
 
                     srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
                     wariancja_klasy_statystyki.setText("Wariancja: " + oceny.get(1));
                     mediana_klasy_statystyki.setText("Mediana: " + oceny.get(2));
-                    dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(3));
-                    odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(4));
-                    kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(5));
+                    dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
+                    odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(1));
+                    kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(2));
 
 
                     Toast.makeText(getApplicationContext(),
