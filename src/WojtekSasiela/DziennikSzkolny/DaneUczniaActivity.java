@@ -73,8 +73,8 @@ public class DaneUczniaActivity extends Activity {
         id_studenta = pobrany_student_z_db.getId();
         id_przegladanego_przedmiotu = 1;
 
-        oceny =  LoadDataFromDatabase.loadStudentGrades(id_studenta,id_przegladanego_przedmiotu);
-        daty =  LoadDataFromDatabase.loadStudentDates(id_studenta,id_przegladanego_przedmiotu);
+        oceny =  LoadDataFromDatabase.load_New_Version_StudentGrades(id_studenta,id_przegladanego_przedmiotu);
+        daty =  LoadDataFromDatabase.load_New_Version_StudentDates(id_studenta,id_przegladanego_przedmiotu);
 
         //region zainicjalizuj_formatke
 

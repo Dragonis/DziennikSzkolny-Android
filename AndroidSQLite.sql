@@ -74,3 +74,49 @@ create table classroom (
 );
 insert into classroom(`Name`) values ("Przykladowa nazwa klasy");
 select * from classroom;
+
+
+
+-- TEST
+
+
+-- TEST
+
+drop table ocena;
+drop table przedmiot;
+drop table uczen;
+
+create table ocena(
+  id_oceny Integer primary key autoincrement,
+  id_przedmiotu Integer,
+  id_ucznia Integer,
+  ocena Integer,
+  data varchar(15)
+)
+
+insert into ocena(id_przedmiotu, id_ucznia, ocena, data) values(1,1,5,'10.10');
+insert into ocena(id_przedmiotu, id_ucznia, ocena, data) values(1,1,3,'8.10');
+insert into ocena(id_przedmiotu, id_ucznia, ocena, data) values(1,2,4,'10.10');
+insert into ocena(id_przedmiotu, id_ucznia, ocena, data) values(2,1,5,'14.10');
+
+create table przedmiot(
+  id_przedmiotu Integer primary key autoincrement,
+  nazwa varchar(30)
+)
+insert into przedmiot(nazwa)values('matematyka');
+insert into przedmiot(nazwa)values('angielski');
+insert into przedmiot(nazwa)values('polski');
+insert into przedmiot(nazwa)values('przyroda');
+insert into przedmiot(nazwa)values('religia');
+insert into przedmiot(nazwa)values('wf');
+
+create table uczen(
+  id_ucznia Integer primary key autoincrement,
+  imie varchar(30),
+  nazwisko varchar(30),
+  klasa Integer
+)
+insert into uczen(imie, nazwisko, klasa) values('Wojtek','Sasiela',1);
+insert into uczen(imie, nazwisko, klasa) values('Bartek','Ciekawski',1);
+insert into uczen(imie, nazwisko, klasa) values('Asia','Niedzwiadek',1);
+insert into uczen(imie, nazwisko, klasa) values('Kasia','Weso³ek',2);
