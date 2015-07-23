@@ -164,7 +164,7 @@ public class LoadDataFromDatabase {
 
     public static ArrayList<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
     {
-        ArrayList<String> oceny = new ArrayList<String>();
+        ArrayList<String> daty = new ArrayList<String>();
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
@@ -175,11 +175,11 @@ public class LoadDataFromDatabase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for(int i=0;i<studentGrades.size();i++)
+        for(StudentGrades sg : studentGrades)
         {
-            oceny.add(Integer.toString(studentGrades.get(i).getGrade()));
+            daty.add(sg.getDate());
         }
-        return oceny;
+        return daty;
     }
 
 }
