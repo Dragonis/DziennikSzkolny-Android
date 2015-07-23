@@ -4,6 +4,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.Classroom;
 import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
 import WojtekSasiela.DziennikSzkolny.ORM.Student_NewVersion;
 import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
@@ -144,6 +145,29 @@ public class InsertDataToDatabase {
         accountDao.create(new Account("Johny","Brown","Uzytkownik", "Haslo"));
         accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
     }
+
+    public static void insert_Oceny_IntoDatabase(RuntimeExceptionDao<Ocena, Integer> ocenaDao) {
+        ocenaDao.create(new Ocena(1,1,5,"10.10"));
+        ocenaDao.create(new Ocena(1,1,3,"4.10"));
+        ocenaDao.create(new Ocena(1,2,4,"5.10"));
+    }
+
+    public static void insert_Przedmiot_IntoDatabase(RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao) {
+        przedmiotDao.create(new Przedmiot("Matematyka"));
+        przedmiotDao.create(new Przedmiot("Polski"));
+        przedmiotDao.create(new Przedmiot("Angielski"));
+        przedmiotDao.create(new Przedmiot("Przyroda"));
+        przedmiotDao.create(new Przedmiot("Religia"));
+        przedmiotDao.create(new Przedmiot("WF"));
+    }
+
+    public static void insert_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao) {
+        uczenDao.create(new Uczen("Wojtek","Sasiela",1));
+        uczenDao.create(new Uczen("Kamil","Fajny",1));
+        uczenDao.create(new Uczen("Basia","Elegancka",1));
+        uczenDao.create(new Uczen("Jolanta","Zabawna",2));
+    }
+
     //endregion
 
 }

@@ -7,6 +7,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Ocena;
 import android.content.Context;
 import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -178,6 +179,47 @@ public class LoadDataFromDatabase {
         for(StudentGrades sg : studentGrades)
         {
             daty.add(sg.getDate());
+        }
+        return daty;
+    }
+
+    public static ArrayList<String> load_New_Version_StudentGrades(int id_ucznia,int id_przedmiotu)
+    {
+        ArrayList<String> oceny = new ArrayList<String>();
+        List<Ocena> ocenaList = null;
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        try {
+            ocenaList = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia",id_ucznia).query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        for(Ocena sg : ocenaList)
+        {
+            oceny.add(Integer.toString(sg.getOcena()));
+        }
+        return oceny;
+    }
+
+    public static ArrayList<String> load_New_Version_StudentDates(int id_ucznia,int id_przedmiotu)
+    {
+        ArrayList<String> daty = new ArrayList<String>();
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Ocena, Integer> datyDao = dbHelper.getOcenaRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<Ocena> datyList = null;
+        try {
+            datyList = datyDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia",id_ucznia).query();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for(Ocena sg : datyList)
+        {
+            daty.add(sg.getData());
         }
         return daty;
     }

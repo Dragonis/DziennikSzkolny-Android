@@ -13,6 +13,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.*;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -52,6 +53,10 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private Dao<Odchylenie, Integer> OdchylenieDao = null;
     private Dao<Wariancja, Integer> WariancjaDao = null;
 
+    private Dao<Ocena, Integer> OcenaDao = null;
+    private Dao<Przedmiot, Integer> PrzedmiotDao = null;
+    private Dao<Uczen, Integer> UczenDao = null;
+
 
     private RuntimeExceptionDao<Classroom, Integer> ClassroomRuntimeDao = null;
     private RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_RuntimeDao = null;
@@ -75,6 +80,10 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Mediana, Integer> MedianaRuntimeDao = null;
     private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieRuntimeDao = null;
     private RuntimeExceptionDao<Wariancja, Integer> WariancjaRuntimeDao = null;
+
+    private RuntimeExceptionDao<Ocena, Integer> OcenaRuntimeDao = null;
+    private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotRuntimeDao = null;
+    private RuntimeExceptionDao<Uczen, Integer> UczenRuntimeDao = null;
 
     public DatabaseAccessObjects(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -117,6 +126,10 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.createTable(connectionSource, Wariancja.class);
         TableUtils.createTable(connectionSource, Odchylenie.class);
         TableUtils.createTable(connectionSource, Kwartyle.class);
+
+        TableUtils.createTable(connectionSource, Ocena.class);
+        TableUtils.createTable(connectionSource, Przedmiot.class);
+        TableUtils.createTable(connectionSource, Uczen.class);
     }
 
     @Override
@@ -158,6 +171,10 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, Odchylenie.class, true);
         TableUtils.dropTable(connectionSource, Wariancja.class, true);
         TableUtils.dropTable(connectionSource, Kwartyle.class, true);
+
+        TableUtils.dropTable(connectionSource, Ocena.class, true);
+        TableUtils.dropTable(connectionSource, Przedmiot.class, true);
+        TableUtils.dropTable(connectionSource, Uczen.class, true);
     }
 
     public Dao<Classroom, Integer> getClassroomDao() throws SQLException{
@@ -295,6 +312,27 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         return WariancjaDao;
     }
 
+    public Dao<Ocena, Integer> getOcenaDao() throws SQLException{
+        if (OcenaDao == null) {
+            OcenaDao = getDao(Ocena.class);
+        }
+        return OcenaDao;
+    }
+
+    public Dao<Przedmiot, Integer> getPrzedmiotDao() throws SQLException{
+        if (PrzedmiotDao == null) {
+            PrzedmiotDao = getDao(Przedmiot.class);
+        }
+        return PrzedmiotDao;
+    }
+
+    public Dao<Uczen, Integer> getUczenDao() throws SQLException{
+        if (UczenDao == null) {
+            UczenDao = getDao(Uczen.class);
+        }
+        return UczenDao;
+    }
+
     public RuntimeExceptionDao<Classroom, Integer> getClassroomRuntimeExceptionDao(){
         if (ClassroomRuntimeDao == null) {
             ClassroomRuntimeDao = getRuntimeExceptionDao(Classroom.class);
@@ -412,5 +450,26 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
             WariancjaRuntimeDao = getRuntimeExceptionDao(Wariancja.class);
         }
         return WariancjaRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Ocena, Integer> getOcenaRuntimeExceptionDao(){
+        if (OcenaRuntimeDao == null) {
+            OcenaRuntimeDao = getRuntimeExceptionDao(Ocena.class);
+        }
+        return OcenaRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Przedmiot, Integer> getPrzedmiotRuntimeExceptionDao(){
+        if (PrzedmiotRuntimeDao == null) {
+            PrzedmiotRuntimeDao = getRuntimeExceptionDao(Przedmiot.class);
+        }
+        return PrzedmiotRuntimeDao;
+    }
+
+    public RuntimeExceptionDao<Uczen, Integer> getUczenRuntimeExceptionDao(){
+        if (UczenRuntimeDao == null) {
+            UczenRuntimeDao = getRuntimeExceptionDao(Uczen.class);
+        }
+        return UczenRuntimeDao;
     }
 }

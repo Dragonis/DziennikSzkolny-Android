@@ -12,6 +12,8 @@ import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Teacher;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.*;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
+
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -44,7 +46,11 @@ public class DatabaseCRUDoperations {
     private RuntimeExceptionDao<Kwartyle, Integer> KwartyleDao;
     private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao;
     private RuntimeExceptionDao<Wariancja, Integer> WariancjaDao;
-    
+
+    private RuntimeExceptionDao<Ocena, Integer> OcenaDao;
+    private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotDao;
+    private RuntimeExceptionDao<Uczen, Integer> UczenDao;
+
     public DatabaseCRUDoperations() {
     }
 
@@ -59,20 +65,24 @@ public class DatabaseCRUDoperations {
         StudentDao = dbHelper.getStudentRuntimeExceptionDao();
         AccountDao = dbHelper.getAccountRuntimeExceptionDao();
         TeacherDao = dbHelper.getTeacherRuntimeExceptionDao();
-        
+
         BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
         EnglishDao = dbHelper.getEnglishRuntimeExceptionDao();
         MathematicDao = dbHelper.getMathematicRuntimeExceptionDao();
         PolishDao = dbHelper.getPolishRuntimeExceptionDao();
         ReligionDao = dbHelper.getReligionRuntimeExceptionDao();
         WFDao = dbHelper.getWFRuntimeExceptionDao();
-        
+
         SredniaDao = dbHelper.getSredniaRuntimeExceptionDao();
         MedianaDao = dbHelper.getMedianaRuntimeExceptionDao();
         DominantaDao = dbHelper.getDominantaRuntimeExceptionDao();
         KwartyleDao = dbHelper.getKwartyleRuntimeExceptionDao();
         OdchylenieDao = dbHelper.getOdchylenieRuntimeExceptionDao();
         WariancjaDao = dbHelper.getWariancjaRuntimeExceptionDao();
+
+        OcenaDao = dbHelper.getOcenaRuntimeExceptionDao();
+        PrzedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
+        UczenDao = dbHelper.getUczenRuntimeExceptionDao();
 
         // jezeli znajduje sie baza danych na urzadzeniu
         if (dbHelper.getReadableDatabase() != null) {
@@ -114,6 +124,10 @@ public class DatabaseCRUDoperations {
         InsertDataToDatabase.insert_POLISH_GradesIntoDatabases(PolishDao);
         InsertDataToDatabase.insert_RELIGION_GradesIntoDatabase(ReligionDao);
         InsertDataToDatabase.insert_WF_GradesIntoDatabase(WFDao);
+
+        InsertDataToDatabase.insert_Oceny_IntoDatabase(OcenaDao);
+        InsertDataToDatabase.insert_Przedmiot_IntoDatabase(PrzedmiotDao);
+        InsertDataToDatabase.insert_Uczen_IntoDatabase(UczenDao);
     }
 
     public void load_sample_database()

@@ -14,6 +14,9 @@ public class Student_NewVersion {
     int ID_StudentGrades;
 
     @DatabaseField
+    int ID_Classroom;
+
+    @DatabaseField
     String name;
 
     @DatabaseField
