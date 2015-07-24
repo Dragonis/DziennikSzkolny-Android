@@ -26,6 +26,7 @@ public class StatystykiActivity extends Activity {
     ArrayList<String> oceny = new ArrayList<String>();
     ArrayList<String> daty = new ArrayList<String>();
     private CharSequence kliknieta_nazwa_przedmiotu;
+    private String kliknieta_nazwa_przedmiotu_to_String;
 
 
     @Override
@@ -121,6 +122,7 @@ public class StatystykiActivity extends Activity {
 //                    }
 
                     kliknieta_nazwa_przedmiotu = radioButton.getText();
+                    kliknieta_nazwa_przedmiotu_to_String = radioButton.getText().toString();
 
                     /*
                      Zmienna - Opis
@@ -129,17 +131,24 @@ public class StatystykiActivity extends Activity {
                     kliknieta_nazwa_przedmiotu - kliknieta nazwa przedmiotu
                      */
 
-                    final int id_ucznia = 1;
-                    final int id_przegladanego_przedmiotu = 1;
-                    oceny =  LoadDataFromDatabase.loadStudentGrades(id_ucznia, id_przegladanego_przedmiotu);
 
-                    srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
-                    wariancja_klasy_statystyki.setText("Wariancja: " + oceny.get(1));
-                    mediana_klasy_statystyki.setText("Mediana: " + oceny.get(2));
-                    dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
-                    odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(1));
-                    kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(2));
+                    oceny =  LoadDataFromDatabase.loadStudentGradesForAllClasses_New_Version(liczba_gwiazdek, kliknieta_nazwa_przedmiotu_to_String);
 
+                    try {
+                        srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
+                        wariancja_klasy_statystyki.setText("Wariancja: " + oceny.get(1));
+                        mediana_klasy_statystyki.setText("Mediana: " + oceny.get(0));
+                        dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
+                        odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(1));
+                        kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(1));
+                    }catch(Exception ex)
+                    {
+                        ex.getStackTrace();
+                        Toast.makeText(getApplicationContext(),
+                                "Nie wszyscy uczniowie maja wprowadzone oceny. Dlatego nie mozna obliczyc miary statyst. ",
+                                Toast.LENGTH_LONG).show();
+
+                    }
 
                     Toast.makeText(getApplicationContext(),
                             kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
