@@ -75,11 +75,50 @@ public class DaneUczniaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dane_ucznia_layout);
 
+        MiaryStatystyczne statystyka= new MiaryStatystyczne();
+
+        TextView napis_wariancja_przedmiotu = (TextView) findViewById(R.id.napis_wariancja);
+        TextView napis_srednia_przedmiotu = (TextView) findViewById(R.id.napis_srednia);
+        TextView napis_dominanta_przedmiotu = (TextView) findViewById(R.id.napis_dominanta);
+        TextView napis_mediana_przedmiotu = (TextView) findViewById(R.id.napis_mediana);
+        TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
+        TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
+
         pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
         nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
         przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
 
         pobierzDanezPoprzedniegoActivity();
+
+        if(oceny.isEmpty() || daty.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Uczeń ten nie ma żadnych ocen.", Toast.LENGTH_LONG).show();
+        }
+        else{
+
+            pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
+            nrKlasy_textview.setText(nrKlasy);
+            przedmiot_textview.setText(przedmiot);
+
+
+            for (Integer i = 0; i < daty.size(); i++) {
+
+                data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
+            }
+
+
+
+
+
+            napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
+            napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
+            napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
+            napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
+            napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
+            napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
+
+
+        }
 //        pobrany_student_z_db = pobierz_wszystkie_dane_studenta_z_db();
 //        id_studenta = pobrany_student_z_db.getId();
 //        id_przegladanego_przedmiotu = 1;
@@ -87,10 +126,6 @@ public class DaneUczniaActivity extends Activity {
 //        oceny =  LoadDataFromDatabase.load_New_Version_StudentGrades(id_studenta,id_przegladanego_przedmiotu);
 //        daty =  LoadDataFromDatabase.load_New_Version_StudentDates(id_studenta,id_przegladanego_przedmiotu);
 
-        if(oceny.size() == 0 || daty.size() == 0)
-        {
-            Toast.makeText(getApplicationContext(),"Nie ma w bazie zadnych ocen z data dla tego ucznia",Toast.LENGTH_LONG).show();
-        }
         //region zainicjalizuj_formatke
 
         edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
@@ -107,28 +142,6 @@ public class DaneUczniaActivity extends Activity {
 
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
-        MiaryStatystyczne statystyka= new MiaryStatystyczne();
-
-        TextView napis_wariancja_przedmiotu = (TextView) findViewById(R.id.napis_wariancja);
-        TextView napis_srednia_przedmiotu = (TextView) findViewById(R.id.napis_srednia);
-        TextView napis_dominanta_przedmiotu = (TextView) findViewById(R.id.napis_dominanta);
-        TextView napis_mediana_przedmiotu = (TextView) findViewById(R.id.napis_mediana);
-        TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
-        TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
-
-
-    try {
-        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
-        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
-        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
-        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
-        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
-        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
-    }
-    catch(Exception ex)
-    {
-        Toast.makeText(getApplicationContext(),"uczeń nie posiada żadnych ocen: "+ ex.getMessage(),Toast.LENGTH_LONG).show();
-    }
 
 
 
@@ -312,22 +325,7 @@ public class DaneUczniaActivity extends Activity {
 //        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
         oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
-        if(oceny.isEmpty() || daty.isEmpty())
-        {
-            Toast.makeText(getApplicationContext(), "Uczeń ten nei ma żadnych ocen.", Toast.LENGTH_LONG).show();
-        }
-        else{
 
-            pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
-            nrKlasy_textview.setText(nrKlasy);
-            przedmiot_textview.setText(przedmiot);
-
-
-            for (Integer i = 0; i < daty.size(); i++) {
-
-                data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
-            }
-        }
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
 //        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
@@ -418,7 +416,7 @@ public class DaneUczniaActivity extends Activity {
             oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
         }catch(Exception ex)
         {
-            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
         }
 
@@ -465,7 +463,7 @@ public class DaneUczniaActivity extends Activity {
         }
         catch(Exception ex)
         {
-            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Daty: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Daty: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
         }
         List<String> listaDat = new ArrayList<String>();
