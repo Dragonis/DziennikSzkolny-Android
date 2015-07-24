@@ -45,18 +45,6 @@ public class Student {
         this.surname = surname;
         this.classrom = classrom;
     }
-//
-//    public Student(String name, String surname, Integer classrom, Integer id_Polish, Integer id_English, Integer id_Math, Integer id_Biology, Integer id_Religion, Integer id_WF) {
-//        this.name = name;
-//        this.surname = surname;
-//        this.classrom = classrom;
-//        Id_Polish = id_Polish;
-//        Id_English = id_English;
-//        Id_Math = id_Math;
-//        Id_Biology = id_Biology;
-//        Id_Religion = id_Religion;
-//        Id_WF = id_WF;
-//    }
 
     public String getName() {
         return name;

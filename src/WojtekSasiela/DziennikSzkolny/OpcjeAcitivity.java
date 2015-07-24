@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class OpcjeAcitivity extends Activity {
 
-    Button update_button;
+    private Button update_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,17 +55,16 @@ public class OpcjeAcitivity extends Activity {
         Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: " + uzytkownicy.get(0).getPassword().toString());
 
         // wyswietlanei danych w widoku
-        EditText login = (EditText)findViewById(R.id.editText_Login_Opcje);
-        EditText password = (EditText)findViewById(R.id.editText2_Password_Opcje);
+        EditText login = (EditText) findViewById(R.id.editText_Login_Opcje);
+        EditText password = (EditText) findViewById(R.id.editText2_Password_Opcje);
 
         login.setText(uzytkownicy.get(0).getUsername().toString());
         password.setText(uzytkownicy.get(0).getPassword().toString());
 
     }
 
-    public void zamknijOkno(int id)
-    {
-        Button b = (Button)findViewById(id);
+    public void zamknijOkno(int id) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

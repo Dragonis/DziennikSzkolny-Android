@@ -24,7 +24,6 @@ public class DodajUczniaActivity extends Activity {
         zapisz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO DOdanie uzytkownika do bazy danych
 
                 EditText imie_edittext = (EditText) findViewById(R.id.imie_edittext_dodajucznia);
                 EditText nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_dodajucznia);
@@ -38,51 +37,33 @@ public class DodajUczniaActivity extends Activity {
 
                 RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
 
-                wprowadzStudentadoBazyDanych(StudentDao,imie,nazwisko,klasa);
+                wprowadzStudentadoBazyDanych(StudentDao, imie, nazwisko, klasa);
                 przeslijDaneDoWczesniejszegoActivity(imie, nazwisko, klasa);
-//
-//                Toast.makeText(getApplicationContext(), "Użytkownik został zapisany",
-//                        Toast.LENGTH_SHORT).show();
 
-//                Toast.makeText(getApplicationContext(), "Imie: "+ imie + "Naziwsko: "+ nazwisko + "Klasa: "+ klasa,
-//                        Toast.LENGTH_SHORT).show();
             }
         });
 
-    zamknijOkno(R.id.zamknij_button_dodajucznia);
+        zamknijOkno(R.id.zamknij_button_dodajucznia);
 
+    }
 
-//        Button zamknij = (Button) findViewById(R.id.zamknij_button_dodajucznia);
-//        zamknij.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-}
-    public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa)
-    {
-        // Pobieramy tekst z pola
+    public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa) {
 
-        // Pakujemy go w Bundle
         Bundle koszyk = new Bundle();
         koszyk.putString("Imie", imie);
         koszyk.putString("Nazwisko", nazwisko);
         koszyk.putString("Klasa", klasa);
-        // Definiujemy cel
         Intent cel = new Intent(this, ListaKlasActivity.class);
         cel.putExtras(koszyk);
-        // Wysyłamy
         startActivity(cel);
     }
 
-    public void wprowadzStudentadoBazyDanych(RuntimeExceptionDao<Student, Integer> studentDao,String imie, String nazwisko,String nr_klasy){
-        studentDao.create(new Student(imie,nazwisko,Integer.parseInt(nr_klasy)));
-       }
+    public void wprowadzStudentadoBazyDanych(RuntimeExceptionDao<Student, Integer> studentDao, String imie, String nazwisko, String nr_klasy) {
+        studentDao.create(new Student(imie, nazwisko, Integer.parseInt(nr_klasy)));
+    }
 
-    public void zamknijOkno(int id)
-    {
-        Button b = (Button)findViewById(id);
+    public void zamknijOkno(int id) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

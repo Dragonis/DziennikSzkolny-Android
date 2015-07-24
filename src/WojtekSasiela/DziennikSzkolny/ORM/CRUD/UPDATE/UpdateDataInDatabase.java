@@ -1,16 +1,12 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD.UPDATE;
 
-import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
-import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Wojtek on 2015-07-05.

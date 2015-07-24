@@ -5,15 +5,15 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent" android:id="@+id/test">
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5dip">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Imię i Nazwisko: "
-            android:id="@+id/textView5"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Imie i Nazwisko]"
-              android:id="@+id/pokazImieiNaziwsko"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Imię i Nazwisko: "
+                android:id="@+id/textView5"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceLarge" android:text="[Imie i Nazwisko]"
+                  android:id="@+id/pokazImieiNaziwsko"/>
     </TableRow>
     <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:padding="5dip">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -50,31 +50,6 @@
                 android:text="[Przedmiot]"
                 android:id="@+id/przedmiot"/>
     </TableRow>
-    <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-            <!--android:text="Data Ocena"-->
-            <!--android:id="@+id/textView6"/>-->
-    <!--<TableRow-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="190dp" android:weightSum="1">-->
-        <!--<ListView-->
-                <!--android:windowSoftInputMode="adjustPan"-->
-                <!--android:layout_width="105dp"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:id="@+id/data_z_ocena_listview"/>-->
-        <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
-            <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-                    <!--android:text="Ocena:"-->
-                    <!--android:id="@+id/textView36"/>-->
-        <!--</RelativeLayout>-->
-    <!--</TableRow>-->
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:layout_width="match_parent"
@@ -85,26 +60,18 @@
                     android:layout_column="0"
                     android:text="Zaznacz:"
                     android:gravity="left"
-                    android:padding="3dip" />
+                    android:padding="3dip"/>
             <TextView
                     android:layout_column="1"
                     android:text="Data:"
                     android:gravity="left"
-                    android:padding="3dip" />
+                    android:padding="3dip"/>
             <TextView
                     android:text="Ocena:"
                     android:gravity="left"
-                    android:padding="3dip" />
+                    android:padding="3dip"/>
 
         </TableRow>
-
-        <!--<Button-->
-                <!--android:id="@+id/findSelected"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="findSelectedItems"-->
-                <!--android:layout_below="@+id/zamknij_srednia" android:layout_alignParentLeft="true"-->
-                <!--android:layout_alignParentStart="true"/>-->
 
         <TableRow>
 
@@ -114,8 +81,8 @@
             </RadioGroup>
         </TableRow>
         <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
-              android:layout_height="129dp" android:layout_above="@+id/textView10"
-              android:layout_below="@+id/textView39"/>
+                  android:layout_height="129dp" android:layout_above="@+id/textView10"
+                  android:layout_below="@+id/textView39"/>
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
@@ -142,88 +109,59 @@
         </TableRow>
 
 
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
 
-        <TextView
-                android:layout_width="wrap_content"
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Srednia:"
+                    android:id="@+id/napis_srednia" android:textSize="13dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Mediana:"
+                    android:id="@+id/napis_mediana" android:textSize="13dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Wariancja:"
+                    android:id="@+id/napis_wariancja" android:textSize="13dp"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Dominanta:"
+                    android:id="@+id/napis_dominanta" android:textSize="13dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Odchylenie:"
+                    android:id="@+id/napis_odchylenie" android:textSize="13dp"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Kwartyle:"
+                    android:id="@+id/napis_kwartyle" android:textSize="13dp"/>
+
+        </TableRow>
+        <Button
+                android:layout_width="221dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Srednia:"
-                android:id="@+id/napis_srednia" android:textSize="13dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Mediana:"
-                android:id="@+id/napis_mediana" android:textSize="13dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Wariancja:"
-                android:id="@+id/napis_wariancja" android:textSize="13dp"/>
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Srednia"-->
-                <!--android:id="@+id/srednia_button_daneucznia"/>-->
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Mediana"-->
-                <!--android:id="@+id/mediana_button_daneucznia" android:layout_gravity="center_horizontal"/>-->
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Wariancja"-->
-                <!--android:id="@+id/wariancja_button_daneucznia"/>-->
-    </TableRow>
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:weightSum="1">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Dominanta:"
-                android:id="@+id/napis_dominanta" android:textSize="13dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Odchylenie:"
-                android:id="@+id/napis_odchylenie" android:textSize="13dp"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Kwartyle:"
-                android:id="@+id/napis_kwartyle" android:textSize="13dp"/>
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Dominanta"-->
-                <!--android:id="@+id/dominanta_button_daneucznia" android:layout_gravity="center_horizontal"/>-->
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Odchylenie"-->
-                <!--android:id="@+id/odchylenie_button_daneucznia" android:layout_gravity="right"/>-->
-        <!--<Button-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Kwartyle"-->
-                <!--android:id="@+id/kwartyle_button_daneucznia"/>-->
-            </TableRow>
-    <Button
-            android:layout_width="221dp"
-            android:layout_height="wrap_content"
-            android:text="Wyjdż"
-            android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+                android:text="Wyjdż"
+                android:id="@+id/Wyjdzbttn_OcenyLayout" android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/usun_ocene_button_daneucznia" android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
 
 
     </TableLayout>

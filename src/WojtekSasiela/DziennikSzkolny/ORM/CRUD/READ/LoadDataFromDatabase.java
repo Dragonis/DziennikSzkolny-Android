@@ -1,9 +1,5 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ;
 
-import WojtekSasiela.DziennikSzkolny.ORM.Classroom;
-import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
-import WojtekSasiela.DziennikSzkolny.ORM.Student_NewVersion;
-import WojtekSasiela.DziennikSzkolny.ORM.Subcjet;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
@@ -22,65 +18,6 @@ import java.util.List;
  * Created by Wojtek on 2015-07-04.
  */
 public class LoadDataFromDatabase {
-
-    public static void load_Subcjet_FromDatabase()
-    {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Subcjet, Integer> subcjetDao = dbHelper.getSubcjetRuntimeExceptionDao();
-        List<Subcjet> subcjets = subcjetDao.queryForEq("subcjet", "Przykladowa nazwa przedmiotu");
-        Log.e("SubcjetTableDB", subcjets.get(0).getSubcjet());
-
-        //Integer max_liczba_studentow_w_klasie = students.size();
-        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-    }
-
-    public static void load_Classroom_FromDatabase()
-    {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Classroom, Integer> classroomDao = dbHelper.getClassroomRuntimeExceptionDao();
-        List<Classroom> classrooms = classroomDao.queryForEq("Name", "Przykladowa nazwa klasy");
-        Log.e("ClassroomTableDB",classrooms.get(0).getName());
-
-        //Integer max_liczba_studentow_w_klasie = students.size();
-        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-    }
-
-    public static void load_StudentGrades_FromDatabase()
-    {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<StudentGrades, Integer> StudentGradesDao = dbHelper.getStudentGradesRuntimeExceptionDao();
-        List<StudentGrades> studentGrades = StudentGradesDao.queryForEq("Grade", 3);
-
-        if(!studentGrades.isEmpty())
-        {
-            Log.e("StudentGradesTableDB",Integer.toString(studentGrades.get(0).getGrade()));
-        }
-        else
-        {
-            Log.e("StudentGradesTableDB","Nie ma takiej warto�ci w tabeli StudentGrades");
-        }
-
-
-        //Integer max_liczba_studentow_w_klasie = students.size();
-        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-    }
-
-    public static void load_Student_NewVersion_FromDatabase()
-    {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Student_NewVersion, Integer> Student_NewVersion_Dao = dbHelper.getStudent_NewVersion_RuntimeExceptionDao();
-        List<Student_NewVersion> studentNewVersion = Student_NewVersion_Dao.queryForEq("name", "Imie nowego studenta");
-        Log.e("StudentNewVersionTableDB", studentNewVersion.get(0).getName());
-
-
-        //Integer max_liczba_studentow_w_klasie = students.size();
-        //osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-    }
-
 
     public static List<Account> load_Account_fromDatabase(String username)
     {
@@ -143,46 +80,6 @@ public class LoadDataFromDatabase {
     }
 
 
-    public static ArrayList<String> loadStudentGrades(int id_ucznia,int id_przedmiotu)
-    {
-        ArrayList<String> oceny = new ArrayList<String>();
-        List<StudentGrades> studentGrades = null;
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
-        //TODO sprawdzanie czy dane logowania sa poprawne
-        try {
-            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Grade").where().eq("ID_Student",id_ucznia).query();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        for(StudentGrades sg : studentGrades)
-        {
-            oceny.add(Integer.toString(sg.getGrade()));
-        }
-        return oceny;
-    }
-
-    public static ArrayList<String> loadStudentDates(int id_ucznia,int id_przedmiotu)
-    {
-        ArrayList<String> daty = new ArrayList<String>();
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<StudentGrades, Integer> StudentGrades_Dao = dbHelper.getStudentGradesRuntimeExceptionDao();
-        //TODO sprawdzanie czy dane logowania sa poprawne
-        List<StudentGrades> studentGrades = null;
-        try {
-            studentGrades = StudentGrades_Dao.queryBuilder().selectColumns("Date").where().eq("ID_Student",id_ucznia).query();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        for(StudentGrades sg : studentGrades)
-        {
-            daty.add(sg.getDate());
-        }
-        return daty;
-    }
 
     public static ArrayList<String> load_New_Version_StudentGrades(int id_ucznia,int id_przedmiotu)
     {

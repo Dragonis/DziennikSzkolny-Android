@@ -1,20 +1,12 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
-import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
-import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import android.widget.TextView;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.widget.Button;
-import android.widget.Toast;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.StudentGrades;
-import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -13,21 +13,12 @@ import android.widget.Toast;
  */
 public class EdytujOceneActivity extends Activity {
 
-    String imie;
-    String nazwisko;
-    String klasa;
-    String przedmiot;
-    String data;
-    String ocena;
+    String imie, nazwisko, klasa, przedmiot, data, ocena;
 
-    String imie_UTF8;
-    String nazwisko_UTF8;
+    String imie_UTF8, nazwisko_UTF8;
 
-    EditText data_edittext_edytujocene;
-    EditText ocena_edittext_edytujocene;
-    TextView imie_nazwisko_textview_edytujocene;
-    TextView przedmiot_textview_edytujocene;
-    TextView klasa_textview_edytujocene;
+    EditText data_edittext_edytujocene, ocena_edittext_edytujocene;
+    TextView imie_nazwisko_textview_edytujocene, przedmiot_textview_edytujocene, klasa_textview_edytujocene;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +29,11 @@ public class EdytujOceneActivity extends Activity {
 
         zamknijOkno(R.id.zamknij_edytujocene_button);
 
+        inicjalizacjaDanychTejKlasy();
+
+    }
+
+    private void inicjalizacjaDanychTejKlasy() {
         data_edittext_edytujocene = (EditText) findViewById(R.id.editText);
         ocena_edittext_edytujocene = (EditText) findViewById(R.id.editText2);
         imie_nazwisko_textview_edytujocene = (TextView) findViewById(R.id.imieNazwisko_textview_edytujocene);
@@ -49,7 +45,6 @@ public class EdytujOceneActivity extends Activity {
         imie_nazwisko_textview_edytujocene.setText(imie_UTF8 + " " + nazwisko_UTF8);
         klasa_textview_edytujocene.setText(klasa);
         przedmiot_textview_edytujocene.setText(przedmiot);
-
     }
 
     public void zamknijOkno(int id) {

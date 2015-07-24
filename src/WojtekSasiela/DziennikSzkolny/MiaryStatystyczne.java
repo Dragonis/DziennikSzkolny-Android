@@ -9,34 +9,33 @@ import java.util.Collections;
 public final class MiaryStatystyczne {
 
 
-
     public MiaryStatystyczne() {
     }
 
-    public double Srednia(List<String> oceny){
+    public double Srednia(List<String> oceny) {
 
-        double suma_ocen=0;
-        double ilosc_ocen=0;
-        double srednia=0;
+        double suma_ocen = 0;
+        double ilosc_ocen = 0;
+        double srednia = 0;
 
-    if (oceny == null){ return 0;}
-        else {
-        ilosc_ocen = oceny.size();
+        if (oceny == null) {
+            return 0;
+        } else {
+            ilosc_ocen = oceny.size();
 
-        for (String ocena : oceny) {
+            for (String ocena : oceny) {
+                suma_ocen += Integer.parseInt(ocena);
+            }
+            srednia = suma_ocen / ilosc_ocen;
 
-            suma_ocen += Integer.parseInt(ocena);
-        }
-
-        srednia = suma_ocen / ilosc_ocen;
-
-        return srednia;
+            return srednia;
         }
     }
 
-    public double Mediana(List<String> oceny){
-        if (oceny == null){ return 0;}
-        else {
+    public double Mediana(List<String> oceny) {
+        if (oceny == null) {
+            return 0;
+        } else {
 
             double srednia = Srednia(oceny);
             double mediana = 0.0;
@@ -49,33 +48,34 @@ public final class MiaryStatystyczne {
             // jeżeli tablica zawiera parzystą liczbę elementów, to mediana jest
             // średnią wartością dwóch środkowych elementów
 
-            double pierwszy_kwartyl = Double.parseDouble( oceny.get(oceny.size() / 2) );
-            double drugi_kwartyl = Double.parseDouble( oceny.get(oceny.size() / 2 - 1) );
+            double pierwszy_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2));
+            double drugi_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2 - 1));
 
-                if (oceny.size() % 2 == 0) {
+            if (oceny.size() % 2 == 0) {
 
-                    mediana = pierwszy_kwartyl + drugi_kwartyl;
-                    // w zmiennej średnia trzymamy sumę dwóch środkowych elementów tablicy
+                mediana = pierwszy_kwartyl + drugi_kwartyl;
+                // w zmiennej średnia trzymamy sumę dwóch środkowych elementów tablicy
 
-                } else // jeżeli tablica zawiera nieparzystą liczbę elementów, to mediana
-                {    // jest dokładnie wartością środkową
-                    mediana = pierwszy_kwartyl;
-                }
+            } else // jeżeli tablica zawiera nieparzystą liczbę elementów, to mediana
+            {    // jest dokładnie wartością środkową
+                mediana = pierwszy_kwartyl;
+            }
 
             return mediana;
 
         }
     }
 
-    public double Dominanta(List<String> oceny){
+    public double Dominanta(List<String> oceny) {
 
         double dominanta = 0;
         int maks = 0;
         int licznik = 0;
 
-        if (oceny == null){ return 0;}
-        else {
-                for (int i = 0; i < oceny.size(); i++) {
+        if (oceny == null) {
+            return 0;
+        } else {
+            for (int i = 0; i < oceny.size(); i++) {
                 licznik = 0;
                 for (int k = 0; k < oceny.size(); k++) {
                     if (oceny.get(i) == oceny.get(k)) {
@@ -93,25 +93,27 @@ public final class MiaryStatystyczne {
         return dominanta;
     }
 
-    public double Wariancja(List<String> oceny){
-        if (oceny == null){ return 0;}
-        else {
+    public double Wariancja(List<String> oceny) {
+        if (oceny == null) {
+            return 0;
+        } else {
             double wariancja = 0.0;
             double srednia = Srednia(oceny);
             int ilosc_elementow = oceny.size();
             for (int i = 1; i < ilosc_elementow; i++) {
-                wariancja += (Double.parseDouble(oceny.get(i)) - srednia)*(Double.parseDouble(oceny.get(i)) - srednia);
+                wariancja += (Double.parseDouble(oceny.get(i)) - srednia) * (Double.parseDouble(oceny.get(i)) - srednia);
             }
             wariancja = wariancja / ilosc_elementow;
 
-           return wariancja;
+            return wariancja;
 
         }
     }
 
-    public double Odchylenie(List<String> oceny){
-        if (oceny == null){ return 0;}
-        else {
+    public double Odchylenie(List<String> oceny) {
+        if (oceny == null) {
+            return 0;
+        } else {
             double wariancja = 0.0;
             double odchylenie = 0.0;
             wariancja = Wariancja(oceny);
@@ -120,11 +122,11 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Kwartyle(List<String> oceny){
-        if (oceny == null){ return 0;}
-        else {
+    public double Kwartyle(List<String> oceny) {
+        if (oceny == null) {
+            return 0;
+        } else {
             double kwartyle = 3.1414;
-
 
             return kwartyle;
         }

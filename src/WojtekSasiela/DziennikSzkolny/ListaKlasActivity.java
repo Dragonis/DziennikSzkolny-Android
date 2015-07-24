@@ -110,7 +110,6 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
-//                pokazListeOsobzKlasy(1);
                 pokaz_Nev_Version_ListeOsobzKlasy(1);
                 ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "1";
@@ -130,7 +129,6 @@ public class ListaKlasActivity extends Activity {
                 klasa6.setBackgroundColor(Color.TRANSPARENT);
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
-//                pokazListeOsobzKlasy(2);
                 pokaz_Nev_Version_ListeOsobzKlasy(2);
                 ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "2";
@@ -150,7 +148,6 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
-//                pokazListeOsobzKlasy(3);
                 pokaz_Nev_Version_ListeOsobzKlasy(3);
                 ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "3";
@@ -169,7 +166,6 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
                 ListView_NazwyPrzedmiotow.setAdapter(null);
-//                pokazListeOsobzKlasy(4);
                 pokaz_Nev_Version_ListeOsobzKlasy(4);
 
                 klasa = "4";
@@ -187,7 +183,6 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
-//                pokazListeOsobzKlasy(5);
                 pokaz_Nev_Version_ListeOsobzKlasy(5);
                 ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "5";
@@ -205,7 +200,6 @@ public class ListaKlasActivity extends Activity {
 
                 view.setBackgroundColor(Color.BLUE);
                 //endregion
-//                pokazListeOsobzKlasy(6);
                 pokaz_Nev_Version_ListeOsobzKlasy(6);
                 ListView_NazwyPrzedmiotow.setAdapter(null);
                 klasa = "6";
@@ -228,7 +222,6 @@ public class ListaKlasActivity extends Activity {
                 for (int j = 0; j < adapterView.getChildCount(); j++)
                     adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
 
-                // change the background color of the selected element
                 view.setBackgroundColor(Color.BLUE);
 
                 przedmiot = ((TextView) view).getText().toString();
@@ -273,7 +266,6 @@ public class ListaKlasActivity extends Activity {
         for (int j = 0; j < adapterView.getChildCount(); j++)
             adapterView.getChildAt(j).setBackgroundColor(Color.TRANSPARENT);
 
-        // change the background color of the selected element
         view.setBackgroundColor(Color.BLUE);
 
         imieiNazwiskoWybranejOsobyzListView = ((TextView) view).getText().toString();
@@ -305,9 +297,7 @@ public class ListaKlasActivity extends Activity {
 
     private void DodajUczniaDoKonkretnejKlasywListViewUczniowie(Integer nr_klasy) {
         ArrayList<String> dane_studenta = pobierzDanezDodajUczniaActivity();
-//        pokazListeOsobzKlasy(nr_klasy);
         pokaz_Nev_Version_ListeOsobzKlasy(nr_klasy);
-//        uzupelniony_danymi_listview_klasa4 = pokazListeOsobzKlasy(nr_klasy);
         uzupelniony_danymi_listview_klasa4 = pokaz_Nev_Version_ListeOsobzKlasy(nr_klasy);
 
         ArrayList<String> nowoutowrzona_listastudentow = new ArrayList<String>();
@@ -322,53 +312,23 @@ public class ListaKlasActivity extends Activity {
         // dodajemy do powyzszego listview, stworzony przez nas teraz element
     }
 
-//    public ArrayList<String> pokazListeOsobzKlasy(int nr_klasy) {
-//
-//        // Connect with Database ORM
-//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
-//        RuntimeExceptionDao<Student, Integer> studentDao = dbHelper.getStudentRuntimeExceptionDao();
-//        List<Student> students = studentDao.queryForEq("classrom", nr_klasy);
-//        Integer max_liczba_studentow_w_klasie = students.size();
-//        osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-//        try{
-//            for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
-//                String name_UTF8 = new String(students.get(i).getName().getBytes("UTF-8"), "UTF-8");
-//                String surname_UTF8 = new String(students.get(i).getSurname().getBytes("UTF-8"), "UTF-8");
-//                osoby.add(name_UTF8 + " " + surname_UTF8);
-//            }}catch(Exception e)
-//        {
-//            e.getStackTrace();
-//        }
-//
-//        //String osoby[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
-//        listaOsob = new ArrayList<String>();
-//        listaOsob.addAll(osoby);
-//        adapter = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, listaOsob);
-//        listView_ImionaiNazwiska.setAdapter(adapter);
-//        return osoby;
-//        //zwracam (uzupelniony_danymi_listview_klasa4) gdybym w przyszlosci chcial dodac/edytowac/usunac elementy do tej listy.
-//
-//    }
-
     public ArrayList<String> pokaz_Nev_Version_ListeOsobzKlasy(int nr_klasy) {
 
-        // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Uczen, Integer> studentDao = dbHelper.getUczenRuntimeExceptionDao();
         List<Uczen> students = studentDao.queryForEq("klasa", nr_klasy);
         Integer max_liczba_studentow_w_klasie = students.size();
         osoby = new ArrayList<String>(max_liczba_studentow_w_klasie);
-        try{
+        try {
             for (int i = 0; i < max_liczba_studentow_w_klasie; i++) {
                 String name_UTF8 = new String(students.get(i).getImie().getBytes("UTF-8"), "UTF-8");
                 String surname_UTF8 = new String(students.get(i).getNazwisko().getBytes("UTF-8"), "UTF-8");
                 osoby.add(name_UTF8 + " " + surname_UTF8);
-            }}catch(Exception e)
-        {
+            }
+        } catch (Exception e) {
             e.getStackTrace();
         }
 
-        //String osoby[] = {"Ania Kowalska", "Joasia Pyrzyńska", "Izabela Tarnowska", "Blanka Szept", "Paweł Paluch", "Piotrek Mały", "Karol Kopytko", "Arkadiusz Bąk", "Teresa Wawrzyniak"};
         listaOsob = new ArrayList<String>();
         listaOsob.addAll(osoby);
         adapter = new ArrayAdapter<String>(this, R.layout.elementy_listy_glownej, listaOsob);
@@ -395,10 +355,8 @@ public class ListaKlasActivity extends Activity {
         koszyk.putString("Nazwisko", nazwisko);
         koszyk.putString("nrKlasy", klasa);
         koszyk.putString("przedmiot", przedmiot);
-        // Definiujemy cel
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
-        // Wysyłamy
         startActivity(cel);
     }
 
@@ -460,12 +418,7 @@ public class ListaKlasActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
                             Toast.LENGTH_LONG).show();
                 }
-
             }
         });
-
-
     }
-
-
 }

@@ -52,15 +52,15 @@ public class LogowanieActivity extends Activity {
         wczytajWszystkichStudentowzDB();
 
         zaloguj.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
 
-            textview_username = login_textview.getText().toString();
-            textview_password = password_textview.getText().toString();
+                textview_username = login_textview.getText().toString();
+                textview_password = password_textview.getText().toString();
 
-            SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(textview_username,textview_password);
-        }
-    });
+                SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(textview_username, textview_password);
+            }
+        });
 
         zamknij.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,33 +70,21 @@ public class LogowanieActivity extends Activity {
             }
         });
 
-przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
+        przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
-        try{
+                DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
+                try {
 
-            DatabaseCRUDoperations crud = new DatabaseCRUDoperations(dbHelper);
-            crud.insert_sample_database();
-            crud.load_sample_database();
+                    DatabaseCRUDoperations crud = new DatabaseCRUDoperations(dbHelper);
+                    crud.insert_sample_database();
 
-//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
-//             RuntimeExceptionDao<Account, Integer> AccountDao;
-//            RuntimeExceptionDao<Student, Integer> StudentDao;
-//            AccountDao = dbHelper.getAccountRuntimeExceptionDao();
-//            StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-//            accounts = AccountDao.queryForEq("username", username);
-//
-//            AccountDao.create(new Account("Jan","Kowalski","admin login1", "admin password1"));
-//            AccountDao.create(new Account("Johny", "Brown", "Uzytkownik", "Haslo"));
-//            AccountDao.create(new Account("Wojciech", "Sasiela", "root", "testABCD"));
-
-        }catch(Exception ex){
-            ex.getStackTrace();
-        }
-    }
-});
+                } catch (Exception ex) {
+                    ex.getStackTrace();
+                }
+            }
+        });
 
     }
 
@@ -107,14 +95,11 @@ przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
 
     public void SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(String username, String password) {
         accounts = LoadDataFromDatabase.load_Account_fromDatabase(username);
-        if (accounts.size() == 0)
-        {
+        if (accounts.size() == 0) {
             Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             db_imie = accounts.get(0).getName();
             db_nazwisko = accounts.get(0).getSurname();
-            Log.e("AccountTableDB", db_imie);
-            Log.e("AccountTableDB", db_nazwisko);
             paczka.putString("Imie", db_imie);
             paczka.putString("Nazwisko", db_nazwisko);
             login_intent.putExtras(paczka);

@@ -11,23 +11,14 @@ import android.widget.Toast;
 /**
  * Created by Wojtek on 2015-03-10.
  */
-public class DodajOceneActivity extends Activity{
+public class DodajOceneActivity extends Activity {
 
-    String imie;
-    String nazwisko;
-    String klasa;
-    String przedmiot;
-    String data;
-    String ocena;
+    String imie, nazwisko, klasa, przedmiot, data, ocena;
 
-    String imie_UTF8;
-    String nazwisko_UTF8;
+    String imie_UTF8, nazwisko_UTF8;
 
-    EditText data_edittext_dodajocene;
-    EditText ocena_edittext_dodajocene;
-    TextView imie_nazwisko_textview_dodajocene;
-    TextView przedmiot_textview_dodajocene;
-    TextView klasa_textview_dodajocene;
+    EditText data_edittext_dodajocene, ocena_edittext_dodajocene;
+    TextView imie_nazwisko_textview_dodajocene, przedmiot_textview_dodajocene, klasa_textview_dodajocene;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +29,10 @@ public class DodajOceneActivity extends Activity{
 
         pobierzzDaneUczniaActivity();
 
+        inicjalizacjaDanychTejKlasy();
+    }
+
+    private void inicjalizacjaDanychTejKlasy() {
         data_edittext_dodajocene = (EditText) findViewById(R.id.editText);
         ocena_edittext_dodajocene = (EditText) findViewById(R.id.editText2);
         imie_nazwisko_textview_dodajocene = (TextView) findViewById(R.id.imieNazwisko_textview_dodajocene);
@@ -77,9 +72,8 @@ public class DodajOceneActivity extends Activity{
 
     }
 
-    public void zamknijOkno(int id)
-    {
-        Button b = (Button)findViewById(id);
+    public void zamknijOkno(int id) {
+        Button b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
