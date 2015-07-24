@@ -146,6 +146,7 @@ public class InsertDataToDatabase {
         accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
     }
 
+    // NEV VERSION DATABASE
     public static void insert_Oceny_IntoDatabase(RuntimeExceptionDao<Ocena, Integer> ocenaDao) {
         ocenaDao.create(new Ocena(1,1,5,"10.10"));
         ocenaDao.create(new Ocena(1,1,3,"4.10"));

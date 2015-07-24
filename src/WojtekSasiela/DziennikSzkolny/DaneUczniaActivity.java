@@ -4,6 +4,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.subjects.Biology;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,8 +30,9 @@ public class DaneUczniaActivity extends Activity {
     String Nazwisko = "Sasiela";
     String nrKlasy = "1";
     String przedmiot = "1";
-    ArrayList<String> oceny_z_przyrody = new ArrayList<String>();
-    ArrayList<String> daty_z_przyrody = new ArrayList<String>();
+    List<String> oceny_z_przyrody = new ArrayList<String>();
+    List<String> daty_z_przyrody = new ArrayList<String>();
+    ArrayList<String> data_z_ocena = new ArrayList<String>();
     //    ListView data_z_ocena_listview;
     Intent cel;
     RadioButton radioButton1;
@@ -287,34 +289,44 @@ public class DaneUczniaActivity extends Activity {
         nrKlasy = przekazanedane.getString("nrKlasy");
         przedmiot = przekazanedane.getString("przedmiot");
 
-        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
+//        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
+        oceny_z_przyrody = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, "Przyroda");
+        daty_z_przyrody = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, "Przyroda");
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
-        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
-        grade2 = DanePobranezBazyDanych_Przyroda.getGrade2().toString();
-        grade3 = DanePobranezBazyDanych_Przyroda.getGrade3().toString();
+//        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
+//        grade2 = DanePobranezBazyDanych_Przyroda.getGrade2().toString();
+//        grade3 = DanePobranezBazyDanych_Przyroda.getGrade3().toString();
+//
+//        date1 = DanePobranezBazyDanych_Przyroda.getDate1().toString();
+//        date2 = DanePobranezBazyDanych_Przyroda.getDate2().toString();
+//        date3 = DanePobranezBazyDanych_Przyroda.getDate3().toString();
+//
+//        List<String> oceny = pobierz_oceny();
+//        List<String> daty = pobierz_daty_wystawionych_ocen();
+//
+//        grade1 = oceny.get(0);
+//        grade2 = oceny.get(1);
+//        grade3 = oceny.get(2);
+//
+//        date1 = daty.get(0);
+//        date2 = daty.get(1);
+//        date3 = daty.get(2);
+//
+//        this.oceny_z_przyrody.add(grade1);
+//        this.oceny_z_przyrody.add(grade2);
+//        this.oceny_z_przyrody.add(grade3);
+//        daty_z_przyrody.add(date1);
+//        daty_z_przyrody.add(date2);
+//        daty_z_przyrody.add(date3);
 
-        date1 = DanePobranezBazyDanych_Przyroda.getDate1().toString();
-        date2 = DanePobranezBazyDanych_Przyroda.getDate2().toString();
-        date3 = DanePobranezBazyDanych_Przyroda.getDate3().toString();
-
-        List<String> oceny = pobierz_oceny();
-        List<String> daty = pobierz_daty_wystawionych_ocen();
-
-        grade1 = oceny.get(0);
-        grade2 = oceny.get(1);
-        grade3 = oceny.get(2);
-
-        date1 = daty.get(0);
-        date2 = daty.get(1);
-        date3 = daty.get(2);
-
-        oceny_z_przyrody.add(grade1);
-        oceny_z_przyrody.add(grade2);
-        oceny_z_przyrody.add(grade3);
-        daty_z_przyrody.add(date1);
-        daty_z_przyrody.add(date2);
-        daty_z_przyrody.add(date3);
+//        for(Integer oceny : oceny_z_przyrody){
+//            this.oceny_z_przyrody.add(oceny);
+//        }
+//
+//        for(String data : daty_z_przyrody) {
+//            daty_z_przyrody.add(data);
+//        }
 
         TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
         TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
@@ -326,7 +338,7 @@ public class DaneUczniaActivity extends Activity {
         nrKlasy_textview.setText(nrKlasy);
         przedmiot_textview.setText(przedmiot);
 
-        ArrayList<String> data_z_ocena = new ArrayList<String>();
+
         for (Integer i = 0; i < daty_z_przyrody.size(); i++) {
 
             data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_studenta.get(i));
@@ -336,35 +348,109 @@ public class DaneUczniaActivity extends Activity {
 //        data_z_ocena_listview.setAdapter(adapter);
     }
 
-    public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
+//    public Biology pobierzOcenyzDB(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
+//        // TODO Pobieranie ocen z bazy danych i wyswietlenie w tabelach
+//        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
+//        RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
+//        RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
+//        List<Student> students = StudentDao.queryForEq("surname", nazwisko);
+//        // id kliknietej osoby (nizej)
+//        Student student = students.get(0);
+//
+//        // nauczyciel przypisal id uczniowi nr id dzienniczka z ocenami
+//        student.setId_Biology(1);
+//        student.setId_English(1);
+//        student.setId_Math(1);
+//        student.setId_Polish(1);
+//        student.setId_Religion(1);
+//        student.setId_WF(1);
+//
+//        List<Biology> przedmiot_biologia = BiologyDao.queryForEq("id", student.getId());
+//        // id przypisanemu tej osobie dziennika z ocenami
+//        Biology oceny_z_biologi;
+//        if (przedmiot_biologia.size() == 0) {
+//            oceny_z_biologi = new Biology(0, 555, 555, 555, "555", "555", "555"); // kod informujacy ze pobierasz dane z pustej tablicy
+//            Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
+//                    Toast.LENGTH_LONG).show();
+//        } else {
+//            oceny_z_biologi = przedmiot_biologia.get(0);
+//        }
+//
+//        return oceny_z_biologi;
+//
+//    }
+
+    public List<String> pobierzOcenyzDB_New_Version(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
         // TODO Pobieranie ocen z bazy danych i wyswietlenie w tabelach
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-        RuntimeExceptionDao<Biology, Integer> BiologyDao = dbHelper.getBiologyRuntimeExceptionDao();
-        List<Student> students = StudentDao.queryForEq("surname", nazwisko);
+        RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
+        RuntimeExceptionDao<Ocena, Integer> ocenaDao = dbHelper.getOcenaRuntimeExceptionDao();
+        RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
+try {
+    List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
+    List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
+
+    Integer id_ucznia = students.get(0).getId_ucznia();
+    Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
+
+    List<Ocena> oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+}catch(Exception ex)
+{
+    Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+
+}
+
+        //id kliknietej osoby
+
+//        try {
+//            if (students.size() == 0) {
+//                Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.", Toast.LENGTH_LONG).show();
+//            } else {
+//                oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+//            }
+//        }catch(Exception ex)
+//        {
+//            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+//        };
+
+        //zamiana z List<Integer> na List,String> zeby pozniej moc te oceny przeslac do nastepnego activity
+
+        return oceny;
+
+    }
+
+    public List<String> pobierzDatyzDB_New_Version(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
+        // TODO Pobieranie ocen z bazy danych i wyswietlenie w tabelach
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
+        RuntimeExceptionDao<Ocena, Integer> ocenaDao = dbHelper.getOcenaRuntimeExceptionDao();
+        RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
+        List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
+        List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
+        List<Ocena> daty = new ArrayList<Ocena>();
         // id kliknietej osoby (nizej)
-        Student student = students.get(0);
+        Uczen student = new Uczen();
+        Integer id_ucznia = students.get(0).getId_ucznia();
+        Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
 
-        // nauczyciel przypisal id uczniowi nr id dzienniczka z ocenami
-        student.setId_Biology(1);
-        student.setId_English(1);
-        student.setId_Math(1);
-        student.setId_Polish(1);
-        student.setId_Religion(1);
-        student.setId_WF(1);
+        try {
+            if (students.size() == 0) {
+                Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
+                Toast.LENGTH_LONG).show();
+            } else {
+                daty = ocenaDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+            }
+        }catch(Exception ex)
+        {
+            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Daty: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
-        List<Biology> przedmiot_biologia = BiologyDao.queryForEq("id", student.getId());
-        // id przypisanemu tej osobie dziennika z ocenami
-        Biology oceny_z_biologi;
-        if (przedmiot_biologia.size() == 0) {
-            oceny_z_biologi = new Biology(0, 555, 555, 555, "555", "555", "555"); // kod informujacy ze pobierasz dane z pustej tablicy
-            Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
-                    Toast.LENGTH_LONG).show();
-        } else {
-            oceny_z_biologi = przedmiot_biologia.get(0);
+        }
+        List<String> listaDat = new ArrayList<String>();
+        for(Ocena data: daty) {
+            listaDat.add(data.getData());
         }
 
-        return oceny_z_biologi;
+        return listaDat;
 
     }
 

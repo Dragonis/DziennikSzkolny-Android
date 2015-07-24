@@ -14,7 +14,7 @@ public class Uczen {
     String imie;
 
     @DatabaseField
-    String mazwisko;
+    String nazwisko;
 
     @DatabaseField
     Integer klasa;
@@ -22,9 +22,9 @@ public class Uczen {
     public Uczen() {
     }
 
-    public Uczen(String imie, String mazwisko, Integer klasa) {
+    public Uczen(String imie, String nazwisko, Integer klasa) {
         this.imie = imie;
-        this.mazwisko = mazwisko;
+        this.nazwisko = nazwisko;
         this.klasa = klasa;
     }
 
@@ -44,12 +44,12 @@ public class Uczen {
         this.imie = imie;
     }
 
-    public String getMazwisko() {
-        return mazwisko;
+    public String getNazwisko() {
+        return nazwisko;
     }
 
-    public void setMazwisko(String mazwisko) {
-        this.mazwisko = mazwisko;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
     public Integer getKlasa() {
