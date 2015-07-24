@@ -8,14 +8,17 @@ import java.util.Collections;
  */
 public final class MiaryStatystyczne {
 
-    int suma_ocen;
-    int ilosc_ocen;
-    double srednia;
+
 
     public MiaryStatystyczne() {
     }
 
     public double Srednia(List<String> oceny){
+
+        double suma_ocen=0;
+        double ilosc_ocen=0;
+        double srednia=0;
+
     if (oceny == null){ return 0;}
         else {
         ilosc_ocen = oceny.size();
@@ -45,18 +48,19 @@ public final class MiaryStatystyczne {
             // tutaj użyliśmy wbudowanej metody Javy sort.
             // jeżeli tablica zawiera parzystą liczbę elementów, to mediana jest
             // średnią wartością dwóch środkowych elementów
-            if (oceny.size() % 2 == 0 )
-            {
-                mediana = Double.parseDouble(oceny.get(oceny.size()/2)) + Double.parseDouble(oceny.get(oceny.size()/2-1));
-                // w zmiennej średnia trzymamy sumę dwóch środkowych elementów tablicy
 
-            }
-            else // jeżeli tablica zawiera nieparzystą liczbę elementów, to mediana
-            {    // jest dokładnie wartością środkową
-                mediana = Double.parseDouble(oceny.get(oceny.size()/2));
-            }
+            double pierwszy_kwartyl = Double.parseDouble( oceny.get(oceny.size() / 2) );
+            double drugi_kwartyl = Double.parseDouble( oceny.get(oceny.size() / 2 - 1) );
 
+                if (oceny.size() % 2 == 0) {
 
+                    mediana = pierwszy_kwartyl + drugi_kwartyl;
+                    // w zmiennej średnia trzymamy sumę dwóch środkowych elementów tablicy
+
+                } else // jeżeli tablica zawiera nieparzystą liczbę elementów, to mediana
+                {    // jest dokładnie wartością środkową
+                    mediana = pierwszy_kwartyl;
+                }
 
             return mediana;
 
@@ -64,14 +68,14 @@ public final class MiaryStatystyczne {
     }
 
     public double Dominanta(List<String> oceny){
+
+        double dominanta = 0;
+        int maks = 0;
+        int licznik = 0;
+
         if (oceny == null){ return 0;}
         else {
-
-            double dominanta = 0;
-            int maks = 0;
-            int licznik = 0;
-
-            for (int i = 0; i < oceny.size(); i++) {
+                for (int i = 0; i < oceny.size(); i++) {
                 licznik = 0;
                 for (int k = 0; k < oceny.size(); k++) {
                     if (oceny.get(i) == oceny.get(k)) {
@@ -85,9 +89,8 @@ public final class MiaryStatystyczne {
                 }
             }
 
-
-            return dominanta;
         }
+        return dominanta;
     }
 
     public double Wariancja(List<String> oceny){

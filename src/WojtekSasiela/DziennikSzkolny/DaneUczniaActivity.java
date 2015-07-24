@@ -66,10 +66,18 @@ public class DaneUczniaActivity extends Activity {
 
     MyCustomAdapter dataAdapter = null;
 
+    TextView pokaz_imie_nazwisko_textview;
+    TextView nrKlasy_textview;
+    TextView przedmiot_textview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dane_ucznia_layout);
+
+        pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
+        nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
+        przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
 
         pobierzDanezPoprzedniegoActivity();
 //        pobrany_student_z_db = pobierz_wszystkie_dane_studenta_z_db();
@@ -108,13 +116,20 @@ public class DaneUczniaActivity extends Activity {
         TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
         TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
 
+
+    try {
         napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
         napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
         napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
         napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
         napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
         napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
-//
+    }
+    catch(Exception ex)
+    {
+        Toast.makeText(getApplicationContext(),"uczeń nie posiada żadnych ocen: "+ ex.getMessage(),Toast.LENGTH_LONG).show();
+    }
+
 
 
 //         wyswitlanie odpowiednich activity statystycznych
@@ -297,6 +312,22 @@ public class DaneUczniaActivity extends Activity {
 //        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
         oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
+        if(oceny.isEmpty() || daty.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Uczeń ten nei ma żadnych ocen.", Toast.LENGTH_LONG).show();
+        }
+        else{
+
+            pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
+            nrKlasy_textview.setText(nrKlasy);
+            przedmiot_textview.setText(przedmiot);
+
+
+            for (Integer i = 0; i < daty.size(); i++) {
+
+                data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
+            }
+        }
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
 //        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
@@ -333,21 +364,6 @@ public class DaneUczniaActivity extends Activity {
 //            daty_z_przyrody.add(data);
 //        }
 
-        TextView pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
-        TextView nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
-        TextView przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
-
-
-
-        pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
-        nrKlasy_textview.setText(nrKlasy);
-        przedmiot_textview.setText(przedmiot);
-
-
-        for (Integer i = 0; i < daty.size(); i++) {
-
-            data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
-        }
 
 //        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
 //        data_z_ocena_listview.setAdapter(adapter);
@@ -392,19 +408,19 @@ public class DaneUczniaActivity extends Activity {
         RuntimeExceptionDao<Ocena, Integer> ocenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
         List<Ocena> oceny = new ArrayList<Ocena>();
-try {
-    List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
-    List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
+        try {
+            List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
+            List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
 
-    Integer id_ucznia = students.get(0).getId_ucznia();
-    Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
+            Integer id_ucznia = students.get(0).getId_ucznia();
+            Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
 
-    oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
-}catch(Exception ex)
-{
-    Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+            oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+        }catch(Exception ex)
+        {
+            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
-}
+        }
 
         //id kliknietej osoby
 
