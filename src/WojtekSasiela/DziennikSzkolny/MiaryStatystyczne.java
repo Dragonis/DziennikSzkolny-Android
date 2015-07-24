@@ -8,8 +8,8 @@ import java.util.Collections;
  */
 public final class MiaryStatystyczne {
 
-    Integer suma_ocen;
-    Integer ilosc_ocen;
+    int suma_ocen;
+    int ilosc_ocen;
     double srednia;
 
     public MiaryStatystyczne() {

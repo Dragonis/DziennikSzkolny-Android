@@ -108,12 +108,12 @@ public class DaneUczniaActivity extends Activity {
         TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
         TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
 
-//        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
-//        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
-//        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
-//        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
-//        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
-//        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
+        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
+        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
+        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
+        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
+        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
+        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
 //
 
 

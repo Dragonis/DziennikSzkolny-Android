@@ -151,7 +151,7 @@ public class InsertDataToDatabase {
         //  Ocena(Integer id_ucznia, Integer id_przedmiotu, Integer ocena, String data)
         ocenaDao.create(new Ocena(1,1,5,"10.10"));
         ocenaDao.create(new Ocena(1,1,3,"4.10"));
-        ocenaDao.create(new Ocena(1,2,4,"5.10"));
+        ocenaDao.create(new Ocena(2,2,4,"5.10"));
     }
 
     public static void insert_Przedmiot_IntoDatabase(RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao) {
