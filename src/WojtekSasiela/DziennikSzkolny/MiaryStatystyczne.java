@@ -1,6 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Collections;
 
 /**
@@ -8,14 +8,14 @@ import java.util.Collections;
  */
 public final class MiaryStatystyczne {
 
-    int suma_ocen = 0;
-    int ilosc_ocen = 0;
-    double srednia = 0.0;
+    Integer suma_ocen;
+    Integer ilosc_ocen;
+    double srednia;
 
     public MiaryStatystyczne() {
     }
 
-    public double Srednia(ArrayList<String> oceny){
+    public double Srednia(List<String> oceny){
     if (oceny == null){ return 0;}
         else {
         ilosc_ocen = oceny.size();
@@ -31,7 +31,7 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Mediana(ArrayList<String> oceny){
+    public double Mediana(List<String> oceny){
         if (oceny == null){ return 0;}
         else {
 
@@ -63,7 +63,7 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Dominanta(ArrayList<String> oceny){
+    public double Dominanta(List<String> oceny){
         if (oceny == null){ return 0;}
         else {
 
@@ -90,7 +90,7 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Wariancja(ArrayList<String> oceny){
+    public double Wariancja(List<String> oceny){
         if (oceny == null){ return 0;}
         else {
             double wariancja = 0.0;
@@ -106,7 +106,7 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Odchylenie(ArrayList<String> oceny){
+    public double Odchylenie(List<String> oceny){
         if (oceny == null){ return 0;}
         else {
             double wariancja = 0.0;
@@ -117,7 +117,7 @@ public final class MiaryStatystyczne {
         }
     }
 
-    public double Kwartyle(ArrayList<String> oceny){
+    public double Kwartyle(List<String> oceny){
         if (oceny == null){ return 0;}
         else {
             double kwartyle = 3.1414;

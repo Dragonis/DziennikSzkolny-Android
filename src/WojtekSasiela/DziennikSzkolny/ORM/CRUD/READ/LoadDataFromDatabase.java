@@ -192,7 +192,7 @@ public class LoadDataFromDatabase {
         RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
         try {
-            ocenaList = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia",id_ucznia).query();
+            ocenaList = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia",id_ucznia+1).and().eq("id_przedmiotu",id_przedmiotu).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -213,7 +213,7 @@ public class LoadDataFromDatabase {
         //TODO sprawdzanie czy dane logowania sa poprawne
         List<Ocena> datyList = null;
         try {
-            datyList = datyDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia",id_ucznia).query();
+            datyList = datyDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia",id_ucznia).and().eq("id_przedmiotu",id_przedmiotu).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -26,10 +26,10 @@ import java.util.List;
  */
 public class DaneUczniaActivity extends Activity {
 
-    String Imie = "Wojtek";
-    String Nazwisko = "Sasiela";
-    String nrKlasy = "1";
-    String przedmiot = "1";
+    String Imie;
+    String Nazwisko;
+    String nrKlasy;
+    String przedmiot;
     List<String> oceny_z_przyrody = new ArrayList<String>();
     List<String> daty_z_przyrody = new ArrayList<String>();
     ArrayList<String> data_z_ocena = new ArrayList<String>();
@@ -58,8 +58,8 @@ public class DaneUczniaActivity extends Activity {
     private int id_przegladanego_przedmiotu;
     int id_kliknietego_elementu_w_ListView;
 
-    ArrayList<String> oceny = new ArrayList<String>();
-    ArrayList<String> daty = new ArrayList<String>();
+    List<String> oceny = new ArrayList<String>();
+    List<String> daty = new ArrayList<String>();
     String obliczona_srednia;
 
     private boolean zaznaczony_jakikolwiek_radiobutton = false;
@@ -71,13 +71,18 @@ public class DaneUczniaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dane_ucznia_layout);
 
-        pobrany_student_z_db = pobierz_wszystkie_dane_studenta_z_db();
-        id_studenta = pobrany_student_z_db.getId();
-        id_przegladanego_przedmiotu = 1;
+        pobierzDanezPoprzedniegoActivity();
+//        pobrany_student_z_db = pobierz_wszystkie_dane_studenta_z_db();
+//        id_studenta = pobrany_student_z_db.getId();
+//        id_przegladanego_przedmiotu = 1;
+//
+//        oceny =  LoadDataFromDatabase.load_New_Version_StudentGrades(id_studenta,id_przegladanego_przedmiotu);
+//        daty =  LoadDataFromDatabase.load_New_Version_StudentDates(id_studenta,id_przegladanego_przedmiotu);
 
-        oceny =  LoadDataFromDatabase.load_New_Version_StudentGrades(id_studenta,id_przegladanego_przedmiotu);
-        daty =  LoadDataFromDatabase.load_New_Version_StudentDates(id_studenta,id_przegladanego_przedmiotu);
-
+        if(oceny.size() == 0 || daty.size() == 0)
+        {
+            Toast.makeText(getApplicationContext(),"Nie ma w bazie zadnych ocen z data dla tego ucznia",Toast.LENGTH_LONG).show();
+        }
         //region zainicjalizuj_formatke
 
         edytujocene = (Button) findViewById(R.id.edytuj_ocene_button_daneucznia);
@@ -86,7 +91,7 @@ public class DaneUczniaActivity extends Activity {
 
 
 //        data_z_ocena_listview = (ListView) findViewById(R.id.data_z_ocena_listview);
-        pobierzDanezPoprzedniegoActivity();
+
 
         //Generate list View from ArrayList
         displayListView();
@@ -103,13 +108,13 @@ public class DaneUczniaActivity extends Activity {
         TextView napis_odchylenie_przedmiotu = (TextView) findViewById(R.id.napis_odchylenie);
         TextView napis_kwartyle_przedmiotu = (TextView) findViewById(R.id.napis_kwartyle);
 
-        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
-        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
-        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
-        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
-        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
-        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
-
+//        napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja(oceny)));
+//        napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia(oceny)));
+//        napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta(oceny)));
+//        napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana(oceny)));
+//        napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie(oceny)));
+//        napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle(oceny)));
+//
 
 
 //         wyswitlanie odpowiednich activity statystycznych
@@ -257,21 +262,21 @@ public class DaneUczniaActivity extends Activity {
     }
 
 
-    public Student pobierz_wszystkie_dane_studenta_z_db() {
-        pobrany_student_z_db = LoadDataFromDatabase.load_Student_fromDatabase(Imie, Nazwisko);
-        return pobrany_student_z_db;
-    }
-
-    public List<String> pobierz_oceny() {
-        oceny_studenta = LoadDataFromDatabase.loadStudentGrades(id_studenta, id_przegladanego_przedmiotu);
-        return oceny_studenta;
-    }
-
-    public List<String> pobierz_daty_wystawionych_ocen()
-    {
-        daty_ocen = LoadDataFromDatabase.loadStudentDates(id_studenta, id_przegladanego_przedmiotu);
-        return daty_ocen;
-    }
+//    public Student pobierz_wszystkie_dane_studenta_z_db() {
+//        pobrany_student_z_db = LoadDataFromDatabase.load_Student_fromDatabase(Imie, Nazwisko);
+//        return pobrany_student_z_db;
+//    }
+//
+//    public List<String> pobierz_oceny() {
+//        oceny_studenta = LoadDataFromDatabase.loadStudentGrades(id_studenta, id_przegladanego_przedmiotu);
+//        return oceny_studenta;
+//    }
+//
+//    public List<String> pobierz_daty_wystawionych_ocen()
+//    {
+//        daty_ocen = LoadDataFromDatabase.loadStudentDates(id_studenta, id_przegladanego_przedmiotu);
+//        return daty_ocen;
+//    }
 
     @Override
     protected void onDestroy() {
@@ -290,8 +295,8 @@ public class DaneUczniaActivity extends Activity {
         przedmiot = przekazanedane.getString("przedmiot");
 
 //        Biology DanePobranezBazyDanych_Przyroda = pobierzOcenyzDB(Imie, Nazwisko, nrKlasy, "Przyroda");
-        oceny_z_przyrody = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, "Przyroda");
-        daty_z_przyrody = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, "Przyroda");
+        oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
+        daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         //oceny_z_przyrody = DanePobranezBazyDanych_Przyroda.
 
 //        grade1 = DanePobranezBazyDanych_Przyroda.getGrade1().toString();
@@ -339,9 +344,9 @@ public class DaneUczniaActivity extends Activity {
         przedmiot_textview.setText(przedmiot);
 
 
-        for (Integer i = 0; i < daty_z_przyrody.size(); i++) {
+        for (Integer i = 0; i < daty.size(); i++) {
 
-            data_z_ocena.add(daty_z_przyrody.get(i) + " - " + oceny_studenta.get(i));
+            data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
         }
 
 //        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_edycjadanych_row, data_z_ocena);
@@ -386,6 +391,7 @@ public class DaneUczniaActivity extends Activity {
         RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
         RuntimeExceptionDao<Ocena, Integer> ocenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
+        List<Ocena> oceny = new ArrayList<Ocena>();
 try {
     List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
     List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
@@ -393,10 +399,10 @@ try {
     Integer id_ucznia = students.get(0).getId_ucznia();
     Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
 
-    List<Ocena> oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+    oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
 }catch(Exception ex)
 {
-    Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
+    Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
 }
 
@@ -415,7 +421,13 @@ try {
 
         //zamiana z List<Integer> na List,String> zeby pozniej moc te oceny przeslac do nastepnego activity
 
-        return oceny;
+        List<String> oceny_string = new ArrayList<String>();
+        for(Ocena ocena : oceny)
+        {
+            oceny_string.add(ocena.getOcena().toString());
+        }
+
+        return oceny_string;
 
     }
 
@@ -425,22 +437,17 @@ try {
         RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
         RuntimeExceptionDao<Ocena, Integer> ocenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
-        List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
-        List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
         List<Ocena> daty = new ArrayList<Ocena>();
-        // id kliknietej osoby (nizej)
-        Uczen student = new Uczen();
-        Integer id_ucznia = students.get(0).getId_ucznia();
-        Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
-
         try {
-            if (students.size() == 0) {
-                Toast.makeText(getApplicationContext(), "Dodaj pierwszego ucznia.",
-                Toast.LENGTH_LONG).show();
-            } else {
-                daty = ocenaDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
-            }
-        }catch(Exception ex)
+            List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
+            List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
+            Integer id_ucznia = students.get(0).getId_ucznia();
+            Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();
+
+            daty = ocenaDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
+            // id kliknietej osoby (nizej)
+        }
+        catch(Exception ex)
         {
             Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Daty: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
 
