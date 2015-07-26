@@ -72,16 +72,9 @@
                 <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/Wyloguj_button"
-                        android:drawableBottom="@drawable/klodka"
-                        android:text="Wyloguj" android:clickable="true"
-                        android:onClick="Pokaz_Activity" android:layout_column="0"/>
-                <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/zamknijaplikacje_button" android:layout_row="0" android:layout_column="1"
+                        android:id="@+id/wyloguj_button" android:layout_row="0" android:layout_column="0"
                         android:drawableBottom="@drawable/zamknij"
-                        android:text="Zamknij" android:clickable="true"/>
+                        android:text="Wyloguj" android:clickable="true"/>
             </TableRow>
             <TableRow
                     android:layout_width="fill_parent"
