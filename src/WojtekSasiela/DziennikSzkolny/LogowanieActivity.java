@@ -78,7 +78,14 @@ public class LogowanieActivity extends Activity {
                 try {
 
                     DatabaseCRUDoperations crud = new DatabaseCRUDoperations(dbHelper);
-                    crud.insert_sample_database();
+                    try {
+                        crud.insert_sample_database();
+                        Toast.makeText(getApplicationContext(), "Zaladowano przykladowa baze danych.", Toast.LENGTH_SHORT).show();
+                    }catch(Exception ex0) {
+                        Log.e("NoDatabaseError","Nie moznna wprowadzic przykladowej bazydanych");
+                        Toast.makeText(getApplicationContext(), "Nie moznna wprowadzic przykladowej bazydanych.", Toast.LENGTH_SHORT).show();
+                    }
+
 
                 } catch (Exception ex) {
                     ex.getStackTrace();
@@ -100,8 +107,6 @@ public class LogowanieActivity extends Activity {
         } else {
             db_imie = accounts.get(0).getName();
             db_nazwisko = accounts.get(0).getSurname();
-            paczka.putString("Imie", db_imie);
-            paczka.putString("Nazwisko", db_nazwisko);
             login_intent.putExtras(paczka);
 
             setResult(RESULT_OK, login_intent);

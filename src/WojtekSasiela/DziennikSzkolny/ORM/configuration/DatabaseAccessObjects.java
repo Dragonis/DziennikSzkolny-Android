@@ -21,7 +21,7 @@ import java.sql.SQLException;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts4144445141270124141254.db";
+    private static final String DATABASE_NAME = "Accounts4144445141270124544141254.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;
@@ -53,7 +53,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotRuntimeDao = null;
     private RuntimeExceptionDao<Uczen, Integer> UczenRuntimeDao = null;
 
-    public DatabaseAccessObjects(Context context){
+    public DatabaseAccessObjects(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
     }
 
@@ -120,7 +120,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     }
 
 
-    public Dao<Account, Integer> getAccountDao() throws SQLException{
+    public Dao<Account, Integer> getAccountDao() throws SQLException {
         if (AccountDao == null) {
             AccountDao = getDao(Account.class);
         }
@@ -128,141 +128,147 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     }
 
 
-    public Dao<Student, Integer> getStudentDao() throws SQLException{
+    public Dao<Student, Integer> getStudentDao() throws SQLException {
         if (StudentDao == null) {
             StudentDao = getDao(Student.class);
         }
         return StudentDao;
     }
 
-    public Dao<Srednia, Integer> getSredniaDao() throws SQLException{
+    public Dao<Srednia, Integer> getSredniaDao() throws SQLException {
         if (SredniaDao == null) {
             SredniaDao = getDao(Srednia.class);
         }
         return SredniaDao;
     }
 
-    public Dao<Mediana, Integer> getMedianaDao() throws SQLException{
+    public Dao<Mediana, Integer> getMedianaDao() throws SQLException {
         if (MedianaDao == null) {
             MedianaDao = getDao(Mediana.class);
         }
         return MedianaDao;
     }
 
-    public Dao<Dominanta, Integer> getDominantaDao() throws SQLException{
+    public Dao<Dominanta, Integer> getDominantaDao() throws SQLException {
         if (DominantaDao == null) {
             DominantaDao = getDao(Dominanta.class);
         }
         return DominantaDao;
     }
 
-    public Dao<Kwartyle, Integer> getKwartyleDao() throws SQLException{
+    public Dao<Kwartyle, Integer> getKwartyleDao() throws SQLException {
         if (KwartyleDao == null) {
             KwartyleDao = getDao(Kwartyle.class);
         }
         return KwartyleDao;
     }
 
-    public Dao<Odchylenie, Integer> getOdchylenieDao() throws SQLException{
+    public Dao<Odchylenie, Integer> getOdchylenieDao() throws SQLException {
         if (OdchylenieDao == null) {
             OdchylenieDao = getDao(Odchylenie.class);
         }
         return OdchylenieDao;
     }
 
-    public Dao<Wariancja, Integer> getWariancjaDao() throws SQLException{
+    public Dao<Wariancja, Integer> getWariancjaDao() throws SQLException {
         if (WariancjaDao == null) {
             WariancjaDao = getDao(Wariancja.class);
         }
         return WariancjaDao;
     }
 
-    public Dao<Ocena, Integer> getOcenaDao() throws SQLException{
+    public Dao<Ocena, Integer> getOcenaDao() throws SQLException {
         if (OcenaDao == null) {
             OcenaDao = getDao(Ocena.class);
         }
         return OcenaDao;
     }
 
-    public Dao<Przedmiot, Integer> getPrzedmiotDao() throws SQLException{
+    public Dao<Przedmiot, Integer> getPrzedmiotDao() throws SQLException {
         if (PrzedmiotDao == null) {
             PrzedmiotDao = getDao(Przedmiot.class);
         }
         return PrzedmiotDao;
     }
 
-    public Dao<Uczen, Integer> getUczenDao() throws SQLException{
+    public Dao<Uczen, Integer> getUczenDao() throws SQLException {
         if (UczenDao == null) {
             UczenDao = getDao(Uczen.class);
         }
         return UczenDao;
     }
 
-    public RuntimeExceptionDao<Account, Integer> getAccountRuntimeExceptionDao(){
+    public RuntimeExceptionDao<Account, Integer> getAccountRuntimeExceptionDao() {
         if (AccountRuntimeDao == null) {
             AccountRuntimeDao = getRuntimeExceptionDao(Account.class);
         }
         return AccountRuntimeDao;
     }
-    public RuntimeExceptionDao<Student, Integer> getStudentRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Student, Integer> getStudentRuntimeExceptionDao() {
         if (StudentRuntimeDao == null) {
             StudentRuntimeDao = getRuntimeExceptionDao(Student.class);
         }
         return StudentRuntimeDao;
     }
 
-    public RuntimeExceptionDao<Srednia, Integer> getSredniaRuntimeExceptionDao(){
+    public RuntimeExceptionDao<Srednia, Integer> getSredniaRuntimeExceptionDao() {
         if (SredniaRuntimeDao == null) {
             SredniaRuntimeDao = getRuntimeExceptionDao(Srednia.class);
         }
         return SredniaRuntimeDao;
     }
-    public RuntimeExceptionDao<Dominanta, Integer> getDominantaRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Dominanta, Integer> getDominantaRuntimeExceptionDao() {
         if (DominantaRuntimeDao == null) {
             DominantaRuntimeDao = getRuntimeExceptionDao(Dominanta.class);
         }
         return DominantaRuntimeDao;
     }
-    public RuntimeExceptionDao<Kwartyle, Integer> getKwartyleRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Kwartyle, Integer> getKwartyleRuntimeExceptionDao() {
         if (KwartyleRuntimeDao == null) {
             KwartyleRuntimeDao = getRuntimeExceptionDao(Kwartyle.class);
         }
         return KwartyleRuntimeDao;
     }
-    public RuntimeExceptionDao<Mediana, Integer> getMedianaRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Mediana, Integer> getMedianaRuntimeExceptionDao() {
         if (MedianaRuntimeDao == null) {
             MedianaRuntimeDao = getRuntimeExceptionDao(Mediana.class);
         }
         return MedianaRuntimeDao;
     }
-    public RuntimeExceptionDao<Odchylenie, Integer> getOdchylenieRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Odchylenie, Integer> getOdchylenieRuntimeExceptionDao() {
         if (OdchylenieRuntimeDao == null) {
             OdchylenieRuntimeDao = getRuntimeExceptionDao(Odchylenie.class);
         }
         return OdchylenieRuntimeDao;
     }
-    public RuntimeExceptionDao<Wariancja, Integer> getWariancjaRuntimeExceptionDao(){
+
+    public RuntimeExceptionDao<Wariancja, Integer> getWariancjaRuntimeExceptionDao() {
         if (WariancjaRuntimeDao == null) {
             WariancjaRuntimeDao = getRuntimeExceptionDao(Wariancja.class);
         }
         return WariancjaRuntimeDao;
     }
 
-    public RuntimeExceptionDao<Ocena, Integer> getOcenaRuntimeExceptionDao(){
+    public RuntimeExceptionDao<Ocena, Integer> getOcenaRuntimeExceptionDao() {
         if (OcenaRuntimeDao == null) {
             OcenaRuntimeDao = getRuntimeExceptionDao(Ocena.class);
         }
         return OcenaRuntimeDao;
     }
 
-    public RuntimeExceptionDao<Przedmiot, Integer> getPrzedmiotRuntimeExceptionDao(){
+    public RuntimeExceptionDao<Przedmiot, Integer> getPrzedmiotRuntimeExceptionDao() {
         if (PrzedmiotRuntimeDao == null) {
             PrzedmiotRuntimeDao = getRuntimeExceptionDao(Przedmiot.class);
         }
         return PrzedmiotRuntimeDao;
     }
 
-    public RuntimeExceptionDao<Uczen, Integer> getUczenRuntimeExceptionDao(){
+    public RuntimeExceptionDao<Uczen, Integer> getUczenRuntimeExceptionDao() {
         if (UczenRuntimeDao == null) {
             UczenRuntimeDao = getRuntimeExceptionDao(Uczen.class);
         }
