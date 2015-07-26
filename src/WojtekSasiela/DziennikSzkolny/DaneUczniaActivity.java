@@ -258,6 +258,14 @@ public class DaneUczniaActivity extends Activity {
         return listaDat;
     }
 
+    public Uczen pobierzStudenta_NewVersion(int id_ucznia)
+    {
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
+        Uczen student = uczenDao.queryForEq("id_ucznia", id_ucznia).get(0);
+        return student;
+    }
+
     public void Pokaz_Activity_z_klasy(int button_id, final Context context, final Class<?> klasa) {
         Button b = (Button) findViewById(button_id);
         b.setOnClickListener(new View.OnClickListener() {

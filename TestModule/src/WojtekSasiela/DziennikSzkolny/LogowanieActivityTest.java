@@ -6,6 +6,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
 import android.widget.Button;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 
 import java.util.List;
 
@@ -151,25 +153,25 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
         assertEquals(1,studnet_class);
     }
 
-    public void testWczytajOcenyDanegoPrzedmiotuDanegoUczniaODanymID()
-    {
-        int id_ucznia = 1;
-        int id_przedmiotu = 1;
-        List<String> oceny = null;
-        TouchUtils.clickView(this, zaloguj_button);
-        oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals(5,oceny.get(0));
-        assertEquals(3,oceny.get(1));
-        assertEquals(4,oceny.get(2));
-        assertEquals(6,oceny.get(3));
-        id_ucznia = 2;
-        oceny = null;
-        oceny = LoadDataFromDatabase.loadStudentGrades(id_ucznia,id_przedmiotu);
-        assertEquals(5,oceny.get(0));
-        assertEquals(3,oceny.get(1));
-        assertEquals(4,oceny.get(2));
-        assertEquals(6,oceny.get(3));
-    }
+//    public void testWczytajOcenyDanegoPrzedmiotuDanegoUczniaODanymID()
+//    {
+//        int id_ucznia = 1;
+//        int id_przedmiotu = 1;
+//        List<String> oceny = null;
+//        TouchUtils.clickView(this, zaloguj_button);
+//        oceny = LoadDataFromDatabase.load_New_Version_StudentGrades(id_ucznia, id_przedmiotu);
+//        assertEquals(5,oceny.get(0));
+//        assertEquals(3,oceny.get(1));
+//        assertEquals(4,oceny.get(2));
+//        assertEquals(6,oceny.get(3));
+//        id_ucznia = 2;
+//        oceny = null;
+//        oceny = LoadDataFromDatabase.load_New_Version_StudentGrades(id_ucznia, id_przedmiotu);
+//        assertEquals(5,oceny.get(0));
+//        assertEquals(3,oceny.get(1));
+//        assertEquals(4,oceny.get(2));
+//        assertEquals(6,oceny.get(3));
+//    }
 
 //    public void testCzyMoznaWczytacWszystkichStudentowzDB()
 //    {
@@ -225,11 +227,11 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
     public void testSprawdzZgodnosc_Danych_Studenta()
     {
         DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
-        Student student = daneuczniaActivity.pobierz_wszystkie_dane_studenta_z_db();
-        int id = student.getId();
-        String name = student.getName();
-        String surname = student.getSurname();
-        Integer classrom = student.getClassrom();
+        Uczen student = daneuczniaActivity.pobierzStudenta_NewVersion(1);
+        int id = student.getId_ucznia();
+        String name = student.getImie();
+        String surname = student.getNazwisko();
+        Integer classrom = student.getKlasa();
         assertEquals(1,id);
         assertEquals("Wojtek",name);
         assertEquals("Sasiela",surname);
@@ -239,21 +241,19 @@ public class LogowanieActivityTest extends ActivityInstrumentationTestCase2<Logo
     public void testSprawdzZgodnosc_Ocen_Studenta()
     {
         DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
-        List<String> oceny = daneuczniaActivity.pobierz_oceny();
+        List<String> oceny = daneuczniaActivity.pobierzOcenyzDB_New_Version("Wojtek", "Sasiela", "1", "Polski");
 
         assertEquals("5",oceny.get(0));
         assertEquals("3",oceny.get(1));
-        assertEquals("4",oceny.get(2));
     }
 
     public void testSprawdzZgodnosc_DatyWystawionychOcen_Studenta()
     {
         DaneUczniaActivity daneuczniaActivity = new DaneUczniaActivity();
-        List<String> daty = daneuczniaActivity.pobierz_daty_wystawionych_ocen();
+        List<String> daty = daneuczniaActivity.pobierzDatyzDB_New_Version("Wojtek","Sasiela","1","Polski");
 
         assertEquals("10.10",daty.get(0).toString());
-        assertEquals("10.10",daty.get(1).toString());
-        assertEquals("10.10",daty.get(2).toString());
+        assertEquals("4.10",daty.get(1).toString());
     }
 
 }
