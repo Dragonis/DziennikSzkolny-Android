@@ -3,12 +3,12 @@ package WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Ocena;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Przedmiot;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import android.content.Context;
 import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -130,19 +130,26 @@ public class LoadDataFromDatabase {
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
         RuntimeExceptionDao<Przedmiot, Integer> Przedmiot_Dao = dbHelper.getPrzedmiotRuntimeExceptionDao();
-//        RuntimeExceptionDao<Przedmiot, Integer> Przedmiot_Dao = dbHelper.getPrzedmiotRuntimeExceptionDao();
-//        RuntimeExceptionDao<Uczen, Integer> Uczen_Dao = dbHelper.getUczenRuntimeExceptionDao();
+        RuntimeExceptionDao<Uczen, Integer> Uczen_Dao = dbHelper.getUczenRuntimeExceptionDao();
 
         try {
-//            listaOcen = Ocena_Dao.queryForAll();
-//            listaPrzedmiotow = Przedmiot_Dao.queryForAll();
-//            listaUczniow = Uczen_Dao.queryForAll();
-
-
 //            listaOcen = Ocena_Dao.queryBuilder().selectColumns("Grade").where().eq("nazwa",nazwa_przedmiotu).and().eq("klasa",nr_klasy).query();
-            int id_przedmiotu = Przedmiot_Dao.queryBuilder().selectColumns("id_przedmiotu").where().eq("nazwa",nazwa_przedmiotu).query().get(0).getId_przedmiotu();
-            listaOcen = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_przedmiotu",id_przedmiotu).query();
-        } catch (SQLException e) {
+
+            //  Wyswietl wszystkie oceny z matematyki w klasie 4;
+            //  select o.oceny from ocena o
+            //  join przedmiot p on o.id_przedmiotu = p.id_przedmiotu
+            //  join uczen u on o.id_ucznia = u.id_ucznia
+            //  where u.klasa = 4 and p.nazwa = 'matematyka';
+
+            QueryBuilder<Przedmiot, Integer> przedmiotQb = Przedmiot_Dao.queryBuilder();
+            QueryBuilder<Uczen, Integer> uczenQb = Uczen_Dao.queryBuilder();
+            QueryBuilder<Ocena, Integer> ocenaQb = Ocena_Dao.queryBuilder();
+            przedmiotQb.join(uczenQb);
+            ocenaQb.where().eq("klasa",nr_klasy).and().eq("nazwa", nazwa_przedmiotu);
+            ocenaQb.join(przedmiotQb);
+            listaOcen = ocenaQb.query();
+
+         } catch (SQLException e) {
             e.printStackTrace();
         }
 
