@@ -1,7 +1,6 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
-import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
@@ -29,6 +28,7 @@ public class DatabaseCRUDoperations {
     private RuntimeExceptionDao<Ocena, Integer> OcenaDao;
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotDao;
     private RuntimeExceptionDao<Uczen, Integer> UczenDao;
+    private RuntimeExceptionDao<Konto, Integer> KontaDao;
 
     public DatabaseCRUDoperations() {
     }
@@ -49,6 +49,7 @@ public class DatabaseCRUDoperations {
         OcenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         PrzedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
         UczenDao = dbHelper.getUczenRuntimeExceptionDao();
+        KontaDao = dbHelper.getKontoRuntimeExceptionDao();
 
         // jezeli znajduje sie baza danych na urzadzeniu
         if (dbHelper.getReadableDatabase() != null) {
@@ -75,12 +76,14 @@ public class DatabaseCRUDoperations {
     
     public void insert_sample_database() {
 
-        InsertDataToDatabase.insert_Accounts_IntoDatabase(AccountDao);
+//        InsertDataToDatabase.insert_Accounts_IntoDatabase(AccountDao);
+
         InsertDataToDatabase.insert_Students_IntoDatabase(StudentDao);
 
         InsertDataToDatabase.insert_Oceny_IntoDatabase(OcenaDao);
         InsertDataToDatabase.insert_Przedmiot_IntoDatabase(PrzedmiotDao);
         InsertDataToDatabase.insert_Uczen_IntoDatabase(UczenDao);
+        InsertDataToDatabase.insert_Konta_IntoDatabase(KontaDao);
     }
 
 }

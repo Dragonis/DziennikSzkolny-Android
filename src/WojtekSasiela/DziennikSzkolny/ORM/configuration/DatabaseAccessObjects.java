@@ -11,17 +11,19 @@ import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts4144445141270124544141254.db";
+    private static final String DATABASE_NAME = "Accounts414444514127017524774544141254.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Account, Integer> AccountDao = null;
@@ -37,6 +39,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private Dao<Ocena, Integer> OcenaDao = null;
     private Dao<Przedmiot, Integer> PrzedmiotDao = null;
     private Dao<Uczen, Integer> UczenDao = null;
+    private Dao<Konto, Integer> KontoDao = null;
 
 
     private RuntimeExceptionDao<Account, Integer> AccountRuntimeDao = null;
@@ -52,6 +55,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Ocena, Integer> OcenaRuntimeDao = null;
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotRuntimeDao = null;
     private RuntimeExceptionDao<Uczen, Integer> UczenRuntimeDao = null;
+    private RuntimeExceptionDao<Konto, Integer> KontoRuntimeDao = null;
 
     public DatabaseAccessObjects(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
@@ -85,6 +89,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.createTable(connectionSource, Ocena.class);
         TableUtils.createTable(connectionSource, Przedmiot.class);
         TableUtils.createTable(connectionSource, Uczen.class);
+        TableUtils.createTable(connectionSource, Konto.class);
     }
 
     @Override
@@ -117,6 +122,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, Ocena.class, true);
         TableUtils.dropTable(connectionSource, Przedmiot.class, true);
         TableUtils.dropTable(connectionSource, Uczen.class, true);
+        TableUtils.dropTable(connectionSource, Konto.class, true);
     }
 
 
@@ -198,6 +204,13 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         return UczenDao;
     }
 
+    public Dao<Konto, Integer> getKontoDao() throws SQLException {
+        if (KontoDao == null) {
+            KontoDao = getDao(Konto.class);
+        }
+        return KontoDao;
+    }
+
     public RuntimeExceptionDao<Account, Integer> getAccountRuntimeExceptionDao() {
         if (AccountRuntimeDao == null) {
             AccountRuntimeDao = getRuntimeExceptionDao(Account.class);
@@ -274,4 +287,14 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         }
         return UczenRuntimeDao;
     }
+
+    public RuntimeExceptionDao<Konto, Integer> getKontoRuntimeExceptionDao() {
+        if (KontoRuntimeDao == null) {
+            KontoRuntimeDao = getRuntimeExceptionDao(Konto.class);
+        }
+        return KontoRuntimeDao;
+    }
+
 }
+
+

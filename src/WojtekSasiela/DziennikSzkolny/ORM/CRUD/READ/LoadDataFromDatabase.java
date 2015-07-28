@@ -9,6 +9,7 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.dao.GenericRawResults;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,8 +20,7 @@ import java.util.List;
  */
 public class LoadDataFromDatabase {
 
-    public static List<Account> load_Account_fromDatabase(String username)
-    {
+    public static List<Account> load_Account_fromDatabase(String username) {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
@@ -29,8 +29,7 @@ public class LoadDataFromDatabase {
         return accounts;
     }
 
-    public static List<Account> load_Account_fromDatabase(int id)
-    {
+    public static List<Account> load_Account_fromDatabase(int id) {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
@@ -39,23 +38,21 @@ public class LoadDataFromDatabase {
         return accounts;
     }
 
-    public static Student load_Student_fromDatabase(String imie_studenta, String surname)
-    {
+    public static Student load_Student_fromDatabase(String imie_studenta, String surname) {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Student, Integer> Student_Dao = dbHelper.getStudentRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
         Student student = null;
         try {
-            student = Student_Dao.queryBuilder().where().eq("name",imie_studenta).and().eq("surname",surname).queryForFirst();
+            student = Student_Dao.queryBuilder().where().eq("name", imie_studenta).and().eq("surname", surname).queryForFirst();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return student;
     }
 
-    public static List<Student> load_Student_fromDatabase(int id)
-    {
+    public static List<Student> load_Student_fromDatabase(int id) {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Student, Integer> Student_Dao = dbHelper.getStudentRuntimeExceptionDao();
@@ -67,8 +64,7 @@ public class LoadDataFromDatabase {
     }
 
 
-    public static List<Student> load_all_Students_fromDatabase(Context context)
-    {
+    public static List<Student> load_all_Students_fromDatabase(Context context) {
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(context, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Student, Integer> Student_Dao = dbHelper.getStudentRuntimeExceptionDao();
@@ -80,9 +76,7 @@ public class LoadDataFromDatabase {
     }
 
 
-
-    public static ArrayList<String> load_New_Version_StudentGrades(int id_ucznia,int id_przedmiotu)
-    {
+    public static ArrayList<String> load_New_Version_StudentGrades(int id_ucznia, int id_przedmiotu) {
         ArrayList<String> oceny = new ArrayList<String>();
         List<Ocena> ocenaList = null;
         // Connect with Database ORM
@@ -90,20 +84,18 @@ public class LoadDataFromDatabase {
         RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
         //TODO sprawdzanie czy dane logowania sa poprawne
         try {
-            ocenaList = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia + 1).and().eq("id_przedmiotu",id_przedmiotu).query();
+            ocenaList = Ocena_Dao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia + 1).and().eq("id_przedmiotu", id_przedmiotu).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        for(Ocena sg : ocenaList)
-        {
+        for (Ocena sg : ocenaList) {
             oceny.add(Integer.toString(sg.getOcena()));
         }
         return oceny;
     }
 
-    public static ArrayList<String> load_New_Version_StudentDates(int id_ucznia,int id_przedmiotu)
-    {
+    public static ArrayList<String> load_New_Version_StudentDates(int id_ucznia, int id_przedmiotu) {
         ArrayList<String> daty = new ArrayList<String>();
         // Connect with Database ORM
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
@@ -111,19 +103,17 @@ public class LoadDataFromDatabase {
         //TODO sprawdzanie czy dane logowania sa poprawne
         List<Ocena> datyList = null;
         try {
-            datyList = datyDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia",id_ucznia).and().eq("id_przedmiotu",id_przedmiotu).query();
+            datyList = datyDao.queryBuilder().selectColumns("Data").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for(Ocena sg : datyList)
-        {
+        for (Ocena sg : datyList) {
             daty.add(sg.getData());
         }
         return daty;
     }
 
-    public static ArrayList<String> loadStudentGradesForAllClasses_New_Version(float nr_klasy,String nazwa_przedmiotu)
-    {
+    public static ArrayList<String> loadStudentGradesForAllClasses_New_Version(float nr_klasy, String nazwa_przedmiotu) {
         ArrayList<String> oceny = new ArrayList<String>();
         List<Ocena> listaOcen = new ArrayList<Ocena>();
 
@@ -145,20 +135,47 @@ public class LoadDataFromDatabase {
             QueryBuilder<Uczen, Integer> uczenQb = Uczen_Dao.queryBuilder();
             QueryBuilder<Ocena, Integer> ocenaQb = Ocena_Dao.queryBuilder();
             przedmiotQb.join(uczenQb);
-            ocenaQb.where().eq("klasa",nr_klasy).and().eq("nazwa", nazwa_przedmiotu);
+            ocenaQb.where().eq("klasa", nr_klasy).and().eq("nazwa", nazwa_przedmiotu);
             ocenaQb.join(przedmiotQb);
             listaOcen = ocenaQb.query();
 
-         } catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-        for(Ocena ocena : listaOcen)
-        {
+        for (Ocena ocena : listaOcen) {
             oceny.add(ocena.getOcena().toString());
         }
 
         return oceny;
+    }
+
+    public static List<Uczen> load_Konto_NewVersion_fromDatabase(String username, String password) {
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Konto, Integer> Konto_Dao = dbHelper.getKontoRuntimeExceptionDao();
+        RuntimeExceptionDao<Uczen, Integer> Uczen_Dao = dbHelper.getUczenRuntimeExceptionDao();
+
+        // Wyswietl uzytkownika (imie,nazwisko) ktorego login i haslo to xyz i zyx
+
+        // select imie,nazwisko from uczen u join konto konto k on u.id_ucznia = k.id_ucznia
+        // where username='' and password='';
+
+        QueryBuilder<Konto, Integer> kontoQb = Konto_Dao.queryBuilder();
+        QueryBuilder<Uczen, Integer> uczenQb = Uczen_Dao.queryBuilder();
+        List<Uczen> result = new ArrayList<Uczen>();
+        try {
+//            query = uczenQb.join(kontoQb).query();
+//            query = uczenQb.selectColumns("imie","nazwisko").where().eq("username", username).and().eq("password", password).query();
+            String query = "Select imie,nazwisko from uczen u inner join konto k on u.id_ucznia = k.id_ucznia where k.username='" + username + "' and k.password='" + password + "';";
+            GenericRawResults<Uczen> rawResults = Uczen_Dao.queryRaw(query, Uczen_Dao.getRawRowMapper());
+            result = rawResults.getResults();
+            rawResults.close();
+
+        } catch (Exception ex) {
+            Log.e("UczenQb join problem", ex.getStackTrace().toString());
+        }
+        //result.add(new Uczen("Wojtek","Sasiela",1));
+        return result;
     }
 }

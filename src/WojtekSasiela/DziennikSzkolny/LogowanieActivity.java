@@ -5,6 +5,7 @@ import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class LogowanieActivity extends Activity {
     Intent login_intent, exit_intent;
     Bundle paczka;
     String textview_username, textview_password;
-    List<Account> accounts; // Pobrana lista osob z bazy danych
+    List<Uczen> accounts; // Pobrana lista osob z bazy danych
     String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
     //endregion
 
@@ -101,17 +102,26 @@ public class LogowanieActivity extends Activity {
     }
 
     public void SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(String username, String password) {
-        accounts = LoadDataFromDatabase.load_Account_fromDatabase(username);
+        accounts = LoadDataFromDatabase.load_Konto_NewVersion_fromDatabase(username,password);
         if (accounts.size() == 0) {
             Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
         } else {
-            db_imie = accounts.get(0).getName();
-            db_nazwisko = accounts.get(0).getSurname();
-            login_intent.putExtras(paczka);
-
-            setResult(RESULT_OK, login_intent);
-            startActivity(login_intent);
+            przeslijDaneDoNastepnegoActivity(accounts.get(0));
         }
+    }
+
+    public void przeslijDaneDoNastepnegoActivity(Uczen account) {
+        db_imie = account.getImie();
+        db_nazwisko = account.getNazwisko();
+
+        Bundle koszyk = new Bundle();
+        koszyk.putString("Imie", db_imie);
+        koszyk.putString("Nazwisko", db_nazwisko);
+        Intent cel = new Intent(this, MainLobbyActivity.class);
+        cel.putExtras(koszyk);
+
+        setResult(RESULT_OK, login_intent);
+        startActivity(cel);
     }
 
 
