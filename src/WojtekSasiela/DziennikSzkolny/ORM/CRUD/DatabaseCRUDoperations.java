@@ -4,7 +4,6 @@ import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -17,13 +16,6 @@ public class DatabaseCRUDoperations {
 
     private RuntimeExceptionDao<Student, Integer> StudentDao;
     private RuntimeExceptionDao<Account, Integer> AccountDao;
-
-    private RuntimeExceptionDao<Srednia, Integer> SredniaDao;
-    private RuntimeExceptionDao<Mediana, Integer> MedianaDao;
-    private RuntimeExceptionDao<Dominanta, Integer> DominantaDao;
-    private RuntimeExceptionDao<Kwartyle, Integer> KwartyleDao;
-    private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieDao;
-    private RuntimeExceptionDao<Wariancja, Integer> WariancjaDao;
 
     private RuntimeExceptionDao<Ocena, Integer> OcenaDao;
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotDao;
@@ -38,13 +30,6 @@ public class DatabaseCRUDoperations {
 
         StudentDao = dbHelper.getStudentRuntimeExceptionDao();
         AccountDao = dbHelper.getAccountRuntimeExceptionDao();
-
-        SredniaDao = dbHelper.getSredniaRuntimeExceptionDao();
-        MedianaDao = dbHelper.getMedianaRuntimeExceptionDao();
-        DominantaDao = dbHelper.getDominantaRuntimeExceptionDao();
-        KwartyleDao = dbHelper.getKwartyleRuntimeExceptionDao();
-        OdchylenieDao = dbHelper.getOdchylenieRuntimeExceptionDao();
-        WariancjaDao = dbHelper.getWariancjaRuntimeExceptionDao();
 
         OcenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         PrzedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();

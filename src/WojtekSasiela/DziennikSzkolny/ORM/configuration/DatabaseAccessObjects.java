@@ -6,7 +6,6 @@ package WojtekSasiela.DziennikSzkolny.ORM.configuration;
 
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.miary_statystyczne.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.content.Context;
@@ -29,13 +28,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private Dao<Account, Integer> AccountDao = null;
     private Dao<Student, Integer> StudentDao = null;
 
-    private Dao<Srednia, Integer> SredniaDao = null;
-    private Dao<Mediana, Integer> MedianaDao = null;
-    private Dao<Dominanta, Integer> DominantaDao = null;
-    private Dao<Kwartyle, Integer> KwartyleDao = null;
-    private Dao<Odchylenie, Integer> OdchylenieDao = null;
-    private Dao<Wariancja, Integer> WariancjaDao = null;
-
     private Dao<Ocena, Integer> OcenaDao = null;
     private Dao<Przedmiot, Integer> PrzedmiotDao = null;
     private Dao<Uczen, Integer> UczenDao = null;
@@ -44,13 +36,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
 
     private RuntimeExceptionDao<Account, Integer> AccountRuntimeDao = null;
     private RuntimeExceptionDao<Student, Integer> StudentRuntimeDao = null;
-
-    private RuntimeExceptionDao<Srednia, Integer> SredniaRuntimeDao = null;
-    private RuntimeExceptionDao<Dominanta, Integer> DominantaRuntimeDao = null;
-    private RuntimeExceptionDao<Kwartyle, Integer> KwartyleRuntimeDao = null;
-    private RuntimeExceptionDao<Mediana, Integer> MedianaRuntimeDao = null;
-    private RuntimeExceptionDao<Odchylenie, Integer> OdchylenieRuntimeDao = null;
-    private RuntimeExceptionDao<Wariancja, Integer> WariancjaRuntimeDao = null;
 
     private RuntimeExceptionDao<Ocena, Integer> OcenaRuntimeDao = null;
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotRuntimeDao = null;
@@ -79,13 +64,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.createTable(connectionSource, Account.class);
         TableUtils.createTable(connectionSource, Student.class);
 
-        TableUtils.createTable(connectionSource, Srednia.class);
-        TableUtils.createTable(connectionSource, Mediana.class);
-        TableUtils.createTable(connectionSource, Dominanta.class);
-        TableUtils.createTable(connectionSource, Wariancja.class);
-        TableUtils.createTable(connectionSource, Odchylenie.class);
-        TableUtils.createTable(connectionSource, Kwartyle.class);
-
         TableUtils.createTable(connectionSource, Ocena.class);
         TableUtils.createTable(connectionSource, Przedmiot.class);
         TableUtils.createTable(connectionSource, Uczen.class);
@@ -112,13 +90,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, Account.class, true);
         TableUtils.dropTable(connectionSource, Student.class, true);
 
-        TableUtils.dropTable(connectionSource, Srednia.class, true);
-        TableUtils.dropTable(connectionSource, Mediana.class, true);
-        TableUtils.dropTable(connectionSource, Dominanta.class, true);
-        TableUtils.dropTable(connectionSource, Odchylenie.class, true);
-        TableUtils.dropTable(connectionSource, Wariancja.class, true);
-        TableUtils.dropTable(connectionSource, Kwartyle.class, true);
-
         TableUtils.dropTable(connectionSource, Ocena.class, true);
         TableUtils.dropTable(connectionSource, Przedmiot.class, true);
         TableUtils.dropTable(connectionSource, Uczen.class, true);
@@ -141,47 +112,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         return StudentDao;
     }
 
-    public Dao<Srednia, Integer> getSredniaDao() throws SQLException {
-        if (SredniaDao == null) {
-            SredniaDao = getDao(Srednia.class);
-        }
-        return SredniaDao;
-    }
 
-    public Dao<Mediana, Integer> getMedianaDao() throws SQLException {
-        if (MedianaDao == null) {
-            MedianaDao = getDao(Mediana.class);
-        }
-        return MedianaDao;
-    }
-
-    public Dao<Dominanta, Integer> getDominantaDao() throws SQLException {
-        if (DominantaDao == null) {
-            DominantaDao = getDao(Dominanta.class);
-        }
-        return DominantaDao;
-    }
-
-    public Dao<Kwartyle, Integer> getKwartyleDao() throws SQLException {
-        if (KwartyleDao == null) {
-            KwartyleDao = getDao(Kwartyle.class);
-        }
-        return KwartyleDao;
-    }
-
-    public Dao<Odchylenie, Integer> getOdchylenieDao() throws SQLException {
-        if (OdchylenieDao == null) {
-            OdchylenieDao = getDao(Odchylenie.class);
-        }
-        return OdchylenieDao;
-    }
-
-    public Dao<Wariancja, Integer> getWariancjaDao() throws SQLException {
-        if (WariancjaDao == null) {
-            WariancjaDao = getDao(Wariancja.class);
-        }
-        return WariancjaDao;
-    }
 
     public Dao<Ocena, Integer> getOcenaDao() throws SQLException {
         if (OcenaDao == null) {
@@ -225,47 +156,7 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         return StudentRuntimeDao;
     }
 
-    public RuntimeExceptionDao<Srednia, Integer> getSredniaRuntimeExceptionDao() {
-        if (SredniaRuntimeDao == null) {
-            SredniaRuntimeDao = getRuntimeExceptionDao(Srednia.class);
-        }
-        return SredniaRuntimeDao;
-    }
 
-    public RuntimeExceptionDao<Dominanta, Integer> getDominantaRuntimeExceptionDao() {
-        if (DominantaRuntimeDao == null) {
-            DominantaRuntimeDao = getRuntimeExceptionDao(Dominanta.class);
-        }
-        return DominantaRuntimeDao;
-    }
-
-    public RuntimeExceptionDao<Kwartyle, Integer> getKwartyleRuntimeExceptionDao() {
-        if (KwartyleRuntimeDao == null) {
-            KwartyleRuntimeDao = getRuntimeExceptionDao(Kwartyle.class);
-        }
-        return KwartyleRuntimeDao;
-    }
-
-    public RuntimeExceptionDao<Mediana, Integer> getMedianaRuntimeExceptionDao() {
-        if (MedianaRuntimeDao == null) {
-            MedianaRuntimeDao = getRuntimeExceptionDao(Mediana.class);
-        }
-        return MedianaRuntimeDao;
-    }
-
-    public RuntimeExceptionDao<Odchylenie, Integer> getOdchylenieRuntimeExceptionDao() {
-        if (OdchylenieRuntimeDao == null) {
-            OdchylenieRuntimeDao = getRuntimeExceptionDao(Odchylenie.class);
-        }
-        return OdchylenieRuntimeDao;
-    }
-
-    public RuntimeExceptionDao<Wariancja, Integer> getWariancjaRuntimeExceptionDao() {
-        if (WariancjaRuntimeDao == null) {
-            WariancjaRuntimeDao = getRuntimeExceptionDao(Wariancja.class);
-        }
-        return WariancjaRuntimeDao;
-    }
 
     public RuntimeExceptionDao<Ocena, Integer> getOcenaRuntimeExceptionDao() {
         if (OcenaRuntimeDao == null) {
