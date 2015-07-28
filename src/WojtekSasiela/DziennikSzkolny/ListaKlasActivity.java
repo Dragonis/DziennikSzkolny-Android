@@ -2,7 +2,6 @@ package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DELETE.DeleteDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Uczen;
 import android.app.Activity;
 import android.content.Context;
@@ -32,7 +31,10 @@ public class ListaKlasActivity extends Activity {
             dodaj_ucznia, dodaj_ocene,
             edytuj_ucznia, edytuj_ocene,
             usun_ucznia, usun_ocene;
-    String imie, nazwisko, klasa, przedmiot, imieiNazwiskoWybranejOsobyzListView;
+    String imie, nazwisko, klasa, przedmiot, kliknietaPozycja, imieiNazwiskoWybranejOsobyzListView;
+    Bundle koszyk = new Bundle();
+    Intent cel;
+
     //endregion
 
     @Override
@@ -67,13 +69,19 @@ public class ListaKlasActivity extends Activity {
         });
         WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.dodajucznia_button_listaklas, getApplicationContext(), DodajUczniaActivity.class);
 
+
+
+//        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
         edytuj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.edytujucznia_layout);
+//                setContentView(R.layout.edytujucznia_layout);
+                wyslijDaneDo_EdytujUczniaActivity(kliknietaPozycja,imie,nazwisko,klasa,"polski");
+                cel.putExtras(koszyk);
+                startActivity(cel);
             }
         });
-        WyswietlButton_i_PrzelaczNaActivityzKlasy(R.id.edytujucznia_buttonlistaklas, getApplicationContext(), EdytujUczniaActivity.class);
+
 
         dodaj_ocene.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,7 +235,8 @@ public class ListaKlasActivity extends Activity {
                 view.setBackgroundColor(Color.BLUE);
 
                 przedmiot = ((TextView) view).getText().toString();
-                wyslijDaneDoNastepnegoActivity();
+                wyslijDaneDo_DaneUczniaActivity();
+
 
 
             }
@@ -235,6 +244,7 @@ public class ListaKlasActivity extends Activity {
         //endregion
 
         przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie();
+
     }
 
     public void przetwarzajDanez_EdytujUczniaActivity_poCzymWyswietlw_ListViewUczniowie() {
@@ -277,6 +287,7 @@ public class ListaKlasActivity extends Activity {
         String[] split = imieiNazwiskoWybranejOsobyzListView.split(" ");
         imie = split[0];
         nazwisko = split[1];
+        kliknietaPozycja = String.valueOf(position);
 
         edytuj_ucznia.setEnabled(true);
         usun_ucznia.setEnabled(true);
@@ -350,7 +361,7 @@ public class ListaKlasActivity extends Activity {
         });
     }
 
-    public void wyslijDaneDoNastepnegoActivity() {
+    public void wyslijDaneDo_DaneUczniaActivity() {
         Bundle koszyk = new Bundle();
 
         koszyk.putString("Imie", imie);
@@ -360,6 +371,18 @@ public class ListaKlasActivity extends Activity {
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
         startActivity(cel);
+    }
+
+
+    public void wyslijDaneDo_EdytujUczniaActivity(String identity, String name, String surname, String classroom, String subcjet) {
+
+        koszyk.putString("Id",identity);
+        koszyk.putString("Imie", name);
+        koszyk.putString("Nazwisko", surname);
+        koszyk.putString("nrKlasy", classroom);
+        koszyk.putString("przedmiot", przedmiot);
+         cel = new Intent(this, EdytujUczniaActivity.class);
+
     }
 
     public ArrayList<String> pobierzDanezDodajUczniaActivity() {
@@ -423,4 +446,6 @@ public class ListaKlasActivity extends Activity {
             }
         });
     }
+
+
 }
