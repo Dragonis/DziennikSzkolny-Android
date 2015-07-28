@@ -84,6 +84,10 @@ public class InsertDataToDatabase {
         kontoDao.create(new Konto(2,"Uzytkownik","Haslo"));
     }
 
+    public static void insert_new_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao,String imie, String nazwisko, Integer klasa)
+    {
+        uczenDao.create(new Uczen(imie,nazwisko,klasa));
+    }
     //endregion
 
 }

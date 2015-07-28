@@ -1,7 +1,9 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Uczen;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,11 +35,7 @@ public class DodajUczniaActivity extends Activity {
                 String nazwisko = nazwisko_edittext.getText().toString();
                 String klasa = klasa_edittext.getText().toString();
 
-                DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
-
-                RuntimeExceptionDao<Student, Integer> StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-
-                wprowadzStudentadoBazyDanych(StudentDao, imie, nazwisko, klasa);
+                wprowadzUzytkownikaDoBazyDanych(imie, nazwisko, Integer.parseInt(klasa));
                 przeslijDaneDoWczesniejszegoActivity(imie, nazwisko, klasa);
 
             }
@@ -45,6 +43,12 @@ public class DodajUczniaActivity extends Activity {
 
         zamknijOkno(R.id.zamknij_button_dodajucznia);
 
+    }
+
+    public void wprowadzUzytkownikaDoBazyDanych(String imie, String nazwisko, Integer klasa) {
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
+        InsertDataToDatabase.insert_new_Uczen_IntoDatabase(uczenDao, imie, nazwisko, klasa);
     }
 
     public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa) {
@@ -58,9 +62,7 @@ public class DodajUczniaActivity extends Activity {
         startActivity(cel);
     }
 
-    public void wprowadzStudentadoBazyDanych(RuntimeExceptionDao<Student, Integer> studentDao, String imie, String nazwisko, String nr_klasy) {
-        studentDao.create(new Student(imie, nazwisko, Integer.parseInt(nr_klasy)));
-    }
+
 
     public void zamknijOkno(int id) {
         Button b = (Button) findViewById(id);

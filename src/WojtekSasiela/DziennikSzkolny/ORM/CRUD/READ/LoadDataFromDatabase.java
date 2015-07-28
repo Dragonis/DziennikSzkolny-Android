@@ -178,4 +178,13 @@ public class LoadDataFromDatabase {
         //result.add(new Uczen("Wojtek","Sasiela",1));
         return result;
     }
+
+    public static List<Konto> load_Konto_Nev_Version_fromDatabase(int id) {
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Konto, Integer> Konto_Dao = dbHelper.getKontoRuntimeExceptionDao();
+        //TODO sprawdzanie czy dane logowania sa poprawne
+        List<Konto> konta = Konto_Dao.queryForEq("id_konta", id);
+        return konta;
+    }
 }

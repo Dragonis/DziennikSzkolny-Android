@@ -3,7 +3,7 @@ package WojtekSasiela.DziennikSzkolny;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DELETE.DeleteDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.UPDATE.UpdateDataInDatabase;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
+import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Konto;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +25,7 @@ public class OpcjeAcitivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statystyka_opcje_layout);
 
-        wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(3);
+        wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(1);
 
         update_button = (Button) findViewById(R.id.update_password_button);
         update_button.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class OpcjeAcitivity extends Activity {
 
     public void wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(int uzytkownik_o_id) {
 
-        List<Account> uzytkownicy = LoadDataFromDatabase.load_Account_fromDatabase(uzytkownik_o_id);
+        List<Konto> uzytkownicy = LoadDataFromDatabase.load_Konto_Nev_Version_fromDatabase(uzytkownik_o_id);
         Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: " + uzytkownicy.get(0).getPassword().toString());
 
         // wyswietlanei danych w widoku

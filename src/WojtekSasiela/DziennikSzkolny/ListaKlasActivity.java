@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DELETE.DeleteDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Uczen;
@@ -94,6 +95,7 @@ public class ListaKlasActivity extends Activity {
             @Override
             public void onClick(View view) {
                 UsunZaznaczonegoUczniazListView(view);
+                DeleteDataFromDatabase.usunUcznia(imie,nazwisko);
             }
         });
 
