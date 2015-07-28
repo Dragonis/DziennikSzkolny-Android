@@ -1,6 +1,5 @@
 package WojtekSasiela.DziennikSzkolny;
 
-import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DELETE.DeleteDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.UPDATE.UpdateDataInDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.Konto;
@@ -23,7 +22,7 @@ public class OpcjeAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.statystyka_opcje_layout);
+        setContentView(R.layout.opcje_layout);
 
         wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(1);
 
