@@ -29,14 +29,12 @@ public class EdytujUczniaActivity extends Activity {
         inicjalizujKomponentyInterfejsu();
         pobierzDanezListaKlasActivity();
         ustawWartosciKomponentomInterfejsu(id_edittext, imie_edittext, nazwisko_edittext, klasa_edittext);
-        przypisWartosciZmiennymLokalnymZKomponentowGraficznych(id_edittext, imie_edittext, nazwisko_edittext, klasa_edittext);
-
-
 
         zapisz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                przeslijDaneDoWczesniejszegoActivity(id, imie, nazwisko, klasa);
+                przypisWartosciZmiennymLokalnymZKomponentowGraficznych(id_edittext, imie_edittext, nazwisko_edittext, klasa_edittext);
+                przeslijDaneDoWczesniejszegoActivity();
             }
         });
         zamknijOkno(R.id.zamknij_button_edytujucznia);
@@ -79,7 +77,7 @@ public class EdytujUczniaActivity extends Activity {
 
     }
 
-    public void przeslijDaneDoWczesniejszegoActivity(String id, String imie, String nazwisko, String klasa) {
+    public void przeslijDaneDoWczesniejszegoActivity() {
         Bundle koszyk = new Bundle();
         koszyk.putString("Id", id);
         koszyk.putString("Imie", imie);

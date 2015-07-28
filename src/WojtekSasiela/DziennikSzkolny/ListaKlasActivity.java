@@ -31,7 +31,7 @@ public class ListaKlasActivity extends Activity {
             dodaj_ucznia, dodaj_ocene,
             edytuj_ucznia, edytuj_ocene,
             usun_ucznia, usun_ocene;
-    String imie, nazwisko, klasa, przedmiot, kliknietaPozycja, imieiNazwiskoWybranejOsobyzListView;
+    String id, imie, nazwisko, klasa, przedmiot, kliknietaPozycja, imieiNazwiskoWybranejOsobyzListView;
     Bundle koszyk = new Bundle();
     Intent cel;
 
@@ -59,6 +59,8 @@ public class ListaKlasActivity extends Activity {
         edytuj_ocene = (Button) findViewById(R.id.edytujocene_button_listaklas);
         usun_ocene = (Button) findViewById(R.id.usunocene_button_listaklas);
         //endregion
+
+
 
         //region Button'y
         dodaj_ucznia.setOnClickListener(new View.OnClickListener() {
@@ -420,10 +422,10 @@ public class ListaKlasActivity extends Activity {
 
         Bundle przekazanedane = getIntent().getExtras();
 
-        String id = przekazanedane.getString("Id");
-        String imie = przekazanedane.getString("Imie");
-        String nazwisko = przekazanedane.getString("Nazwisko");
-        String klasa = przekazanedane.getString("Klasa");
+        id = przekazanedane.getString("Id");
+        imie = przekazanedane.getString("Imie");
+        nazwisko = przekazanedane.getString("Nazwisko");
+        klasa = przekazanedane.getString("Klasa");
 
         Toast.makeText(getApplicationContext(), "ID :" + id + " | Imie: " + imie + "Naziwsko: " + nazwisko + "Klasa: " + klasa,
                 Toast.LENGTH_SHORT).show();
