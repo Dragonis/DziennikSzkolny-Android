@@ -2,7 +2,6 @@ package WojtekSasiela.DziennikSzkolny;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.DatabaseCRUDoperations;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;

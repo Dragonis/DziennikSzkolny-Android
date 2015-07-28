@@ -1,7 +1,6 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE;
 
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -46,12 +45,6 @@ public class InsertDataToDatabase {
         studentDao.create(new Student("Maria", "Ciekawska", 6));
         studentDao.create(new Student("Marta", "Okoń", 6));
         studentDao.create(new Student("Angelika", "Wesołowska", 6));
-    }
-
-    public static void insert_Accounts_IntoDatabase(RuntimeExceptionDao<Account, Integer> accountDao) {
-        accountDao.create(new Account("Jan","Kowalski","admin login1", "admin password1"));
-        accountDao.create(new Account("Johny","Brown","Uzytkownik", "Haslo"));
-        accountDao.create(new Account("Wojciech","Sasiela","root", "testABCD"));
     }
 
     // NEV VERSION DATABASE

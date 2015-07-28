@@ -1,7 +1,6 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD.READ;
 
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import android.content.Context;
@@ -20,23 +19,7 @@ import java.util.List;
  */
 public class LoadDataFromDatabase {
 
-    public static List<Account> load_Account_fromDatabase(String username) {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
-        //TODO sprawdzanie czy dane logowania sa poprawne
-        List<Account> accounts = Account_Dao.queryForEq("username", username);
-        return accounts;
-    }
 
-    public static List<Account> load_Account_fromDatabase(int id) {
-        // Connect with Database ORM
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Account, Integer> Account_Dao = dbHelper.getAccountRuntimeExceptionDao();
-        //TODO sprawdzanie czy dane logowania sa poprawne
-        List<Account> accounts = Account_Dao.queryForEq("id", id);
-        return accounts;
-    }
 
     public static Student load_Student_fromDatabase(String imie_studenta, String surname) {
         // Connect with Database ORM

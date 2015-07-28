@@ -4,28 +4,24 @@ package WojtekSasiela.DziennikSzkolny.ORM.configuration;
  * Created by Wojtek on 2015-02-05.
  */
 
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
-    private static final String DATABASE_NAME = "Accounts41444451412703175234774544141254.db";
+    private static final String DATABASE_NAME = "Accounts414444514124703175234774544141254.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<Account, Integer> AccountDao = null;
     private Dao<Student, Integer> StudentDao = null;
 
     private Dao<Ocena, Integer> OcenaDao = null;
@@ -34,7 +30,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
     private Dao<Konto, Integer> KontoDao = null;
 
 
-    private RuntimeExceptionDao<Account, Integer> AccountRuntimeDao = null;
     private RuntimeExceptionDao<Student, Integer> StudentRuntimeDao = null;
 
     private RuntimeExceptionDao<Ocena, Integer> OcenaRuntimeDao = null;
@@ -61,7 +56,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
 
     private void dodajWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
 
-        TableUtils.createTable(connectionSource, Account.class);
         TableUtils.createTable(connectionSource, Student.class);
 
         TableUtils.createTable(connectionSource, Ocena.class);
@@ -87,7 +81,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
 
     private void usunWszystkieTabele(ConnectionSource connectionSource) throws SQLException {
 
-        TableUtils.dropTable(connectionSource, Account.class, true);
         TableUtils.dropTable(connectionSource, Student.class, true);
 
         TableUtils.dropTable(connectionSource, Ocena.class, true);
@@ -96,13 +89,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         TableUtils.dropTable(connectionSource, Konto.class, true);
     }
 
-
-    public Dao<Account, Integer> getAccountDao() throws SQLException {
-        if (AccountDao == null) {
-            AccountDao = getDao(Account.class);
-        }
-        return AccountDao;
-    }
 
 
     public Dao<Student, Integer> getStudentDao() throws SQLException {
@@ -142,12 +128,6 @@ public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {
         return KontoDao;
     }
 
-    public RuntimeExceptionDao<Account, Integer> getAccountRuntimeExceptionDao() {
-        if (AccountRuntimeDao == null) {
-            AccountRuntimeDao = getRuntimeExceptionDao(Account.class);
-        }
-        return AccountRuntimeDao;
-    }
 
     public RuntimeExceptionDao<Student, Integer> getStudentRuntimeExceptionDao() {
         if (StudentRuntimeDao == null) {

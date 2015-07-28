@@ -2,7 +2,6 @@ package WojtekSasiela.DziennikSzkolny.ORM.CRUD;
 
 import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
 import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
-import WojtekSasiela.DziennikSzkolny.ORM.tables.Account;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 
@@ -15,7 +14,6 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 public class DatabaseCRUDoperations {
 
     private RuntimeExceptionDao<Student, Integer> StudentDao;
-    private RuntimeExceptionDao<Account, Integer> AccountDao;
 
     private RuntimeExceptionDao<Ocena, Integer> OcenaDao;
     private RuntimeExceptionDao<Przedmiot, Integer> PrzedmiotDao;
@@ -29,7 +27,6 @@ public class DatabaseCRUDoperations {
     public DatabaseCRUDoperations(DatabaseAccessObjects dbHelper) {
 
         StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-        AccountDao = dbHelper.getAccountRuntimeExceptionDao();
 
         OcenaDao = dbHelper.getOcenaRuntimeExceptionDao();
         PrzedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();

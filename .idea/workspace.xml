@@ -38,19 +38,20 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: WojtekSasiela.DziennikSzkolny" />
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" line="24" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" line="88" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" line="21" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" line="81" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a507650d-74c7-4ee0-b46d-c960fd7bd44c" name="Default" comment="o">
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Dominanta.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Kwartyle.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Mediana.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Odchylenie.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Srednia.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\miary_statystyczne\Wariancja.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\wojteks\DziennikSzkolny-Android\src\WojtekSasiela\DziennikSzkolny\ORM\tables\Account.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/UPDATE/UpdateDataInDatabase.java" afterPath="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/UPDATE/UpdateDataInDatabase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DziennikSzkolny.iws" />
@@ -120,11 +121,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DatabaseAccessObjects.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DatabaseAccessObjects.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4437401">
+              <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,9 +137,57 @@
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateDataInDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/UPDATE/UpdateDataInDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseConfigUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogowanieActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoadDataFromDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+              <folding>
+                <element signature="e#2711#2719#0" expanded="true" />
+                <element signature="e#3591#3599#0" expanded="true" />
+                <element signature="e#4458#4466#0" expanded="true" />
+                <element signature="e#4515#4522#0" expanded="true" />
+                <element signature="e#6869#6876#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,57 +203,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListaKlasActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="63" selection-start-line="97" selection-start-column="63" selection-end-line="97" selection-end-column="63" />
-              <folding>
-                <element signature="e#4099#4339#0" expanded="true" />
-                <element signature="e#4338#4339#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Konto.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Konto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.026941363">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statystyki_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/statystyki_layout.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9259257">
-              <caret line="131" column="50" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatystykiActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatystykiActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DeleteDataFromDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -212,24 +215,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Uczen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Uczen.java">
+      <file leaf-file-name="InsertDataToDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpcjeAcitivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OpcjeAcitivity.java">
+      <file leaf-file-name="Konto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Konto.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -582,8 +583,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/StudentGrades.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MyCustomAdapter.java" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/Country.java" />
@@ -624,15 +623,17 @@
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Konto.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/38248d4f-9a72-4eb7-9203-7bd7c8127b11/console.sql" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DodajUczniaActivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OpcjeAcitivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/StatystykiActivity.java" />
-        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java" />
         <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/UPDATE/UpdateDataInDatabase.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java" />
+        <option value="$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java" />
       </list>
     </option>
   </component>
@@ -682,7 +683,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -1039,6 +1039,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1628,6 +1629,7 @@
       <workItem from="1438002538566" duration="10675000" />
       <workItem from="1438070805098" duration="5786000" />
       <workItem from="1438079997180" duration="488000" />
+      <workItem from="1438081503368" duration="456000" />
     </task>
     <servers />
   </component>
@@ -1664,11 +1666,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140361000" />
+    <option name="totallyTimeSpent" value="140817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1678,13 +1680,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32336017" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30840045" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24165708" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24271844" sideWeight="0.49421486" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24271844" sideWeight="0.49421486" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.03883495" sideWeight="0.4931973" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1701,6 +1702,7 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03883495" sideWeight="0.50680274" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3314154" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1739,6 +1741,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Uczen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/OpcjeAcitivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4b5204d7-8642-4305-baf4-89553837b9fa/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1999,46 +2019,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#668#669#0" expanded="false" />
-            <element signature="e#693#694#0" expanded="false" />
-            <element signature="e#726#727#0" expanded="false" />
-            <element signature="e#754#755#0" expanded="false" />
-            <element signature="e#789#790#0" expanded="false" />
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#868#869#0" expanded="false" />
-            <element signature="e#908#909#0" expanded="false" />
-            <element signature="e#943#944#0" expanded="false" />
-            <element signature="e#974#975#0" expanded="false" />
-            <element signature="e#1022#1023#0" expanded="false" />
-            <element signature="e#1062#1063#0" expanded="false" />
-            <element signature="e#1093#1094#0" expanded="false" />
-            <element signature="e#1120#1121#0" expanded="false" />
-            <element signature="e#1160#1161#0" expanded="false" />
-            <element signature="e#1192#1193#0" expanded="false" />
-            <element signature="e#1226#1227#0" expanded="false" />
-            <element signature="e#1256#1257#0" expanded="false" />
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1340#1341#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10776545">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Ocena.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27416798">
@@ -2085,44 +2065,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/DodajUczniaActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="87" selection-start-line="37" selection-start-column="87" selection-end-line="37" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding>
-            <element signature="e#3725#3733#0" expanded="true" />
-            <element signature="e#4605#4613#0" expanded="true" />
-            <element signature="e#5472#5480#0" expanded="true" />
-            <element signature="e#5529#5536#0" expanded="true" />
-            <element signature="e#7883#7890#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2145,16 +2093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ListaKlasActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2168,7 +2106,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/statystyki_layout.xml">
       <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9259257">
+        <state vertical-scroll-proportion="0.0">
           <caret line="131" column="50" selection-start-line="131" selection-start-column="50" selection-end-line="131" selection-end-column="50" />
           <folding />
         </state>
@@ -2185,26 +2123,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/MiaryStatystyczne.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2213,11 +2131,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/LogowanieActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/tables/new_version_database/Konto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026941363">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/CREATE/InsertDataToDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/READ/LoadDataFromDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding>
+            <element signature="e#2711#2719#0" expanded="true" />
+            <element signature="e#3591#3599#0" expanded="true" />
+            <element signature="e#4458#4466#0" expanded="true" />
+            <element signature="e#4515#4522#0" expanded="true" />
+            <element signature="e#6869#6876#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/UPDATE/UpdateDataInDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DatabaseCRUDoperations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseConfigUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/CRUD/DELETE/DeleteDataFromDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WojtekSasiela/DziennikSzkolny/ORM/configuration/DatabaseAccessObjects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4437401">
+          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
