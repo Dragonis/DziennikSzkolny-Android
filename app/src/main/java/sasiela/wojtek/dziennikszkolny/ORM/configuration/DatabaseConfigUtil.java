@@ -1,6 +1,6 @@
 package sasiela.wojtek.dziennikszkolny.ORM.configuration;
 
-import sasiela.wojtek.dziennikszkolny.ORM.tables.Account;
+import android.accounts.Account;
 
 import com.j256.ormlite.android.apptools.OrmLiteConfigUtil;
 

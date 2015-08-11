@@ -1,25 +1,27 @@
 package sasiela.wojtek.dziennikszkolny;
 
 
+import android.accounts.Account;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-import java.sql.SQLException;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+
 import java.util.List;
 
-import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseHelper;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.Account;
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.DatabaseCRUDoperations;
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.READ.LoadDataFromDatabase;
+import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
 import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
-
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
 
 
 /**
@@ -27,108 +29,104 @@ import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
  */
 public class LogowanieActivity extends Activity {
 
-    Button zaloguj;
-    Button zamknij;
-    Button przykladowa_baza_danych_button;
-    DatabaseHelper dbHelper;
-    RuntimeExceptionDao<Account, Integer> AccountDao;
-    RuntimeExceptionDao<Student, Integer> StudentDao;
+    //region Zmienne
+    Button zaloguj, zamknij, przykladowa_baza_danych_button;
+    TextView login_textview, password_textview;
+    Intent login_intent, exit_intent;
+    Bundle paczka;
+    String textview_username, textview_password;
+    List<Uczen> accounts; // Pobrana lista osob z bazy danych
+    String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.logowanie_layout);
 
-
+        //region Inicjalizacja_zmiennych
+        login_intent = new Intent(getApplicationContext(), MainLobbyActivity.class);
+        paczka = new Bundle();
         zaloguj = (Button) findViewById(R.id.zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
+        login_textview = (TextView) findViewById(R.id.loginTextView);
+        password_textview = (TextView) findViewById(R.id.passwordTextView);
+        //endregion
 
-        dbHelper = OpenHelperManager.getHelper(this, DatabaseHelper.class);
+        wczytajWszystkichStudentowzDB();
 
-    zaloguj.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        zaloguj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            AccountDao = dbHelper.getAccountRuntimeExceptionDao();
-            StudentDao = dbHelper.getStudentRuntimeExceptionDao();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            Bundle koszyk = new Bundle();
+                textview_username = login_textview.getText().toString();
+                textview_password = password_textview.getText().toString();
 
-            TextView login_textview = (TextView) findViewById(R.id.loginTextView);
-            TextView password_textview = (TextView) findViewById(R.id.passwordTextView);
-
-            String username = login_textview.getText().toString();
-            String password = password_textview.getText().toString();
-
-            //TODO sprawdzanie czy dane logowania sa poprawne
-            List<Account> accounts = AccountDao.queryForEq("username", username);
-
-           if (accounts.size() == 0)
-           {
-               Toast.makeText(getApplicationContext(),"Nie ma takiego uzytkownika",Toast.LENGTH_SHORT).show();
-           }else {
-
-               String imie = accounts.get(0).getName();
-               String nazwisko = accounts.get(0).getSurname();
-
-               koszyk.putString("Imie", imie);
-               koszyk.putString("Nazwisko", nazwisko);
-               intent.putExtras(koszyk);
-
-               setResult(RESULT_OK, intent);
-               startActivity(intent);
-           }
-        }
-    });
+                SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(textview_username, textview_password);
+            }
+        });
 
         zamknij.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
-
                 finish();
                 System.exit(0);
-
             }
         });
 
-przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        DatabaseCRUDoperations crud = new DatabaseCRUDoperations();
-        try{
-            crud.insert_Accounts_IntoDatabase(AccountDao);
-            crud.insert_Students_IntoDatabase(StudentDao);
-            crud.insert_sample_database();
-        }catch(Exception ex){
-            ex.getStackTrace();
-        }
-    }
-});
-
-    }
-
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa)
-    {
-        Button b = (Button)findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
+        przykladowa_baza_danych_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, klasa);
 
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
+                DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
+                try {
+
+                    DatabaseCRUDoperations crud = new DatabaseCRUDoperations(dbHelper);
+                    try {
+                        crud.insert_sample_database();
+                        Toast.makeText(getApplicationContext(), "Zaladowano przykladowa baze danych.", Toast.LENGTH_SHORT).show();
+                    }catch(Exception ex0) {
+                        Log.e("NoDatabaseError", "Nie moznna wprowadzic przykladowej bazydanych");
+                        Toast.makeText(getApplicationContext(), "Nie moznna wprowadzic przykladowej bazydanych.", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (Exception ex) {
+                    ex.getStackTrace();
                 }
-
             }
         });
+
     }
+
+    public List<Student> wczytajWszystkichStudentowzDB() {
+        List<Student> students = LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
+        return students;
+    }
+
+    public void SprawdzPoprawnoscDanychLogowania_PoCzymZalogujSie(String username, String password) {
+        accounts = LoadDataFromDatabase.load_Konto_NewVersion_fromDatabase(username,password);
+        if (accounts.size() == 0) {
+            Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
+        } else {
+            przeslijDaneDoNastepnegoActivity(accounts.get(0));
+        }
+    }
+
+    public void przeslijDaneDoNastepnegoActivity(Uczen account) {
+        db_imie = account.getImie();
+        db_nazwisko = account.getNazwisko();
+
+        Bundle koszyk = new Bundle();
+        koszyk.putString("Imie", db_imie);
+        koszyk.putString("Nazwisko", db_nazwisko);
+        Intent cel = new Intent(this, MainLobbyActivity.class);
+        cel.putExtras(koszyk);
+
+        setResult(RESULT_OK, login_intent);
+        startActivity(cel);
+    }
+
+
 }

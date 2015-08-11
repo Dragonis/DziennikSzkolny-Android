@@ -1,141 +1,105 @@
 package sasiela.wojtek.dziennikszkolny;
 
-import sasiela.wojtek.dziennikszkolny.Fragments.*;
+
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 
 /**
  * Created by Wojtek on 2014-11-23.
  */
 public class StatystykiActivity extends Activity {
-    ArrayList<String> ocenyArray;
-    // get the selected radio button from the group
-    RadioGroup radioGroup;
-    RatingBar ratingBar;
-    RadioButton radioButton;
-    float liczba_gwiazdek;
-    int selectedOption;
+
+    private ArrayList<String> ocenyArray;
+    private RadioGroup radioGroup;
+    private RatingBar ratingBar;
+    private RadioButton radioButton;
+    private Button oblicz_button_statystyki;
+
+    private ArrayList<String> oceny, daty = new ArrayList<String>();
+    private CharSequence kliknieta_nazwa_przedmiotu;
+    private String kliknieta_nazwa_przedmiotu_to_String;
+
+    private TextView srednia_klasy_statystyki,
+            wariancja_klasy_statystyki,
+            mediana_klasy_statystyki,
+            dominanta_klasy_statystyki,
+            odchylenie_klasy_statystyki,
+            kwartyle_klasy_statystyki;
+
+    private float liczba_gwiazdek;
+    private int selectedOption;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_statystyki_layout);
-        radioGroup = (RadioGroup) findViewById(R.id.radioSets);
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-
-        Button pokaz_button_statystyki = (Button) findViewById(R.id.pokaz_button_statystyki);
-        //Pokaz_Activity_z_klasy(R.id.otworz_srednia_button, getApplicationContext(), SredniaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), WariancjaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), OdchylenieAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), MedianaAcitivity.class);
-        Pokaz_Activity_z_klasy(R.id.pokaz_button_statystyki, getApplicationContext(), DominantaAcitivity.class);
-//        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);    Pokaz_Activity_z_klasy(R.id.otworz_wariancja_button, getApplicationContext(), WariancjaAcitivity.class);
-//        Pokaz_Activity_z_klasy(R.id.otworz_odchylenie_button, getApplicationContext(), OdchylenieAcitivity.class);
-//        Pokaz_Activity_z_klasy(R.id.otworz_mediana_button, getApplicationContext(), MedianaAcitivity.class);
-//        Pokaz_Activity_z_klasy(R.id.otworz_dominanta_button, getApplicationContext(), DominantaAcitivity.class);
-//        Pokaz_Activity_z_klasy(R.id.otworz_kwartyle_button, getApplicationContext(), KwartyleAcitivity.class);
+        setContentView(R.layout.statystyki_layout);
         zamknijOkno(R.id.Zamknij_Statystyki);
 
-//        final Button srednia_button_statystyki = (Button) findViewById(R.id.otworz_srednia_button);
-//        srednia_button_statystyki.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Pobieramy tekst z pola
-//                //TODO W ocenyArray wsadz dane o ocenach z danej klasy
-//                ocenyArray = new ArrayList<String>();
-//                ocenyArray.add("0");
-//                ocenyArray.add("0");
-//                ocenyArray.add("0");
-//                // Pakujemy go w Bundle
-//                Bundle koszyk = new Bundle();
-//                koszyk.putStringArrayList("ocenyArray", ocenyArray);
-//                Intent cel = new Intent(view.getContext(), SredniaAcitivity.class);
-//                cel.putExtras(koszyk);
-//                startActivity(cel);
-//
-//
-//            }
-//        });
+        inicjalizacjaZmiennychTejKlasy();
 
-        pokaz_button_statystyki.setOnClickListener(new View.OnClickListener() {
+        oblicz_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO W ocenyArray wsadz dane o ocenach z danej klasy
-                ocenyArray = new ArrayList<String>();
-                ocenyArray.add("0");
-                ocenyArray.add("0");
-                ocenyArray.add("0");
 
                 selectedOption = radioGroup.getCheckedRadioButtonId();
-                // find the radiobutton by the previously returned id
-
                 liczba_gwiazdek = ratingBar.getRating();
                 radioButton = (RadioButton) findViewById(selectedOption);
 
-                Bundle koszyk = new Bundle();
-                Intent cel = new Intent();
-                koszyk.putStringArrayList("ocenyArray", ocenyArray);
-                if (radioButton == null)
-                {
+                if (radioButton == null) {
                     Toast.makeText(getApplicationContext(), "Wybierz miare statystyczna i nr klasy", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
 
-                    if (radioButton.getText().equals("Srednia arytmetyczna")) {
-                        cel = new Intent(view.getContext(), SredniaAcitivity.class);
-                    }
-                    if (radioButton.getText().equals("Wariancja")) {
-                        cel = new Intent(view.getContext(), WariancjaAcitivity.class);
-                    }
-                    if (radioButton.getText().equals("Odchylenie standardowe")) {
-                        cel = new Intent(view.getContext(), OdchylenieAcitivity.class);
-                    }
-                    if (radioButton.getText().equals("Mediana")) {
-                        cel = new Intent(view.getContext(), MedianaAcitivity.class);
-                    }
-                    if (radioButton.getText().equals("Dominanta")) {
-                        cel = new Intent(view.getContext(), DominantaAcitivity.class);
-                    }
-                    if (radioButton.getText().equals("Kwartyle")) {
-                        cel = new Intent(view.getContext(), KwartyleAcitivity.class);
-                    }
+                    kliknieta_nazwa_przedmiotu = radioButton.getText();
+                    kliknieta_nazwa_przedmiotu_to_String = radioButton.getText().toString();
 
+                    oceny = LoadDataFromDatabase.loadStudentGradesForAllClasses_New_Version(liczba_gwiazdek, kliknieta_nazwa_przedmiotu_to_String);
+
+                    try {
+                        srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
+                        wariancja_klasy_statystyki.setText("Wariancja: " + oceny.get(1));
+                        mediana_klasy_statystyki.setText("Mediana: " + oceny.get(0));
+                        dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
+                        odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(1));
+                        kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(1));
+                    } catch (Exception ex) {
+                        ex.getStackTrace();
                         Toast.makeText(getApplicationContext(),
-                                radioButton.getText() + " " + String.valueOf(liczba_gwiazdek)
-                                , Toast.LENGTH_SHORT).show();
+                                "Nie wszyscy uczniowie maja wprowadzone oceny. Dlatego nie mozna obliczyc miary statyst. ",
+                                Toast.LENGTH_LONG).show();
+                    }
 
-                        cel.putExtras(koszyk);
-                        startActivity(cel);
-
+                    Toast.makeText(getApplicationContext(),
+                            kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
+                            , Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
+    public void inicjalizacjaZmiennychTejKlasy() {
+        radioGroup = (RadioGroup) findViewById(R.id.radioSets);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
 
-    public void Pokaz_Activity_z_klasy(int id, final Context context, final Class<?> klasa) {
-        Button b = (Button) findViewById(id);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, klasa);
+        oblicz_button_statystyki = (Button) findViewById(R.id.oblicz_button_statystyki);
 
-                if (intent.resolveActivity(getPackageManager()) != null)
-                    startActivity(intent);
-                else {
-                    Toast.makeText(getApplicationContext(), "Niestety, ale startActivityForResult wywala blad.",
-                            Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
+        srednia_klasy_statystyki = (TextView) findViewById(R.id.srednia_klasy_statystyki);
+        wariancja_klasy_statystyki = (TextView) findViewById(R.id.wariancja_klasy_statystyki);
+        mediana_klasy_statystyki = (TextView) findViewById(R.id.mediana_klasy_statystyki);
+        dominanta_klasy_statystyki = (TextView) findViewById(R.id.dominanta_klasy_statystyki);
+        odchylenie_klasy_statystyki = (TextView) findViewById(R.id.odchylenie_klasy_statystyki);
+        kwartyle_klasy_statystyki = (TextView) findViewById(R.id.kwartyle_klasy_statystyki);
     }
 
     public void zamknijOkno(int id) {

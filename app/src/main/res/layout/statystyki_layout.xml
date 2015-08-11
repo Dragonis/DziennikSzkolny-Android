@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:background="@mipmap/images">
+
+    <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="vertical"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/glowne_okno">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Srednia ocen na liczbe uczniow"
+                    android:id="@+id/qqqw" android:layout_gravity="center_horizontal"
+                    android:layout_toEndOf="@+id/zzzyubl" android:layout_above="@+id/Zamknij_Statystyki"
+                    android:layout_alignParentStart="true"/>
+
+            <RadioGroup
+                    android:id="@+id/radioSets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Polski"
+                        android:id="@+id/radioButton_polski" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Angielski"
+                        android:id="@+id/radioButton_angielski" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Matematyka"
+                        android:id="@+id/radioButton_matematyka" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Przyroda"
+                        android:id="@+id/radioButton_przyroda" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Religia"
+                        android:id="@+id/radioButton_religia" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WF"
+                        android:id="@+id/radioButton_wf" android:layout_gravity="center_horizontal"
+                        android:checked="false"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Dla klasy:"
+                        android:id="@+id/textView4" android:layout_gravity="center_horizontal"/>
+                <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ratingBar" android:layout_gravity="center_horizontal" android:numStars="6"
+                        android:indeterminateOnly="false" android:stepSize="1" android:layout_marginLeft="15dp"/>
+
+                <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Oblicz"
+                        android:id="@+id/oblicz_button_statystyki" android:layout_gravity="center_horizontal"/>
+
+            </RadioGroup>
+
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Srednia:"
+                        android:id="@+id/srednia_klasy_statystyki"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Wariancja:"
+                        android:id="@+id/wariancja_klasy_statystyki"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Mediana:"
+                        android:id="@+id/mediana_klasy_statystyki"/>
+            </TableRow>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Dominanta:"
+                        android:id="@+id/dominanta_klasy_statystyki"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Odchylenie:"
+                        android:id="@+id/odchylenie_klasy_statystyki"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Kwartyle:"
+                        android:id="@+id/kwartyle_klasy_statystyki"/>
+            </TableRow>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zamknij"
+                    android:id="@+id/Zamknij_Statystyki"
+                    android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+</ScrollView>
