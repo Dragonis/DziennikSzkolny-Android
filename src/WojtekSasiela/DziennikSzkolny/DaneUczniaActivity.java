@@ -210,8 +210,8 @@ public class DaneUczniaActivity extends Activity {
         RuntimeExceptionDao<Przedmiot, Integer> przedmiotDao = dbHelper.getPrzedmiotRuntimeExceptionDao();
         List<Ocena> oceny = new ArrayList<Ocena>();
         try {
-            List<Uczen> students = uczenDao.queryForEq("nazwisko", nazwisko);
-            List<Przedmiot> przedmioty = przedmiotDao.queryForEq("nazwa", nazwaPrzedmiotu);
+            List<Uczen> students = uczenDao.queryBuilder().where().eq("nazwisko", nazwisko).query();
+            List<Przedmiot> przedmioty = przedmiotDao.queryBuilder().where().eq("nazwa", nazwaPrzedmiotu).query();
 
             Integer id_ucznia = students.get(0).getId_ucznia();
             Integer id_przedmiotu = przedmioty.get(0).getId_przedmiotu();

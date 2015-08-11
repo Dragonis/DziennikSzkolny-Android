@@ -1,8 +1,12 @@
 package WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE;
 
+import WojtekSasiela.DziennikSzkolny.ORM.configuration.DatabaseAccessObjects;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.new_version_database.*;
 import WojtekSasiela.DziennikSzkolny.ORM.tables.Student;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+
+import java.sql.SQLException;
 
 /**
  * Created by Wojtek on 2015-07-04.
@@ -80,6 +84,40 @@ public class InsertDataToDatabase {
     public static void insert_new_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao,String imie, String nazwisko, Integer klasa)
     {
         uczenDao.create(new Uczen(imie,nazwisko,klasa));
+    }
+
+    public static void insert_new_Ocena_IntoDatabase(RuntimeExceptionDao<Ocena, Integer> ocenaDao,  Integer Id_ucznia, Integer Id_przedmiotu, Integer ocena, String data)
+    {
+        ocenaDao.create(new Ocena(Id_ucznia, Id_przedmiotu, ocena, data));
+    }
+
+    public static void dodajOceneIDateUczniowioDanymImieniuiNazwisku(String imie, String nazwisko, String nazwa_przedmiotu, Integer ocena, String data)
+    {
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+
+        RuntimeExceptionDao<Uczen, Integer> Uczen_Dao = dbHelper.getUczenRuntimeExceptionDao();
+        RuntimeExceptionDao<Przedmiot, Integer> Przedmiot_Dao = dbHelper.getPrzedmiotRuntimeExceptionDao();
+        RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
+
+        Uczen uczen = null;
+        Integer id_ucznia = 0;
+        try {
+            uczen = Uczen_Dao.queryBuilder().where().eq("imie",imie).and().eq("nazwisko",nazwisko).queryForFirst();
+            id_ucznia = uczen.getId_ucznia();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        Przedmiot przedmiot = null;
+        Integer id_przedmiotu = 0;
+        try {
+            przedmiot = Przedmiot_Dao.queryBuilder().where().eq("nazwa",nazwa_przedmiotu).queryForFirst();
+            id_przedmiotu = przedmiot.getId_przedmiotu();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        InsertDataToDatabase.insert_new_Ocena_IntoDatabase(Ocena_Dao, id_ucznia, id_przedmiotu, ocena, data);
     }
     //endregion
 

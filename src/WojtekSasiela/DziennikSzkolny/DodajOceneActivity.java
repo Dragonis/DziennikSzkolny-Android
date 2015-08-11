@@ -1,5 +1,6 @@
 package WojtekSasiela.DziennikSzkolny;
 
+import WojtekSasiela.DziennikSzkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,34 +14,48 @@ import android.widget.Toast;
  */
 public class DodajOceneActivity extends Activity {
 
-    String imie, nazwisko, klasa, przedmiot, data, ocena;
+    String imie, nazwisko, klasa, przedmiot, ocena, data;
 
     String imie_UTF8, nazwisko_UTF8;
 
     EditText data_edittext_dodajocene, ocena_edittext_dodajocene;
     TextView imie_nazwisko_textview_dodajocene, przedmiot_textview_dodajocene, klasa_textview_dodajocene;
+    Button zamknij_dodajocene_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dodajocene_layout);
-
         zamknijOkno(R.id.zamknij_dodajocene_button);
+
+        imicjalizujFormatke();
 
         pobierzzDaneUczniaActivity();
 
-        inicjalizacjaDanychTejKlasy();
+        zamknij_dodajocene_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ocena = ocena_edittext_dodajocene.getText().toString();
+                data = data_edittext_dodajocene.getText().toString();
+
+                InsertDataToDatabase.dodajOceneIDateUczniowioDanymImieniuiNazwisku(imie, nazwisko, przedmiot, Integer.parseInt(ocena), data);
+
+                Toast.makeText(getApplicationContext(),"Dodano ocenê.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
-    private void inicjalizacjaDanychTejKlasy() {
-        data_edittext_dodajocene = (EditText) findViewById(R.id.editText);
-        ocena_edittext_dodajocene = (EditText) findViewById(R.id.editText2);
+    private void imicjalizujFormatke() {
+        data_edittext_dodajocene = (EditText) findViewById(R.id.data_edittext_dodajocene);
+        ocena_edittext_dodajocene = (EditText) findViewById(R.id.ocena_edittext_dodajocene);
         imie_nazwisko_textview_dodajocene = (TextView) findViewById(R.id.imieNazwisko_textview_dodajocene);
         klasa_textview_dodajocene = (TextView) findViewById(R.id.klasa_textview_dodajocene);
         przedmiot_textview_dodajocene = (TextView) findViewById(R.id.przedmiot_textview_dodajocene);
+        zamknij_dodajocene_button = (Button) findViewById(R.id.zamknij_dodajocene_button);
 
-        data_edittext_dodajocene.setText(data);
-        ocena_edittext_dodajocene.setText(ocena);
         imie_nazwisko_textview_dodajocene.setText(imie_UTF8 + " " + nazwisko_UTF8);
         klasa_textview_dodajocene.setText(klasa);
         przedmiot_textview_dodajocene.setText(przedmiot);
@@ -71,6 +86,7 @@ public class DodajOceneActivity extends Activity {
         }
 
     }
+
 
     public void zamknijOkno(int id) {
         Button b = (Button) findViewById(id);

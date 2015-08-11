@@ -33,12 +33,20 @@ public final class MiaryStatystyczne {
     }
 
     public double Mediana(List<String> oceny) {
+
+        double srednia = Srednia(oceny);
+        double mediana = 0.0;
+        double pierwszy_kwartyl;
+        double drugi_kwartyl;
+
+
         if (oceny == null) {
             return 0;
         } else {
 
-            double srednia = Srednia(oceny);
-            double mediana = 0.0;
+           pierwszy_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2));
+           drugi_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2 - 1));
+
             Collections.sort(oceny);
 
             // mediana jest wartością środkową w danym zbiorze
@@ -48,8 +56,7 @@ public final class MiaryStatystyczne {
             // jeżeli tablica zawiera parzystą liczbę elementów, to mediana jest
             // średnią wartością dwóch środkowych elementów
 
-            double pierwszy_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2));
-            double drugi_kwartyl = Double.parseDouble(oceny.get(oceny.size() / 2 - 1));
+
 
             if (oceny.size() % 2 == 0) {
 
@@ -61,9 +68,10 @@ public final class MiaryStatystyczne {
                 mediana = pierwszy_kwartyl;
             }
 
-            return mediana;
 
         }
+
+        return mediana;
     }
 
     public double Dominanta(List<String> oceny) {

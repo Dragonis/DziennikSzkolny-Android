@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="10"
-            android:id="@+id/editText"/>
+            android:id="@+id/data_edittext_dodajocene"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText2"/>
+            android:id="@+id/ocena_edittext_dodajocene"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
