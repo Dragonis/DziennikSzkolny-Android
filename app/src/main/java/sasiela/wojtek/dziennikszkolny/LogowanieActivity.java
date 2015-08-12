@@ -12,6 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import java.util.List;
@@ -37,16 +44,28 @@ public class LogowanieActivity extends Activity {
     String textview_username, textview_password;
     List<Uczen> accounts; // Pobrana lista osob z bazy danych
     String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
+
+    private TextView facebook_info;
+    private LoginButton facebook_loginButton;
+    private CallbackManager callbackManager;
+
     //endregion
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.logowanie_layout);
+
+        callbackManager = CallbackManager.Factory.create();
+        facebook_info = (TextView)findViewById(R.id.facebook_info);
+        facebook_loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
 
         //region Inicjalizacja_zmiennych
         login_intent = new Intent(getApplicationContext(), MainLobbyActivity.class);
         paczka = new Bundle();
+
         zaloguj = (Button) findViewById(R.id.zaloguj_button_logowanie);
         zamknij = (Button) findViewById(R.id.zamknij_button_logowanie);
         przykladowa_baza_danych_button = (Button) findViewById(R.id.przykladowabazaDanychButton);
@@ -98,6 +117,56 @@ public class LogowanieActivity extends Activity {
             }
         });
 
+
+        facebook_loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                facebook_info.setText(
+                        "User ID: "
+                                + loginResult.getAccessToken().getUserId()
+                                + "\n" +
+                                "Auth Token: "
+                                + loginResult.getAccessToken().getToken()
+                );
+                Intent cel = new Intent(getApplicationContext(), FacebookActivity.class);
+                startActivity(cel);
+            }
+
+            @Override
+            public void onCancel() {
+                facebook_info.setText("Login attempt canceled.");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                facebook_info.setText("Login attempt failed.");
+            }
+
+        });
+    }
+
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
     }
 
     public List<Student> wczytajWszystkichStudentowzDB() {

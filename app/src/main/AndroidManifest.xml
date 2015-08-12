@@ -4,9 +4,13 @@
     android:versionCode="1"
     android:versionName="1.0">
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="17"
         android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+
         <activity android:name=".LogowanieActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -14,6 +18,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+        <activity android:name=".FacebookActivity"
+
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
+
         <!--<activity android:name=".LogowanieActivity" android:label="Logowanie"/>-->
         <activity android:name=".MainLobbyActivity" android:label="Menu główne"/>
         <activity android:name=".DodajUczniaActivity" android:label="Dodaj ucznia"/>
@@ -26,11 +40,6 @@
         <activity android:name=".OAutorzeActivity" android:label="Lista Uczniow"/>
         <activity android:name=".ListaKlasActivity" android:label="Lista klas"/>
 
-        <activity android:name=".StatisticActivity.SredniaAcitivity" android:label="Srednia arytmetyczna"/>
-        <activity android:name=".StatisticActivity.WariancjaAcitivity" android:label="Wariancja"/>
-        <activity android:name=".StatisticActivity.OdchylenieAcitivity" android:label="Odchylenie standardowe"/>
-        <activity android:name=".StatisticActivity.MedianaAcitivity" android:label="Mediana"/>
-        <activity android:name=".StatisticActivity.DominantaAcitivity" android:label="Dominanta"/>
-        <activity android:name=".StatisticActivity.KwartyleAcitivity" android:label="Kwartyle"/>
+
     </application>
 </manifest>

@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">Dziennik szkoly podstaowej nr 3 w Tarnobrzegu</string>
     <string name="test">New ToggleButton</string>
+    <string name="facebook_app_id">481034375410717</string>
+
     <string name="Zob_Statyst">Statystyki</string>
     <string name="Uczniowie">Lista uczniów</string>
     <string name="Opcje">Opcje</string>
