@@ -56,9 +56,9 @@ public class LogowanieActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.logowanie_layout);
 
-        callbackManager = CallbackManager.Factory.create();
         facebook_info = (TextView)findViewById(R.id.facebook_info);
         facebook_loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
 
@@ -145,11 +145,9 @@ public class LogowanieActivity extends Activity {
         });
     }
 
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 

@@ -20,4 +20,5 @@ allprojects {
             url "https://repository-achartengine.forge.cloudbees.com/snapshot/"
         }
     }
+
 }
