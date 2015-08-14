@@ -16,11 +16,17 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Arrays;
 import java.util.List;
 
 import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
@@ -51,6 +57,10 @@ public class LogowanieActivity extends Activity {
 
     //endregion
 
+
+
+    private String surname;
+    private String namefb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +127,7 @@ public class LogowanieActivity extends Activity {
             }
         });
 
-
+        facebook_loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends"));
         facebook_loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -128,6 +138,36 @@ public class LogowanieActivity extends Activity {
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
                 );
+
+
+
+                GraphRequest request = GraphRequest.newMeRequest(
+                        loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(
+                                    JSONObject object,
+                                    GraphResponse response) {
+
+                                try {
+                                    namefb = object.getString("name");
+                                    surname = object.getString("surname");
+                                    Toast.makeText(LogowanieActivity.this, namefb, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LogowanieActivity.this, surname, Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // Application code
+                                Log.v("LoginActivity", response.toString());
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,email,gender, birthday");
+                request.setParameters(parameters);
+                request.executeAsync();
+
+//                przeslijDaneDoNastepnegoActivity(new Uczen(namefb,surname,1));
             }
 
             @Override
