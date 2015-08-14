@@ -128,8 +128,6 @@ public class LogowanieActivity extends Activity {
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
                 );
-                Intent cel = new Intent(getApplicationContext(), FacebookActivity.class);
-                startActivity(cel);
             }
 
             @Override
