@@ -71,10 +71,10 @@ public class InsertDataToDatabase {
     }
 
     public static void insert_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao) {
-        uczenDao.create(new Uczen("Wojtek","Sasiela",1));
-        uczenDao.create(new Uczen("Kamil","Fajny",1));
-        uczenDao.create(new Uczen("Basia","Elegancka",1));
-        uczenDao.create(new Uczen("Jolanta","Zabawna",2));
+        uczenDao.create(new Uczen("Wojtek","Sasiela",1,false));
+        uczenDao.create(new Uczen("Kamil","Fajny",1,false));
+        uczenDao.create(new Uczen("Basia","Elegancka",1,false));
+        uczenDao.create(new Uczen("Jolanta","Zabawna",2,false));
     }
 
     public static void insert_Konta_IntoDatabase(RuntimeExceptionDao<Konto, Integer> kontoDao) {
@@ -83,9 +83,9 @@ public class InsertDataToDatabase {
         kontoDao.create(new Konto(2,"Uzytkownik","Haslo"));
     }
 
-    public static void insert_new_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao,String imie, String nazwisko, Integer klasa)
+    public static void insert_new_Uczen_IntoDatabase(RuntimeExceptionDao<Uczen, Integer> uczenDao,String imie, String nazwisko, Integer klasa,boolean isNauczyciel)
     {
-        uczenDao.create(new Uczen(imie,nazwisko,klasa));
+        uczenDao.create(new Uczen(imie,nazwisko,klasa,isNauczyciel));
     }
 
     public static void insert_new_Ocena_IntoDatabase(RuntimeExceptionDao<Ocena, Integer> ocenaDao,  Integer Id_ucznia, Integer Id_przedmiotu, Integer ocena, String data)

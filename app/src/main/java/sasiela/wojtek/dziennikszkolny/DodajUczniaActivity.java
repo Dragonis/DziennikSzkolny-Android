@@ -37,7 +37,7 @@ public class DodajUczniaActivity extends Activity {
                 String nazwisko = nazwisko_edittext.getText().toString();
                 String klasa = klasa_edittext.getText().toString();
 
-                wprowadzUzytkownikaDoBazyDanych(imie, nazwisko, Integer.parseInt(klasa));
+                wprowadzUzytkownikaDoBazyDanych(imie, nazwisko, Integer.parseInt(klasa),false);
                 przeslijDaneDoWczesniejszegoActivity(imie, nazwisko, klasa);
 
             }
@@ -47,10 +47,10 @@ public class DodajUczniaActivity extends Activity {
 
     }
 
-    public void wprowadzUzytkownikaDoBazyDanych(String imie, String nazwisko, Integer klasa) {
+    public void wprowadzUzytkownikaDoBazyDanych(String imie, String nazwisko, Integer klasa, boolean isNauczyciel) {
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(getApplicationContext(), DatabaseAccessObjects.class);
         RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
-        InsertDataToDatabase.insert_new_Uczen_IntoDatabase(uczenDao, imie, nazwisko, klasa);
+        InsertDataToDatabase.insert_new_Uczen_IntoDatabase(uczenDao, imie, nazwisko, klasa,isNauczyciel);
     }
 
     public void przeslijDaneDoWczesniejszegoActivity(String imie, String nazwisko, String klasa) {

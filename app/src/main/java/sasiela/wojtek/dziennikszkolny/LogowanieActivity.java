@@ -215,7 +215,13 @@ public class LogowanieActivity extends Activity {
         if (accounts.size() == 0) {
             Toast.makeText(getApplicationContext(), "Nie ma takiego uzytkownika", Toast.LENGTH_SHORT).show();
         } else {
-            przeslijDaneDoNastepnegoActivity(accounts.get(0));
+            Uczen account = accounts.get(0);
+            if(account.isNauczyciel() == true)
+            {
+
+            }else{
+                przeslijDaneDoNastepnegoActivity(account);
+            }
         }
     }
 

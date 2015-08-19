@@ -19,13 +19,17 @@ public class Uczen {
     @DatabaseField
     Integer klasa;
 
+    @DatabaseField
+    boolean isNauczyciel;
+
     public Uczen() {
     }
 
-    public Uczen(String imie, String nazwisko, Integer klasa) {
+    public Uczen(String imie, String nazwisko, Integer klasa, boolean isNauczyciel) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.klasa = klasa;
+        this.isNauczyciel = isNauczyciel;
     }
 
     public Integer getId_ucznia() {
@@ -58,5 +62,13 @@ public class Uczen {
 
     public void setKlasa(Integer klasa) {
         this.klasa = klasa;
+    }
+
+    public boolean isNauczyciel() {
+        return isNauczyciel;
+    }
+
+    public void setIsNauczyciel(boolean isNauczyciel) {
+        this.isNauczyciel = isNauczyciel;
     }
 }
