@@ -232,10 +232,13 @@ public class DaneUczniaActivity extends Activity {
 
         //zamiana z List<Integer> na List,String> zeby pozniej moc te oceny przeslac do nastepnego activity
         List<String> oceny_string = new ArrayList<String>();
-        for (Ocena ocena : oceny) {
-            oceny_string.add(ocena.getOcena().toString());
+        try {
+            for (Ocena ocena : oceny) {
+                oceny_string.add(ocena.getOcena().toString());
+            }
+        } catch (Exception ex) {
+            ex.getStackTrace();
         }
-
         return oceny_string;
 
     }

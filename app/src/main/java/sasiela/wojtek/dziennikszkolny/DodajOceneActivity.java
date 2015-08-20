@@ -13,7 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+
 import java.util.Calendar;
+
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
+import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Ocena;
 
 /**
  * Created by Wojtek on 2015-03-10.
@@ -70,6 +77,7 @@ public class DodajOceneActivity extends Activity {
                 finish();
                 date = date_editext.getText().toString();
                 grade = grade_edittext.getText().toString();
+                InsertDataToDatabase.dodajOceneIDateUczniowioDanymImieniuiNazwisku(Imie,Nazwisko,przedmiot,Integer.parseInt(grade),date);
                 przeslijDaneDoWczesniejszegoActivity(date, grade);
             }
         });
@@ -87,10 +95,6 @@ public class DodajOceneActivity extends Activity {
         grade = przekazanedane.getString("grade");
         date = przekazanedane.getString("date");
 
-        if(grade == null && date == null ) {
-        }else{
-            Toast.makeText(getApplicationContext(), "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
-        }
 
     }
 
@@ -105,6 +109,7 @@ public class DodajOceneActivity extends Activity {
         koszyk.putString("Przedmiot", przedmiot);
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
+        Toast.makeText(getApplicationContext(), "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
         startActivity(cel);
     }
 
