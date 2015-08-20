@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -19,10 +20,18 @@ import java.util.Calendar;
  */
 public class DodajOceneActivity extends Activity {
 
-    String date;
-    String grade;
+    private String date;
+    private String grade;
     private EditText grade_edittext;
     private EditText date_editext;
+    private String Imie;
+    private String Nazwisko;
+    private String nrKlasy;
+    private String przedmiot;
+
+    private TextView ImieNazwiskoTextView;
+    private TextView NrKlasyTextView;
+    private TextView PrzedmiotTextView;
 
 
     @Override
@@ -31,10 +40,20 @@ public class DodajOceneActivity extends Activity {
         setContentView(R.layout.dodajocene_layout);
         Calendar calendar = Calendar.getInstance();
 
+        ImieNazwiskoTextView = (TextView) findViewById(R.id.imieNazwisko_textview_dodajocene);
+        NrKlasyTextView = (TextView) findViewById(R.id.klasa_textview_dodajocene);
+        PrzedmiotTextView = (TextView) findViewById(R.id.przedmiot_textview_dodajocene);
 
         grade_edittext = (EditText) findViewById(R.id.ocena_edittext_dodajocene);
         date_editext = (EditText) findViewById(R.id.data_edittext_dodajocene);
-        date_editext.setText(String.valueOf(calendar.get(Calendar.DATE) + "." + String.valueOf(calendar.get(Calendar.MONTH)) ));
+        date_editext.setText(String.valueOf(calendar.get(Calendar.DATE) + "." + String.valueOf(calendar.get(Calendar.MONTH))));
+
+        pobierzDanezPoprzedniegoActivity();
+
+        ImieNazwiskoTextView.setText(Imie + " " + Nazwisko);
+        NrKlasyTextView.setText(nrKlasy);
+        PrzedmiotTextView.setText(przedmiot);
+
         zamknijOkno(R.id.zamknij_dodajocene_button);
 
     }
@@ -56,13 +75,34 @@ public class DodajOceneActivity extends Activity {
         });
 
     }
+    public void pobierzDanezPoprzedniegoActivity() {
+        // dane pochodza z ListaKlasActivity
+        Bundle przekazanedane = getIntent().getExtras();
 
+        Imie = przekazanedane.getString("Imie");
+        Nazwisko = przekazanedane.getString("Nazwisko");
+        nrKlasy = przekazanedane.getString("Klasa");
+        przedmiot = przekazanedane.getString("Przedmiot");
+
+        grade = przekazanedane.getString("grade");
+        date = przekazanedane.getString("date");
+
+        if(grade == null && date == null ) {
+        }else{
+            Toast.makeText(getApplicationContext(), "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     public void przeslijDaneDoWczesniejszegoActivity(String date, String grade) {
 
         Bundle koszyk = new Bundle();
         koszyk.putString("date", date);
         koszyk.putString("grade", grade);
+        koszyk.putString("Imie", Imie );
+        koszyk.putString("Nazwisko", Nazwisko);
+        koszyk.putString("Klasa", nrKlasy);
+        koszyk.putString("Przedmiot", przedmiot);
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
         startActivity(cel);

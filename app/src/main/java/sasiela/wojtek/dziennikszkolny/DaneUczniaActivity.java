@@ -74,8 +74,8 @@ public class DaneUczniaActivity extends Activity {
         pokaz_imie_nazwisko_textview = (TextView) findViewById(R.id.pokazImieiNaziwsko);
         nrKlasy_textview = (TextView) findViewById(R.id.nrKlasy);
         przedmiot_textview = (TextView) findViewById(R.id.przedmiot);
-
         pobierzDanezPoprzedniegoActivity();
+
 
         pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
         nrKlasy_textview.setText(nrKlasy);
@@ -84,9 +84,9 @@ public class DaneUczniaActivity extends Activity {
         if (oceny.isEmpty() || daty.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Uczeń ten nie ma żadnych ocen.", Toast.LENGTH_LONG).show();
 
-            napis_wariancja_przedmiotu.setText("Wariancja: " + " -" );
+            napis_wariancja_przedmiotu.setText("Wariancja: " + " -");
             napis_srednia_przedmiotu.setText("Srednia: " + " - ");
-            napis_dominanta_przedmiotu.setText("Dominanta:" + " - " );
+            napis_dominanta_przedmiotu.setText("Dominanta:" + " - ");
             napis_mediana_przedmiotu.setText("Mediana: " + " - ");
             napis_odchylenie_przedmiotu.setText("Odchylenie: " + " - ");
             napis_kwartyle_przedmiotu.setText("Kwartyle: " + " - ");
@@ -114,8 +114,6 @@ public class DaneUczniaActivity extends Activity {
         dodajocene = (Button) findViewById(R.id.dodaj_ocene_button_daneucznia);
 
 
-
-
         //Generate list View from ArrayList
         displayListView();
 //        checkButtonClick();
@@ -130,21 +128,7 @@ public class DaneUczniaActivity extends Activity {
         dodajocene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cel = new Intent(view.getContext(), DodajOceneActivity.class);
-
-                Bundle koszyk = new Bundle();
-                koszyk.putString("Imie", Imie);
-                koszyk.putString("Nazwisko", Nazwisko);
-                koszyk.putString("Klasa", nrKlasy);
-                koszyk.putString("Przedmiot", przedmiot);
-                koszyk.putString("Data", date1);
-                koszyk.putString("Ocena", grade1);
-                // Definiujemy cel
-                cel.putExtras(koszyk);
-                // Wysyłamy
-                finish();
-                startActivity(cel);
-
+                przeslijDaneDoNastepnegoActivity(view, DodajOceneActivity.class);
             }
 
         });
@@ -181,19 +165,23 @@ public class DaneUczniaActivity extends Activity {
 
     }
 
-    private void wyslijDaneDoNastepnegoActivity(View view) {
+    public void przeslijDaneDoNastepnegoActivity(View view, Class cls) {
+        cel = new Intent(view.getContext(), cls);
+
         Bundle koszyk = new Bundle();
-        koszyk.putString("imie", Imie);
-        koszyk.putString("nazwisko", Nazwisko);
-        koszyk.putString("klasa", nrKlasy);
-        koszyk.putString("przedmiot", przedmiot);
-        koszyk.putStringArrayList("ocenyArray", (ArrayList<String>) oceny_z_przyrody);
-        koszyk.putStringArrayList("datyArray", (ArrayList<String>) daty_ocen);
+        koszyk.putString("Imie", Imie);
+        koszyk.putString("Nazwisko", Nazwisko);
+        koszyk.putString("Klasa", nrKlasy);
+        koszyk.putString("Przedmiot", przedmiot);
+        koszyk.putString("Data", date1);
+        koszyk.putString("Ocena", grade1);
         // Definiujemy cel
         cel.putExtras(koszyk);
         // Wysyłamy
-
+        finish();
+        startActivity(cel);
     }
+
 
     @Override
     protected void onDestroy() {
@@ -207,8 +195,8 @@ public class DaneUczniaActivity extends Activity {
 
         Imie = przekazanedane.getString("Imie");
         Nazwisko = przekazanedane.getString("Nazwisko");
-        nrKlasy = przekazanedane.getString("nrKlasy");
-        przedmiot = przekazanedane.getString("przedmiot");
+        nrKlasy = przekazanedane.getString("Klasa");
+        przedmiot = przekazanedane.getString("Przedmiot");
 
         oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
@@ -216,11 +204,10 @@ public class DaneUczniaActivity extends Activity {
         String grade = przekazanedane.getString("grade");
         String date = przekazanedane.getString("date");
 
-        if(grade == null && date == null ) {
-        }else{
+        if (grade == null && date == null) {
+        } else {
             Toast.makeText(DaneUczniaActivity.this, "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public List<String> pobierzOcenyzDB_New_Version(String imie, String nazwisko, String nrKlasy, String nazwaPrzedmiotu) {
@@ -279,8 +266,7 @@ public class DaneUczniaActivity extends Activity {
         return listaDat;
     }
 
-    public Uczen pobierzStudenta_NewVersion(int id_ucznia)
-    {
+    public Uczen pobierzStudenta_NewVersion(int id_ucznia) {
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
         RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
         Uczen student = uczenDao.queryForEq("id_ucznia", id_ucznia).get(0);

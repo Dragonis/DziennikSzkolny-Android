@@ -372,8 +372,8 @@ public class ListaKlasActivity extends Activity {
 
         koszyk.putString("Imie", imie);
         koszyk.putString("Nazwisko", nazwisko);
-        koszyk.putString("nrKlasy", klasa);
-        koszyk.putString("przedmiot", przedmiot);
+        koszyk.putString("Klasa", klasa);
+        koszyk.putString("Przedmiot", przedmiot);
         Intent cel = new Intent(this, DaneUczniaActivity.class);
         cel.putExtras(koszyk);
         startActivity(cel);
