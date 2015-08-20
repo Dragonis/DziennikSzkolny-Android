@@ -213,14 +213,12 @@ public class DaneUczniaActivity extends Activity {
         oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
 
-        int day = przekazanedane.getInt("day");
-        int month = przekazanedane.getInt("month");
-        int year = przekazanedane.getInt("year");
-        int grade = przekazanedane.getInt("grade");
+        String grade = przekazanedane.getString("grade");
+        String date = przekazanedane.getString("date");
 
-        if(day == 0 && month == 0 && year == 0 && grade == 0) {
+        if(grade == null && date == null ) {
         }else{
-            Toast.makeText(DaneUczniaActivity.this, day + " " + month + " " + year + " " + grade, Toast.LENGTH_SHORT).show();
+            Toast.makeText(DaneUczniaActivity.this, "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
         }
 
     }
