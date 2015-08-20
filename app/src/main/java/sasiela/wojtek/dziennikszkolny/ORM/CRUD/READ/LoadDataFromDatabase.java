@@ -174,4 +174,31 @@ public class LoadDataFromDatabase {
         List<Konto> konta = Konto_Dao.queryForEq("id_konta", id);
         return konta;
     }
+
+    public static String LoadAverageAllGradesInAllClasses(float klasa) {
+        try {
+        Integer suma_ocen = 0;
+        Integer liczba_ocen = 0;
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Ocena, Integer> Ocena_Dao = dbHelper.getOcenaRuntimeExceptionDao();
+        RuntimeExceptionDao<Uczen, Integer> Uczen_Dao = dbHelper.getUczenRuntimeExceptionDao();
+        QueryBuilder<Ocena, Integer> OcenaQb = Ocena_Dao.queryBuilder();
+        QueryBuilder<Uczen, Integer> UczenQb = Uczen_Dao.queryBuilder();
+//        OcenaQb.selectColumns("ocena").where().eq()
+        List<Uczen> ucznowie = UczenQb.selectColumns("id_ucznia").where().eq("klasa", klasa).query();
+        Integer ocena;
+
+            for (Uczen uczen : ucznowie) {
+                ocena = OcenaQb.selectColumns("ocena").where().eq("id_ucznia", uczen.getId_ucznia()).query().get(0).getOcena();
+                suma_ocen = suma_ocen + ocena;
+                liczba_ocen = liczba_ocen + 1;
+            }
+
+        float average_rades = suma_ocen / liczba_ocen;
+//        return String.valueOf(average_rades);
+        return "12";
+        }
+        catch (Exception ex){ ex.getStackTrace(); }
+        return " null ";
+    }
 }

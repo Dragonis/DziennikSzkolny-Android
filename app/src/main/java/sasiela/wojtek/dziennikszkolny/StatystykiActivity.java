@@ -39,6 +39,7 @@ public class StatystykiActivity extends Activity {
 
     private float liczba_gwiazdek;
     private int selectedOption;
+    String wynik;
 
 
     @Override
@@ -48,7 +49,7 @@ public class StatystykiActivity extends Activity {
         zamknijOkno(R.id.Zamknij_Statystyki);
 
         inicjalizacjaZmiennychTejKlasy();
-
+        Ustaw_wartosc_miarom_statystycznym("- ");
         oblicz_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,15 +65,13 @@ public class StatystykiActivity extends Activity {
                     kliknieta_nazwa_przedmiotu = radioButton.getText();
                     kliknieta_nazwa_przedmiotu_to_String = radioButton.getText().toString();
 
-                    oceny = LoadDataFromDatabase.loadStudentGradesForAllClasses_New_Version(liczba_gwiazdek, kliknieta_nazwa_przedmiotu_to_String);
+//                    oceny = LoadDataFromDatabase.loadStudentGradesForAllClasses_New_Version(liczba_gwiazdek, kliknieta_nazwa_przedmiotu_to_String);
+
 
                     try {
-                        srednia_klasy_statystyki.setText("Srednia: " + oceny.get(0));
-                        wariancja_klasy_statystyki.setText("Wariancja: " + oceny.get(1));
-                        mediana_klasy_statystyki.setText("Mediana: " + oceny.get(0));
-                        dominanta_klasy_statystyki.setText("Dominanta: " + oceny.get(0));
-                        odchylenie_klasy_statystyki.setText("Odchylenie: " + oceny.get(1));
-                        kwartyle_klasy_statystyki.setText("Kwartyyle: " + oceny.get(1));
+
+                        wynik = LoadDataFromDatabase.LoadAverageAllGradesInAllClasses(liczba_gwiazdek);
+                        Ustaw_wartosc_miarom_statystycznym(wynik);
                     } catch (Exception ex) {
                         ex.getStackTrace();
                         Toast.makeText(getApplicationContext(),
@@ -86,6 +85,15 @@ public class StatystykiActivity extends Activity {
                 }
             }
         });
+    }
+
+    public void Ustaw_wartosc_miarom_statystycznym(String wynik) {
+        srednia_klasy_statystyki.setText("Srednia: " + wynik);
+        wariancja_klasy_statystyki.setText("Wariancja: " + wynik);
+        mediana_klasy_statystyki.setText("Mediana: " + wynik);
+        dominanta_klasy_statystyki.setText("Dominanta: " + wynik);
+        odchylenie_klasy_statystyki.setText("Odchylenie: " + wynik);
+        kwartyle_klasy_statystyki.setText("Kwartyyle: " + wynik);
     }
 
     public void inicjalizacjaZmiennychTejKlasy() {
