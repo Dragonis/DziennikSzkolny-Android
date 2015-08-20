@@ -25,6 +25,7 @@ public class DodajUczniaActivity extends Activity {
         setContentView(R.layout.dodajucznia_layout);
 
         Button zapisz = (Button) findViewById(R.id.zapisz_button_dodajucznia);
+
         zapisz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +62,7 @@ public class DodajUczniaActivity extends Activity {
         koszyk.putString("Klasa", klasa);
         Intent cel = new Intent(this, ListaKlasActivity.class);
         cel.putExtras(koszyk);
-        startActivity(cel);
+        finish();
     }
 
 

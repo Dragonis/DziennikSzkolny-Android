@@ -70,6 +70,7 @@ public class ListaKlasActivity extends Activity {
         dodaj_ucznia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 setContentView(R.layout.dodajucznia_layout);
             }
         });
