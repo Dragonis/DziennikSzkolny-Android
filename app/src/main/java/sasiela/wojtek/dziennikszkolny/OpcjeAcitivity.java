@@ -39,7 +39,6 @@ public class OpcjeAcitivity extends Activity {
                 String nowy_login = "z";
                 String nowe_haslo = "z";
 
-                UpdateDataInDatabase.aktualizujDaneUzytkownika(ID_Account_toModyfy, nowy_login, nowe_haslo);
                 // UWAGA:
                 // Po uzyciu ponizszej instrukcji, rekord zostanie usuniety w bazie danych,
                 // tylko ze problemem jest to ze program korzysta z pierwotnie stworzonej bazy,

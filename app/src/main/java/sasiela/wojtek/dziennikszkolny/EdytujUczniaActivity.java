@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.DatabaseCRUDoperations;
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.UPDATE.UpdateDataInDatabase;
+
 /**
  * Created by Wojtek on 2015-03-08.
  */
@@ -23,6 +26,12 @@ public class EdytujUczniaActivity extends Activity {
     EditText nazwisko_edittext;
     EditText klasa_edittext;
     Button zapisz;
+    private String stareImie;
+    private String stareNazwisko;
+    private String staraKlasa;
+    private String noweImie;
+    private String noweNazwisko;
+    private String nowaKlasa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +39,7 @@ public class EdytujUczniaActivity extends Activity {
         setContentView(R.layout.edytujucznia_layout);
 
         odbierzDanezPoprzedniegoActivity_iWyswietl();
-        aktualizujUczniawBazieDanych();
+
         imie_editbox = (EditText) findViewById(R.id.imie_edittext_edytujucznia);
         nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_edytujucznia);
         klasa_edittext = (EditText) findViewById(R.id.klasa_edittext_edytujucznia);
@@ -50,12 +59,14 @@ public class EdytujUczniaActivity extends Activity {
                 EditText nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_edytujucznia);
                 EditText klasa_edittext = (EditText) findViewById(R.id.klasa_edittext_edytujucznia);
 
-                String id = id_edittext.getText().toString();
-                String imie = imie_edittext.getText().toString();
-                String nazwisko = nazwisko_edittext.getText().toString();
-                String klasa = klasa_edittext.getText().toString();
 
-                przeslijDaneDoWczesniejszegoActivity(id,imie,nazwisko,klasa);
+                noweImie = imie_edittext.getText().toString();
+                noweNazwisko = nazwisko_edittext.getText().toString();
+                nowaKlasa = klasa_edittext.getText().toString();
+
+                UpdateDataInDatabase.aktualizujDaneUcznia(stareImie,stareNazwisko,staraKlasa, noweImie, noweNazwisko, nowaKlasa);
+
+                przeslijDaneDoWczesniejszegoActivity("",imie,nazwisko,klasa);
 
 //                Toast.makeText(getApplicationContext(), "ID: "+ id + " ZMIENIONO NA: Imie: "+ imie + " Naziwsko: "+ nazwisko + " Klasa: "+ klasa,
 //                        Toast.LENGTH_SHORT).show();
@@ -75,10 +86,6 @@ public class EdytujUczniaActivity extends Activity {
 //        });
     }
 
-    private void aktualizujUczniawBazieDanych() {
-        
-    }
-
 
     public void odbierzDanezPoprzedniegoActivity_iWyswietl() {
         Bundle przekazanedane = getIntent().getExtras();
@@ -87,6 +94,10 @@ public class EdytujUczniaActivity extends Activity {
         nazwisko = przekazanedane.getString("Nazwisko");
         klasa = przekazanedane.getString("Klasa");
         przedmiot = przekazanedane.getString("Przedmiot");
+
+        stareImie = imie;
+        stareNazwisko = nazwisko;
+        staraKlasa = klasa;
     }
 
     public void przeslijDaneDoWczesniejszegoActivity(String id, String imie, String nazwisko, String klasa)
