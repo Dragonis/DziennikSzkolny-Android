@@ -144,7 +144,9 @@ public class DaneUczniaActivity extends Activity {
                 cel.putExtras(koszyk);
                 // Wysyłamy
                 startActivity(cel);
+                zamknijOkno(R.id.dodaj_ocene_button_daneucznia);
             }
+
         });
         //endregion
 
@@ -190,7 +192,7 @@ public class DaneUczniaActivity extends Activity {
         // Definiujemy cel
         cel.putExtras(koszyk);
         // Wysyłamy
-        startActivity(cel);
+
     }
 
     @Override
@@ -210,6 +212,16 @@ public class DaneUczniaActivity extends Activity {
 
         oceny = pobierzOcenyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
         daty = pobierzDatyzDB_New_Version(Imie, Nazwisko, nrKlasy, przedmiot);
+
+        int day = przekazanedane.getInt("day");
+        int month = przekazanedane.getInt("month");
+        int year = przekazanedane.getInt("year");
+        int grade = przekazanedane.getInt("grade");
+
+        if(day == 0 && month == 0 && year == 0 && grade == 0) {
+        }else{
+            Toast.makeText(DaneUczniaActivity.this, day + " " + month + " " + year + " " + grade, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -431,4 +443,6 @@ public class DaneUczniaActivity extends Activity {
         });
 
     }
+
+
 }
