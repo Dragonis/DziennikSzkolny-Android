@@ -77,14 +77,13 @@ public class DaneUczniaActivity extends Activity {
 
         pobierzDanezPoprzedniegoActivity();
 
+        pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
+        nrKlasy_textview.setText(nrKlasy);
+        przedmiot_textview.setText(przedmiot);
+
         if (oceny.isEmpty() || daty.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Uczeń ten nie ma żadnych ocen.", Toast.LENGTH_LONG).show();
         } else {
-
-            pokaz_imie_nazwisko_textview.setText(Imie + " " + Nazwisko);
-            nrKlasy_textview.setText(nrKlasy);
-            przedmiot_textview.setText(przedmiot);
-
 
             for (Integer i = 0; i < daty.size(); i++) {
 
