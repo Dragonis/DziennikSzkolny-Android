@@ -8,20 +8,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="ID"
+            android:text="ID_Ucznia: "
             android:id="@+id/textView15"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/id_edittext_edytujucznia"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Na"
-            android:id="@+id/textView16" android:layout_gravity="center_horizontal"/>
+        android:id="@+id/textView16" android:layout_gravity="center_horizontal"/>
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
               android:textAppearance="?android:attr/textAppearanceLarge" android:text="Imie"
               android:id="@+id/textView14"/>

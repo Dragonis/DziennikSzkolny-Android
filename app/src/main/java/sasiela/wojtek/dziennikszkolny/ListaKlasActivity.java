@@ -386,8 +386,8 @@ public class ListaKlasActivity extends Activity {
         koszyk.putString("Id",identity);
         koszyk.putString("Imie", name);
         koszyk.putString("Nazwisko", surname);
-        koszyk.putString("nrKlasy", classroom);
-        koszyk.putString("przedmiot", przedmiot);
+        koszyk.putString("Klasa", classroom);
+        koszyk.putString("Przedmiot", przedmiot);
         cel = new Intent(this, EdytujUczniaActivity.class);
 
     }
