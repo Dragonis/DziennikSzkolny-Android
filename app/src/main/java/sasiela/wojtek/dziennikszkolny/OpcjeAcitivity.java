@@ -3,10 +3,13 @@ package sasiela.wojtek.dziennikszkolny;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
@@ -22,6 +25,12 @@ import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Konto;
 public class OpcjeAcitivity extends Activity {
 
     private Button update_button;
+    private String stary_login;
+    private String stare_haslo;
+    private EditText login_edittext;
+    private EditText password_edittext;
+    private String nowyLogin;
+    private String noweHaslo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,21 +44,18 @@ public class OpcjeAcitivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                int ID_Account_toModyfy = 3;
-                String nowy_login = "z";
-                String nowe_haslo = "z";
+           nowyLogin = login_edittext.getText().toString();
+           noweHaslo =  password_edittext.getText().toString();
 
-                // UWAGA:
-                // Po uzyciu ponizszej instrukcji, rekord zostanie usuniety w bazie danych,
-                // tylko ze problemem jest to ze program korzysta z pierwotnie stworzonej bazy,
-                // a nie tej zaaktualizowanej bazy, z usunietymi rekordami, ponizsza instrukcja
-                //DeleteDataFromDatabase.usunDaneUzytkownika(ID_Account_toModyfy);
-            }
+           UpdateDataInDatabase.aktualizujDaneKontaUzytkownika(stary_login,stare_haslo,nowyLogin,noweHaslo);
+                Toast.makeText(OpcjeAcitivity.this, "Zmieniono dane.", Toast.LENGTH_SHORT).show();
+           }
         });
 
         // Laczy operacje zamkniecia z konkrentym buttonem
         zamknijOkno(R.id.BackOptionsButton);
     }
+
 
     public void wybierzUzytkownikaZBazyDamych_i_wyswietlWTextEditach(int uzytkownik_o_id) {
 
@@ -57,11 +63,12 @@ public class OpcjeAcitivity extends Activity {
         Log.d("demo", "Login: " + uzytkownicy.get(0).getUsername().toString() + " Password: " + uzytkownicy.get(0).getPassword().toString());
 
         // wyswietlanei danych w widoku
-        EditText login = (EditText) findViewById(R.id.editText_Login_Opcje);
-        EditText password = (EditText) findViewById(R.id.editText2_Password_Opcje);
-
-        login.setText(uzytkownicy.get(0).getUsername().toString());
-        password.setText(uzytkownicy.get(0).getPassword().toString());
+        login_edittext = (EditText) findViewById(R.id.editText_Login_Opcje);
+        password_edittext = (EditText) findViewById(R.id.editText2_Password_Opcje);
+        stary_login = uzytkownicy.get(0).getUsername().toString();
+        stare_haslo = uzytkownicy.get(0).getPassword().toString();
+        login_edittext.setText(stary_login);
+        password_edittext.setText(stare_haslo);
 
     }
 

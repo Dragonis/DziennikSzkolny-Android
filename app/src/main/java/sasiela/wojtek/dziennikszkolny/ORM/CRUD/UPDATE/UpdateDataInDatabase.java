@@ -10,6 +10,7 @@ import com.j256.ormlite.stmt.UpdateBuilder;
 import java.sql.SQLException;
 
 import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Konto;
 import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
 
 /**
@@ -30,6 +31,24 @@ public class UpdateDataInDatabase {
             updateBuilder.updateColumnValue("imie", noweImie);
             updateBuilder.updateColumnValue("nazwisko", noweNazwisko);
             updateBuilder.updateColumnValue("klasa", nowaKlasa);
+            updateBuilder.update();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //Log.e("AccountTableDB", accounts.get(0).getName());
+    }
+
+    public static void aktualizujDaneKontaUzytkownika(String staryLogine, String stareHaslo, String nowyLogin, String noweHaslo)
+    {
+        // Connect with Database ORM
+        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
+        RuntimeExceptionDao<Konto, Integer> kontoDao = dbHelper.getKontoRuntimeExceptionDao();
+        UpdateBuilder<Konto,Integer> updateBuilder = kontoDao.updateBuilder();
+        try {
+            updateBuilder.where().eq("username",staryLogine);
+            updateBuilder.where().eq("password",stareHaslo);
+            updateBuilder.updateColumnValue("username", nowyLogin);
+            updateBuilder.updateColumnValue("password", noweHaslo);
             updateBuilder.update();
         } catch (SQLException e) {
             e.printStackTrace();
