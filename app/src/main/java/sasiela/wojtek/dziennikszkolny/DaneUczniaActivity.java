@@ -122,7 +122,6 @@ public class DaneUczniaActivity extends Activity {
 
         zamknijOkno(R.id.Wyjdzbttn_OcenyLayout);
 
-
         Pokaz_Activity_z_klasy(R.id.dodaj_ocene_button_daneucznia, getApplicationContext(), DodajOceneActivity.class);
         Pokaz_Activity_z_klasy(R.id.edytuj_ocene_button_daneucznia, getApplicationContext(), EdytujOceneActivity.class);
         //endregion
@@ -143,8 +142,9 @@ public class DaneUczniaActivity extends Activity {
                 // Definiujemy cel
                 cel.putExtras(koszyk);
                 // Wysyłamy
+                finish();
                 startActivity(cel);
-                zamknijOkno(R.id.dodaj_ocene_button_daneucznia);
+
             }
 
         });
