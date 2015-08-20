@@ -83,6 +83,14 @@ public class DaneUczniaActivity extends Activity {
 
         if (oceny.isEmpty() || daty.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Uczeń ten nie ma żadnych ocen.", Toast.LENGTH_LONG).show();
+
+            napis_wariancja_przedmiotu.setText("Wariancja: " + " -" );
+            napis_srednia_przedmiotu.setText("Srednia: " + " - ");
+            napis_dominanta_przedmiotu.setText("Dominanta:" + " - " );
+            napis_mediana_przedmiotu.setText("Mediana: " + " - ");
+            napis_odchylenie_przedmiotu.setText("Odchylenie: " + " - ");
+            napis_kwartyle_przedmiotu.setText("Kwartyle: " + " - ");
+
         } else {
 
             for (Integer i = 0; i < daty.size(); i++) {
