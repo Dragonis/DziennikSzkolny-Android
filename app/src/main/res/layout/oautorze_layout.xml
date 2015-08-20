@@ -8,50 +8,86 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Autor programu: Wojciech Sasiela \n"
+            android:text="Autor programu:"
             android:id="@+id/textView25"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[Autor]"
+        android:id="@+id/autor_textview" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Temat pracy magisterskiej: "
             android:id="@+id/textView26"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[TematPracy]"
+        android:id="@+id/tematpracy_textview" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="[ Temat]"
-            android:id="@+id/textView27"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Promotor: dr Maciej Romaniuk \n"
+            android:text="Promotor:"
             android:id="@+id/textView28"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[Promitor]"
+        android:id="@+id/promotor_textview" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Uczelnia:"
             android:id="@+id/textView29"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[Uczelnia]"
+        android:id="@+id/uczelnia_textview" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Katolicnki Uniwersytet Lubelsski Jana Pawła II"
-            android:id="@+id/textView30"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Wydział Matematyki, Informatyki i Architektury Krajobrazu"
+            android:text="Wydział:"
             android:id="@+id/textView31"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[Wydział]"
+        android:id="@+id/wydzial_textview" />
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Kierunek: Informatyka"
+            android:text="Kierunek:"
             android:id="@+id/textView32"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="[Kierunek]"
+        android:id="@+id/kierunek_textview" />
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
