@@ -189,7 +189,10 @@ public class LoadDataFromDatabase {
         Integer ocena;
 
             for (Uczen uczen : ucznowie) {
-                oceny.add( OcenaQb.selectColumns("ocena").where().eq("id_ucznia", uczen.getId_ucznia()).query().get(0).getOcena().toString() );
+                List<Ocena> listaOcenDanegoPrzedmiotu = OcenaQb.selectColumns("ocena").where().eq("id_ucznia", uczen.getId_ucznia()).query();
+                for (Ocena ocena_z_dziennika : listaOcenDanegoPrzedmiotu) {
+                    oceny.add(ocena_z_dziennika.getOcena().toString());
+                }
             }
         }
         catch (Exception ex){ ex.getStackTrace(); }
