@@ -39,7 +39,7 @@ public class StatystykiActivity extends Activity {
 
     private float liczba_gwiazdek;
     private int selectedOption;
-    String wynik;
+
 
 
     @Override
@@ -49,7 +49,7 @@ public class StatystykiActivity extends Activity {
         zamknijOkno(R.id.Zamknij_Statystyki);
 
         inicjalizacjaZmiennychTejKlasy();
-        Ustaw_wartosc_miarom_statystycznym("- ");
+        Ustaw_wartosc_miarom_statystycznym("- ","- ","- ","- ","- ","- " );
         oblicz_button_statystyki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,13 +65,17 @@ public class StatystykiActivity extends Activity {
                     kliknieta_nazwa_przedmiotu = radioButton.getText();
                     kliknieta_nazwa_przedmiotu_to_String = radioButton.getText().toString();
 
-//                    oceny = LoadDataFromDatabase.loadStudentGradesForAllClasses_New_Version(liczba_gwiazdek, kliknieta_nazwa_przedmiotu_to_String);
-
-
                     try {
 
-                        wynik = LoadDataFromDatabase.LoadAverageAllGradesInAllClasses(liczba_gwiazdek);
-                        Ustaw_wartosc_miarom_statystycznym(wynik);
+                        oceny = LoadDataFromDatabase.LoadAverageAllGradesInAllClasses(liczba_gwiazdek);
+                        MiaryStatystyczne miaryStatystyczne = new MiaryStatystyczne();
+                        String srednia = String.valueOf(miaryStatystyczne.Srednia(oceny));
+                        String dominanta = String.valueOf(miaryStatystyczne.Dominanta(oceny));
+                        String wariancja = String.valueOf(miaryStatystyczne.Wariancja(oceny));
+                        String mediana = String.valueOf(miaryStatystyczne.Mediana(oceny));
+                        String odchylenie = String.valueOf(miaryStatystyczne.Odchylenie(oceny));
+                        String kwartyle = String.valueOf(miaryStatystyczne.Kwartyle(oceny));
+                        Ustaw_wartosc_miarom_statystycznym(srednia,dominanta, wariancja, mediana, odchylenie, kwartyle);
                     } catch (Exception ex) {
                         ex.getStackTrace();
                         Toast.makeText(getApplicationContext(),
@@ -87,13 +91,13 @@ public class StatystykiActivity extends Activity {
         });
     }
 
-    public void Ustaw_wartosc_miarom_statystycznym(String wynik) {
-        srednia_klasy_statystyki.setText("Srednia: " + wynik);
-        wariancja_klasy_statystyki.setText("Wariancja: " + wynik);
-        mediana_klasy_statystyki.setText("Mediana: " + wynik);
-        dominanta_klasy_statystyki.setText("Dominanta: " + wynik);
-        odchylenie_klasy_statystyki.setText("Odchylenie: " + wynik);
-        kwartyle_klasy_statystyki.setText("Kwartyyle: " + wynik);
+    public void Ustaw_wartosc_miarom_statystycznym(String srednia, String dominanta, String wariancja, String mediana , String odchylenie, String kwartyle) {
+        srednia_klasy_statystyki.setText("Srednia: " + srednia);
+        wariancja_klasy_statystyki.setText("Wariancja: " + wariancja);
+        mediana_klasy_statystyki.setText("Mediana: " + mediana);
+        dominanta_klasy_statystyki.setText("Dominanta: " + dominanta);
+        odchylenie_klasy_statystyki.setText("Odchylenie: " + odchylenie);
+        kwartyle_klasy_statystyki.setText("Kwartyyle: " + kwartyle);
     }
 
     public void inicjalizacjaZmiennychTejKlasy() {

@@ -175,10 +175,8 @@ public class LoadDataFromDatabase {
         return konta;
     }
 
-    public static String LoadAverageAllGradesInAllClasses(float klasa) {
-        float average_rades = 0;
-        Integer suma_ocen = 0;
-        Integer liczba_ocen = 0;
+    public static ArrayList<String> LoadAverageAllGradesInAllClasses(float klasa) {
+        ArrayList<String> oceny = new ArrayList<>();
         try {
 
         DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(null, DatabaseAccessObjects.class);
@@ -191,16 +189,12 @@ public class LoadDataFromDatabase {
         Integer ocena;
 
             for (Uczen uczen : ucznowie) {
-                ocena = OcenaQb.selectColumns("ocena").where().eq("id_ucznia", uczen.getId_ucznia()).query().get(0).getOcena();
-                if(ocena == null){ocena = 0;};
-                suma_ocen = suma_ocen + ocena;
-                liczba_ocen = liczba_ocen + 1;
+                oceny.add( OcenaQb.selectColumns("ocena").where().eq("id_ucznia", uczen.getId_ucznia()).query().get(0).getOcena().toString() );
             }
         }
         catch (Exception ex){ ex.getStackTrace(); }
         finally {
-            average_rades = suma_ocen / liczba_ocen;
-            return String.valueOf(average_rades);
+            return oceny;
         }
 
     }
