@@ -1,15 +1,10 @@
 package sasiela.wojtek.dziennikszkolny;
 
 import android.app.Activity;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Wojtek on 2014-11-23.
@@ -23,6 +18,7 @@ public class OAutorzeActivity extends Activity {
     private TextView uczelnia_textview;
     private TextView wydzial_textview;
     private TextView kierunek_textview;
+    private Button b;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +43,7 @@ public class OAutorzeActivity extends Activity {
     }
 
     public void zamknijOkno(int id) {
-        Button b = (Button) findViewById(id);
+        b = (Button) findViewById(id);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

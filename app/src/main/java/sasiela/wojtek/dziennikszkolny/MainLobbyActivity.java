@@ -16,6 +16,9 @@ public class MainLobbyActivity extends Activity {
     public static String TAG = "DziennikSzkolny";
 
     Button wyloguj;
+    private String imie;
+    private String nazwisko;
+    private TextView imieinazwisko;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,9 @@ public class MainLobbyActivity extends Activity {
     public void odbierzDanezPoprzedniegoActivity_iWyswietl() {
         Bundle przekazanedane = getIntent().getExtras();
 
-        String imie = przekazanedane.getString("Imie");
-        String nazwisko = przekazanedane.getString("Nazwisko");
-        TextView imieinazwisko = (TextView) findViewById(R.id.textviewImieiNazwisko);
+        imie = przekazanedane.getString("Imie");
+        nazwisko = przekazanedane.getString("Nazwisko");
+        imieinazwisko = (TextView) findViewById(R.id.textviewImieiNazwisko);
         imieinazwisko.setText(imie + " " + nazwisko);
     }
 

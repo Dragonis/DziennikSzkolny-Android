@@ -1,14 +1,12 @@
 package sasiela.wojtek.dziennikszkolny;
 
 
-import android.accounts.Account;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +27,6 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.List;
 
-import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
 import sasiela.wojtek.dziennikszkolny.ORM.CRUD.DatabaseCRUDoperations;
 import sasiela.wojtek.dziennikszkolny.ORM.CRUD.READ.LoadDataFromDatabase;
 import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
@@ -43,24 +40,22 @@ import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
 public class LogowanieActivity extends Activity {
 
     //region Zmienne
-    Button zaloguj, zamknij, przykladowa_baza_danych_button;
-    TextView login_textview, password_textview;
-    Intent login_intent, exit_intent;
-    Bundle paczka;
-    String textview_username, textview_password;
-    List<Uczen> accounts; // Pobrana lista osob z bazy danych
-    String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
+    private Button zaloguj, zamknij, przykladowa_baza_danych_button;
+    private TextView login_textview, password_textview;
+    private Intent login_intent, exit_intent;
+    private Bundle paczka;
+    private String textview_username, textview_password;
+    private List<Uczen> accounts; // Pobrana lista osob z bazy danych
+    private String db_imie, db_nazwisko; // z accounts pobrano imie,nazwisko
 
     private TextView facebook_info;
     private LoginButton facebook_loginButton;
     private CallbackManager callbackManager;
 
-    //endregion
-
-
-
     private String surname;
     private String namefb;
+
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

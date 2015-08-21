@@ -9,9 +9,9 @@ import java.util.Collections;
  */
 public final class MiaryStatystyczne {
 
-    int suma_ocen = 0;
-    int ilosc_ocen = 0;
-    double srednia = 0.0;
+    private int suma_ocen = 0;
+    private int ilosc_ocen = 0;
+    private double srednia = 0.0;
 
     public MiaryStatystyczne() {
     }
