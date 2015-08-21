@@ -58,8 +58,6 @@ public final class MiaryStatystyczne {
             }
 
             return String.valueOf(mediana);
-
-            //return 3.14;
         }
     }
 
@@ -113,12 +111,8 @@ public final class MiaryStatystyczne {
             odchylenie = Math.sqrt(wariancja);
             DecimalFormat df = new DecimalFormat("#.00");
             String odchylenie_2_miejsca_po_przecinku = df.format(odchylenie);
-//            String odchylenie_2miejsca_po_przecinku = String.format("%.2f", odchylenie);
 
-//            return odchylenie;
-//            return Double.parseDouble(odchylenie_2_miejsca_po_przecinku);
             return odchylenie_2_miejsca_po_przecinku;
-//            return 3.14;
         }
     }
 

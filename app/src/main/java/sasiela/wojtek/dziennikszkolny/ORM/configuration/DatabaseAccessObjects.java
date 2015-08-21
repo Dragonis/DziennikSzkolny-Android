@@ -4,11 +4,9 @@ package sasiela.wojtek.dziennikszkolny.ORM.configuration;
  * Created by Wojtek on 2015-02-05.
  */
 
-import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.*;
-import sasiela.wojtek.dziennikszkolny.R;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
@@ -16,6 +14,13 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+
+import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Konto;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Ocena;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Przedmiot;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
+import sasiela.wojtek.dziennikszkolny.R;
 
 
 public class DatabaseAccessObjects extends OrmLiteSqliteOpenHelper {

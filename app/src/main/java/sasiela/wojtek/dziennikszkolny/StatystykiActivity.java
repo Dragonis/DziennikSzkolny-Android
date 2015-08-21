@@ -1,6 +1,5 @@
 package sasiela.wojtek.dziennikszkolny;
 
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -82,10 +81,6 @@ public class StatystykiActivity extends Activity {
                                 "Klasa ta, nie ma żadnego ucznia, bądz tez uczeń ten nie ma żadnych ocen.",
                                 Toast.LENGTH_LONG).show();
                     }
-//
-//                    Toast.makeText(getApplicationContext(),
-//                            kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
-//                            , Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -8,7 +8,10 @@ import java.sql.SQLException;
 
 import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
 import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.*;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Konto;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Ocena;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Przedmiot;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
 
 /**
  * Created by Wojtek on 2015-07-04.

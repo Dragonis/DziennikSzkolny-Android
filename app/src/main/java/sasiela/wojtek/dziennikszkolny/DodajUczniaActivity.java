@@ -1,24 +1,32 @@
 package sasiela.wojtek.dziennikszkolny;
 
-import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
-import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+
+import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
+import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
+import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
 
 
 /**
  * Created by Wojtek on 2015-03-08.
  */
 public class DodajUczniaActivity extends Activity {
+
+    private EditText imie_edittext;
+    private EditText nazwisko_edittext;
+    private EditText klasa_edittext;
+    private String imie;
+    private String nazwisko;
+    private String klasa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,13 +38,13 @@ public class DodajUczniaActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                EditText imie_edittext = (EditText) findViewById(R.id.imie_edittext_dodajucznia);
-                EditText nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_dodajucznia);
-                EditText klasa_edittext = (EditText) findViewById(R.id.klasa_edittext_dodajucznia);
+                 imie_edittext = (EditText) findViewById(R.id.imie_edittext_dodajucznia);
+                 nazwisko_edittext = (EditText) findViewById(R.id.nazwisko_edittext_dodajucznia);
+                 klasa_edittext = (EditText) findViewById(R.id.klasa_edittext_dodajucznia);
 
-                String imie = imie_edittext.getText().toString();
-                String nazwisko = nazwisko_edittext.getText().toString();
-                String klasa = klasa_edittext.getText().toString();
+                 imie = imie_edittext.getText().toString();
+                 nazwisko = nazwisko_edittext.getText().toString();
+                 klasa = klasa_edittext.getText().toString();
 
                 wprowadzUzytkownikaDoBazyDanych(imie, nazwisko, Integer.parseInt(klasa),false);
                 przeslijDaneDoWczesniejszegoActivity(imie, nazwisko, klasa);

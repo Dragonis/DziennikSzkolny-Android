@@ -1,26 +1,17 @@
 package sasiela.wojtek.dziennikszkolny;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
-
 import java.util.Calendar;
 
 import sasiela.wojtek.dziennikszkolny.ORM.CRUD.CREATE.InsertDataToDatabase;
-import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Ocena;
 
 /**
  * Created by Wojtek on 2015-03-10.

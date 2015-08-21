@@ -9,7 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
@@ -18,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sasiela.wojtek.dziennikszkolny.ORM.Country;
-import sasiela.wojtek.dziennikszkolny.ORM.tables.Student;
 import sasiela.wojtek.dziennikszkolny.ORM.configuration.DatabaseAccessObjects;
 import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Ocena;
 import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Przedmiot;
@@ -29,40 +35,30 @@ import sasiela.wojtek.dziennikszkolny.ORM.tables.new_version_database.Uczen;
  */
 public class DaneUczniaActivity extends Activity {
 
-    String Imie, Nazwisko, nrKlasy, przedmiot;
-    String date1, grade1;
-    List<String> oceny_z_przyrody, daty_z_przyrody = new ArrayList<String>();
-    ArrayList<String> data_z_ocena = new ArrayList<String>();
-    Intent cel;
-    RadioButton radioButton1, radioButton2, radioButton3;
+    private String Imie, Nazwisko, nrKlasy, przedmiot;
+    private String date1, grade1;
+    private ArrayList<String> data_z_ocena = new ArrayList<String>();
+    private Intent cel;
+    private Button edytujocene, usunocene, dodajocene;
 
-    Button edytujocene, usunocene, dodajocene;
+    private int id_kliknietego_elementu_w_ListView;
 
-    private int id_studenta;
-    private Student pobrany_student_z_db;
-    private List<String> oceny_studenta;
-    private List<String> daty_ocen;
-    private int id_przegladanego_przedmiotu;
-    int id_kliknietego_elementu_w_ListView;
+    private List<String> oceny = new ArrayList<String>();
+    private List<String> daty = new ArrayList<String>();
+    private MyCustomAdapter dataAdapter = null;
 
-    List<String> oceny = new ArrayList<String>();
-    List<String> daty = new ArrayList<String>();
-    String obliczona_srednia;
-
-    private boolean zaznaczony_jakikolwiek_radiobutton = false;
-
-    MyCustomAdapter dataAdapter = null;
-
-    TextView pokaz_imie_nazwisko_textview;
-    TextView nrKlasy_textview;
-    TextView przedmiot_textview;
+    private TextView pokaz_imie_nazwisko_textview;
+    private TextView nrKlasy_textview;
+    private TextView przedmiot_textview;
+    private MiaryStatystyczne statystyka;
+    private boolean zaznaczony_jakikolwiek_radiobutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dane_ucznia_layout);
 
-        MiaryStatystyczne statystyka = new MiaryStatystyczne();
+        statystyka = new MiaryStatystyczne();
 
         TextView napis_wariancja_przedmiotu = (TextView) findViewById(R.id.napis_wariancja);
         TextView napis_srednia_przedmiotu = (TextView) findViewById(R.id.napis_srednia);
@@ -204,8 +200,7 @@ public class DaneUczniaActivity extends Activity {
         String grade = przekazanedane.getString("grade");
         String date = przekazanedane.getString("date");
 
-        if (grade == null && date == null) {
-        } else {
+        if (grade != null || date != null) {
             Toast.makeText(DaneUczniaActivity.this, "Data: " + date + " " + ",Ocena: " + grade, Toast.LENGTH_SHORT).show();
         }
     }
@@ -226,8 +221,7 @@ public class DaneUczniaActivity extends Activity {
 
             oceny = ocenaDao.queryBuilder().selectColumns("ocena").where().eq("id_ucznia", id_ucznia).and().eq("id_przedmiotu", id_przedmiotu).query();
         } catch (Exception ex) {
-//            Toast.makeText(getApplicationContext(), "DameiczmoaActivity ERROR Oceny: " + ex.getMessage() ,Toast.LENGTH_LONG).show();
-
+            ex.getStackTrace();
         }
 
         //zamiana z List<Integer> na List,String> zeby pozniej moc te oceny przeslac do nastepnego activity
@@ -267,13 +261,6 @@ public class DaneUczniaActivity extends Activity {
             listaDat.add(data.getData());
         }
         return listaDat;
-    }
-
-    public Uczen pobierzStudenta_NewVersion(int id_ucznia) {
-        DatabaseAccessObjects dbHelper = OpenHelperManager.getHelper(this, DatabaseAccessObjects.class);
-        RuntimeExceptionDao<Uczen, Integer> uczenDao = dbHelper.getUczenRuntimeExceptionDao();
-        Uczen student = uczenDao.queryForEq("id_ucznia", id_ucznia).get(0);
-        return student;
     }
 
     public void Pokaz_Activity_z_klasy(int button_id, final Context context, final Class<?> klasa) {

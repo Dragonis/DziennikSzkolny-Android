@@ -1,8 +1,6 @@
 package sasiela.wojtek.dziennikszkolny.ORM.CRUD.UPDATE;
 
 
-import android.accounts.Account;
-
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.UpdateBuilder;
