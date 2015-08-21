@@ -79,7 +79,7 @@ public class StatystykiActivity extends Activity {
                     } catch (Exception ex) {
                         ex.getStackTrace();
                         Toast.makeText(getApplicationContext(),
-                                "Nie wszyscy uczniowie maja wprowadzone oceny. Dlatego nie mozna obliczyc miary statyst. ",
+                                "Klasa ta, nie ma żadnego ucznia, bądz tez uczeń ten nie ma żadnych ocen.",
                                 Toast.LENGTH_LONG).show();
                     }
 //
