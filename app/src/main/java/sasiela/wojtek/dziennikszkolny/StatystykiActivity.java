@@ -73,7 +73,7 @@ public class StatystykiActivity extends Activity {
                         String dominanta = String.valueOf(miaryStatystyczne.Dominanta(oceny));
                         String wariancja = String.valueOf(miaryStatystyczne.Wariancja(oceny));
                         String mediana = String.valueOf(miaryStatystyczne.Mediana(oceny));
-                        String odchylenie = String.valueOf(miaryStatystyczne.Odchylenie(oceny));
+                        String odchylenie = miaryStatystyczne.Odchylenie(oceny);
                         String kwartyle = String.valueOf(miaryStatystyczne.Kwartyle(oceny));
                         Ustaw_wartosc_miarom_statystycznym(srednia,dominanta, wariancja, mediana, odchylenie, kwartyle);
                     } catch (Exception ex) {
@@ -82,10 +82,10 @@ public class StatystykiActivity extends Activity {
                                 "Nie wszyscy uczniowie maja wprowadzone oceny. Dlatego nie mozna obliczyc miary statyst. ",
                                 Toast.LENGTH_LONG).show();
                     }
-
-                    Toast.makeText(getApplicationContext(),
-                            kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
-                            , Toast.LENGTH_SHORT).show();
+//
+//                    Toast.makeText(getApplicationContext(),
+//                            kliknieta_nazwa_przedmiotu + " " + String.valueOf(liczba_gwiazdek)
+//                            , Toast.LENGTH_SHORT).show();
                 }
             }
         });

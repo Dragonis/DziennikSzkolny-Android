@@ -98,12 +98,12 @@ public class DaneUczniaActivity extends Activity {
                 data_z_ocena.add(daty.get(i) + " - " + oceny.get(i));
             }
 
-            napis_wariancja_przedmiotu.setText("Wariancja: " + Double.toString(statystyka.Wariancja((ArrayList<String>) oceny)));
-            napis_srednia_przedmiotu.setText("Srednia: " + Double.toString(statystyka.Srednia((ArrayList<String>) oceny)));
-            napis_dominanta_przedmiotu.setText("Dominanta:" + Double.toString(statystyka.Dominanta((ArrayList<String>) oceny)));
-            napis_mediana_przedmiotu.setText("Mediana: " + Double.toString(statystyka.Mediana((ArrayList<String>) oceny)));
-            napis_odchylenie_przedmiotu.setText("Odchylenie: " + Double.toString(statystyka.Odchylenie((ArrayList<String>) oceny)));
-            napis_kwartyle_przedmiotu.setText("Kwartyle: " + Double.toString(statystyka.Kwartyle((ArrayList<String>) oceny)));
+            napis_wariancja_przedmiotu.setText("Wariancja: " + statystyka.Wariancja((ArrayList<String>) oceny));
+            napis_srednia_przedmiotu.setText("Srednia: " + statystyka.Srednia((ArrayList<String>) oceny));
+            napis_dominanta_przedmiotu.setText("Dominanta:" + statystyka.Dominanta((ArrayList<String>) oceny));
+            napis_mediana_przedmiotu.setText("Mediana: " + statystyka.Mediana((ArrayList<String>) oceny));
+            napis_odchylenie_przedmiotu.setText("Odchylenie: " + statystyka.Odchylenie((ArrayList<String>) oceny));
+            napis_kwartyle_przedmiotu.setText("Kwartyle: " + statystyka.Kwartyle((ArrayList<String>) oceny));
 
         }
 

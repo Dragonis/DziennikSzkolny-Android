@@ -1,5 +1,6 @@
 package sasiela.wojtek.dziennikszkolny;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,8 +16,8 @@ public final class MiaryStatystyczne {
     public MiaryStatystyczne() {
     }
 
-    public double Srednia(ArrayList<String> oceny){
-    if (oceny == null){ return 0;}
+    public String Srednia(ArrayList<String> oceny){
+    if (oceny == null){ return "null";}
         else {
         ilosc_ocen = oceny.size();
 
@@ -27,15 +28,15 @@ public final class MiaryStatystyczne {
 
         srednia = suma_ocen / ilosc_ocen;
 
-        return srednia;
+        return String.valueOf(srednia);
         }
     }
 
-    public double Mediana(ArrayList<String> oceny){
-        if (oceny == null){ return 0;}
+    public String Mediana(ArrayList<String> oceny){
+        if (oceny == null){ return "null";}
         else {
 
-            double srednia = Srednia(oceny);
+            double srednia = Double.parseDouble(Srednia(oceny));
             double mediana = 0.0;
             Collections.sort(oceny);
 
@@ -56,14 +57,14 @@ public final class MiaryStatystyczne {
                 mediana = Double.parseDouble(oceny.get(oceny.size()/2));
             }
 
-            return mediana;
+            return String.valueOf(mediana);
 
             //return 3.14;
         }
     }
 
-    public double Dominanta(ArrayList<String> oceny){
-        if (oceny == null){ return 0;}
+    public String Dominanta(ArrayList<String> oceny){
+        if (oceny == null){ return "null";}
         else {
 
             double dominanta = 0;
@@ -84,41 +85,47 @@ public final class MiaryStatystyczne {
                 }
             }
             //return 3.14;
-            return dominanta;
+            return String.valueOf(dominanta);
         }
     }
 
-    public double Wariancja(ArrayList<String> oceny){
-        if (oceny == null){ return 0;}
+    public String Wariancja(ArrayList<String> oceny){
+        if (oceny == null){ return "null";}
         else {
             double wariancja = 0.0;
-            double srednia = Srednia(oceny);
+            double srednia = Double.parseDouble(Srednia(oceny));
             int ilosc_elementow = oceny.size();
             for (int i = 1; i < ilosc_elementow; i++) {
                 wariancja += (Double.parseDouble(oceny.get(i)) - srednia)*(Double.parseDouble(oceny.get(i)) - srednia);
             }
             wariancja = wariancja / ilosc_elementow;
-            return wariancja;
+            return String.valueOf(wariancja);
 //            return 3.14;
         }
     }
 
-    public double Odchylenie(ArrayList<String> oceny){
-        if (oceny == null){ return 0;}
+    public String Odchylenie(ArrayList<String> oceny){
+        if (oceny == null){ return "null";}
         else {
             double wariancja = 0.0;
             double odchylenie = 0.0;
-            wariancja = Wariancja(oceny);
+            wariancja = Double.parseDouble(Wariancja(oceny));
             odchylenie = Math.sqrt(wariancja);
-            return odchylenie;
+            DecimalFormat df = new DecimalFormat("#.00");
+            String odchylenie_2_miejsca_po_przecinku = df.format(odchylenie);
+//            String odchylenie_2miejsca_po_przecinku = String.format("%.2f", odchylenie);
+
+//            return odchylenie;
+//            return Double.parseDouble(odchylenie_2_miejsca_po_przecinku);
+            return odchylenie_2_miejsca_po_przecinku;
 //            return 3.14;
         }
     }
 
-    public double Kwartyle(ArrayList<String> oceny){
-        if (oceny == null){ return 0;}
+    public String Kwartyle(ArrayList<String> oceny){
+        if (oceny == null){ return "null";}
         else {
-            return 3.14;
+            return "3.14";
         }
     }
 
