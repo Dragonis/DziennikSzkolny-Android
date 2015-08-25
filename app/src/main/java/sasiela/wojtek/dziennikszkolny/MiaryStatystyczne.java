@@ -97,7 +97,9 @@ public final class MiaryStatystyczne {
                 wariancja += (Double.parseDouble(oceny.get(i)) - srednia)*(Double.parseDouble(oceny.get(i)) - srednia);
             }
             wariancja = wariancja / ilosc_elementow;
-            return String.valueOf(wariancja);
+            DecimalFormat df = new DecimalFormat("#.00");
+            String wariancja__2_miejsca_po_przecinku = df.format(wariancja);
+            return String.valueOf(wariancja__2_miejsca_po_przecinku.replace(",","."));
         }
     }
 
