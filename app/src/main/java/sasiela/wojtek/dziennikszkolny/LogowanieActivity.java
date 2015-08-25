@@ -63,9 +63,9 @@ public class LogowanieActivity extends Activity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.logowanie_layout);
-
-        facebook_info = (TextView)findViewById(R.id.facebook_info);
-        facebook_loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
+//
+//        facebook_info = (TextView)findViewById(R.id.facebook_info);
+//        facebook_loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
 
         //region Inicjalizacja_zmiennych
         login_intent = new Intent(getApplicationContext(), MainLobbyActivity.class);
@@ -110,7 +110,7 @@ public class LogowanieActivity extends Activity {
                     try {
                         crud.insert_sample_database();
                         Toast.makeText(getApplicationContext(), "Zaladowano przykladowa baze danych.", Toast.LENGTH_SHORT).show();
-                    }catch(Exception ex0) {
+                    } catch (Exception ex0) {
                         Log.e("NoDatabaseError", "Nie moznna wprowadzic przykladowej bazydanych");
                         Toast.makeText(getApplicationContext(), "Nie moznna wprowadzic przykladowej bazydanych.", Toast.LENGTH_SHORT).show();
                     }
@@ -121,85 +121,86 @@ public class LogowanieActivity extends Activity {
                 }
             }
         });
+//
+//        facebook_loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends"));
+//        facebook_loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                facebook_info.setText(
+//                        "User ID: "
+//                                + loginResult.getAccessToken().getUserId()
+//                                + "\n" +
+//                                "Auth Token: "
+//                                + loginResult.getAccessToken().getToken()
+//                );
+//
+//
+//
+//                GraphRequest request = GraphRequest.newMeRequest(
+//                        loginResult.getAccessToken(),
+//                        new GraphRequest.GraphJSONObjectCallback() {
+//                            @Override
+//                            public void onCompleted(
+//                                    JSONObject object,
+//                                    GraphResponse response) {
+//
+//                                try {
+//                                    namefb = object.getString("name");
+//                                    surname = object.getString("surname");
+//                                    Toast.makeText(LogowanieActivity.this, namefb, Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(LogowanieActivity.this, surname, Toast.LENGTH_SHORT).show();
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                }
+//
+//                                // Application code
+//                                Log.v("LoginActivity", response.toString());
+//                            }
+//                        });
+//                Bundle parameters = new Bundle();
+//                parameters.putString("fields", "id,name,email,gender, birthday");
+//                request.setParameters(parameters);
+//                request.executeAsync();
+//
+////                przeslijDaneDoNastepnegoActivity(new Uczen(namefb,surname,1));
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                facebook_info.setText("Login attempt canceled.");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException e) {
+//                facebook_info.setText("Login attempt failed.");
+//            }
+//
+//        });
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+////        super.onActivityResult(requestCode, resultCode, data);
+//        callbackManager.onActivityResult(requestCode, resultCode, data);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        // Logs 'install' and 'app activate' App Events.
+//        AppEventsLogger.activateApp(this);
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//
+//        // Logs 'app deactivate' App Event.
+//        AppEventsLogger.deactivateApp(this);
+//    }
 
-        facebook_loginButton.setReadPermissions(Arrays.asList("public_profile, email, user_birthday, user_friends"));
-        facebook_loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                facebook_info.setText(
-                        "User ID: "
-                                + loginResult.getAccessToken().getUserId()
-                                + "\n" +
-                                "Auth Token: "
-                                + loginResult.getAccessToken().getToken()
-                );
-
-
-
-                GraphRequest request = GraphRequest.newMeRequest(
-                        loginResult.getAccessToken(),
-                        new GraphRequest.GraphJSONObjectCallback() {
-                            @Override
-                            public void onCompleted(
-                                    JSONObject object,
-                                    GraphResponse response) {
-
-                                try {
-                                    namefb = object.getString("name");
-                                    surname = object.getString("surname");
-                                    Toast.makeText(LogowanieActivity.this, namefb, Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(LogowanieActivity.this, surname, Toast.LENGTH_SHORT).show();
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                                // Application code
-                                Log.v("LoginActivity", response.toString());
-                            }
-                        });
-                Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
-                request.setParameters(parameters);
-                request.executeAsync();
-
-//                przeslijDaneDoNastepnegoActivity(new Uczen(namefb,surname,1));
-            }
-
-            @Override
-            public void onCancel() {
-                facebook_info.setText("Login attempt canceled.");
-            }
-
-            @Override
-            public void onError(FacebookException e) {
-                facebook_info.setText("Login attempt failed.");
-            }
-
-        });
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // Logs 'install' and 'app activate' App Events.
-        AppEventsLogger.activateApp(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        // Logs 'app deactivate' App Event.
-        AppEventsLogger.deactivateApp(this);
-    }
-
     public List<Student> wczytajWszystkichStudentowzDB() {
         List<Student> students = LoadDataFromDatabase.load_all_Students_fromDatabase(getApplicationContext());
         return students;
