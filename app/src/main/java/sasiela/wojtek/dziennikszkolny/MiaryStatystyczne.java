@@ -2,6 +2,7 @@ package sasiela.wojtek.dziennikszkolny;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -82,7 +83,6 @@ public final class MiaryStatystyczne {
 
                 }
             }
-            //return 3.14;
             return String.valueOf(dominanta);
         }
     }
@@ -98,7 +98,6 @@ public final class MiaryStatystyczne {
             }
             wariancja = wariancja / ilosc_elementow;
             return String.valueOf(wariancja);
-//            return 3.14;
         }
     }
 
@@ -116,11 +115,123 @@ public final class MiaryStatystyczne {
         }
     }
 
+
     public String Kwartyle(ArrayList<String> oceny){
         if (oceny == null){ return "null";}
         else {
-            return "3.14";
+            double[] tab = new double[] { 12, 36, 40, 40, 40, 41, 42, 42, 42,
+                    42, 43, 44, 44, 45, 46, 47, 48, 50, 50, 50, 50, 52, 54, 55, 55,
+                    56, 60, 60, 62, 63, 63, 64, 65, 65, 65, 65, 68, 70, 70, 73,
+                    80, 80, 82, 82, 83, 87, 99 };
+            Kwartyle_z_Q1_Do_Q4 kwartyle = new Kwartyle_z_Q1_Do_Q4();
+            double wynik = kwartyle.Q2(tab);
+            return String.valueOf(wynik);
         }
     }
 
+    public class Kwartyle_z_Q1_Do_Q4 {
+
+    private double q1 = 0;
+    private double q2 = 0;
+    private double q3 = 0;
+    private double q4 = 0;
+
+    public double Q1(double[] tab) {
+
+            double positionq1;
+            int n = tab.length;
+
+            Arrays.sort(tab);
+            if (tab == null || n == 0) {
+                throw new IllegalArgumentException(
+                        "The data array is null or does not contain any data.");
+            } else {
+                if (n % 2 == 0) {
+                    positionq1 = (n + 1) * 0.25;
+                    int positionq1int = (int) positionq1;
+                    double leftover = ((positionq1 * 100) % 100) / 100;
+                    q1 = (tab[positionq1int - 1] + (leftover * (tab[positionq1int] - tab[positionq1int - 1])));
+                    return q1;
+
+                } else {
+                    positionq1 = n * 0.25;
+                    int positionq1int = (int) positionq1;
+                    double leftover = ((positionq1 * 100) % 100) / 100;
+                    q1 = (tab[positionq1int - 1] + (leftover * (tab[positionq1int] - tab[positionq1int - 1])));
+                    return q1;
+                }
+            }
+        }
+
+        public double Q2(double[] tab) {
+            double positionq2;
+            int n = tab.length;
+
+            Arrays.sort(tab);
+            if (tab == null || n == 0) {
+                throw new IllegalArgumentException(
+                        "The data array is null or does not contain any data.");
+            } else {
+                if (n % 2 == 0) {
+                    positionq2 = (n + 1) * 0.5;
+                    int positionq2int = (int) positionq2;
+                    double leftover = ((positionq2 * 100) % 100) / 100;
+
+                    q2 = (tab[positionq2int - 1] + (leftover * (tab[positionq2int] - tab[positionq2int - 1])));
+
+                    return q2;
+
+                } else {
+                    positionq2 = n * 0.5;
+                    int positionq2int = (int) positionq2;
+                    double leftover = ((positionq2 * 100) % 100) / 100;
+
+                    q2 = (tab[positionq2int - 1] + (leftover * (tab[positionq2int] - tab[positionq2int - 1])));
+
+                    return q2;
+                }
+
+            }
+
+        }
+
+        public double Q3(double[] tab) {
+            double positionq3;
+            int n = tab.length;
+
+            Arrays.sort(tab);
+            if (tab == null || n == 0) {
+                throw new IllegalArgumentException(
+                        "The data array is null or does not contain any data.");
+            } else {
+                if (n % 2 == 0) {
+                    positionq3 = (n + 1) * 0.75;
+                    int positionq3int = (int) positionq3;
+                    double leftover = ((positionq3 * 100) % 100) / 100;
+
+                    q3 = (tab[positionq3int - 1] + (leftover * (tab[positionq3int] - tab[positionq3int - 1])));
+
+                    return q3;
+
+                } else {
+                    positionq3 = n * 0.75;
+                    int positionq3int = (int) positionq3;
+                    double leftover = ((positionq3 * 100) % 100) / 100;
+
+                    q3 = (tab[positionq3int - 1] + (leftover * (tab[positionq3int] - tab[positionq3int - 1])));
+
+                    return q3;
+                }
+            }
+        }
+
+        public double Q4(double[] tab) {
+            int n = tab.length;
+            Arrays.sort(tab);
+            q4 = tab[n - 1];
+
+            return q4;
+
+        }
+    }
 }
