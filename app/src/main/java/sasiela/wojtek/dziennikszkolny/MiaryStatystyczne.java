@@ -121,12 +121,13 @@ public final class MiaryStatystyczne {
     public String Kwartyle(ArrayList<String> oceny){
         if (oceny == null){ return "null";}
         else {
-            double[] tab = new double[] { 12, 36, 40, 40, 40, 41, 42, 42, 42,
-                    42, 43, 44, 44, 45, 46, 47, 48, 50, 50, 50, 50, 52, 54, 55, 55,
-                    56, 60, 60, 62, 63, 63, 64, 65, 65, 65, 65, 68, 70, 70, 73,
-                    80, 80, 82, 82, 83, 87, 99 };
+            double[] convertData = new double[oceny.size()];
+            // conver from ArrayList<String> to double
+            for (int i = 0; i < oceny.size(); ++i) {
+                convertData[i] = Double.parseDouble(oceny.get(i));
+            }
             Kwartyle_z_Q1_Do_Q4 kwartyle = new Kwartyle_z_Q1_Do_Q4();
-            double wynik = kwartyle.Q2(tab);
+            double wynik = kwartyle.Q2(convertData);
             return String.valueOf(wynik);
         }
     }
