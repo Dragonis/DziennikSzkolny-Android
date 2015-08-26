@@ -5,11 +5,11 @@
     <string name="facebook_app_id">481034375410717</string>
 
     <string name="AutorProgramu">Wojciech Sasiela</string>
-    <string name="Promitor">dr Maciej Romaniuk</string>
+    <string name="Promitor">Promotor</string>
     <string name="TematPracyMagisterskiej">Temat Pracy Magisterskiej</string>
-    <string name="Uczelnia">Katolicki Uniwersytet Lubelski Jana Pawła II</string>
-    <string name="Wydział">Wydział Matematyki, Informatyki i Architektury Krajobrazu</string>
-    <string name="Kierunek">Informatyka</string>
+    <string name="Uczelnia">Uczelnia</string>
+    <string name="Wydział">Wydział</string>
+    <string name="Kierunek">Kierunek</string>
 
     <string name="Zob_Statyst">Statystyki</string>
     <string name="Uczniowie">Lista uczniów</string>
